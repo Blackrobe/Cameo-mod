@@ -1884,6 +1884,22 @@ aa_mlrs:
 		Filename: aa_mlrs_icon.shp
 		AddExtension: False
 
+asian_upgrade_dragonfire:
+	icon:
+		Filename: asian_upgrade_dragonfire_icon.png
+
+asian_upgrade_pulverizer:
+	icon:
+		Filename: asian_upgrade_pulverizer_icon.png
+
+asian_upgrade_quasar:
+	icon:
+		Filename: asian_upgrade_quasar_icon.png
+
+asian_upgrade_banzai:
+	icon:
+		Filename: asian_upgrade_banzai_icon.png
+
 ##############################################
 #   Red Alert 2 Latin Buildings
 ##############################################

@@ -468,6 +468,11 @@ AsianPhotonCannon:
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
 
+AsianPhotonCannonEMP:
+	Inherits: AsianPhotonCannon
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
+
 AsianQuasarAG:
 	Inherits: AsianPhotonCannon
 	ValidTargets: Ground, Water
@@ -480,6 +485,11 @@ AsianQuasarAG:
 		MinimumLaunchSpeed: 250
 		MaximumLaunchSpeed: 250
 		Inaccuracy: 500
+
+AsianQuasarAGEMP:
+	Inherits: AsianQuasarAG
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
 
 AsianQuasarAA:
 	Inherits: AsianPhotonCannon
@@ -494,6 +504,11 @@ AsianQuasarAA:
 		MinimumLaunchSpeed: 300
 		Inaccuracy: 250
 
+AsianQuasarAAEMP:
+	Inherits: AsianQuasarAA
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
+
 AsianPunisherAG:
 	Inherits: AsianPhotonCannon
 	ValidTargets: Ground, Water
@@ -506,6 +521,11 @@ AsianPunisherAG:
 		MaximumLaunchSpeed: 240
 		MinimumLaunchSpeed: 240
 		Inaccuracy: 240
+
+AsianPunisherAGEMP:
+	Inherits: AsianPunisherAG
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
 
 AsianQuasarBoatAG:
 	Inherits: AsianPhotonCannon
@@ -522,6 +542,11 @@ AsianQuasarBoatAG:
 		MinimumLaunchSpeed: 200
 		Inaccuracy: 500
 
+AsianQuasarBoatAGEMP:
+	Inherits: AsianQuasarBoatAG
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
+
 AsianQuasarBoatAA:
 	Inherits: AsianPhotonCannon
 	ValidTargets: Air
@@ -536,6 +561,11 @@ AsianQuasarBoatAA:
 		MaximumLaunchSpeed: 250
 		MinimumLaunchSpeed: 250
 		Inaccuracy: 250
+
+AsianQuasarBoatAAEMP:
+	Inherits: AsianQuasarBoatAA
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
 
 AsianChemical:
 	Inherits: ^LightChemicalWeapon
@@ -2822,31 +2852,49 @@ SteelMegaSwordE:
 		ExplosionPalette: ra2effect
 		ImpactSounds: makoexplose.wav
 
-SteelAirTurretAA:
+SteelAirTurret:
 	Inherits: ^LaserWeapon
 	Inherits: ^RailgunWeapon
-	Range: 8000
+	Range: 6185
 	ReloadDelay: 60
 	Report: steel_quantumfire.wav
-	ValidTargets: Air
+	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Railgun
-		BeamColor: 03E3F588
+		BeamColor: 00EEFF88
+		HelixPlayerColor: true
+		Blockable: false
 	Warhead@LaserWeapon: SpreadDamage
-		ValidTargets: Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 12000
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 6
 	Warhead@RailgunWeapon: SpreadDamage
-		ValidTargets: Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 12000
 	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 6
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexp14a.wav
+
+SteelAirTurretE:
+	Inherits: SteelAirTurret
+	Range: 7185
+	Projectile: Railgun
+		BeamWidth: 128
+		Duration: 24
+		BeamColor: FF88FFCC
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 24000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 12
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 24000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 12
 
 SteelFortressWeapons:
 	Inherits: ^SteelMediumCannon
@@ -3400,7 +3448,7 @@ SteelBeholderLaser:
 	Inherits: ^RailgunWeapon
 	Inherits: ^LaserWeapon
 	ReloadDelay: 50
-	Range: 2255
+	Range: 2500
 	Burst: 2
 	BurstDelays: 5
 	Report: bpriat1a.wav
@@ -3431,6 +3479,11 @@ SteelBeholderLaser:
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		Damage: 5
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+
+SteelBeholderLaserE:
+	Inherits: SteelBeholderLaser
+	Range: 3333
+	Burst: 4
 
 SteelEmpBomb:
 	Inherits: ^TeslaWeapon
@@ -3544,7 +3597,7 @@ SteelDaggerCannon:
 	Inherits: ^SteelHeavyCannon
 	Range: 20000
 	MinRange: 4000
-	ReloadDelay: 100
+	ReloadDelay: 50
 	Burst: 4
 	BurstDelays: 0
 	Report: steelblaster.wav
@@ -3610,22 +3663,30 @@ SteelCruiserArtillery:
 		Speed: 200
 		ContrailLength: 20
 	Warhead@Grenade: SpreadDamage
-		Damage: 20000
+		Damage: 16000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 10000
+		Damage: 8000
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 8
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 20000
+		Damage: 16000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 8
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
 		ImpactSounds: makoexplose.wav
 
+SteelCruiserArtilleryE:
+	Inherits: SteelCruiserArtillery
+	Range: 9000
+	Burst: 2
+	BurstDelays: 3
+
 SteelCruiserCannons:
-	Inherits: ^SteelSmallArms
+	Inherits: ^LightMissile
+	Inherits: ^SmallArms
+	Inherits: ^FlakWeapon
 	Inherits: ^SteelChaingun
 	ReloadDelay: 5
 	ValidTargets: Ground, Air, Water
@@ -3640,10 +3701,22 @@ SteelCruiserCannons:
 		ContrailLength: 8
 		Speed: 10000
 		Width: 100
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 2000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
@@ -3652,6 +3725,12 @@ SteelCruiserCannons:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 1
+
+SteelCruiserCannonsE:
+	Inherits: SteelCruiserCannons
+	Range: 9000
+	Burst: 2
+	BurstDelays: 1
 
 SteelCargoshipCannons:
 	Inherits: ^SteelSmallArms

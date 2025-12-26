@@ -3316,6 +3316,7 @@ autogun_tank:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Effect: CreateEffect
+		ExplosionPalette: effect
 		Explosions: med_frag
 		ImpactSounds: xplos.aud
 		ValidTargets: Ground, Water

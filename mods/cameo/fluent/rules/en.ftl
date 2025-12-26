@@ -1881,8 +1881,8 @@ upgrade-d2k_advanced_ixian_technology =
 
 upgrade-uplatin_mili =
    .description =  Equips Militias with Molotovs.
-   Increases Militia armor by 50% and gives self healing.
-   Increases firepower and armor of all other Infantry by 25%.
+      Increases firepower and damage resistance of all Infantry by 25% and gives self healing.
+      Doubles the effect for the Militia and gives Molotovs.
 
 upgrade-uplatin_ngbunk2 =
    .description = Increases garrisoned buildings range, vision and armor by 30%.
@@ -1899,7 +1899,7 @@ upgrade-latin_up_chaingun =
 upgrade-latin_up_industrial =
    .description = Stolen Tech from Soviets:
        Reduces cost of vehicles by 20%.
-       Increases armor and speed of all vehicles by 20%
+       Increases damage resistance of all vehicles by 20% and speed by 25%
 
 upgrade-uplatin_alliedstolentech =
    .description = Stolen Tech from Allies:

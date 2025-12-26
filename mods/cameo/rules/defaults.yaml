@@ -6318,6 +6318,26 @@ CPQDEBUGDUMMY:
 
 #EMP disable traits, use depend on which attack trait the unit uses
 
+^ChargedFrontalEMP:
+	AttackFrontalCharged:
+		PauseOnCondition: disabled
+		FacingTolerance: 10
+		ChargeLevel: 25, 50
+		ChargingCondition: cond_charging
+		ShowSelectionBar: true
+		LosesChargeWhileTurning: true
+	GrantTimedCondition@cond_charging:
+		RequiresCondition: cond_charging
+		PauseOnCondition: !cond_charging
+		Condition: charging_cooldown
+		Duration: 50
+	DamageMultiplier@charging_cooldown:
+		Modifier: 50
+		RequiresCondition: charging_cooldown
+	SpeedMultiplier@charging_cooldown:
+		Modifier: 25
+		RequiresCondition: charging_cooldown
+
 ^FrontalEMP:
 	AttackFrontal:
 		FacingTolerance: 8

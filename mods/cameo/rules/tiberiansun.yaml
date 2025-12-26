@@ -12,13 +12,13 @@ World:
 		Side: Tiberian Sun
 		Description: Nod from Tiberian Sun\nFeatures:\n- Subterranean vehicles\n- Stealth generators\n- Tactical missiles with fast charge and flight time\nSupport powers: Cluster & Chemical Missiles
 	FactionCA@forgotten:
-		Name: Forgotten TS
+		Name: Forgotten TS (WIP)
 		InternalName: forgotten
 		Game: Tiberian Sun
 		Side: Tiberian Sun
 		Description: Custom Forgotten from Tiberian Sun\nSupport powers: Mutant Commando, Wildlife Rampage
 	FactionCA@cabal:
-		Name: CABAL TS
+		Name: CABAL TS (WIP)
 		InternalName: cabal
 		Game: Tiberian Sun
 		Side: Tiberian Sun

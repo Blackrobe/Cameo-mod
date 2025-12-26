@@ -5459,9 +5459,12 @@ Player:
 			upaa_railt2: 1
 			upaa_gren: 1
 			upaa_lynx: 1
-			upaa_banzai: 1
 			upaa_airborne: 1
 			upaa_tsunami: 1
+			asian_upgrade_dragonfire: 1
+			asian_upgrade_pulverizer: 1
+			asian_upgrade_quasar: 1
+			asian_upgrade_banzai: 1
 			########### Units Consortium
 			steel_qmin: 10
 			steel_fedinf: 1

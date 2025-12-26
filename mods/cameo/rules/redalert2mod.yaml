@@ -662,6 +662,7 @@ aa_cgflam:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -708,6 +709,7 @@ aa_cgpnch:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -737,6 +739,13 @@ aa_cgpnch:
 		LocalOffset: 350,22,100, 350,-22,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !asian_upgrade_quasar
+	Armament@Upgrade:
+		Weapon: AsianPunisherAGEMP
+		LocalOffset: 350,22,100, 350,-22,100
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_quasar
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 16
@@ -760,6 +769,7 @@ aa_cgpuls:
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 70
@@ -779,6 +789,11 @@ aa_cgpuls:
 	Armament:
 		Weapon: AsianPhotonCannon
 		LocalOffset: 0,0,400
+		RequiresCondition: !asian_upgrade_quasar
+	Armament@Upgrade:
+		Weapon: AsianPhotonCannonEMP
+		LocalOffset: 0,0,400
+		RequiresCondition: asian_upgrade_quasar
 	AttackTurreted:
 	Turreted:
 	Sellable:
@@ -921,6 +936,7 @@ aa_cgplas:
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Inherits@detect: ^GenericGroundDetector
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 50
@@ -1295,59 +1311,90 @@ aa_awall:
 ##############################################
 #   Red Alert 2 Asian Infantry
 ##############################################
+
+^DragonFireUpgrades:
+	FirepowerMultiplier@asian_upgrade_dragonfire:
+		Modifier: 150
+		RequiresCondition: asian_upgrade_dragonfire
+	GrantConditionOnPrerequisite@asian_upgrade_dragonfire:
+		Condition: asian_upgrade_dragonfire
+		Prerequisites: asian_upgrade_dragonfire
+	ActorStatValues:
+		Upgrades: asian_upgrade_dragonfire
+
+^PulverizerUpgrades:
+	FirepowerMultiplier@asian_upgrade_pulverizer:
+		Modifier: 75
+		RequiresCondition: asian_upgrade_pulverizer
+	GrantConditionOnPrerequisite@asian_upgrade_pulverizer:
+		Condition: asian_upgrade_pulverizer
+		Prerequisites: asian_upgrade_pulverizer
+	ActorStatValues:
+		Upgrades: asian_upgrade_pulverizer
+
+^CelestialPowerUpgrades:
+	FirepowerMultiplier@asian_upgrade_quasar:
+		Modifier: 125
+		RequiresCondition: asian_upgrade_quasar
+	GrantConditionOnPrerequisite@asian_upgrade_quasar:
+		Condition: asian_upgrade_quasar
+		Prerequisites: asian_upgrade_quasar
+	ActorStatValues:
+		Upgrades: asian_upgrade_quasar
+
 ^KamikazeMode:
-	GrantConditionOnPrerequisite@upaa_banzai:
-		Condition: upaa_banzai
-		Prerequisites: upaa_banzai
+	GrantConditionOnPrerequisite@asian_upgrade_banzai:
+		Condition: asian_upgrade_banzai
+		Prerequisites: asian_upgrade_banzai
 	GrantConditionOnDamageState@KamikazeHeavy:
 		ValidDamageStates: Heavy
 		Condition: KamikazeHeavy
 	DamageMultiplier@KamikazeAngry:
 		Modifier: 66
-		RequiresCondition: KamikazeHeavy && upaa_banzai
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
 	RangeMultiplier@KamikazeAngry:
 		Modifier: 75
-		RequiresCondition: KamikazeHeavy && upaa_banzai
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
 	FirepowerMultiplier@KamikazeAngry:
 		Modifier: 150
-		RequiresCondition: KamikazeHeavy && upaa_banzai
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
 	SpeedMultiplier@KamikazeAngry:
 		Modifier: 125
-		RequiresCondition: KamikazeHeavy && upaa_banzai
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
 	ChangesHealth@KamikazeAngry:
 		Step: 10
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-		RequiresCondition: KamikazeAngry && upaa_banzai
+		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
 	WithDecoration@KamikazeAngry:
 		Image: aa_banzai
 		Sequence: idle
 		Position: TopRight
 		BlinkInterval: 32
 		BlinkPattern: On, On, On, On
-		RequiresCondition: KamikazeAngry && upaa_banzai
+		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
 	GrantConditionOnDamageState@KamikazeCritical:
 		ValidDamageStates: Critical
 		Condition: KamikazeCritical
 	DamageMultiplier@KamikazeCritical:
 		Modifier: 33
-		RequiresCondition: KamikazeCritical && upaa_banzai
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
 	RangeMultiplier@KamikazeCritical:
 		Modifier: 50
-		RequiresCondition: KamikazeCritical && upaa_banzai
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
 	FirepowerMultiplier@KamikazeCritical:
 		Modifier: 200
-		RequiresCondition: KamikazeCritical && upaa_banzai
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
 	SpeedMultiplier@KamikazeCritical:
 		Modifier: 150
-		RequiresCondition: KamikazeCritical && upaa_banzai
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
 	ChangesHealth@KamikazeCritical:
 		Step: 20
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-		RequiresCondition: KamikazeCritical && upaa_banzai
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
 	WithDecoration@KamikazeCritical:
 		Image: aa_banzai2
 		Sequence: idle
@@ -1358,7 +1405,7 @@ aa_awall:
 	#RejectsOrders@KamikazeCritical:
 	#	RequiresCondition: KamikazeCritical
 	ActorStatValues:
-		Upgrades: upaa_banzai
+		Upgrades: asian_upgrade_banzai
 
 aa_gren:
 	Inherits: ^Soldier
@@ -1427,7 +1474,7 @@ aa_gren:
 		Condition: upaa_gren
 		Prerequisites: upaa_gren
 	ActorStatValues:
-		Upgrades: upaa_gren, upaa_banzai
+		Upgrades: upaa_gren, asian_upgrade_banzai
 
 aa_tkiller:
 	Inherits: ^Soldier
@@ -1487,6 +1534,7 @@ aa_plast:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@kami: ^KamikazeMode
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Tooltip:
 		Name: Plasma Trooper
 	Valued:
@@ -1533,6 +1581,7 @@ aa_flam:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@kami: ^KamikazeMode
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Tooltip:
 		Name: Flame Trooper
 	Valued:
@@ -1916,6 +1965,7 @@ aa_quas:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Tooltip:
 		Name: Quasar
 	Valued:
@@ -1941,11 +1991,25 @@ aa_quas:
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !asian_upgrade_quasar
+	Armament@UpgradeAG:
+		Weapon: AsianQuasarAGEMP
+		LocalOffset: -400,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_quasar
 	Armament@AA:
 		Weapon: AsianQuasarAA
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !asian_upgrade_quasar
+	Armament@UpgradeAA:
+		Weapon: AsianQuasarAAEMP
+		LocalOffset: -400,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_quasar
 	AttackFrontal:
 	WithMuzzleOverlay:
 	Selectable:
@@ -2091,6 +2155,7 @@ aa_oilt:
 	Inherits@vo: ^AttackFrontalVoice
 	#Inherits@announce: ^AnnounceGlobal
 	Inherits@EMP: ^FrontalEMP
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Health:
 		HP: 20000
 	Buildable:
@@ -2203,6 +2268,7 @@ aa_pulv:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
+	Inherits@PulverizerUpgrades: ^PulverizerUpgrades
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2230,6 +2296,13 @@ aa_pulv:
 		LocalOffset: 800,0,400
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+	Armament@2:
+		FireDelay: 3
+		Weapon: AsianPulverizerGatling
+		LocalOffset: 800,0,400
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_pulverizer
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -2249,6 +2322,7 @@ aa_ptnk:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1700
 	Tooltip:
@@ -2408,6 +2482,7 @@ aa_hotwi:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -2480,6 +2555,7 @@ aa_ftnk:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -2538,6 +2614,7 @@ aa_mecha:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@MC: ^MCImmune
 	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
+	Inherits@PulverizerUpgrades: ^PulverizerUpgrades
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
 	Valued:
@@ -2565,6 +2642,13 @@ aa_mecha:
 		LocalOffset: 800,300,600, 800,-300,600
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+	Armament@2:
+		FireDelay: 2
+		Weapon: AsianPulverizerMechaGatling
+		LocalOffset: 800,-300,600, 800,300,600
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_pulverizer
 	AttackFrontal:
 		FacingTolerance: 20
 	WithInfantryBody:
@@ -2746,6 +2830,7 @@ aa_phoenix:
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -3179,6 +3264,7 @@ aa_quasfrig:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -3199,18 +3285,30 @@ aa_quasfrig:
 		Step: 55
 	Armor:
 		Type: Heavy
-	Armament:
+	Armament@AG:
 		Weapon: AsianQuasarBoatAG
 		LocalOffset: 500,0,250, 600,0,250, 700,0,250
-		Name: secondary
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !asian_upgrade_quasar
+	Armament@UpgradeAG:
+		Weapon: AsianQuasarBoatAGEMP
+		LocalOffset: 500,0,250, 600,0,250, 700,0,250
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_quasar
 	Armament@AA:
 		Weapon: AsianQuasarBoatAA
-		LocalOffset: 75,0,0, 150,0,0, 250,0,0
-		Name: secondary
+		LocalOffset: 500,0,250, 600,0,250, 700,0,250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !asian_upgrade_quasar
+	Armament@UpgradeAA:
+		Weapon: AsianQuasarBoatAAEMP
+		LocalOffset: 500,0,250, 600,0,250, 700,0,250
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: asian_upgrade_quasar
 	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
@@ -3227,6 +3325,7 @@ aa_karrier:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -3708,12 +3807,12 @@ upaa_gren:
 	Tooltip:
 		Name: Grenadier Training
 	Valued:
-		Cost: 1250
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 50
-		Queue: Upgrades
+		Queue: Addons
 		Description: Equips Militias with Grenades.
-		Prerequisites: ~aa_cgtech, !upaa_gren
+		Prerequisites: ~aa_cgradr, !upaa_gren
 	RenderSprites:
 		Image: aa_gren
 	ProvidesPrerequisite:
@@ -3726,26 +3825,11 @@ upaa_lynx:
 		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 60
-		Queue: Upgrades
+		Queue: Addons
 		Description: Lynx now uses a Machinegun.
-		Prerequisites: ~aa_cgtech, !upaa_lynx
+		Prerequisites: ~aa_cgradr, !upaa_lynx
 	RenderSprites:
 		Image: aa_lynx
-	ProvidesPrerequisite:
-
-upaa_banzai:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Banzai Mode
-	Valued:
-		Cost: 5000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Upgrades
-		Description: Infantry enter Banzai Mode on low health.
-		Prerequisites: ~aa_cgmiac, !upaa_banzai
-	RenderSprites:
-		Image: aa_japrif
 	ProvidesPrerequisite:
 
 upaa_airborne:
@@ -3757,7 +3841,7 @@ upaa_airborne:
 	Buildable:
 		BuildPaletteOrder: 80
 		Icon: paratroopers
-		Queue: Upgrades
+		Queue: Addons
 		Description: Allows paratroopers to be accessed from the Asian Airforce Command.
 		Prerequisites: ~aa_cgmiac, !upaa_airborne
 	RenderSprites:
@@ -3777,6 +3861,66 @@ upaa_tsunami:
 		Prerequisites: ~aa_cgmiac, aa_cgyard, !upaa_tsunami
 	RenderSprites:
 		Image: aa_tsun
+	ProvidesPrerequisite:
+
+asian_upgrade_dragonfire:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Dragon Fire
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Upgrades
+		Description: Increases Flame and Plasma Weapon Damage by 50%.
+		Prerequisites: ~aa_cgtech, !asian_upgrade_dragonfire
+	RenderSprites:
+		Image: asian_upgrade_dragonfire
+	ProvidesPrerequisite:
+
+asian_upgrade_pulverizer:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Heavy Pulverizer Weapons
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Upgrades
+		Description: Doubles the amount of bullets fired at 75% damage per shot.
+		Prerequisites: ~aa_cgtech, !asian_upgrade_pulverizer
+	RenderSprites:
+		Image: asian_upgrade_pulverizer
+	ProvidesPrerequisite:
+
+asian_upgrade_quasar:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Celestial Power
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Upgrades
+		Description: Increases EMP effect of Quasar and Pulsar Weapons by 100% and firepower by 25%.
+		Prerequisites: ~aa_cgtech, !asian_upgrade_quasar
+	RenderSprites:
+		Image: asian_upgrade_quasar
+	ProvidesPrerequisite:
+
+asian_upgrade_banzai:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Banzai Mode
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Upgrades
+		Description: Infantry enter Banzai Mode on low health.
+		Prerequisites: ~aa_cgmiac, !asian_upgrade_banzai
+	RenderSprites:
+		Image: asian_upgrade_banzai
 	ProvidesPrerequisite:
 
 ##############################################
@@ -3802,8 +3946,6 @@ latin_cgcnst:
 		RequiresCondition: !build-incomplete
 	WithBuildingPlacedOverlay:
 		Sequence: build
-	ProvidesPrerequisite@ra2oilderrick:
-		Prerequisite: ra2oilderrick
 	Targetable@TechStealerInfiltrate:
 		TargetTypes: TechStealerInfiltrate
 	InfiltrateForSupportPower:
@@ -4728,8 +4870,11 @@ latinscrapcar2_driveby:
 		Modifier: 80
 		RequiresCondition: latin_up_industrial
 	SpeedMultiplier@latin_up_industrial:
-		Modifier: 120
+		Modifier: 125
 		RequiresCondition: latin_up_industrial
+	GrantConditionOnPrerequisite@latin_up_industrial:
+		Condition: latin_up_industrial
+		Prerequisites: latin_up_industrial
 	ActorStatValues:
 		Upgrades: uplatin_cashrecover, latin_up_industrial
 
@@ -4755,6 +4900,12 @@ latinscrapcar2_driveby:
 		RequiresCondition: uplatin_mili
 	FirepowerMultiplier@uplatin_mili:
 		Modifier: 125
+		RequiresCondition: uplatin_mili
+	ChangesHealth@uplatin_mili:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
 		RequiresCondition: uplatin_mili
 	GrantConditionOnPrerequisite@uplatin_mili:
 		Condition: uplatin_mili
@@ -4892,18 +5043,10 @@ latin_mili:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: LatinSoldierVoice
-	GrantConditionOnPrerequisite@uplatin_mili:
-		Condition: uplatin_mili
-		Prerequisites: uplatin_mili
 	DamageMultiplier@uplatin_mili:
 		Modifier: 50
-		RequiresCondition: uplatin_mili
-	ChangesHealth@SelfHealing:
-		Step: 10
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
-		RequiresCondition: uplatin_mili
+	FirepowerMultiplier@uplatin_mili:
+		Modifier: 150
 	ActorStatValues:
 		Upgrades: uplatin_mili, latin_up_chaingun
 	GrantConditionOnAttack@gatling:
@@ -7298,6 +7441,7 @@ steel_qacst:
 	InfiltrateForSupportPower:
 		Proxy: steel_qacst.infiltrated
 		Types: TechStealerInfiltrate
+	-ProvidesPrerequisite@ra2oilderrick:
 
 steel_qacst.infiltrated:
 	Inherits: ^researched_upgrade.template
@@ -8048,7 +8192,7 @@ steel_qoil:
 		BuildDuration: 1500
 		BuildDurationModifier: 100
 		Prerequisites: ~steel_qatech, ~techlevel.medium, derricklimit
-		Description: actor-oilb.description
+		Description: Super Income Building. Produces 3x the income of an oil derrick.
 	Valued:
 		Cost: 7500
 	Building:
@@ -9252,7 +9396,7 @@ steel_dagger:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
-	Inherits@EMP: ^FrontalEMP
+	Inherits@EMP: ^ChargedFrontalEMP
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -9284,6 +9428,9 @@ steel_dagger:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	-AttackFrontal:
+	AttackFrontalCharged:
+		ChargeLevel: 25, 50
 	WithMuzzleOverlay:
 	Selectable:
 		DecorationBounds: 1280, 1280
@@ -9310,7 +9457,7 @@ steel_defender:
 	Selectable:
 		Bounds: 1250, 2000, 0, -500
 	Valued:
-		Cost: 1600
+		Cost: 3200
 	Tooltip:
 		Name: Defender Bot
 	Buildable:
@@ -9320,24 +9467,40 @@ steel_defender:
 		Description: Shielded Battle Robot
 	Mobile:
 		Locomotor: amphibius
-		Speed: 65
-		TurnSpeed: 26
+		Speed: 70
+		TurnSpeed: 28
 	Health:
-		HP: 160000
+		HP: 210000
 	Repairable:
-		HpPerStep: 8000
+		HpPerStep: 10500
 	ChangesHealth@SelfHealing:
-		Step: 64
+		Step: 84
 	Armor:
 		Type: Medium
+	Shielded:
+		MaxPercentageStrength: 200
+		DamageRegenDelay: 125
+		RegenAmount: 168
+		RegenInterval: 1
+		ShieldsUpCondition: shielded
+		RequiresCondition: !disabled
+		SelectionBarColor: 8888FFFF
 	Armament@PRIMARY:
 		Weapon: SteelInfRailgun
 		LocalOffset: 300,200,1000, 300,-200,1000
-		RequiresCondition: !upsteel_empquantumweapons
-	Armament@Upgrade1:
+		RequiresCondition: !rank-elite && !upsteel_empquantumweapons
+	Armament@PRIMARYELITE:
+		Weapon: SteelInfRailgunE
+		LocalOffset: 300,200,1000, 300,-200,1000
+		RequiresCondition: rank-elite && !upsteel_empquantumweapons
+	Armament@UpgradePRIMARY:
 		Weapon: SteelInfRailgunEMP
 		LocalOffset: 300,200,1000, 300,-200,1000
-		RequiresCondition: upsteel_empquantumweapons
+		RequiresCondition: !rank-elite && upsteel_empquantumweapons
+	Armament@UpgradePRIMARYELITE:
+		Weapon: SteelInfRailgunEMPE
+		LocalOffset: 300,200,1000, 300,-200,1000
+		RequiresCondition: rank-elite && upsteel_empquantumweapons
 	AttackFrontal:
 		FacingTolerance: 10
 	RenderRangeCircle:
@@ -9355,22 +9518,14 @@ steel_defender:
 		VoiceSet: SteelInspectorVoice
 	RenderSprites:
 		PlayerPalette: playerra2
-	Shielded:
-		MaxPercentageStrength: 200
-		DamageRegenDelay: 125
-		RegenAmount: 80
-		RegenInterval: 1
-		ShieldsUpCondition: shielded
-		RequiresCondition: !disabled
-		SelectionBarColor: 8888FFFF
 	ProximityExternalCondition@shieldgen:
-		Range: 6300
+		Range: 8000
 		Condition: shieldgen
 		EnableSound: shielded_on.aud
 		DisableSound: shielded_on.aud
 		RequiresCondition: !disabled
 	WithRangeCircle@shieldgen:
-		Range: 6300
+		Range: 8000
 		Type: shield
 		Color: 8888FF88
 		RequiresCondition: !disabled
@@ -9418,10 +9573,15 @@ steel_beholder:
 	ChangesHealth@SelfHealing:
 		Step: 50
 	Armor:
-		Type: Medium
+		Type: Heavy
 	Armament@1:
 		Weapon: SteelBeholderLaser
 		LocalOffset: 777,-222,-333, 777,222,-333
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Weapon: SteelBeholderLaserE
+		LocalOffset: 777,-222,-333, 777,222,-333
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 10
 	WithInfantryBody:
@@ -9812,13 +9972,15 @@ steel_grun:
 		Prerequisites: ~steel_qtradr
 		Description: actor-steel_grun.description
 	Valued:
-		Cost: 2000
+		Cost: 2600
 	Tooltip:
-		Name: Flying Air Defense Turret
+		Name: Sky Hammer
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
 		HP: 120000
+	Repairable:
+		HpPerStep: 6000
 	ChangesHealth@SelfHealing:
 		Step: 48
 	Shielded:
@@ -9830,15 +9992,21 @@ steel_grun:
 		RequiresCondition: !disabled
 		SelectionBarColor: 8888FFFF
 	Armament@PRIMARY:
-		Weapon: SteelAirTurretAA
+		Weapon: SteelAirTurret
 		LocalOffset: 250,0,-250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Weapon: SteelAirTurretE
+		LocalOffset: 250,0,-250
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	AttackAircraft:
-		FacingTolerance: 180
-		PersistentTargeting: false
-		AttackType: Hover
+		FacingTolerance: 20
 	Aircraft:
 		Speed: 120
 		TurnSpeed: 24
@@ -9862,7 +10030,7 @@ steel_grun:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	AmmoPool:
-		Ammo: 6
+		Ammo: 2
 		AmmoCondition: ammo
 	ReloadAmmoPool:
 		Delay: 120
@@ -9870,7 +10038,7 @@ steel_grun:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 2
 	FireWarheadsOnDeath:
 		Weapon: LargeHeliExplode
 	RenderSprites:
@@ -10282,13 +10450,14 @@ steel_cargoship.Husk:
 steel_cruiser:
 	Inherits: ^Helicopter
 	Inherits@Template: ^SpaceshipTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@shield: ^HasShieldGenerator
 	Valued:
 		Cost: 4000
 	Tooltip:
-		Name: Consortium Cruiser
+		Name: Cloud Breaker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -10301,27 +10470,45 @@ steel_cruiser:
 		Speed: 50
 		RepulsionSpeed: 40
 	Health:
-		HP: 125000
+		HP: 200000
+	Repairable:
+		HpPerStep: 10000
+	ChangesHealth@SelfHealing:
+		Step: 80
 	Shielded:
 		MaxPercentageStrength: 100
 		DamageRegenDelay: 125
-		RegenAmount: 100
+		RegenAmount: 160
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		RequiresCondition: !disabled
 		SelectionBarColor: 8888FFFF
-	ChangesHealth@SelfHealing:
-		Step: 50
 	Armament@PRIMARY:
 		Weapon: SteelCruiserCannons
 		LocalOffset: -150,-400,-25, -150,400,-25, -444,-400,-25, -444,400,-25
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Weapon: SteelCruiserCannonsE
+		LocalOffset: -150,-400,-25, -150,400,-25, -444,-400,-25, -444,400,-25
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	Armament@CANNON:
 		Weapon: SteelCruiserArtillery
 		LocalOffset: -150,-400,-25, -150,400,-25, -444,-400,-25, -444,400,-25
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@CANNONELITE:
+		Weapon: SteelCruiserArtilleryE
+		LocalOffset: -150,-400,-25, -150,400,-25, -444,-400,-25, -444,400,-25
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackAircraft:
@@ -10343,8 +10530,8 @@ steel_cruiser:
 		Sequence: shield-complete-big
 	CarrierMaster:
 		Actors: steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f
-		RearmTicks: 150
-		RespawnTicks: 300
+		RearmTicks: 75
+		RespawnTicks: 150
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
@@ -10384,7 +10571,7 @@ steel_cruiser_f:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@upgrade: ^RA2AdvancedAeronautics
+	Inherits@shield: ^HasShieldGenerator
 	-Selectable:
 	Interactable:
 	Valued:
@@ -10402,6 +10589,16 @@ steel_cruiser_f:
 		TakeUpCellWhenLand: false
 	Health:
 		HP: 25000
+	ChangesHealth@SelfHealing:
+		Step: 10
+	Shielded:
+		MaxPercentageStrength: 200
+		DamageRegenDelay: 125
+		RegenAmount: 20
+		RegenInterval: 1
+		ShieldsUpCondition: shielded
+		RequiresCondition: !disabled
+		SelectionBarColor: 8888FFFF
 	RevealsShroud:
 		Range: 10000
 		Type: GroundPosition
@@ -10615,11 +10812,11 @@ upsteel_beholder:
 upsteel_cruiser:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Cruiser
+		Name: Unlock Cloud Breaker
 	Buildable:
 		BuildPaletteOrder: 120
 		Queue: Promotions
-		Description: Enables construction of Cruisers.
+		Description: Enables construction of Cloud Breakers.
 		Prerequisites: ~steel_qacst, upsteel_beholder, !upsteel_cruiser, rank1
 	RenderSprites:
 		Image: steel_cruiser
