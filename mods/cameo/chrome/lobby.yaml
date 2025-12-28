@@ -12,6 +12,8 @@ Background@SERVER_LOBBY:
 	Width: 950
 	Height: 700
 	Children:
+		Container@CUSTOM_FILTER_PANEL:
+			Visible: False
 		Label@SERVER_NAME:
 			Y: 16
 			Align: Center

@@ -850,7 +850,7 @@ Container@PLAYER_WIDGETS:
 									ImageCollection: production-icons
 						Button@SCROLL_UP_BUTTON:
 							Logic: AddFactionSuffixLogic
-							Y: 226
+							Y: 248
 							Width: 28
 							Height: 22
 							VisualHeight: 0
@@ -865,7 +865,7 @@ Container@PLAYER_WIDGETS:
 									ImageName: up
 						Button@SCROLL_DOWN_BUTTON:
 							Logic: AddFactionSuffixLogic
-							Y: 251
+							Y: 273
 							Width: 28
 							Height: 22
 							VisualHeight: 0

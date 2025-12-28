@@ -309,7 +309,7 @@ ChromeLayout:
 	cameo|chrome/lobby.yaml
 	common|chrome/lobby-kickdialogs.yaml
 	common|chrome/lobby-mappreview.yaml
-	common|chrome/lobby-music.yaml
+	cameo|chrome/lobby-music.yaml
 	cameo|chrome/lobby-options.yaml
 	cameo|chrome/lobby-players.yaml
 	common|chrome/lobby-servers.yaml
@@ -321,7 +321,7 @@ ChromeLayout:
 	common|chrome/multiplayer-browserpanels.yaml
 	common|chrome/multiplayer-createserver.yaml
 	common|chrome/multiplayer-directconnect.yaml
-	common|chrome/musicplayer.yaml
+	cameo|chrome/musicplayer.yaml
 	common|chrome/playerprofile.yaml
 	common|chrome/replaybrowser.yaml
 	common|chrome/settings.yaml
