@@ -5429,6 +5429,7 @@ Player:
 			aa_shinobi: 1
 			ra2engineer.asian: 1
 			aa_asdf: 5
+			aa_commando: 1
 			aa_oilt: 1
 			aa_dragonfly: 1
 			aa_quas: 3
@@ -5445,26 +5446,27 @@ Player:
 			aa_phoenix: 3
 			aa_wtrt: 5
 			aa_mlrs: 5
-			upaa_japrif: 1
 			upaa_archer: 1
 			upaa_samurai: 1
 			upaa_asdf: 1
-			upaa_cghype: 1
-			upaa_cgchao: 1
-			upaa_chaomine: 1
-			upaa_cgplas: 1
-			upaa_ftnk: 1
-			upaa_ptnk: 1
+			upaa_warturtle: 1
+			upaa_japrif: 1
+			upaa_mlrs: 1
 			upaa_mecha: 1
 			upaa_railt2: 1
-			upaa_gren: 1
-			upaa_lynx: 1
-			upaa_airborne: 1
+			upaa_ftnk: 1
+			upaa_ptnk: 1
+			upaa_plast: 1
+			upaa_howitzer: 1
 			upaa_tsunami: 1
-			asian_upgrade_dragonfire: 1
+			asian_upgrade_infantryspec: 1
 			asian_upgrade_pulverizer: 1
+			asian_upgrade_diplomacy: 1
+			asian_upgrade_phalanx: 1
+			asian_upgrade_dragonfire: 1
 			asian_upgrade_quasar: 1
 			asian_upgrade_banzai: 1
+			asian_team_upgrade_dragonway: 1
 			########### Units Consortium
 			steel_qmin: 10
 			steel_fedinf: 1
@@ -5503,7 +5505,6 @@ Player:
 			upsteel_beholder: 1
 			upsteel_cruiser: 1
 			upsteel_scalpel: 1
-			upsteel_cruiser_f: 1
 			upsteel_emp: 1
 			upsteel_empquantumweapons: 1
 			upsteel_shielresistance: 1

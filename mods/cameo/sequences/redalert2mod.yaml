@@ -832,6 +832,8 @@ aa_tankmine:
 		ZOffset: -512
 	icon:
 		Filename: aa_tankmine_icon.shp
+	icon2:
+		Filename: aa_chaomine_icon.shp
 
 aa_cgyard:
 	Defaults:
@@ -1266,6 +1268,15 @@ aa_asdf:
 	icon:
 		Filename: asdficon.png
 
+aa_commando:
+	Inherits: ^RA2ArmedInfantry
+	Defaults:
+		Filename: ra2_snipe.shp
+	paradrop:
+		Start: 292
+	icon:
+		Filename: asian_commando_icon.png
+
 aa_banzai:
 	Defaults:
 		Filename: aa_banzai.shp
@@ -1407,7 +1418,7 @@ aa_lynx:
 	barrel:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: aa_lynxicon.shp
+		Filename: asian_lynxtank_icon.png
 		AddExtension: False
 	muzzle-mg:
 		Offset: 0,0
@@ -1752,6 +1763,33 @@ aa_pelican:
 		Length: 64
 		Tick: 24
 		Start: 64
+	muzzle-mg:
+		Offset: 0,0
+		Combine:
+			0:
+				Filename: ra2_mgun-n.shp
+				Length: 6
+			1:
+				Filename: ra2_mgun-nw.shp
+				Length: 6
+			2:
+				Filename: ra2_mgun-w.shp
+				Length: 6
+			3:
+				Filename: ra2_mgun-sw.shp
+				Length: 3
+			4:
+				Filename: ra2_mgun-s.shp
+				Length: 6
+			5:
+				Filename: ra2_mgun-se.shp
+				Length: 6
+			6:
+				Filename: ra2_mgun-e.shp
+				Length: 6
+			7:
+				Filename: ra2_mgun-ne.shp
+				Length: 6
 	icon:
 		Filename: aa_pelicanicon.shp
 
@@ -1884,13 +1922,25 @@ aa_mlrs:
 		Filename: aa_mlrs_icon.shp
 		AddExtension: False
 
-asian_upgrade_dragonfire:
+asian_upgrade_infantryspec:
 	icon:
-		Filename: asian_upgrade_dragonfire_icon.png
+		Filename: asian_upgrade_infantryspec_icon.png
 
 asian_upgrade_pulverizer:
 	icon:
 		Filename: asian_upgrade_pulverizer_icon.png
+
+asian_upgrade_diplomacy:
+	icon:
+		Filename: asian_upgrade_diplomacy_icon.png
+
+asian_upgrade_phalanx:
+	icon:
+		Filename: asian_upgrade_phalanx_icon.png
+
+asian_upgrade_dragonfire:
+	icon:
+		Filename: asian_upgrade_dragonfire_icon.png
 
 asian_upgrade_quasar:
 	icon:
@@ -1899,6 +1949,10 @@ asian_upgrade_quasar:
 asian_upgrade_banzai:
 	icon:
 		Filename: asian_upgrade_banzai_icon.png
+
+asian_team_upgrade_dragonway:
+	icon:
+		Filename: asian_upgrade_dragonway_icon.png
 
 ##############################################
 #   Red Alert 2 Latin Buildings

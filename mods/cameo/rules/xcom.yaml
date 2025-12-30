@@ -1251,7 +1251,7 @@ xcom_scalpel_aa:
 	Tooltip:
 		Name: AA Scalpel
 	Armament@PRIMARY:
-		Weapon: SteelScalpelRailgunAAEMP
+		Weapon: SteelScalpelRailgunEMPAA
 		LocalOffset: 200,0,0
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:

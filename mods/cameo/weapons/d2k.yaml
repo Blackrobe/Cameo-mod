@@ -3317,7 +3317,7 @@ autogun_tank:
 		Damage: 1
 	Warhead@Effect: CreateEffect
 		ExplosionPalette: effect
-		Explosions: med_frag
+		Explosions: poof
 		ImpactSounds: xplos.aud
 		ValidTargets: Ground, Water
 
@@ -3345,7 +3345,7 @@ autogun_tank_small:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		Damage: 1
 	Warhead@Effect: CreateEffect
-		Explosions: med_frag
+		Explosions: poof
 		ImpactSounds: xplos.aud
 		ValidTargets: Ground, Water
 

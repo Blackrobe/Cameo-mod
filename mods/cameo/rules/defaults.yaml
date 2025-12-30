@@ -864,6 +864,7 @@
 
 ^GlobalBuffs:
 	Inherits: ^GPSSatelliteSupport
+	Inherits: ^WayOfTheDragon
 	# FirepowerMultiplier@GlobalBuffs:
 	# 	Modifier: 85
 	FirepowerMultiplier@GlobalBuffs:
@@ -1819,6 +1820,9 @@
 	RevealOnFire:
 		Duration: 50
 	RevealOnDeath:
+	ProductionCostMultiplier@AsianDiplomacy:
+		Multiplier: 90
+		Prerequisites: asian_upgrade_diplomacy
 	SpawnActorOnDeath@QueenBroodling1:
 		Actor: SCBROODLING
 		Probability: 100
@@ -2245,6 +2249,9 @@
 	ProductionCostMultiplier@MassProductionUpgradeRA1:
 		Multiplier: 80
 		Prerequisites: ra_upgrade_massproduction
+	ProductionCostMultiplier@LatinIndustrialMethods:
+		Multiplier: 80
+		Prerequisites: latin_up_industrial
 	ProductionCostMultiplier@DuneFactoryUpgrade:
 		Multiplier: 90
 		Prerequisites: upgrade_hightech
@@ -2729,7 +2736,7 @@
 		DamageTypes: RadiationDeath
 		LayerName: genradiation
 		RequiresCondition: !parachute && !radsuits && hazmatsuits
-	DamagedByTintedCells@tibhatmat:
+	DamagedByTintedCells@tibhazmat:
 		Damage: 60
 		DamageInterval: 1
 		DamageTypes: TiberiumDeath

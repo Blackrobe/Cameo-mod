@@ -1765,6 +1765,7 @@ ra_commissar:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
 	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
+	-ExternalCondition@PropagandaEffect:
 	Tooltip:
 		Name: Commissar
 	Valued:

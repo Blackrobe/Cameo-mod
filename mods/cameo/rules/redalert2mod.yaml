@@ -536,16 +536,17 @@ aa_cgairf:
 	SpawnNeighboringActors:
 		ActorTypes: dummy_dock
 		Locations: 2,1, 1,0
+		KillOnRemove: false
 	AirstrikePower@cluster:
 		PauseOnCondition: disabled
 		OrderName: AAClusterBomb
 		Prerequisites:
-			1: aa_cgweap
-			2: upaa_chaomine
+			1: aa_cgairf
+			2: asian_upgrade_quasar
 		IconImage: aa_tankmine
 		Icons:
 			1: icon
-			2: icon
+			2: icon2
 		ChargeInterval: 7500
 		Names:
 			1: Anti Tank Mines
@@ -578,11 +579,11 @@ aa_cgairf:
 	ParatroopersPower@aaparatroopers:
 		PauseOnCondition: disabled
 		Prerequisites:
-			1: upaa_airborne
-			2: upaa_airborne, upaa_japrif
-			3: upaa_airborne, upaa_samurai
-			4: upaa_airborne, upaa_archer
-			5: upaa_airborne, upaa_asdf
+			1: asian_upgrade_diplomacy
+			2: asian_upgrade_diplomacy, upaa_japrif
+			3: asian_upgrade_diplomacy, upaa_samurai
+			4: asian_upgrade_diplomacy, upaa_archer
+			5: asian_upgrade_diplomacy, upaa_asdf
 		OrderName: aaparatroopers
 		Icons:
 			1: paratroopers
@@ -702,6 +703,8 @@ aa_cgflam:
 	RevealsShroud:
 		Range: 6666
 	ProvidesPrerequisite@buildingname:
+	ActorStatValues:
+		Upgrades: asian_upgrade_dragonfire
 
 aa_cgpnch:
 	Inherits: ^RA2Defense
@@ -761,6 +764,8 @@ aa_cgpnch:
 	DetectCloaked:
 		DetectionTypes: Underwater
 		Range: 6000
+	ActorStatValues:
+		Upgrades: asian_upgrade_quasar
 
 aa_cgpuls:
 	Inherits: ^RA2Defense
@@ -810,6 +815,8 @@ aa_cgpuls:
 		Range: 14000
 	DetectCloaked:
 		Range: 7000
+	ActorStatValues:
+		Upgrades: asian_upgrade_quasar
 
 aa_cgrail:
 	Inherits: ^RA2Defense
@@ -818,6 +825,7 @@ aa_cgrail:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@sell: ^AASpawnActorsOnSell
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 80
@@ -871,6 +879,8 @@ aa_cgrail:
 		Range: 9600
 	DetectCloaked:
 		Range: 4800
+	ActorStatValues:
+		Upgrades: asian_upgrade_quasar
 
 aa_cgchtw:
 	Inherits: ^RA2Defense
@@ -885,7 +895,7 @@ aa_cgchtw:
 		BuildPaletteOrder: 80
 		BuildDuration: 1500
 		BuildDurationModifier: 100
-		Prerequisites: ~aa_cgcnst, aa_cgtech, ~upaa_cgchao
+		Prerequisites: ~aa_cgcnst, aa_cgmiac
 		Description: actor-cgchtw.description
 	Valued:
 		Cost: 1000
@@ -940,7 +950,7 @@ aa_cgplas:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 50
-		Prerequisites: ~aa_cgcnst, aa_cgtech, ~upaa_cgplas
+		Prerequisites: ~aa_cgcnst, aa_cgmiac
 		Description: actor-cgplas.description
 	Valued:
 		Cost: 4000
@@ -979,6 +989,8 @@ aa_cgplas:
 		Range: 14000
 	DetectCloaked:
 		Range: 7000
+	ActorStatValues:
+		Upgrades: asian_upgrade_dragonfire
 
 aa_cghype:
 	Inherits: ^RA2Defense
@@ -987,10 +999,11 @@ aa_cghype:
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
-		Prerequisites: ~aa_cgcnst, aa_cgradr, ~upaa_cghype
+		Prerequisites: ~aa_cgcnst, aa_cgmiac
 		Description: actor-cghype.description
 	Valued:
 		Cost: 1000
@@ -1024,6 +1037,8 @@ aa_cghype:
 		Range: 9000
 	DetectCloaked:
 		Range: 4500
+	ActorStatValues:
+		Upgrades: asian_upgrade_quasar
 
 aa_cgtnkr:
 	Inherits: ^RA2Building
@@ -1312,101 +1327,6 @@ aa_awall:
 #   Red Alert 2 Asian Infantry
 ##############################################
 
-^DragonFireUpgrades:
-	FirepowerMultiplier@asian_upgrade_dragonfire:
-		Modifier: 150
-		RequiresCondition: asian_upgrade_dragonfire
-	GrantConditionOnPrerequisite@asian_upgrade_dragonfire:
-		Condition: asian_upgrade_dragonfire
-		Prerequisites: asian_upgrade_dragonfire
-	ActorStatValues:
-		Upgrades: asian_upgrade_dragonfire
-
-^PulverizerUpgrades:
-	FirepowerMultiplier@asian_upgrade_pulverizer:
-		Modifier: 75
-		RequiresCondition: asian_upgrade_pulverizer
-	GrantConditionOnPrerequisite@asian_upgrade_pulverizer:
-		Condition: asian_upgrade_pulverizer
-		Prerequisites: asian_upgrade_pulverizer
-	ActorStatValues:
-		Upgrades: asian_upgrade_pulverizer
-
-^CelestialPowerUpgrades:
-	FirepowerMultiplier@asian_upgrade_quasar:
-		Modifier: 125
-		RequiresCondition: asian_upgrade_quasar
-	GrantConditionOnPrerequisite@asian_upgrade_quasar:
-		Condition: asian_upgrade_quasar
-		Prerequisites: asian_upgrade_quasar
-	ActorStatValues:
-		Upgrades: asian_upgrade_quasar
-
-^KamikazeMode:
-	GrantConditionOnPrerequisite@asian_upgrade_banzai:
-		Condition: asian_upgrade_banzai
-		Prerequisites: asian_upgrade_banzai
-	GrantConditionOnDamageState@KamikazeHeavy:
-		ValidDamageStates: Heavy
-		Condition: KamikazeHeavy
-	DamageMultiplier@KamikazeAngry:
-		Modifier: 66
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
-	RangeMultiplier@KamikazeAngry:
-		Modifier: 75
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
-	FirepowerMultiplier@KamikazeAngry:
-		Modifier: 150
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
-	SpeedMultiplier@KamikazeAngry:
-		Modifier: 125
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
-	ChangesHealth@KamikazeAngry:
-		Step: 10
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
-		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
-	WithDecoration@KamikazeAngry:
-		Image: aa_banzai
-		Sequence: idle
-		Position: TopRight
-		BlinkInterval: 32
-		BlinkPattern: On, On, On, On
-		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
-	GrantConditionOnDamageState@KamikazeCritical:
-		ValidDamageStates: Critical
-		Condition: KamikazeCritical
-	DamageMultiplier@KamikazeCritical:
-		Modifier: 33
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
-	RangeMultiplier@KamikazeCritical:
-		Modifier: 50
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
-	FirepowerMultiplier@KamikazeCritical:
-		Modifier: 200
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
-	SpeedMultiplier@KamikazeCritical:
-		Modifier: 150
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
-	ChangesHealth@KamikazeCritical:
-		Step: 20
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
-	WithDecoration@KamikazeCritical:
-		Image: aa_banzai2
-		Sequence: idle
-		Position: TopRight
-		BlinkInterval: 32
-		BlinkPattern: On, On, On, On
-		RequiresCondition: KamikazeCritical && MilitaryAcedemy
-	#RejectsOrders@KamikazeCritical:
-	#	RequiresCondition: KamikazeCritical
-	ActorStatValues:
-		Upgrades: asian_upgrade_banzai
-
 aa_gren:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
@@ -1416,6 +1336,8 @@ aa_gren:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: Asian Militia
@@ -1443,11 +1365,11 @@ aa_gren:
 	Armament@GRENADE:
 		Weapon: AsianGrenade
 		LocalOffset: 128,0,256
-		RequiresCondition: upaa_gren && !rank-elite
+		RequiresCondition: asian_upgrade_infantryspec && !rank-elite
 	Armament@GRENADEELITE:
 		Weapon: AsianGrenadeE
 		LocalOffset: 128,0,256
-		RequiresCondition: upaa_gren && rank-elite
+		RequiresCondition: asian_upgrade_infantryspec && rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: RA2AsianShotgun
@@ -1461,20 +1383,17 @@ aa_gren:
 	Armament@GRENADEG:
 		Name: garrisoned
 		Weapon: AsianGrenade
-		RequiresCondition: upaa_gren && !rank-elite
+		RequiresCondition: asian_upgrade_infantryspec && !rank-elite
 	Armament@GRENADEGE:
 		Name: garrisoned
 		Weapon: AsianGrenadeE
-		RequiresCondition: upaa_gren && rank-elite
+		RequiresCondition: asian_upgrade_infantryspec && rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: RedGuardVoice
-	GrantConditionOnPrerequisite@Grenadier:
-		Condition: upaa_gren
-		Prerequisites: upaa_gren
 	ActorStatValues:
-		Upgrades: upaa_gren, asian_upgrade_banzai
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
 
 aa_tkiller:
 	Inherits: ^Soldier
@@ -1485,6 +1404,8 @@ aa_tkiller:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: Asian Tank Killer
@@ -1523,16 +1444,21 @@ aa_tkiller:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: TankHunterVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
 
 aa_plast:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Tooltip:
@@ -1541,7 +1467,7 @@ aa_plast:
 		Cost: 500
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~aa_cgtech
+		Prerequisites: ~upaa_plast, aa_cgtech
 		Queue: Infantry, RAInfantry
 		Description: template-antitank-infantry.description
 	Mobile:
@@ -1570,6 +1496,8 @@ aa_plast:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: TankHunterVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai, asian_upgrade_dragonfire
 
 aa_flam:
 	Inherits: ^Soldier
@@ -1580,6 +1508,8 @@ aa_flam:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Tooltip:
@@ -1621,6 +1551,8 @@ aa_flam:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: AsianFlametroopVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai, asian_upgrade_dragonfire
 
 aa_japrif:
 	Inherits: ^Soldier
@@ -1631,6 +1563,8 @@ aa_japrif:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: Fanatic
@@ -1669,6 +1603,8 @@ aa_japrif:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: AsianKamiVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
 
 aa_samurai:
 	Inherits: ^Soldier
@@ -1679,6 +1615,8 @@ aa_samurai:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: Japanese Samurai
@@ -1705,6 +1643,8 @@ aa_samurai:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: AsianSamuVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
 
 aa_archer:
 	Inherits: ^Soldier
@@ -1715,6 +1655,9 @@ aa_archer:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: Veteran Archer
@@ -1753,6 +1696,8 @@ aa_archer:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: AsianMaidVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai, asian_upgrade_quasar
 
 aa_shinobi:
 	Inherits: ^Soldier
@@ -1764,6 +1709,8 @@ aa_shinobi:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@CLOAK: ^CloakedVehicle
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: Shinobi
@@ -1808,9 +1755,13 @@ aa_shinobi:
 		Types: SpyInfiltrate
 		Notification: BuildingInfiltrated
 		PlayerExperience: 50
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
 
 ra2engineer.asian:
 	Inherits: RA2ENGINEER
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@kami: ^KamikazeMode
 	Buildable:
 		Prerequisites: ~aa_cgbrck
 		Queue: Infantry, RAInfantry
@@ -1822,6 +1773,8 @@ ra2engineer.asian:
 		Voice: Attack
 	Captures@REUSABLE:
 		Voice: Attack
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx
 
 aa_alligator:
 	Inherits: ^DefaultInfantry
@@ -1832,6 +1785,7 @@ aa_alligator:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@MC: ^MCImmune
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Tooltip:
 		Name: Alligator
 	Valued:
@@ -1887,6 +1841,8 @@ aa_alligator:
 			QuestionMutate: 1
 	IgnoresDisguise:
 	-Targetable@disguise:
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_asdf:
 	Inherits: ^Soldier
@@ -1897,6 +1853,8 @@ aa_asdf:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
 	Inherits@kami: ^KamikazeMode
 	Tooltip:
 		Name: ASDF
@@ -1953,6 +1911,96 @@ aa_asdf:
 		VoiceSet: AsianShinobiVoice
 	DeliversCash:
 		Payload: 600
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
+
+aa_commando:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@cloak: ^CloakedVehicle
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@InfantrySpecUpgrade: ^InfantrySpecUpgrade
+	Inherits@kami: ^KamikazeMode
+	Tooltip:
+		Name: Asian Commando
+	Valued:
+		Cost: 3000
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~aa_cgmiac
+		Queue: Infantry, RAInfantry
+		Description: actor-ra2snipe.description
+		BuildLimit: 1
+	Mobile:
+		Speed: 75
+	Health:
+		HP: 50000
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Armament@lockdown:
+		Weapon: AsianSniperLockdown
+		LocalOffset: 128,0,256
+		AmmoUsage: 3
+		PauseOnCondition: ammo < 6
+	Armament@PRIMARY:
+		Weapon: AsianSniper
+		LocalOffset: 500,0,400
+		RequiresCondition: !asian_upgrade_infantryspec
+		PauseOnCondition: !ammo
+	Armament@PRIMARYUPGRADE:
+		Weapon: AsianSniperAP
+		LocalOffset: 500,0,400
+		RequiresCondition: asian_upgrade_infantryspec
+		PauseOnCondition: !ammo
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: AsianSniper
+		RequiresCondition: !asian_upgrade_infantryspec
+		PauseOnCondition: !ammo
+	Armament@GARRISONEDUPGRADE: ##########
+		Name: garrisoned
+		Weapon: AsianSniperAP
+		RequiresCondition: asian_upgrade_infantryspec
+		PauseOnCondition: !ammo
+	GrantConditionOnPrerequisite@asian_upgrade_infantryspec:
+		Condition: asian_upgrade_infantryspec
+		Prerequisites: asian_upgrade_infantryspec
+	AmmoPool:
+		Ammo: 6
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 100
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 6
+	ReloadAmmoDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 85
+	ReloadAmmoDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 70
+	ReloadAmmoDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 55
+	ReloadAmmoDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 40
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: TSUmagon
+	RenderSprites:
+		Image: aa_commando
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai
 
 ##############################################
 #   Red Alert 2 Asian Tanks
@@ -1965,6 +2013,7 @@ aa_quas:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Tooltip:
 		Name: Quasar
@@ -2019,6 +2068,8 @@ aa_quas:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: AsianQuasarVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_quasar
 
 aa_dragonfly:
 	Inherits: ^Tank
@@ -2028,6 +2079,7 @@ aa_dragonfly:
 	Inherits@cargo: ^CargoVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Tooltip:
 		Name: Dragonfly
 	Valued:
@@ -2073,6 +2125,8 @@ aa_dragonfly:
 	Hovers:
 	Targetable@Hover:
 		TargetTypes: Water, Ship
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_lynx:
 	Inherits: ^Tank
@@ -2083,6 +2137,8 @@ aa_lynx:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	-ExternalCondition@AsianPhalanx:
 	Tooltip:
 		Name: Lynx Tank
 	Valued:
@@ -2130,17 +2186,22 @@ aa_lynx:
 		Weapon: AsianLynxMG
 		MuzzleSequence: muzzle-mg
 		MuzzlePalette: ra2effect
-		RequiresCondition: upaa_lynx && !rank-elite
+		RequiresCondition: asian_upgrade_phalanx && !rank-elite
 	Armament@MGelite:
 		Weapon: AsianLynxMG_elite
 		MuzzleSequence: muzzle-mg
 		MuzzlePalette: ra2effect
-		RequiresCondition: upaa_lynx && rank-elite
-	GrantConditionOnPrerequisite@MG:
-		Condition: upaa_lynx
-		Prerequisites: upaa_lynx
-	ActorStatValues:
-		Upgrades: upaa_lynx
+		RequiresCondition: asian_upgrade_phalanx && rank-elite
+	ProximityExternalCondition@AsianPhalanx:
+		Range: 7500
+		ValidRelationships: Ally
+		Condition: AsianPhalanx
+		RequiresCondition: asian_upgrade_phalanx
+	WithRangeCircle@AsianPhalanx:
+		Range: 7500
+		Type: AsianPhalanx
+		Color: 88888888
+		RequiresCondition: asian_upgrade_phalanx
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -2148,6 +2209,8 @@ aa_lynx:
 	WithSpriteTurret:
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_oilt:
 	Inherits: DTRK
@@ -2155,6 +2218,7 @@ aa_oilt:
 	Inherits@vo: ^AttackFrontalVoice
 	#Inherits@announce: ^AnnounceGlobal
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Health:
 		HP: 20000
@@ -2181,12 +2245,15 @@ aa_oilt:
 	Passenger:
 		CargoType: OilTruck
 		CustomPipType: red
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_acv:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@mcv: ^MCV
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Tooltip:
 		Name: Asian Mobile Construction Vehicle
 	Buildable:
@@ -2204,6 +2271,8 @@ aa_acv:
 		Prerequisite: mmalliance
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_drmn:
 	Inherits: ^Tank
@@ -2212,6 +2281,7 @@ aa_drmn:
 	Inherits@harv: ^Harvester
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Selectable:
 		Bounds: 512, 512
 		DecorationBounds: 512, 512
@@ -2258,6 +2328,8 @@ aa_drmn:
 	WithHarvestOverlay@harvesting:
 		Sequence: harvesting
 		Palette: ra2effect
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_pulv:
 	Inherits: ^Tank
@@ -2268,6 +2340,7 @@ aa_pulv:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@PulverizerUpgrades: ^PulverizerUpgrades
 	Valued:
 		Cost: 1400
@@ -2312,6 +2385,8 @@ aa_pulv:
 		VoiceSet: CHGatlingTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_pulverizer
 
 aa_ptnk:
 	Inherits: ^Tank
@@ -2322,6 +2397,7 @@ aa_ptnk:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1700
@@ -2369,6 +2445,8 @@ aa_ptnk:
 		Payload: 600
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_viper:
 	Inherits: ^Tank
@@ -2378,6 +2456,7 @@ aa_viper:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -2422,16 +2501,21 @@ aa_viper:
 	Hovers:
 	Targetable@Hover:
 		TargetTypes: Water, Ship
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_mlrs:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
 	Inherits@Template: ^FireSupportTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -2440,7 +2524,7 @@ aa_mlrs:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: ~aa_cgtech
+		Prerequisites: ~upaa_mlrs, aa_cgtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-mlrs.description
 	Mobile:
@@ -2472,16 +2556,19 @@ aa_mlrs:
 		Sequence: aim
 	Voiced:
 		VoiceSet: AsianAllianceVehicleVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_hotwi:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@Template: ^ArtilleryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1600
@@ -2489,7 +2576,7 @@ aa_hotwi:
 		Name: Howitzer
 	Buildable:
 		BuildPaletteOrder: 90
-		Prerequisites: ~aa_cgmiac
+		Prerequisites: ~upaa_howitzer, aa_cgmiac
 		Queue: Vehicle, RAVehicle
 		Description: actor-aahowi.description
 	Mobile:
@@ -2544,6 +2631,8 @@ aa_hotwi:
 		VoiceSet: AsianAllianceHotwizerVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_ftnk:
 	Inherits: ^Tank
@@ -2555,6 +2644,7 @@ aa_ftnk:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1300
@@ -2601,6 +2691,8 @@ aa_ftnk:
 	FireWarheadsOnDeath@flame:
 		Weapon: AsianOilBombFragments
 		EmptyWeapon: AsianOilBombFragments
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_mecha:
 	Inherits: ^Walker
@@ -2614,6 +2706,7 @@ aa_mecha:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@MC: ^MCImmune
 	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@PulverizerUpgrades: ^PulverizerUpgrades
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
@@ -2668,6 +2761,8 @@ aa_mecha:
 		VoiceSet: AsianAllianceRobotVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_pulverizer
 
 aa_railt:
 	Inherits: ^Tank
@@ -2677,6 +2772,8 @@ aa_railt:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
+	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2720,10 +2817,11 @@ aa_railt:
 		VoiceSet: AsianAllianceVehicleVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_quasar
 
 aa_railt2:
 	Inherits: aa_railt
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Valued:
 		Cost: 2200
@@ -2761,13 +2859,14 @@ aa_wtrt:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 5000
 	Tooltip:
 		Name: War Turtle
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: ~upaa_asdf, aa_cgmiac
+		Prerequisites: ~upaa_warturtle, aa_cgmiac
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Mobile:
@@ -2823,6 +2922,8 @@ aa_wtrt:
 	RenderSprites:
 		Image: aa_wtrt
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_phoenix:
 	Inherits: ^RANeutralPlane
@@ -2830,6 +2931,7 @@ aa_phoenix:
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1800
@@ -2916,6 +3018,8 @@ aa_phoenix:
 	DeathSounds:
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_pelican:
 	Inherits: ^Helicopter
@@ -2923,6 +3027,7 @@ aa_pelican:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 20
@@ -2936,20 +3041,41 @@ aa_pelican:
 		AddToArmyValue: true
 	Health:
 		HP: 40000
+	Repairable:
+		HpPerStep: 2000
 	ChangesHealth@SelfHealing:
 		Step: 16
 	Armament@PRIMARY:
 		Weapon: AsianPelicanMissile
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
 		RequiresCondition: !rank-elite
+		PauseOnCondition: ammo < 2
+		AmmoUsage: 2
 	Armament@PRIMARYELITE:
 		Weapon: AsianPelicanMissileE
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
+		PauseOnCondition: ammo < 2
+		AmmoUsage: 2
+	Armament@MG:
+		Weapon: AsianPelicanMG
+		LocalOffset: 85,-213,-85, 85,213,-85
+		MuzzleSequence: muzzle-mg
+		MuzzlePalette: ra2effect
+		PauseOnCondition: ammo < 2
+		RequiresCondition: asian_upgrade_phalanx && !rank-elite
+	Armament@MGelite:
+		Weapon: AsianPelicanMG_elite
+		LocalOffset: 85,-213,-85, 85,213,-85
+		MuzzleSequence: muzzle-mg
+		MuzzlePalette: ra2effect
+		PauseOnCondition: ammo < 2
+		RequiresCondition: asian_upgrade_phalanx && rank-elite
+	ReloadAmmoDelayMultiplier@asian_upgrade_phalanx:
+		RequiresCondition: asian_upgrade_phalanx
+		Modifier: 50
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -2985,10 +3111,10 @@ aa_pelican:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	AmmoPool:
-		Ammo: 6
+		Ammo: 12
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 50
+		Delay: 25
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -2998,6 +3124,8 @@ aa_pelican:
 		Weapon: LargeHeliExplode
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_panth:
 	Inherits: ^BoatUnit
@@ -3007,6 +3135,7 @@ aa_panth:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -3067,6 +3196,8 @@ aa_panth:
 		TurnSpeed: 12
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_ksub:
 	Inherits: ^BoatUnit
@@ -3076,6 +3207,7 @@ aa_ksub:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@sub: ^Submarine
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3129,6 +3261,8 @@ aa_ksub:
 		RequiresCondition: !disabled
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_gunb:
 	Inherits: ^BoatUnit
@@ -3137,6 +3271,7 @@ aa_gunb:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -3205,6 +3340,8 @@ aa_gunb:
 		VoiceSet: AsianShipVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_lsub:
 	Inherits: ^BoatUnit
@@ -3214,6 +3351,7 @@ aa_lsub:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@sub: ^Submarine
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 2400
 	Tooltip:
@@ -3256,6 +3394,8 @@ aa_lsub:
 		VoiceSet: AsianShipVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_quasfrig:
 	Inherits: ^BoatUnit
@@ -3264,6 +3404,7 @@ aa_quasfrig:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@CelestialPowerUpgrades: ^CelestialPowerUpgrades
 	Valued:
 		Cost: 2000
@@ -3317,6 +3458,8 @@ aa_quasfrig:
 		VoiceSet: AsianShipVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_quasar
 
 aa_karrier:
 	Inherits: ^BoatUnit
@@ -3325,6 +3468,7 @@ aa_karrier:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
 		Cost: 1750
@@ -3364,6 +3508,8 @@ aa_karrier:
 		Weapon: KamikazeCarrierTarget
 	Voiced:
 		VoiceSet: AsianShipVoice
+	ActorStatValues:
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
 aa_tsun:
 	Inherits: ^BoatUnit
@@ -3372,6 +3518,7 @@ aa_tsun:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Valued:
 		Cost: 4500
 	Tooltip:
@@ -3415,6 +3562,8 @@ aa_tsun:
 		Prerequisites: upaa_tsunami
 	ActorStatValues:
 		Upgrades: upaa_tsunami
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 aa_kami:
 	Inherits: ^RANeutralPlane
@@ -3637,28 +3786,15 @@ aa_bomber.Husk:
 
 ### Infantry tree
 
-upaa_japrif:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Fanatic
-	Buildable:
-		BuildPaletteOrder: 97
-		Queue: Promotions
-		Description: Allows training of Fanatics and upgrades paratroopers to use Fanatics.
-		Prerequisites: ~aa_cgcnst, !upaa_japrif, rank1
-	RenderSprites:
-		Image: aa_japrif
-	ProvidesPrerequisite:
-
 upaa_samurai:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Unlock Samurai
 	Buildable:
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 97
 		Queue: Promotions
 		Description: Allows training of Samurai and upgrades paratroopers to use Samurais.
-		Prerequisites: ~aa_cgcnst, upaa_japrif, !upaa_samurai, rank1
+		Prerequisites: ~aa_cgcnst, !upaa_samurai, rank1
 	RenderSprites:
 		Image: aa_samurai
 	ProvidesPrerequisite:
@@ -3668,7 +3804,7 @@ upaa_archer:
 	Tooltip:
 		Name: Unlock Veteran Archers
 	Buildable:
-		BuildPaletteOrder: 103
+		BuildPaletteOrder: 100
 		Queue: Promotions
 		Description: Allows training of Veteran Archers and upgrades paratroopers to use Archers.
 		Prerequisites: ~aa_cgcnst, upaa_samurai, !upaa_archer, rank1
@@ -3679,72 +3815,87 @@ upaa_archer:
 upaa_asdf:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock ASDF and War Turtle
+		Name: Unlock ASDF
 	Buildable:
-		BuildPaletteOrder: 106
+		BuildPaletteOrder: 103
 		Queue: Promotions
-		Description: Enables training ASDF, construction of War Turtles, and upgrades paratroopers to use ASDFs.
+		Description: Enables training ASDF and upgrades paratroopers to use ASDFs.
 		IconPalette: ra2cameo
 		Prerequisites: ~aa_cgcnst, upaa_archer, !upaa_asdf, rank1
 	RenderSprites:
 		Image: aa_asdf
 	ProvidesPrerequisite:
 
-### Defensive tree
-
-upaa_cghype:
+upaa_warturtle:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Hyperion Projector
+		Name: Unlock War Turtle
 	Buildable:
-		BuildPaletteOrder: 98
+		BuildPaletteOrder: 106
 		Queue: Promotions
-		Description: Enables construction of Hyperion Projector.
-		Prerequisites: ~aa_cgcnst, !upaa_cghype, rank1
+		Description: Enables construction of War Turtles.
+		IconPalette: ra2cameo
+		Prerequisites: ~aa_cgcnst, upaa_asdf, !upaa_warturtle, rank1
 	RenderSprites:
-		Image: aa_cghype
-	ProvidesPrerequisite:
-
-upaa_cgchao:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Chaos Turrets
-	Buildable:
-		BuildPaletteOrder: 101
-		Queue: Promotions
-		Description: Enables construction of Chaos Turrets.
-		Prerequisites: ~aa_cgcnst, upaa_cghype, !upaa_cgchao, rank1
-	RenderSprites:
-		Image: aa_cgchtw
-	ProvidesPrerequisite:
-
-upaa_cgplas:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Plasma Cannon
-	Buildable:
-		BuildPaletteOrder: 104
-		Queue: Promotions
-		Description: Allows construction of the Plasma Cannon.
-		Prerequisites: ~aa_cgcnst, upaa_cgchao, !upaa_cgplas, rank1
-	RenderSprites:
-		Image: aa_cgplas
-	ProvidesPrerequisite:
-
-upaa_chaomine:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Chaos Mines
-	Buildable:
-		BuildPaletteOrder: 107
-		Queue: Promotions
-		Description: Unlocks Chaos Mines support power.
-		Prerequisites: ~aa_cgcnst, upaa_cgplas, !upaa_chaomine, rank1
-	RenderSprites:
-		Image: aa_chaomine
+		Image: aa_wtrt
+		PlayerPalette: playerra2
 	ProvidesPrerequisite:
 
 ### Military tree
+
+upaa_japrif:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Fanatic
+	Buildable:
+		BuildPaletteOrder: 98
+		Queue: Promotions
+		Description: Allows training of Fanatics and upgrades paratroopers to use Fanatics.
+		Prerequisites: ~aa_cgcnst, !upaa_japrif, rank1
+	RenderSprites:
+		Image: aa_japrif
+	ProvidesPrerequisite:
+
+upaa_mlrs:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock MLRS
+	Buildable:
+		BuildPaletteOrder: 101
+		Queue: Promotions
+		Description: Enables construction of MLRS.
+		Prerequisites: ~aa_cgcnst, upaa_japrif, !upaa_mlrs, rank1
+	RenderSprites:
+		Image: aa_mlrs
+	ProvidesPrerequisite:
+
+upaa_mecha:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Pulverizer Mecha
+	Buildable:
+		BuildPaletteOrder: 104
+		Queue: Promotions
+		Description: Enables construction of Pulverizer Mechas.
+		Prerequisites: ~aa_cgcnst, upaa_mlrs, !upaa_mecha, rank1
+	RenderSprites:
+		Image: aa_mecha
+	ProvidesPrerequisite:
+
+upaa_railt2:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Heavy Railgun Tank
+	Buildable:
+		BuildPaletteOrder: 107
+		Queue: Promotions
+		Description: Enables construction of Heavy Railgun Tanks.
+		Prerequisites: ~aa_cgcnst, upaa_mecha, !upaa_railt2, rank1
+	RenderSprites:
+		Image: aa_railt2
+	ProvidesPrerequisite:
+
+### Fire tree
 
 upaa_ftnk:
 	Inherits: ^promotion_upgrade.template
@@ -3753,7 +3904,7 @@ upaa_ftnk:
 	Buildable:
 		BuildPaletteOrder: 99
 		Queue: Promotions
-		Description: Enables construction of the Flame Tank.
+		Description: Enables construction of Flame Tanks.
 		Prerequisites: ~aa_cgcnst, !upaa_ftnk, rank1
 	RenderSprites:
 		Image: aa_ftnk
@@ -3766,102 +3917,197 @@ upaa_ptnk:
 	Buildable:
 		BuildPaletteOrder: 102
 		Queue: Promotions
-		Description: Enables construction of the Plasma Tank.
+		Description: Enables construction of Plasma Tanks.
 		Prerequisites: ~aa_cgcnst, upaa_ftnk, !upaa_ptnk, rank1
 	RenderSprites:
 		Image: aa_ptnk
 	ProvidesPrerequisite:
 
-upaa_mecha:
+upaa_plast:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Pulverizer Mecha
+		Name: Unlock Plasma Trooper
 	Buildable:
 		BuildPaletteOrder: 105
 		Queue: Promotions
-		Description: Enables construction of the Pulverizer Mecha.
-		Prerequisites: ~aa_cgcnst, upaa_ptnk, !upaa_mecha, rank1
+		Description: Enables training of Plasma Troopers.
+		Prerequisites: ~aa_cgcnst, upaa_ptnk, !upaa_plast, rank1
 	RenderSprites:
-		Image: aa_mecha
+		Image: aa_plast
 	ProvidesPrerequisite:
 
-upaa_railt2:
+upaa_howitzer:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Heavy Railgun Tank
+		Name: Unlock Howitzer
 	Buildable:
 		BuildPaletteOrder: 108
 		Queue: Promotions
-		Description: Enables construction of the Heavy Railgun Tank.
-		Prerequisites: ~aa_cgcnst, upaa_mecha, !upaa_railt2, rank1
+		Description: Enables construction of Howitzers.
+		Prerequisites: ~aa_cgcnst, upaa_plast, !upaa_howitzer, rank1
 	RenderSprites:
-		Image: aa_railt2
+		Image: aa_hotwi
 	ProvidesPrerequisite:
 
 ####################################################################################################
 #		Upgrades Asian Alliance
 ####################################################################################################
 
-upaa_gren:
-	Inherits: ^researched_upgrade.template
+asian_upgrade_infantryspec:
+	Inherits: ^doctrine_template
 	Tooltip:
-		Name: Grenadier Training
-	Valued:
-		Cost: 2500
+		Name: Modernized Infantry Equipment
 	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Addons
-		Description: Equips Militias with Grenades.
-		Prerequisites: ~aa_cgradr, !upaa_gren
+		Description: Equips Infantry with new or additional weapons. All Infantry have 5% more Damage Resistance, Fire Power and Range.
+		Prerequisites: ~aa_cgradr, !asian_upgrade_infantryspec
 	RenderSprites:
-		Image: aa_gren
-	ProvidesPrerequisite:
+		Image: asian_upgrade_infantryspec
 
-upaa_lynx:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Lynx Machinegun
-	Valued:
-		Cost: 2500
-	Buildable:
-		BuildPaletteOrder: 60
-		Queue: Addons
-		Description: Lynx now uses a Machinegun.
-		Prerequisites: ~aa_cgradr, !upaa_lynx
-	RenderSprites:
-		Image: aa_lynx
-	ProvidesPrerequisite:
+^InfantrySpecUpgrade:
+	DamageMultiplier@asian_upgrade_infantryspec:
+		Modifier: 95
+		RequiresCondition: asian_upgrade_infantryspec
+	FirepowerMultiplier@asian_upgrade_infantryspec:
+		Modifier: 105
+		RequiresCondition: asian_upgrade_infantryspec
+	RangeMultiplier@asian_upgrade_infantryspec:
+		Modifier: 105
+		RequiresCondition: asian_upgrade_infantryspec
+	GrantConditionOnPrerequisite@asian_upgrade_infantryspec:
+		Condition: asian_upgrade_infantryspec
+		Prerequisites: asian_upgrade_infantryspec
+	ActorStatValues:
+		Upgrades: asian_upgrade_infantryspec
 
-upaa_airborne:
-	Inherits: ^researched_upgrade.template
+asian_upgrade_pulverizer:
+	Inherits: ^doctrine_template
 	Tooltip:
-		Name: Mass Paradrop
-	Valued:
-		Cost: 2500
+		Name: Heavy Pulverizer Weapons
 	Buildable:
-		BuildPaletteOrder: 80
-		Icon: paratroopers
-		Queue: Addons
-		Description: Allows paratroopers to be accessed from the Asian Airforce Command.
-		Prerequisites: ~aa_cgmiac, !upaa_airborne
+		Description: Doubles the amount of bullets fired at 75% damage per shot. Increases Range by 15%.
+		Prerequisites: ~aa_cgradr, !asian_upgrade_pulverizer
 	RenderSprites:
-		Image: icon
+		Image: asian_upgrade_pulverizer
+
+^PulverizerUpgrades:
+	FirepowerMultiplier@asian_upgrade_pulverizer:
+		Modifier: 75
+		RequiresCondition: asian_upgrade_pulverizer
+	RangeMultiplier@asian_upgrade_pulverizer:
+		Modifier: 115
+		RequiresCondition: asian_upgrade_pulverizer
+	GrantConditionOnPrerequisite@asian_upgrade_pulverizer:
+		Condition: asian_upgrade_pulverizer
+		Prerequisites: asian_upgrade_pulverizer
+	ActorStatValues:
+		Upgrades: asian_upgrade_pulverizer
+
+asian_upgrade_diplomacy:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Asian Diplomacy
+	Buildable:
+		Description: Through clever diplomacy all the units in your team are 10% cheaper.
+		Prerequisites: ~aa_cgradr, !asian_upgrade_diplomacy
+	RenderSprites:
+		Image: asian_upgrade_diplomacy
+	ProvidesTeamProxyActor:
+		Actor: asian_upgrade_diplomacy_proxy_actor
+
+asian_upgrade_diplomacy_proxy_actor:
+	Inherits: ^team_upgrade_proxy_actor
+	Tooltip:
+		Name: Asian Diplomacy
+	Buildable:
+		Description: Through clever diplomacy all the units in your team are 10% cheaper. Unlocks the Mass Paradrop Support Power.
+	PlayerDisplayUpgrade:
+	RenderSprites:
+		Image: asian_upgrade_diplomacy
 	ProvidesPrerequisite:
+		Prerequisite: asian_upgrade_diplomacy
 
 upaa_tsunami:
-	Inherits: ^researched_upgrade.template
+	Inherits: ^unit_upgrade_template
 	Tooltip:
 		Name: Tsunami Carrier Upgrade
-	Valued:
-		Cost: 5000
 	Buildable:
-		BuildPaletteOrder: 70
-		Queue: Upgrades
 		Description: Upgrades Kamikaze Carrier to Tsunami Carrier.
-		Prerequisites: ~aa_cgmiac, aa_cgyard, !upaa_tsunami
+		Prerequisites: ~aa_cgmiac, ~aa_cgyard, !upaa_tsunami
 	RenderSprites:
 		Image: aa_tsun
 	ProvidesPrerequisite:
+
+asian_upgrade_phalanx:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Asian Phalanx
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Upgrades
+		Description: Increases Damage Resistance of Asian Alliance Units by 10%. Increases Damage Resistance of Asian Alliance Units next to Lynx Tanks by 5%. Stacks up to 5 times. Lynx Tanks and Pelicans get an additional Machine Gun.
+		Prerequisites: ~aa_cgtech, !asian_upgrade_phalanx
+	RenderSprites:
+		Image: asian_upgrade_phalanx
+	ProvidesPrerequisite:
+
+^AsianPhalanxUpgrade:
+	ExternalCondition@AsianPhalanx:
+		Condition: AsianPhalanx
+	DamageMultiplier@AsianPhalanx1:
+		Modifier: 95
+		RequiresCondition: AsianPhalanx == 1
+	DamageMultiplier@AsianPhalanx2:
+		Modifier: 90
+		RequiresCondition: AsianPhalanx == 2
+	DamageMultiplier@AsianPhalanx3:
+		Modifier: 85
+		RequiresCondition: AsianPhalanx == 3
+	DamageMultiplier@AsianPhalanx4:
+		Modifier: 80
+		RequiresCondition: AsianPhalanx == 4
+	DamageMultiplier@AsianPhalanx5:
+		Modifier: 75
+		RequiresCondition: AsianPhalanx >= 5
+	SpeedMultiplier@AsianPhalanx1:
+		Modifier: 95
+		RequiresCondition: AsianPhalanx == 1
+	SpeedMultiplier@AsianPhalanx2:
+		Modifier: 90
+		RequiresCondition: AsianPhalanx == 2
+	SpeedMultiplier@AsianPhalanx3:
+		Modifier: 85
+		RequiresCondition: AsianPhalanx == 3
+	SpeedMultiplier@AsianPhalanx4:
+		Modifier: 80
+		RequiresCondition: AsianPhalanx == 4
+	SpeedMultiplier@AsianPhalanx5:
+		Modifier: 75
+		RequiresCondition: AsianPhalanx >= 5
+	WithColoredOverlay@AsianPhalanx1:
+		Color: 44444408
+		RequiresCondition: AsianPhalanx == 1
+	WithColoredOverlay@AsianPhalanx2:
+		Color: 55555516
+		RequiresCondition: AsianPhalanx == 2
+	WithColoredOverlay@AsianPhalanx3:
+		Color: 66666624
+		RequiresCondition: AsianPhalanx == 3
+	WithColoredOverlay@AsianPhalanx4:
+		Color: 77777732
+		RequiresCondition: AsianPhalanx == 4
+	WithColoredOverlay@AsianPhalanx5:
+		Color: 88888840
+		RequiresCondition: AsianPhalanx >= 5
+	DamageMultiplier@asian_upgrade_dragonfire:
+		Modifier: 90
+		RequiresCondition: asian_upgrade_dragonfire
+	GrantConditionOnPrerequisite@asian_upgrade_phalanx:
+		Condition: asian_upgrade_phalanx
+		Prerequisites: asian_upgrade_phalanx
+	ActorStatValues:
+		Upgrades: asian_upgrade_phalanx
 
 asian_upgrade_dragonfire:
 	Inherits: ^researched_upgrade.template
@@ -3878,20 +4124,15 @@ asian_upgrade_dragonfire:
 		Image: asian_upgrade_dragonfire
 	ProvidesPrerequisite:
 
-asian_upgrade_pulverizer:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Heavy Pulverizer Weapons
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Upgrades
-		Description: Doubles the amount of bullets fired at 75% damage per shot.
-		Prerequisites: ~aa_cgtech, !asian_upgrade_pulverizer
-	RenderSprites:
-		Image: asian_upgrade_pulverizer
-	ProvidesPrerequisite:
+^DragonFireUpgrades:
+	FirepowerMultiplier@asian_upgrade_dragonfire:
+		Modifier: 150
+		RequiresCondition: asian_upgrade_dragonfire
+	GrantConditionOnPrerequisite@asian_upgrade_dragonfire:
+		Condition: asian_upgrade_dragonfire
+		Prerequisites: asian_upgrade_dragonfire
+	ActorStatValues:
+		Upgrades: asian_upgrade_dragonfire
 
 asian_upgrade_quasar:
 	Inherits: ^researched_upgrade.template
@@ -3902,11 +4143,21 @@ asian_upgrade_quasar:
 	Buildable:
 		BuildPaletteOrder: 50
 		Queue: Upgrades
-		Description: Increases EMP effect of Quasar and Pulsar Weapons by 100% and firepower by 25%.
+		Description: Increases EMP Effect of Quasar Weapons by 100% and Firepower of Railguns by 25%.
 		Prerequisites: ~aa_cgtech, !asian_upgrade_quasar
 	RenderSprites:
 		Image: asian_upgrade_quasar
 	ProvidesPrerequisite:
+
+^CelestialPowerUpgrades:
+	FirepowerMultiplier@asian_upgrade_quasar:
+		Modifier: 125
+		RequiresCondition: asian_upgrade_quasar
+	GrantConditionOnPrerequisite@asian_upgrade_quasar:
+		Condition: asian_upgrade_quasar
+		Prerequisites: asian_upgrade_quasar
+	ActorStatValues:
+		Upgrades: asian_upgrade_quasar
 
 asian_upgrade_banzai:
 	Inherits: ^researched_upgrade.template
@@ -3922,6 +4173,119 @@ asian_upgrade_banzai:
 	RenderSprites:
 		Image: asian_upgrade_banzai
 	ProvidesPrerequisite:
+
+^KamikazeMode:
+	GrantConditionOnPrerequisite@asian_upgrade_banzai:
+		Condition: asian_upgrade_banzai
+		Prerequisites: asian_upgrade_banzai
+	GrantConditionOnDamageState@KamikazeHeavy:
+		ValidDamageStates: Heavy
+		Condition: KamikazeHeavy
+	DamageMultiplier@KamikazeAngry:
+		Modifier: 66
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+	RangeMultiplier@KamikazeAngry:
+		Modifier: 75
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+	FirepowerMultiplier@KamikazeAngry:
+		Modifier: 150
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+	SpeedMultiplier@KamikazeAngry:
+		Modifier: 125
+		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+	ChangesHealth@KamikazeAngry:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
+	WithDecoration@KamikazeAngry:
+		Image: aa_banzai
+		Sequence: idle
+		Position: TopRight
+		BlinkInterval: 32
+		BlinkPattern: On, On, On, On
+		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
+	GrantConditionOnDamageState@KamikazeCritical:
+		ValidDamageStates: Critical
+		Condition: KamikazeCritical
+	DamageMultiplier@KamikazeCritical:
+		Modifier: 33
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+	RangeMultiplier@KamikazeCritical:
+		Modifier: 50
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+	FirepowerMultiplier@KamikazeCritical:
+		Modifier: 200
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+	SpeedMultiplier@KamikazeCritical:
+		Modifier: 150
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+	ChangesHealth@KamikazeCritical:
+		Step: 20
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+	WithDecoration@KamikazeCritical:
+		Image: aa_banzai2
+		Sequence: idle
+		Position: TopRight
+		BlinkInterval: 32
+		BlinkPattern: On, On, On, On
+		RequiresCondition: KamikazeCritical && MilitaryAcedemy
+	#RejectsOrders@KamikazeCritical:
+	#	RequiresCondition: KamikazeCritical
+	ActorStatValues:
+		Upgrades: asian_upgrade_banzai
+
+asian_team_upgrade_dragonway:
+	Inherits: ^team_upgrade_template
+	Tooltip:
+		Name: Way of the Dragon
+	Buildable:
+		Description: Increases Speed and Damage Resistance of all Units in your team by 5%.
+		Prerequisites: ~aa_cgmiac, !asian_team_upgrade_dragonway
+	RenderSprites:
+		Image: asian_team_upgrade_dragonway
+	ProvidesTeamProxyActor:
+		Actor: asian_upgrade_dragonway_proxy_actor
+
+asian_upgrade_dragonway_proxy_actor:
+	Inherits: ^team_upgrade_proxy_actor
+	Tooltip:
+		Name: Way of the Dragon
+	Buildable:
+		Description: Increases Speed and Damage Resistance of all Units in your team by 5%. Doubles the effect for 1 second after taking damage.
+	PlayerDisplayUpgrade:
+	RenderSprites:
+		Image: asian_team_upgrade_dragonway
+	ProvidesPrerequisite:
+		Prerequisite: asian_team_upgrade_dragonway
+
+^WayOfTheDragon:
+	DamageMultiplier@asian_team_upgrade_dragonway:
+		RequiresCondition: dragonwaydamage
+		Modifier: 95
+	SpeedMultiplier@asian_team_upgrade_dragonway:
+		RequiresCondition: dragonwaydamage
+		Modifier: 105
+	GrantConditionOnDamage@asian_team_upgrade_dragonway:
+		RequiresCondition: asian_team_upgrade_dragonway
+		Condition: dragonwaydamage
+		Duration: 25
+		PlayerRelationship: Ally, Neutral, Enemy
+	DamageMultiplier@asian_team_upgrade_dragonway:
+		Modifier: 95
+		RequiresCondition: asian_team_upgrade_dragonway
+	SpeedMultiplier@asian_team_upgrade_dragonway:
+		Modifier: 105
+		RequiresCondition: asian_team_upgrade_dragonway
+	GrantConditionOnPrerequisite@asian_team_upgrade_dragonway:
+		Condition: asian_team_upgrade_dragonway
+		Prerequisites: asian_team_upgrade_dragonway
+	ActorStatValues:
+		Upgrades: asian_team_upgrade_dragonway
 
 ##############################################
 #   Red Alert 2 Syndicate Buildings
@@ -4186,6 +4550,7 @@ latin_cgair:
 	SpawnNeighboringActors:
 		ActorTypes: dummy_dock
 		Locations: 0,1, 2,1, 1,0
+		KillOnRemove: false
 	GivesBuildableArea:
 		AreaTypes: building, cityi
 	WithIdleOverlay@top:
@@ -4538,7 +4903,7 @@ latin_ngdshktur:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 85000
+		HP: 113500
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -5769,7 +6134,7 @@ latin_diablo:
 	Tooltip:
 		Name: Diablo
 	Valued:
-		Cost: 1100
+		Cost: 1200
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~latin_cgweap
@@ -7840,14 +8205,14 @@ steel_fedturret:
 		Prerequisites: ~steel_qacst, steel_qabarr
 		Description: template-anti-infantry-defense.description
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
-		Name: Sentry Turret
+		Name: Consortium Sentry Turret
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 64000
+		HP: 88000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -7872,7 +8237,7 @@ steel_fedturret:
 		RequiresCondition: !build-incomplete
 	AutoTarget:
 	Power:
-		Amount: -30
+		Amount: -35
 	RevealsShroud:
 		Range: 6666
 	ProvidesPrerequisite@buildingname:
@@ -7901,7 +8266,7 @@ steel_fedaa:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 120000
+		HP: 121000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -7919,7 +8284,7 @@ steel_fedaa:
 		RequiresCondition: !upsteel_empquantumweapons
 	Armament@Upgrade:
 		Name: primary
-		Weapon: ConsortiumEMPMissileSystem
+		Weapon: ConsortiumMissileSystemEMP
 		LocalOffset: 125,225,250, 125,-225,250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
@@ -7969,7 +8334,7 @@ steel_qcannon:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
-		HP: 225000
+		HP: 230000
 	Selectable:
 		Bounds: 2048, 2048
 	Turreted:
@@ -8341,7 +8706,7 @@ steel_scalpelAA:
 		MuzzlePalette: ra2effect
 		RequiresCondition: !upsteel_empquantumweapons
 	Armament@Upgrade:
-		Weapon: SteelScalpelRailgunAAEMP
+		Weapon: SteelScalpelRailgunEMPAA
 		LocalOffset: 200,-100,0, 200,100,0, 200,-200,0, 200,200,0
 		LocalYaw: 50, -50, 25, -25
 		MuzzleSequence: muzzle2
@@ -8873,6 +9238,9 @@ steel_quantumtank:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@upsteel_empquantumweapons:
+		Modifier: 125
+		RequiresCondition: upsteel_empquantumweapons
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -10454,6 +10822,7 @@ steel_cruiser:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@shield: ^HasShieldGenerator
+	Inherits@quantum: ^QuantumWeaponsEMP
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -10509,6 +10878,7 @@ steel_cruiser:
 		RequiresCondition: rank-elite
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
+		RequiresCondition: !upsteel_empquantumweapons
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackAircraft:
@@ -10529,18 +10899,15 @@ steel_cruiser:
 	WithIdleOverlay@shield_damage:
 		Sequence: shield-complete-big
 	CarrierMaster:
-		Actors: steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f
-		RearmTicks: 75
-		RespawnTicks: 150
+		Actors: steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f
+		RearmTicks: 25
+		RespawnTicks: 50
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
-		RequiresCondition: upsteel_cruiser_f
-	GrantConditionOnPrerequisite@upsteel_cruiser_f:
-		Condition: upsteel_cruiser_f
-		Prerequisites: upsteel_cruiser_f
 	ActorStatValues:
-		Upgrades: upsteel_cruiser_f, upsteel_shielresistance
+		Upgrades: upsteel_empquantumweapons, upsteel_shielresistance
+
 steel_cruiser.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -10572,6 +10939,7 @@ steel_cruiser_f:
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@shield: ^HasShieldGenerator
+	Inherits@quantum: ^QuantumWeaponsEMP
 	-Selectable:
 	Interactable:
 	Valued:
@@ -10608,7 +10976,8 @@ steel_cruiser_f:
 		LocalYaw: 64, -64
 		PauseOnCondition: !ammo
 	FirepowerMultiplier@CruiserFighter:
-		Modifier: 10
+		Modifier: 50
+		RequiresCondition: !upsteel_empquantumweapons
 	AmmoPool:
 		Ammo: 12
 		AmmoCondition: ammo
@@ -10656,6 +11025,8 @@ steel_cruiser_f.Husk:
 		Image: steel_cruiser_f
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: upsteel_empquantumweapons, upsteel_shielresistance
 
 #######################################
 # Steel Consortium Promotion Tree
@@ -10826,21 +11197,6 @@ upsteel_cruiser:
 ####################################################################################################
 #		Upgrades Consortium
 ####################################################################################################
-
-upsteel_cruiser_f:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Unlock Cruiser Fighters
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Upgrades
-		Description: Cruisers now uses Fighters.
-		Prerequisites: ~steel_qatech, upsteel_cruiser, !upsteel_cruiser_f
-	RenderSprites:
-		Image: steel_cruiser_f
-	ProvidesPrerequisite:
 
 upsteel_emp:
 	Inherits: ^researched_upgrade.template
@@ -18442,6 +18798,7 @@ futu_launchpad:
 	SpawnNeighboringActors:
 		ActorTypes: dummy_dock
 		Locations: 0,1, 2,1, 1,0
+		KillOnRemove: false
 	ParatroopersPower@ra2paratroopers:
 		PauseOnCondition: disabled
 		Prerequisites:
