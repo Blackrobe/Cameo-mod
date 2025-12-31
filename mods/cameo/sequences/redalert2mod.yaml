@@ -1942,9 +1942,9 @@ asian_upgrade_dragonfire:
 	icon:
 		Filename: asian_upgrade_dragonfire_icon.png
 
-asian_upgrade_quasar:
+asian_upgrade_celestialpower:
 	icon:
-		Filename: asian_upgrade_quasar_icon.png
+		Filename: asian_upgrade_celestialpower_icon.png
 
 asian_upgrade_banzai:
 	icon:
@@ -3271,6 +3271,10 @@ latin_sub:
 		Length: *
 	icon:
 		Filename: latin_sub_icon.shp
+
+uplatin_cartelrockets:
+	icon:
+		Filename: latin_cartelrockets_icon.png
 
 latin_up_tech1:
 	icon:

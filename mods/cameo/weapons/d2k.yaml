@@ -2026,7 +2026,7 @@ DeathHandCluster:
 # 		Weapon: SardaukarEliteDroppod1
 # 		Amount: 5
 # 		Delay: 75
-# 	Warhead@2: FireShrapnel
+# 	Warhead@FireShrapnel: FireShrapnel
 # 		InvalidTargets: FireImmune
 # 		Weapon: SardaukarChiefDropPod1
 # 		Amount: 1
@@ -4622,7 +4622,7 @@ d2k_chemgun:
 # 		InvalidTargets: FireImmune
 # 		Weapon: DesertPhantoms
 # 		Amount: 1
-# 	Warhead@2: FireShrapnel
+# 	Warhead@FireShrapnel: FireShrapnel
 # 		InvalidTargets: FireImmune
 # 		Weapon: DesertPhantoms
 # 		Amount: 1

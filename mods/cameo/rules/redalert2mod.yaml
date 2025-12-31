@@ -542,7 +542,7 @@ aa_cgairf:
 		OrderName: AAClusterBomb
 		Prerequisites:
 			1: aa_cgairf
-			2: asian_upgrade_quasar
+			2: asian_upgrade_celestialpower
 		IconImage: aa_tankmine
 		Icons:
 			1: icon
@@ -742,13 +742,13 @@ aa_cgpnch:
 		LocalOffset: 350,22,100, 350,-22,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: !asian_upgrade_quasar
+		RequiresCondition: !asian_upgrade_celestialpower
 	Armament@Upgrade:
 		Weapon: AsianPunisherAGEMP
 		LocalOffset: 350,22,100, 350,-22,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 16
@@ -765,7 +765,7 @@ aa_cgpnch:
 		DetectionTypes: Underwater
 		Range: 6000
 	ActorStatValues:
-		Upgrades: asian_upgrade_quasar
+		Upgrades: asian_upgrade_celestialpower
 
 aa_cgpuls:
 	Inherits: ^RA2Defense
@@ -794,11 +794,11 @@ aa_cgpuls:
 	Armament:
 		Weapon: AsianPhotonCannon
 		LocalOffset: 0,0,400
-		RequiresCondition: !asian_upgrade_quasar
+		RequiresCondition: !asian_upgrade_celestialpower
 	Armament@Upgrade:
 		Weapon: AsianPhotonCannonEMP
 		LocalOffset: 0,0,400
-		RequiresCondition: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
 	AttackTurreted:
 	Turreted:
 	Sellable:
@@ -816,7 +816,7 @@ aa_cgpuls:
 	DetectCloaked:
 		Range: 7000
 	ActorStatValues:
-		Upgrades: asian_upgrade_quasar
+		Upgrades: asian_upgrade_celestialpower
 
 aa_cgrail:
 	Inherits: ^RA2Defense
@@ -880,7 +880,7 @@ aa_cgrail:
 	DetectCloaked:
 		Range: 4800
 	ActorStatValues:
-		Upgrades: asian_upgrade_quasar
+		Upgrades: asian_upgrade_celestialpower
 
 aa_cgchtw:
 	Inherits: ^RA2Defense
@@ -1038,7 +1038,7 @@ aa_cghype:
 	DetectCloaked:
 		Range: 4500
 	ActorStatValues:
-		Upgrades: asian_upgrade_quasar
+		Upgrades: asian_upgrade_celestialpower
 
 aa_cgtnkr:
 	Inherits: ^RA2Building
@@ -1697,7 +1697,7 @@ aa_archer:
 	Voiced:
 		VoiceSet: AsianMaidVoice
 	ActorStatValues:
-		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai, asian_upgrade_quasar
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_infantryspec, asian_upgrade_banzai, asian_upgrade_celestialpower
 
 aa_shinobi:
 	Inherits: ^Soldier
@@ -2040,25 +2040,25 @@ aa_quas:
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: !asian_upgrade_quasar
+		RequiresCondition: !asian_upgrade_celestialpower
 	Armament@UpgradeAG:
 		Weapon: AsianQuasarAGEMP
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
 	Armament@AA:
 		Weapon: AsianQuasarAA
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: !asian_upgrade_quasar
+		RequiresCondition: !asian_upgrade_celestialpower
 	Armament@UpgradeAA:
 		Weapon: AsianQuasarAAEMP
 		LocalOffset: -400,0,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
 	AttackFrontal:
 	WithMuzzleOverlay:
 	Selectable:
@@ -2069,7 +2069,7 @@ aa_quas:
 	Voiced:
 		VoiceSet: AsianQuasarVoice
 	ActorStatValues:
-		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_quasar
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_celestialpower
 
 aa_dragonfly:
 	Inherits: ^Tank
@@ -2334,7 +2334,7 @@ aa_drmn:
 aa_pulv:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@Template: ^FireSupportTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
@@ -2390,7 +2390,7 @@ aa_pulv:
 
 aa_ptnk:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
@@ -2400,7 +2400,7 @@ aa_ptnk:
 	Inherits@AsianPhalanxUpgrade: ^AsianPhalanxUpgrade
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Valued:
-		Cost: 1700
+		Cost: 2400
 	Tooltip:
 		Name: Plasma Tank
 	Buildable:
@@ -2412,11 +2412,11 @@ aa_ptnk:
 		Speed: 50
 		TurnSpeed: 10
 	Health:
-		HP: 60000
+		HP: 130000
 	Repairable:
-		HpPerStep: 3000
+		HpPerStep: 6500
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 52
 	Armor:
 		Type: Heavy
 	Turreted:
@@ -2696,7 +2696,7 @@ aa_ftnk:
 
 aa_mecha:
 	Inherits: ^Walker
-	Inherits@Template: ^HighTechTankTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
@@ -2711,7 +2711,7 @@ aa_mecha:
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
 	Valued:
-		Cost: 2400
+		Cost: 3200
 	Tooltip:
 		Name: Pulverizer Mecha
 	Buildable:
@@ -2723,13 +2723,13 @@ aa_mecha:
 		Speed: 55
 		TurnSpeed: 22
 	Health:
-		HP: 265000
+		HP: 285000
 	Repairable:
-		HpPerStep: 13250
+		HpPerStep: 14250
 	ChangesHealth@SelfHealing:
-		Step: 106
+		Step: 114
 	Armor:
-		Type: Heavy
+		Type: Superheavy
 	Armament@1:
 		Weapon: AsianPulverizerMechaGatling
 		LocalOffset: 800,300,600, 800,-300,600
@@ -2818,7 +2818,7 @@ aa_railt:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_quasar
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_celestialpower
 
 aa_railt2:
 	Inherits: aa_railt
@@ -3431,25 +3431,25 @@ aa_quasfrig:
 		LocalOffset: 500,0,250, 600,0,250, 700,0,250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: !asian_upgrade_quasar
+		RequiresCondition: !asian_upgrade_celestialpower
 	Armament@UpgradeAG:
 		Weapon: AsianQuasarBoatAGEMP
 		LocalOffset: 500,0,250, 600,0,250, 700,0,250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
 	Armament@AA:
 		Weapon: AsianQuasarBoatAA
 		LocalOffset: 500,0,250, 600,0,250, 700,0,250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: !asian_upgrade_quasar
+		RequiresCondition: !asian_upgrade_celestialpower
 	Armament@UpgradeAA:
 		Weapon: AsianQuasarBoatAAEMP
 		LocalOffset: 500,0,250, 600,0,250, 700,0,250
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
 	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
@@ -3459,7 +3459,7 @@ aa_quasfrig:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_quasar
+		Upgrades: asian_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_celestialpower
 
 aa_karrier:
 	Inherits: ^BoatUnit
@@ -3834,11 +3834,9 @@ upaa_warturtle:
 		BuildPaletteOrder: 106
 		Queue: Promotions
 		Description: Enables construction of War Turtles.
-		IconPalette: ra2cameo
 		Prerequisites: ~aa_cgcnst, upaa_asdf, !upaa_warturtle, rank1
 	RenderSprites:
 		Image: aa_wtrt
-		PlayerPalette: playerra2
 	ProvidesPrerequisite:
 
 ### Military tree
@@ -3910,30 +3908,30 @@ upaa_ftnk:
 		Image: aa_ftnk
 	ProvidesPrerequisite:
 
-upaa_ptnk:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Plasma Tank
-	Buildable:
-		BuildPaletteOrder: 102
-		Queue: Promotions
-		Description: Enables construction of Plasma Tanks.
-		Prerequisites: ~aa_cgcnst, upaa_ftnk, !upaa_ptnk, rank1
-	RenderSprites:
-		Image: aa_ptnk
-	ProvidesPrerequisite:
-
 upaa_plast:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Unlock Plasma Trooper
 	Buildable:
-		BuildPaletteOrder: 105
+		BuildPaletteOrder: 102
 		Queue: Promotions
 		Description: Enables training of Plasma Troopers.
-		Prerequisites: ~aa_cgcnst, upaa_ptnk, !upaa_plast, rank1
+		Prerequisites: ~aa_cgcnst, upaa_ftnk, !upaa_plast, rank1
 	RenderSprites:
 		Image: aa_plast
+	ProvidesPrerequisite:
+
+upaa_ptnk:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Plasma Tank
+	Buildable:
+		BuildPaletteOrder: 105
+		Queue: Promotions
+		Description: Enables construction of Plasma Tanks.
+		Prerequisites: ~aa_cgcnst, upaa_plast, !upaa_ptnk, rank1
+	RenderSprites:
+		Image: aa_ptnk
 	ProvidesPrerequisite:
 
 upaa_howitzer:
@@ -3944,7 +3942,7 @@ upaa_howitzer:
 		BuildPaletteOrder: 108
 		Queue: Promotions
 		Description: Enables construction of Howitzers.
-		Prerequisites: ~aa_cgcnst, upaa_plast, !upaa_howitzer, rank1
+		Prerequisites: ~aa_cgcnst, upaa_ptnk, !upaa_howitzer, rank1
 	RenderSprites:
 		Image: aa_hotwi
 	ProvidesPrerequisite:
@@ -3958,7 +3956,7 @@ asian_upgrade_infantryspec:
 	Tooltip:
 		Name: Modernized Infantry Equipment
 	Buildable:
-		Description: Equips Infantry with new or additional weapons. All Infantry have 5% more Damage Resistance, Fire Power and Range.
+		Description: asian_upgrade_infantryspec.description
 		Prerequisites: ~aa_cgradr, !asian_upgrade_infantryspec
 	RenderSprites:
 		Image: asian_upgrade_infantryspec
@@ -3984,7 +3982,7 @@ asian_upgrade_pulverizer:
 	Tooltip:
 		Name: Heavy Pulverizer Weapons
 	Buildable:
-		Description: Doubles the amount of bullets fired at 75% damage per shot. Increases Range by 15%.
+		Description: asian_upgrade_pulverizer.description
 		Prerequisites: ~aa_cgradr, !asian_upgrade_pulverizer
 	RenderSprites:
 		Image: asian_upgrade_pulverizer
@@ -4007,7 +4005,7 @@ asian_upgrade_diplomacy:
 	Tooltip:
 		Name: Asian Diplomacy
 	Buildable:
-		Description: Through clever diplomacy all the units in your team are 10% cheaper.
+		Description: asian_upgrade_diplomacy.description
 		Prerequisites: ~aa_cgradr, !asian_upgrade_diplomacy
 	RenderSprites:
 		Image: asian_upgrade_diplomacy
@@ -4019,7 +4017,7 @@ asian_upgrade_diplomacy_proxy_actor:
 	Tooltip:
 		Name: Asian Diplomacy
 	Buildable:
-		Description: Through clever diplomacy all the units in your team are 10% cheaper. Unlocks the Mass Paradrop Support Power.
+		Description: asian_upgrade_diplomacy.description
 	PlayerDisplayUpgrade:
 	RenderSprites:
 		Image: asian_upgrade_diplomacy
@@ -4046,7 +4044,7 @@ asian_upgrade_phalanx:
 	Buildable:
 		BuildPaletteOrder: 50
 		Queue: Upgrades
-		Description: Increases Damage Resistance of Asian Alliance Units by 10%. Increases Damage Resistance of Asian Alliance Units next to Lynx Tanks by 5%. Stacks up to 5 times. Lynx Tanks and Pelicans get an additional Machine Gun.
+		Description: asian_upgrade_phalanx.description
 		Prerequisites: ~aa_cgtech, !asian_upgrade_phalanx
 	RenderSprites:
 		Image: asian_upgrade_phalanx
@@ -4118,7 +4116,7 @@ asian_upgrade_dragonfire:
 	Buildable:
 		BuildPaletteOrder: 50
 		Queue: Upgrades
-		Description: Increases Flame and Plasma Weapon Damage by 50%.
+		Description: asian_upgrade_dragonfire.description
 		Prerequisites: ~aa_cgtech, !asian_upgrade_dragonfire
 	RenderSprites:
 		Image: asian_upgrade_dragonfire
@@ -4134,7 +4132,7 @@ asian_upgrade_dragonfire:
 	ActorStatValues:
 		Upgrades: asian_upgrade_dragonfire
 
-asian_upgrade_quasar:
+asian_upgrade_celestialpower:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
 		Name: Celestial Power
@@ -4143,21 +4141,21 @@ asian_upgrade_quasar:
 	Buildable:
 		BuildPaletteOrder: 50
 		Queue: Upgrades
-		Description: Increases EMP Effect of Quasar Weapons by 100% and Firepower of Railguns by 25%.
-		Prerequisites: ~aa_cgtech, !asian_upgrade_quasar
+		Description: asian_upgrade_celestialpower.description
+		Prerequisites: ~aa_cgtech, !asian_upgrade_celestialpower
 	RenderSprites:
-		Image: asian_upgrade_quasar
+		Image: asian_upgrade_celestialpower
 	ProvidesPrerequisite:
 
 ^CelestialPowerUpgrades:
-	FirepowerMultiplier@asian_upgrade_quasar:
+	FirepowerMultiplier@asian_upgrade_celestialpower:
 		Modifier: 125
-		RequiresCondition: asian_upgrade_quasar
-	GrantConditionOnPrerequisite@asian_upgrade_quasar:
-		Condition: asian_upgrade_quasar
-		Prerequisites: asian_upgrade_quasar
+		RequiresCondition: asian_upgrade_celestialpower
+	GrantConditionOnPrerequisite@asian_upgrade_celestialpower:
+		Condition: asian_upgrade_celestialpower
+		Prerequisites: asian_upgrade_celestialpower
 	ActorStatValues:
-		Upgrades: asian_upgrade_quasar
+		Upgrades: asian_upgrade_celestialpower
 
 asian_upgrade_banzai:
 	Inherits: ^researched_upgrade.template
@@ -4168,7 +4166,7 @@ asian_upgrade_banzai:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Upgrades
-		Description: Infantry enter Banzai Mode on low health.
+		Description: asian_upgrade_banzai.description
 		Prerequisites: ~aa_cgmiac, !asian_upgrade_banzai
 	RenderSprites:
 		Image: asian_upgrade_banzai
@@ -4181,59 +4179,61 @@ asian_upgrade_banzai:
 	GrantConditionOnDamageState@KamikazeHeavy:
 		ValidDamageStates: Heavy
 		Condition: KamikazeHeavy
+		RequiresCondition: asian_upgrade_banzai
 	DamageMultiplier@KamikazeAngry:
 		Modifier: 66
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+		RequiresCondition: KamikazeHeavy
 	RangeMultiplier@KamikazeAngry:
 		Modifier: 75
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+		RequiresCondition: KamikazeHeavy
 	FirepowerMultiplier@KamikazeAngry:
 		Modifier: 150
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+		RequiresCondition: KamikazeHeavy
 	SpeedMultiplier@KamikazeAngry:
 		Modifier: 125
-		RequiresCondition: KamikazeHeavy && asian_upgrade_banzai
+		RequiresCondition: KamikazeHeavy
 	ChangesHealth@KamikazeAngry:
 		Step: 10
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
+		RequiresCondition: KamikazeHeavy
 	WithDecoration@KamikazeAngry:
 		Image: aa_banzai
 		Sequence: idle
 		Position: TopRight
 		BlinkInterval: 32
 		BlinkPattern: On, On, On, On
-		RequiresCondition: KamikazeAngry && asian_upgrade_banzai
+		RequiresCondition: KamikazeHeavy
 	GrantConditionOnDamageState@KamikazeCritical:
 		ValidDamageStates: Critical
 		Condition: KamikazeCritical
+		RequiresCondition: asian_upgrade_banzai
 	DamageMultiplier@KamikazeCritical:
 		Modifier: 33
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+		RequiresCondition: KamikazeCritical
 	RangeMultiplier@KamikazeCritical:
 		Modifier: 50
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+		RequiresCondition: KamikazeCritical
 	FirepowerMultiplier@KamikazeCritical:
 		Modifier: 200
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+		RequiresCondition: KamikazeCritical
 	SpeedMultiplier@KamikazeCritical:
 		Modifier: 150
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+		RequiresCondition: KamikazeCritical
 	ChangesHealth@KamikazeCritical:
 		Step: 20
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-		RequiresCondition: KamikazeCritical && asian_upgrade_banzai
+		RequiresCondition: KamikazeCritical
 	WithDecoration@KamikazeCritical:
 		Image: aa_banzai2
 		Sequence: idle
 		Position: TopRight
 		BlinkInterval: 32
 		BlinkPattern: On, On, On, On
-		RequiresCondition: KamikazeCritical && MilitaryAcedemy
+		RequiresCondition: KamikazeCritical
 	#RejectsOrders@KamikazeCritical:
 	#	RequiresCondition: KamikazeCritical
 	ActorStatValues:
@@ -4244,7 +4244,7 @@ asian_team_upgrade_dragonway:
 	Tooltip:
 		Name: Way of the Dragon
 	Buildable:
-		Description: Increases Speed and Damage Resistance of all Units in your team by 5%.
+		Description: asian_team_upgrade_dragonway.description
 		Prerequisites: ~aa_cgmiac, !asian_team_upgrade_dragonway
 	RenderSprites:
 		Image: asian_team_upgrade_dragonway
@@ -4256,7 +4256,7 @@ asian_upgrade_dragonway_proxy_actor:
 	Tooltip:
 		Name: Way of the Dragon
 	Buildable:
-		Description: Increases Speed and Damage Resistance of all Units in your team by 5%. Doubles the effect for 1 second after taking damage.
+		Description: asian_team_upgrade_dragonway.description
 	PlayerDisplayUpgrade:
 	RenderSprites:
 		Image: asian_team_upgrade_dragonway
@@ -4264,10 +4264,13 @@ asian_upgrade_dragonway_proxy_actor:
 		Prerequisite: asian_team_upgrade_dragonway
 
 ^WayOfTheDragon:
-	DamageMultiplier@asian_team_upgrade_dragonway:
+	DamageMultiplier@dragonwaydamage:
 		RequiresCondition: dragonwaydamage
 		Modifier: 95
-	SpeedMultiplier@asian_team_upgrade_dragonway:
+	FirepowerMultiplier@dragonwaydamage:
+		RequiresCondition: dragonwaydamage
+		Modifier: 105
+	SpeedMultiplier@dragonwaydamage:
 		RequiresCondition: dragonwaydamage
 		Modifier: 105
 	GrantConditionOnDamage@asian_team_upgrade_dragonway:
@@ -4277,6 +4280,9 @@ asian_upgrade_dragonway_proxy_actor:
 		PlayerRelationship: Ally, Neutral, Enemy
 	DamageMultiplier@asian_team_upgrade_dragonway:
 		Modifier: 95
+		RequiresCondition: asian_team_upgrade_dragonway
+	FirepowerMultiplier@asian_team_upgrade_dragonway:
+		Modifier: 105
 		RequiresCondition: asian_team_upgrade_dragonway
 	SpeedMultiplier@asian_team_upgrade_dragonway:
 		Modifier: 105
@@ -5230,66 +5236,6 @@ latinscrapcar2_driveby:
 ##############################################
 #   Red Alert 2 Syndicate Units
 ##############################################
-^LatinCashrecover:
-	DamageMultiplier@latin_up_industrial:
-		Modifier: 80
-		RequiresCondition: latin_up_industrial
-	SpeedMultiplier@latin_up_industrial:
-		Modifier: 125
-		RequiresCondition: latin_up_industrial
-	GrantConditionOnPrerequisite@latin_up_industrial:
-		Condition: latin_up_industrial
-		Prerequisites: latin_up_industrial
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial
-
-^LatinFlameUpgrades:
-	FirepowerMultiplier@latin_up_hotfire:
-		Modifier: 125
-		RequiresCondition: latin_up_hotfire
-	RangeMultiplier@latin_up_hotfire:
-		Modifier: 125
-		RequiresCondition: latin_up_hotfire
-	ReloadDelayMultiplier@latin_up_hotfire:
-		Modifier: 75
-		RequiresCondition: latin_up_hotfire
-	GrantConditionOnPrerequisite@latin_up_hotfire:
-		Condition: latin_up_hotfire
-		Prerequisites: latin_up_hotfire
-	ActorStatValues:
-		Upgrades: latin_up_hotfire
-
-^LatinEliteGuerillas:
-	DamageMultiplier@uplatin_mili:
-		Modifier: 75
-		RequiresCondition: uplatin_mili
-	FirepowerMultiplier@uplatin_mili:
-		Modifier: 125
-		RequiresCondition: uplatin_mili
-	ChangesHealth@uplatin_mili:
-		Step: 10
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
-		RequiresCondition: uplatin_mili
-	GrantConditionOnPrerequisite@uplatin_mili:
-		Condition: uplatin_mili
-		Prerequisites: uplatin_mili
-	ActorStatValues:
-		Upgrades: uplatin_mili
-
-^LightPosts:
-	DamageMultiplier@uplatin_ngbunk2:
-		Modifier: 70
-		RequiresCondition: uplatin_ngbunk2
-	RevealsShroudMultiplier@uplatin_ngbunk2:
-		Modifier: 130
-		RequiresCondition: uplatin_ngbunk2
-	GrantConditionOnPrerequisite@uplatin_ngbunk2:
-		Condition: uplatin_ngbunk2
-		Prerequisites: uplatin_ngbunk2
-	ActorStatValues:
-		Upgrades: uplatin_ngbunk2
 
 latin.deathcash:
 	Inherits: RACAMERA
@@ -5592,8 +5538,10 @@ latin_fthrow:
 		MuzzlePalette: ra2effect
 	FirepowerMultiplier@latin_up_hotfire:
 		Modifier: 200
+		RequiresCondition: latin_up_hotfire
 	RangeMultiplier@latin_up_hotfire:
 		Modifier: 110
+		RequiresCondition: latin_up_hotfire
 	SpeedMultiplier@latin_up_hotfire:
 		Modifier: 120
 		RequiresCondition: latin_up_hotfire
@@ -5685,6 +5633,7 @@ latin_fftr:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Inherits@flamerup: ^LatinFlameUpgrades
 	Tooltip:
 		Name: Freedom Fighter
 	Valued:
@@ -5756,8 +5705,6 @@ latin_fftr:
 	RangeMultiplier@uplatin_alliedstolentech:
 		Modifier: 125
 		RequiresCondition: uplatin_alliedstolentech
-	ActorStatValues:
-		Upgrades: uplatin_mili, uplatin_alliedstolentech
 	Mirage:
 		RequiresCondition: !disabled && uplatin_alliedstolentech
 		InitialDelay: 25
@@ -5770,6 +5717,8 @@ latin_fftr:
 		RequiresCondition: tree && uplatin_alliedstolentech
 		IsPlayerPalette: false
 		Palette: ra_temperat
+	ActorStatValues:
+		Upgrades: uplatin_mili, uplatin_alliedstolentech, latin_up_hotfire
 
 latin_buggy:
 	Inherits: ^Tank
@@ -5909,6 +5858,15 @@ latin_mortarbike:
 		DecorationBounds: 1280, 1280
 	Voiced:
 		VoiceSet: LatinSoldierVoice
+	FirepowerMultiplier@latin_up_hotfire:
+		Modifier: 200
+		RequiresCondition: latin_up_hotfire
+	RangeMultiplier@latin_up_hotfire:
+		Modifier: 110
+		RequiresCondition: latin_up_hotfire
+	SpeedMultiplier@latin_up_hotfire:
+		Modifier: 120
+		RequiresCondition: latin_up_hotfire
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
@@ -5973,17 +5931,17 @@ latin_ltnk:
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && !rank-elite
+		RequiresCondition: uplatin_cartelrockets && !rank-elite
 	Armament@AAE:
 		Weapon: LatinRusherRocketE
 		LocalOffset: 600,200,300, 600,-200,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && rank-elite
+		RequiresCondition: uplatin_cartelrockets && rank-elite
 	GrantConditionOnPrerequisite@Missile:
-		Condition: uplatin_alliedstolentech
-		Prerequisites: uplatin_alliedstolentech
+		Condition: uplatin_cartelrockets
+		Prerequisites: uplatin_cartelrockets
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -6006,7 +5964,7 @@ latin_ltnk:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_cartelrockets, latin_up_chaingun
 
 latin_mtnk:
 	Inherits: ^Tank
@@ -6084,19 +6042,19 @@ latin_mtnk:
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && !rank-elite
+		RequiresCondition: uplatin_cartelrockets && !rank-elite
 	Armament@AAE:
 		Weapon: LatinSmokerRocketE
 		LocalOffset: 600,200,300, 600,-200,300
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-		RequiresCondition: uplatin_alliedstolentech && rank-elite
+		RequiresCondition: uplatin_cartelrockets && rank-elite
 	FirepowerMultiplier@MultiWeapon:
 		Modifier: 25
 	GrantConditionOnPrerequisite@Missile:
-		Condition: uplatin_alliedstolentech
-		Prerequisites: uplatin_alliedstolentech
+		Condition: uplatin_cartelrockets
+		Prerequisites: uplatin_cartelrockets
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -6119,7 +6077,7 @@ latin_mtnk:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_cartelrockets, latin_up_chaingun
 
 latin_diablo:
 	Inherits: ^Tank
@@ -6504,6 +6462,7 @@ latin_rtruck:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@uprecover: ^LatinCashrecover
+	Inherits@flamerup: ^CartelRocketsUpgrade
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
@@ -6563,7 +6522,7 @@ latin_rtruck:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_cartelrockets, latin_up_hotfire
 
 latin_burrito:
 	Inherits: ^Vehicle
@@ -6575,6 +6534,7 @@ latin_burrito:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@uprecover: ^LatinCashrecover
+	Inherits@flamerup: ^CartelRocketsUpgrade
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
@@ -6632,7 +6592,7 @@ latin_burrito:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_cartelrockets, latin_up_hotfire
 
 latin_lars:
 	Inherits: ^Vehicle
@@ -6645,6 +6605,7 @@ latin_lars:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@uprecover: ^LatinCashrecover
+	Inherits@flamerup: ^CartelRocketsUpgrade
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
@@ -6712,7 +6673,7 @@ latin_lars:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire, latin_up_chaingun
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_chaingun, uplatin_cartelrockets, latin_up_hotfire
 
 latin_harv:
 	Inherits: ^Tank
@@ -6958,6 +6919,7 @@ latin_mig:
 	Inherits@rad: ^RA2RadShells
 	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
 	Inherits@uprecover: ^LatinCashrecover
+	Inherits@flamerup: ^CartelRocketsUpgrade
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Selectable:
 	Tooltip:
@@ -7037,7 +6999,7 @@ latin_mig:
 		Image: latin_mig
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_cartelrockets, latin_up_hotfire
 
 latin_mig.husk:
 	Inherits: ^PlaneHusk
@@ -7346,11 +7308,11 @@ latin_nuketruk:
 	Selectable:
 		Bounds: 1536, 1536
 		DecorationBounds: 1536, 1536
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: latin_nuketruk
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 
 latin_topol:
 	Inherits: ^Vehicle
@@ -7363,6 +7325,7 @@ latin_topol:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@uprecover: ^LatinCashrecover
+	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
@@ -7440,6 +7403,8 @@ latin_topol:
 		Name: reloading
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 
 #######################################
 # Red Alert 2 Syndicate Promotion Tree
@@ -7610,29 +7575,64 @@ uplatin_topol:
 #   Red Alert 2 Syndicate Upgrade
 ##############################################
 uplatin_mili:
-	Inherits: ^researched_upgrade.template
+	Inherits: ^doctrine_template
 	Tooltip:
 		Name: Elite Guerillas
-	Valued:
-		Cost: 5000
 	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Addons
 		Description: upgrade-uplatin_mili.description
 		Prerequisites: ~latin_radar, !uplatin_mili
 	RenderSprites:
 		Image: latin_mili
 	ProvidesPrerequisite:
 
+^LatinEliteGuerillas:
+	DamageMultiplier@uplatin_mili:
+		Modifier: 75
+		RequiresCondition: uplatin_mili
+	FirepowerMultiplier@uplatin_mili:
+		Modifier: 125
+		RequiresCondition: uplatin_mili
+	ChangesHealth@uplatin_mili:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: uplatin_mili
+	GrantConditionOnPrerequisite@uplatin_mili:
+		Condition: uplatin_mili
+		Prerequisites: uplatin_mili
+	ActorStatValues:
+		Upgrades: uplatin_mili
+
+uplatin_cartelrockets:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Cartel Rockets
+	Buildable:
+		Description: upgrade-uplatin_cartelrockets.description
+		Prerequisites: ~latin_radar, !uplatin_cartelrockets
+	RenderSprites:
+		Image: uplatin_cartelrockets
+	ProvidesPrerequisite:
+
+^CartelRocketsUpgrade:
+	RangeMultiplier@uplatin_cartelrockets:
+		Modifier: 125
+		RequiresCondition: uplatin_cartelrockets
+	FirepowerMultiplier@uplatin_cartelrockets:
+		Modifier: 125
+		RequiresCondition: uplatin_cartelrockets
+	GrantConditionOnPrerequisite@uplatin_cartelrockets:
+		Condition: uplatin_cartelrockets
+		Prerequisites: uplatin_cartelrockets
+	ActorStatValues:
+		Upgrades: uplatin_cartelrockets
+
 uplatin_ngbunk2:
-	Inherits: ^upgrade.template
+	Inherits: ^doctrine_template
 	Tooltip:
 		Name: Lightposts
-	Valued:
-		Cost: 5000
 	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Addons
 		Description: upgrade-uplatin_ngbunk2.description
 		Prerequisites: ~latin_radar, !uplatin_ngbunk2
 	RenderSprites:
@@ -7653,15 +7653,24 @@ team_upgrade.uplatin_ngbunk2:
 		Description: upgrade-uplatin_ngbunk2.description
 	PlayerDisplayUpgrade:
 
+^LightPosts:
+	DamageMultiplier@uplatin_ngbunk2:
+		Modifier: 70
+		RequiresCondition: uplatin_ngbunk2
+	RevealsShroudMultiplier@uplatin_ngbunk2:
+		Modifier: 130
+		RequiresCondition: uplatin_ngbunk2
+	GrantConditionOnPrerequisite@uplatin_ngbunk2:
+		Condition: uplatin_ngbunk2
+		Prerequisites: uplatin_ngbunk2
+	ActorStatValues:
+		Upgrades: uplatin_ngbunk2
+
 uplatin_emp:
-	Inherits: ^researched_upgrade.template
+	Inherits: ^unit_upgrade_template
 	Tooltip:
 		Name: Unlock Emp Cannon
-	Valued:
-		Cost: 5000
 	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Addons
 		Icon: icon2
 		Description: Allows the use of the EMP cannon support power from the Latin EMP Radar.
 		Prerequisites: ~latin_radar, !uplatin_emp
@@ -7729,6 +7738,19 @@ latin_up_hotfire:
 		Image: latin_up_hotfire
 	ProvidesPrerequisite:
 
+^LatinFlameUpgrades:
+	FirepowerMultiplier@latin_up_hotfire:
+		Modifier: 125
+		RequiresCondition: latin_up_hotfire
+	ReloadDelayMultiplier@latin_up_hotfire:
+		Modifier: 75
+		RequiresCondition: latin_up_hotfire
+	GrantConditionOnPrerequisite@latin_up_hotfire:
+		Condition: latin_up_hotfire
+		Prerequisites: latin_up_hotfire
+	ActorStatValues:
+		Upgrades: latin_up_hotfire
+
 uplatin_cashrecover:
 	Inherits: ^upgrade.template
 	Tooltip:
@@ -7757,6 +7779,22 @@ team_upgrade.uplatin_cashrecover:
 	Buildable:
 		Description: upgrade-uplatin_cashrecover.description
 	PlayerDisplayUpgrade:
+
+^LatinCashrecover:
+	DamageMultiplier@latin_up_industrial:
+		Modifier: 80
+		RequiresCondition: latin_up_industrial
+	SpeedMultiplier@uplatin_alliedstolentech:
+		Modifier: 125
+		RequiresCondition: uplatin_alliedstolentech
+	GrantConditionOnPrerequisite@latin_up_industrial:
+		Condition: latin_up_industrial
+		Prerequisites: latin_up_industrial
+	GrantConditionOnPrerequisite@uplatin_alliedstolentech:
+		Condition: uplatin_alliedstolentech
+		Prerequisites: uplatin_alliedstolentech
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech
 
 ##############################################
 #   Red Alert 2 Consortium Structure

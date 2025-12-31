@@ -780,7 +780,7 @@ AsianHowitzerCannon:
 		Damage: 10
 	Warhead@Cloud: SpawnSmokeParticle
 		Count: 1
-		Duration: 100
+		Duration: 125
 		Speed: 0
 		TurnRate: 10
 		Image: tscloud1
@@ -798,7 +798,8 @@ AsianHowitzerCannon:
 		TriggerAtLevelMin: 100
 	Warhead@2Fire: TriggerLayerWeapon
 		LayerName: InfernoLayer
-		Falloff: 100, 75, 50, 25, 0
+		Spread: 1250
+		Falloff: 125, 100, 75, 50, 25, 0
 		AllowSetLevelWhenTrigger: false
 		TriggerAtLevelMin: 50
 		TriggerWeapon: AsianHowitzerSplash
@@ -813,9 +814,9 @@ AsianHowitzerCannonE:
 		Count: 2
 		Duration: 100
 	Warhead@1Fire: TriggerLayerWeapon
-		TriggerAtLevelMin: 250
+		TriggerAtLevelMin: 50
 	Warhead@2Fire: TriggerLayerWeapon
-		Spread: 2000
+		Spread: 2500
 
 AsianHowitzerSplash:
 	Inherits: ^ShrapnelWeapon
@@ -856,7 +857,7 @@ AsianOilBomb:
 		Explosions: ra2_large_twlt
 		ExplosionPalette: ra2effect
 		ImpactSounds: expnew09.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianOilBombFragments
 		Amount: 20
 		AimChance: 0
@@ -883,7 +884,7 @@ AsianSmallOilBomb:
 		Explosions: ra2_large_twlt
 		ExplosionPalette: ra2effect
 		ImpactSounds: expnew09.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianOilBombFragments
 		Amount: 10
 		AimChance: 0
@@ -899,12 +900,22 @@ AsianFlameFragment:
 		Damage: 1000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment2
+		Amount: 1
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_initfire
 		ExplosionPalette: ra2effect
 		-ImpactSounds:
 		ImpactActors: false
 		ValidTargets: Ground, Water
+
+AsianFlameFragment2:
+	Inherits: AsianFlameFragment
+	-Warhead@FireShrapnel: FireShrapnel
+	Range: 3000
 
 AsianOilBombFragments:
 	Inherits: AsianFlameFragment
@@ -932,7 +943,7 @@ AsianOilBombFragments:
 		Falloff: 100, 50, 25, 12, 6, 3, 1
 	Warhead@Effect: CreateEffect
 		ImpactSounds: vdemdiea.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianFlameFragment
 		Amount: 10
 		AimChance: 0
@@ -975,10 +986,20 @@ AsianPulverizerGatling:
 		Damage: 1
 
 AsianPulverizerMechaGatling:
+	Inherits: ^MediumChemicalWeapon
 	Inherits: ^MediumMissile
 	Inherits: AsianPulverizerGatling
-	Range: 7170
+	Range: 7580
 	ReloadDelay: 15
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Air, Water
+		Damage: 1
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Air, Water
 		Damage: 2000
@@ -994,16 +1015,16 @@ AsianSinglePlasma:
 	Inherits: ^MediumCannon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
-	Inherits: ^HeavyCannon
-	Range: 4836
-	ReloadDelay: 33
+	Inherits: ^RA2HeavyCannon
+	Range: 5190
+	ReloadDelay: 34
 	Report: aa_plasfire.wav
 	Projectile: Bullet
-		Speed: 483
+		Speed: 519
 		Image: aa_plasred
 		Palette: ra2effect
 		ContrailStartColor: DD000088
-		ContrailLength: 33
+		ContrailLength: 34
 	Warhead@LightFlameWeapon: SpreadDamage
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
@@ -1067,6 +1088,11 @@ AsianSinglePlasma:
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment
+		Amount: 1
+		AimChance: 0
+		AimTargetStances: Enemy, Neutral
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_apoc_explosion
 		ImpactSounds: gexpapoa.wav
@@ -1076,137 +1102,47 @@ AsianSinglePlasmaE:
 	Range: 5836
 	Burst: 2
 	BurstDelays: 3
+	Warhead@FireShrapnel: FireShrapnel
+		Amount: 2
 
 AsianTwinPlasma:
-	Inherits: ^LightFlameWeapon
-	Inherits: ^MediumChemicalWeapon
-	Inherits: ^RA2HeavyCannon
+	Inherits: AsianSinglePlasma
 	Range: 7777
-	ReloadDelay: 30
+	ReloadDelay: 25
 	Burst: 2
 	BurstDelays: 5
 	Report: aa_plasfire.wav
 	Projectile: Bullet
 		Speed: 777
-		Image: aa_plasred
-		Palette: ra2effect
-		ContrailStartColor: DD000088
 		ContrailLength: 35
-	Warhead@LightFlameWeapon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumChemicalWeapon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@HeavyCannon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@Effect: CreateEffect
-		Explosions: ra2_apoc_explosion
-		ImpactSounds: gexpapoa.wav
+	Warhead@FireShrapnel: FireShrapnel
+		Amount: 2
 
 AsianTwinPlasmaE:
 	Inherits: AsianTwinPlasma
 	Range: 8888
 	Burst: 4
-	Warhead@2: FireShrapnel
-		Weapon: AsianFlameFragment
-		Amount: 3
-		AimChance: 0
-		AimTargetStances: Enemy, Neutral
+	Warhead@FireShrapnel: FireShrapnel
+		Amount: 4
 
 AsianTurretPlasma:
-	Inherits: ^LightFlameWeapon
-	Inherits: ^LightChemicalWeapon
-	Inherits: ^MediumFlameWeapon
-	Inherits: ^MediumChemicalWeapon
-	Inherits: ^HeavyBomb
-	Inherits: ^HeavyCannon
-	ReloadDelay: 210
+	Inherits: AsianSinglePlasma
 	Range: 14000
 	MinRange: 2800
+	ReloadDelay: 90
 	Burst: 2
-	BurstDelays: 5
+	BurstDelays: 6
 	Report: bgraatta.wav
 	Projectile: Bullet
 		LaunchAngle: 35
 		Speed: 700
-		Image: aa_plasred
-		Palette: ra2effect
-		ContrailStartColor: DD000088
-		ContrailLength: 24
-	Warhead@LightFlameWeapon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightChemicalWeapon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumFlameWeapon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumChemicalWeapon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@HeavyBomb: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@HeavyCannon: SpreadDamage
-		Damage: 6000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 3
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+		ContrailLength: 28
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_twlt
 		ExplosionPalette: ra2effect
 		ImpactSounds: expnew09.wav
-	Warhead@2: FireShrapnel
-		Weapon: AsianFlameFragment
-		Amount: 3
-		AimChance: 0
-		AimTargetStances: Enemy, Neutral
+	Warhead@FireShrapnel: FireShrapnel
+		Amount: 8
 
 AsianRailgun:
 	Inherits: ^RailgunWeapon
@@ -1302,7 +1238,7 @@ AsianFlamerTurret:
 		-ImpactSounds:
 		ImpactActors: false
 		ValidTargets: Ground, Water
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianFlameFragment
 		Amount: 2
 		AimChance: 0
@@ -4017,7 +3953,7 @@ SteelSupportSpawner4:
 		Duration: 100
 		ValidTargets: corrodible
 		ValidRelationships: Enemy
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: NaxCorrosionExpand1
 		Amount: 3
 		AimChance: 0
@@ -5589,7 +5525,7 @@ NaxCorrosionRocket:
 		Duration: 100
 		ValidTargets: corrodible
 		ValidRelationships: Enemy
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: NaxCorrosionExpand1
 		Amount: 4
 		AimChance: 50
@@ -5602,7 +5538,7 @@ NaxCorrosionExpand1:
 	ValidTargets: Ground, Air, Water
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: NaxCorrosionExpand2
 		Amount: 2
 		AimChance: 50
@@ -5626,7 +5562,7 @@ NaxCorrosionExpand2:
 	ValidTargets: Ground, Air, Water
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: NaxCorrosionExpand3
 		Amount: 1
 		AimChance: 50
@@ -6318,7 +6254,7 @@ NaxisBlackBomb:
 		Explosions: ra2_large_twlt
 		ExplosionPalette: ra2effect
 		ImpactSounds: expnew09.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: NaxisBlackBombSmaller
 		Amount: 3
 		AimChance: 0
@@ -6593,7 +6529,7 @@ RA2Molotov:
 		Damage: 1000
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		Damage: 1
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		InvalidTargets: FireImmune
 		Weapon: AsianFlameFragment
 		Amount: 4
@@ -7048,7 +6984,7 @@ RA2RBurritoRocket:
 		Explosions: ra2_large_explosion
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		InvalidTargets: FireImmune
 		Weapon: AsianFlameFragment
 		Amount: 5
@@ -7683,8 +7619,10 @@ LatinSentryMG:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
 	ValidTargets: Ground, Water, Air
-	ReloadDelay: 12
 	Range: 6666
+	ReloadDelay: 30
+	Burst: 3
+	BurstDelays: 3
 	Report: vwaratta.wav, vwarattb.wav
 	Projectile: Bullet
 		Image: 50CAL
@@ -8514,7 +8452,7 @@ Future_CoilerAgressive:
 		Damage: 25000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 25
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: Future_CoilerFriendFrag1
 		Amount: 3
 		AimChance: 100
@@ -8538,7 +8476,7 @@ Future_CoilerFriend:
 Future_CoilerFriendMain:
 	Inherits: Future_CoilerFriend
 	Range: 7500
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: Future_CoilerFriendFrag1
 		Amount: 3
 		AimChance: 100
@@ -8548,14 +8486,14 @@ Future_CoilerFriendMain:
 Future_CoilerFriendFrag1:
 	Inherits: Future_CoilerFriend
 	Range: 5000
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: Future_CoilerFriendFrag2
 		Amount: 2
 
 Future_CoilerFriendFrag2:
 	Inherits: Future_CoilerFriend
 	Range: 2500
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		Weapon: Future_CoilerFriend
 		Amount: 1
 
@@ -8687,7 +8625,7 @@ Future_MultiMissile_Frag:
 		Explosions: ra2_large_explosion
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		InvalidTargets: FireImmune
 		Weapon: AsianFlameFragment
 		Amount: 5

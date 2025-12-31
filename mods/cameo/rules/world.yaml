@@ -965,6 +965,7 @@ World:
 		Name: anthraxpurple
 	WeaponTriggerCells@Inferno:
 		Name: InfernoLayer
+		RestorePerTick: 1
 		#ShowDebugOverlay: true
 	SubterraneanActorLayer:
 	JumpjetActorLayer:

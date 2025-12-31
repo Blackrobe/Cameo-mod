@@ -1301,7 +1301,7 @@
 	Inherits@EXT: ^ExternalConditions
 	Inherits@TankBuffs: ^TankBuffs
 	FirepowerMultiplier@MainBattleTankBuff:
-		Modifier: 110
+		Modifier: 115
 	DamageMultiplier@MainBattleTankBuff:
 		Modifier: 90
 	Armor:
@@ -1993,7 +1993,7 @@
 		Multiplier: 90
 		Prerequisites: light_factory
 	CashBack:
-		Percentage: 10
+		Percentage: 20
 		RequiresCondition: cashrecover
 	GrantConditionOnPrerequisite@CashRecover:
 		Condition: cashrecover
@@ -2643,6 +2643,7 @@
 			scpythean: battlefortresspassenger
 			scbehemoth: battlefortresspassenger
 			tsm113: battlefortresspassenger
+			tkmbattlebus: battlefortresspassenger
 	SharedPassenger:
 		CargoType: Infantry
 	Garrisoner:
