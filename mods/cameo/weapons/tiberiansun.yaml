@@ -864,6 +864,41 @@ TSSonicZapWeaponSonic:
 		ValidRelationships: Neutral, Enemy
 	-Warhead@Effect: CreateEffect
 
+TSEMPZapWeapon:
+	Inherits: ^TeslaWeapon
+	Inherits: TSSonicWeaponEffect
+	ReloadDelay: 60
+	Range: 10205
+	Report: plsecan2.aud
+	ValidTargets: Ground, Water
+	Projectile: AreaBeam
+		Speed: 0c512
+		Duration: 60
+		DamageInterval: 2
+		Width: 512
+		Shape: Flat
+		ZOffset: 2047
+		BeyondTargetRange: 0c512
+		Blockable: false
+		TrackTarget: true
+		Color: F5F5F545
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 1000
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 10000
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water
+
 TSMechRailgun:
 	Inherits: ^RailgunWeapon
 	Range: 8409
@@ -1895,36 +1930,86 @@ TSFireballLauncher2:
 		Damage: 4
 
 TSBomb:
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
 	ReloadDelay: 38
 	Burst: 5
 	BurstDelays: 3
-	Range: 1250
+	Range: 1500
 	TargetActorCenter: true
 	Projectile: GravityBomb
-		Velocity: 72, 0, -90
-		Acceleration: 0, 0, -8
+		Velocity: 100, 0, -100
+		Acceleration: 0, 0, -10
 		Image: 120mm
 		Shadow: true
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Ship, Trees
-		Damage: 20000
-		Spread: 2000
+		Damage: 10000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Ship, Trees
-		Damage: 10
-		Spread: 2000
-	Warhead@2Eff: CreateEffect
+		Damage: 5
+	Warhead@Effect: CreateEffect
 		Explosions: small_frag
 		ImpactSounds: expnew09.aud
 		ValidTargets: Ground, Air
-	Warhead@3EffWater: CreateEffect
+	Warhead@EffectWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: ssplash3.aud
 		ValidTargets: Water
 		InvalidTargets: Vehicle
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: Crater
+
+TSBombSonic:
+	Inherits: ^HeavyBomb
+	Inherits: ^TeslaWeapon
+	Inherits: ^MagicWeapon
+	Inherits: ^TSSonicGrenade
+	ReloadDelay: 38
+	Burst: 5
+	BurstDelays: 3
+	Range: 1500
+	TargetActorCenter: true
+	# Projectile: GravityBomb
+	# 	Velocity: 100, 0, -100
+	# 	Acceleration: 0, 0, -10
+	# 	Image: 120mm
+	# 	Shadow: true
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	Warhead@MagicWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@MagicWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	-Warhead@Effect1:
+	-Warhead@Effect2:
+	Warhead@EffectWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+		InvalidTargets: Vehicle
 
 TSFiendShard:
 	ReloadDelay: 33
@@ -2678,7 +2763,22 @@ TSHarpyMultiClaw:
 	BurstDelays: 0
 	TargetActorCenter: true
 	Projectile: Bullet
-		Inaccuracy: 2048
+		Inaccuracy: 1024
+	Warhead@Chaingun: SpreadDamage
+		Damage: 0
+		ValidTargets: Ground, Air
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 0
+		ValidTargets: Ground, Air
+
+TSHarpyAOEClaw:
+	Inherits: TSHarpyClaw
+	Warhead@Chaingun: SpreadDamage
+		Spread: 300
+		Falloff: 100, 50, 25
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Spread: 300
+		Falloff: 100, 50, 25
 
 TSLaserHarpyClaw:
 	Inherits: ^Chaingun
@@ -2704,7 +2804,7 @@ TSLaserHarpyClaw:
 	Warhead@LaserWeapon: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Air
-	Warhead@LaserWeapon: HealthPercentageDamage
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		Damage: 2
 		ValidTargets: Ground, Air
 
@@ -2714,8 +2814,35 @@ TSLaserHarpyMultiClaw:
 	BurstDelays: 0
 	TargetActorCenter: true
 	Projectile: LaserZap
-		Inaccuracy: 2048
+		Inaccuracy: 1024
 		TrackTarget: false
+	Warhead@Chaingun: SpreadDamage
+		Damage: 0
+		ValidTargets: Ground, Air
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 0
+		ValidTargets: Ground, Air
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 0
+		ValidTargets: Ground, Air
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 0
+		ValidTargets: Ground, Air
+
+TSLaserHarpyAOEClaw:
+	Inherits: TSLaserHarpyClaw
+	Warhead@Chaingun: SpreadDamage
+		Spread: 300
+		Falloff: 100, 50, 25
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Spread: 300
+		Falloff: 100, 50, 25
+	Warhead@LaserWeapon: SpreadDamage
+		Spread: 300
+		Falloff: 100, 50, 25
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Spread: 300
+		Falloff: 100, 50, 25
 
 TSPistola:
 	Inherits: ^TSMG

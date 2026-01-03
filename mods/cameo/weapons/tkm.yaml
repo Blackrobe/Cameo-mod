@@ -523,7 +523,7 @@ t30shell:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		InvalidTargets: FireImmune
 		Weapon: AsianFlameFragment
 		Amount: 4
@@ -748,7 +748,7 @@ sandmarinemortar:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
-	Warhead@2: FireShrapnel
+	Warhead@FireShrapnel: FireShrapnel
 		InvalidTargets: FireImmune
 		Weapon: AsianFlameFragment
 		Amount: 4

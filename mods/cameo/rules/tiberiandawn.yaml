@@ -6508,11 +6508,11 @@ gdifirehawk:
 	Tooltip:
 		Name: Firehawk
 	Health:
-		HP: 150000
+		HP: 180000
 	Repairable:
-		HpPerStep: 7500
+		HpPerStep: 9000
 	ChangesHealth@SelfHealing:
-		Step: 60
+		Step: 72
 	Armament:
 		Weapon: FirehawkMissiles
 		LocalOffset: 0,-960,0, 0,960,0, 0,-480,0, 0,480,0
@@ -6540,8 +6540,8 @@ gdifirehawk:
 		FacingTolerance: 80
 		StrafeRunLength: 2500
 	Aircraft:
-		TurnSpeed: 13
-		Speed: 197
+		TurnSpeed: 12
+		Speed: 180
 		IdealSeparation: 2500
 	Selectable:
 		Bounds: 1280, 1280, 0, 64
@@ -6576,6 +6576,8 @@ gdifirehawk:
 		PipCount: 4
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+	DamageMultiplier@up_heavyaircraftarmorplating:
+		Modifier: 75
 	FirepowerMultiplier@up_cuttingedgeequipment:
 		Modifier: 120
 	ReloadDelayMultiplier@up_cuttingedgeequipment:

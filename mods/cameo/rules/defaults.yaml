@@ -864,6 +864,7 @@
 
 ^GlobalBuffs:
 	Inherits: ^GPSSatelliteSupport
+	Inherits: ^WayOfTheDragon
 	# FirepowerMultiplier@GlobalBuffs:
 	# 	Modifier: 85
 	FirepowerMultiplier@GlobalBuffs:
@@ -1300,7 +1301,7 @@
 	Inherits@EXT: ^ExternalConditions
 	Inherits@TankBuffs: ^TankBuffs
 	FirepowerMultiplier@MainBattleTankBuff:
-		Modifier: 110
+		Modifier: 115
 	DamageMultiplier@MainBattleTankBuff:
 		Modifier: 90
 	Armor:
@@ -1451,7 +1452,7 @@
 	AutoTarget:
 		InitialStance: Defend
 		InitialStanceAI: AttackAnything
-		ScanRadius: 10
+		ScanRadius: 12
 	Buildable:
 		BuildDurationModifier: 50
 	TooltipExtras@Fighter:
@@ -1478,7 +1479,7 @@
 	AutoTarget:
 		InitialStance: Defend
 		InitialStanceAI: AttackAnything
-		ScanRadius: 10
+		ScanRadius: 12
 	Buildable:
 		BuildDurationModifier: 75
 	TooltipExtras@Bomber:
@@ -1505,7 +1506,7 @@
 	AutoTarget:
 		InitialStance: Defend
 		InitialStanceAI: AttackAnything
-		ScanRadius: 10
+		ScanRadius: 12
 	RenderRangeCircle:
 	Buildable:
 		BuildDurationModifier: 50
@@ -1819,6 +1820,9 @@
 	RevealOnFire:
 		Duration: 50
 	RevealOnDeath:
+	ProductionCostMultiplier@AsianDiplomacy:
+		Multiplier: 90
+		Prerequisites: asian_upgrade_diplomacy
 	SpawnActorOnDeath@QueenBroodling1:
 		Actor: SCBROODLING
 		Probability: 100
@@ -1989,7 +1993,7 @@
 		Multiplier: 90
 		Prerequisites: light_factory
 	CashBack:
-		Percentage: 10
+		Percentage: 20
 		RequiresCondition: cashrecover
 	GrantConditionOnPrerequisite@CashRecover:
 		Condition: cashrecover
@@ -2245,6 +2249,9 @@
 	ProductionCostMultiplier@MassProductionUpgradeRA1:
 		Multiplier: 80
 		Prerequisites: ra_upgrade_massproduction
+	ProductionCostMultiplier@LatinIndustrialMethods:
+		Multiplier: 80
+		Prerequisites: latin_up_industrial
 	ProductionCostMultiplier@DuneFactoryUpgrade:
 		Multiplier: 90
 		Prerequisites: upgrade_hightech
@@ -2636,6 +2643,7 @@
 			scpythean: battlefortresspassenger
 			scbehemoth: battlefortresspassenger
 			tsm113: battlefortresspassenger
+			tkmbattlebus: battlefortresspassenger
 	SharedPassenger:
 		CargoType: Infantry
 	Garrisoner:
@@ -2729,7 +2737,7 @@
 		DamageTypes: RadiationDeath
 		LayerName: genradiation
 		RequiresCondition: !parachute && !radsuits && hazmatsuits
-	DamagedByTintedCells@tibhatmat:
+	DamagedByTintedCells@tibhazmat:
 		Damage: 60
 		DamageInterval: 1
 		DamageTypes: TiberiumDeath
@@ -4861,14 +4869,14 @@
 	ExternalCondition@Healed:
 		Condition: Healed
 	ChangesHealth@HealingField1:
-		Delay: 20
 		PercentageStep: 1
+		Delay: 20
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: HealingField
 	ChangesHealth@HealingField2:
-		Delay: 1
 		Step: 100
+		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: HealingField
@@ -4893,6 +4901,181 @@
 		Condition: invulnerability
 	ExternalCondition@INVULNERABILITY:
 		Condition: invulnerability
+
+^GatlingSpeedUpTurretBehavior:
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 95
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 95
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 102
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		ArmamentNames: primary, garrisoned
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		MaximumInstances: 10
+		RevokeDelay: 30
+		RevokeAll: false
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		ArmamentNames: primary, garrisoned
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		MaximumInstances: 10
+		RevokeDelay: 15
+		RevokeAll: false
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: rank-elite
+
+^GatlingSpeedUpUnitBehavior:
+	Inherits: ^GatlingSpeedUpTurretBehavior
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 95
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 95
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 95
+	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 95
 
 ^Mine:
 	Inherits: ^SpriteActor
@@ -6143,6 +6326,26 @@ CPQDEBUGDUMMY:
 
 #EMP disable traits, use depend on which attack trait the unit uses
 
+^ChargedFrontalEMP:
+	AttackFrontalCharged:
+		PauseOnCondition: disabled
+		FacingTolerance: 10
+		ChargeLevel: 25, 50
+		ChargingCondition: cond_charging
+		ShowSelectionBar: true
+		LosesChargeWhileTurning: true
+	GrantTimedCondition@cond_charging:
+		RequiresCondition: cond_charging
+		PauseOnCondition: !cond_charging
+		Condition: charging_cooldown
+		Duration: 50
+	DamageMultiplier@charging_cooldown:
+		Modifier: 50
+		RequiresCondition: charging_cooldown
+	SpeedMultiplier@charging_cooldown:
+		Modifier: 25
+		RequiresCondition: charging_cooldown
+
 ^FrontalEMP:
 	AttackFrontal:
 		FacingTolerance: 8
@@ -6697,8 +6900,8 @@ CPQDEBUGDUMMY:
 		RequiresCondition: classicproductionqueues || hybridproductionqueues
 	Production@Addons:
 		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
+	Production@BuildingAddons:
+		Produces: BuildingAddons
 	Inherits@susaintelligence: ^susaintelligence
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@conyard:

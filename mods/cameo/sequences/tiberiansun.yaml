@@ -4395,9 +4395,10 @@ tsgtctwrsam:
 		Offset: 0,0
 
 tsntpuls:
-	Inherits: ^WithBuildingBib3
 	Defaults:
 		Filename: tsntpuls.shp
+		Scale: 1.6
+		Offset: 0,-12
 	idle:
 		Filename: tsntpuls.shp
 	damaged-idle:
@@ -4409,15 +4410,15 @@ tsntpuls:
 	turret:
 		Filename: tsntpuls_a.shp
 		Facings: 32
-		Offset: 0,0
+		Offset: 0,-12
 	damaged-turret:
 		Filename: tsntpuls_a.shp
 		Facings: 32
-		Offset: 0,0
+		Offset: 0,-12
 	critical-turret:
 		Filename: tsntpuls_a.shp
 		Facings: 32
-		Offset: 0,0
+		Offset: 0,-12
 	make:
 		Filename: invisibleitem.shp
 	dead:
@@ -4430,6 +4431,9 @@ tsntpuls:
 		Filename: invisibleitem.shp
 	icon:
 		Filename: tsemcannonicon.shp
+		Offset: 0,0
+	icon2:
+		Filename: steel_emp_icon.shp
 		Offset: 0,0
 
 tsntsam:

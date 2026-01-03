@@ -723,6 +723,14 @@ scsunkencolony:
 	shoot:
 		Length: *
 		Filename: scsunkencolonyshoot.png
+	sunken:
+		Filename: scsunkencolonyidle.png
+		Length: *
+		Tick: 160
+	spore:
+		Filename: scsporecolony.png
+		Length: *
+		Tick: 160
 	dead:
 	make:
 		Filename: zergbuildingmakesmall.png
@@ -734,6 +742,14 @@ scsporecolony:
 	Defaults:
 		Filename: scsporecolony.png
 	idle:
+		Length: *
+		Tick: 160
+	sunken:
+		Filename: scsunkencolonyidle.png
+		Length: *
+		Tick: 160
+	spore:
+		Filename: scsporecolony.png
 		Length: *
 		Tick: 160
 	dead:

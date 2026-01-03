@@ -1860,8 +1860,8 @@ upgrade-personal_shield =
 upgrade-d2k_siege_range_upgrade =
    .description = All Tanks, Gun Turrets and Artillery gain increased range and damage.
    Gun Turret, Ix Combat Tanks and Duelist Tanks: 10% higher range and 25% more damage.
-   Ix Combat Siege: 25% higher range and 50% more damage.
-   Ix Siege Tank: 50% higher range and 100% more damage.
+   Ix Siege Tank: 25% higher range and 50% more damage.
+   Ix Combat Siege: 50% higher range and 100% more damage.
 
 upgrade-d2k_heavy_missile_upgrade =
    .description = All missile based weapons deal 20% more damage and have 20% more range.
@@ -1873,46 +1873,77 @@ upgrade-spice_sifter =
 
 upgrade-d2k_advanced_ixian_technology =
    .description = TEAM UPGRADE
-   Gives Stealth Generators to all Harvesters in your team and increases artillery damage by 25% and range by 10%.
-   For Ixians:
-   Gives shields to all vehicles and aircraft and doubles shock and storm weapon damage.
-   Stealth Generators are also given to Ix Missile Tanks and Ix Siege Tanks.
-   Infantry with Personal Shield Generators also have 50% more shield armor.
+      Gives Stealth Generators to all Harvesters in your team and increases artillery damage by 25% and range by 10%.
+      For Ixians:
+      Gives shields to all vehicles and aircraft and doubles shock and storm weapon damage.
+      Stealth Generators are also given to Ix Missile Tanks and Ix Siege Tanks.
+      Infantry with Personal Shield Generators also have 50% more shield armor.
 
 upgrade-uplatin_mili =
    .description =  Equips Militias with Molotovs.
-   Increases Militia armor by 50% and gives self healing.
-   Increases firepower and armor of all other Infantry by 25%.
+      Increases Firepower and Damage Resistance of all Infantry by 25% and gives Self Healing.
+      Doubles the effect for the Militia and gives Molotovs.
+
+upgrade-uplatin_cartelrockets =
+   .description =  Upgrades all rockets with Black Market Cartel Rockets.
+      Increases Firepower and Range of all Rocket Artilleries by 25%.
+      Gives Rusher Tanks and Smoker Tanks additional Rocket Launchers.
 
 upgrade-uplatin_ngbunk2 =
    .description = Increases garrisoned buildings range, vision and armor by 30%.
 
-upgrade-uplatin_up_tech1 =
-   .description = Enables the production of drive by cars from the Recycle Center.
-   Unlocks stolen tech upgrades in the Spy Center.
-
 upgrade-latin_up_chaingun =
    .description = Stolen Tech from Yuri:
-       Equips Militia, Buggies and Sentries with Chainguns.
-       Increases fire rate of Diablos, APCs and AA Defenders.
+      Equips different units and defenses with Chainguns.
+      Increases Rate of Fire with each shot!
 
 upgrade-latin_up_industrial =
    .description = Stolen Tech from Soviets:
-       Reduces cost of vehicles by 20%.
-       Increases armor and speed of all vehicles by 20%
+      Reduces Cost of Vehicles by 20%.
+      Increases Damage Resistance of all Vehicles by 20%.
 
 upgrade-uplatin_alliedstolentech =
    .description = Stolen Tech from Allies:
-       Equips tanks, APCs and Narco vehicles with additional rocket launchers.
-       Freedom Fighters and Diablos disguise as trees and gain 25% higher range.
+      Increases Speed of all Vehicles by 25%.
+      Freedom Fighters and Diablos disguise as trees and gain 25% higher range.
 
 upgrade-latin_up_hotfire =
    .description =  Stolen Tech from Asian Alliance:
-       Increases damage, range and fire rate of Missile Trucks and Burritos by 25%.
-       Suicide Units and Flame Troopers have their damage increased by 100%.
+      Increases Firepower and Rate of Fire of all Fire Weapons by 25%.
+      Suicide Units ,Flame Troopers and Mortar Bikes have their Firepower increased by 100% instead.
 
 upgrade-uplatin_cashrecover =
-   .description = Recycles lost vehicles for a cashback of 10%.
+   .description = Recycles lost vehicles for a cashback of 20%.
+
+asian_upgrade_infantryspec =
+   .description = Equips Infantry with new or additional weapons. 
+      All Infantry have 5% more Damage Resistance, Fire Power and Range.
+
+asian_upgrade_pulverizer =
+   .description = Doubles the amount of bullets fired at 75% damage per shot.
+      Increases Range by 15%.
+
+asian_upgrade_diplomacy =
+   .description = Through clever diplomacy all the units in your team are 10% cheaper.
+
+asian_upgrade_phalanx =
+   .description = Increases Damage Resistance of Asian Alliance Units by 10%.
+      Increases Damage Resistance of Asian Alliance Units next to Lynx Tanks by 5% but slows them also down by 5%.
+      Stacks up to 5 times. Lynx Tanks and Pelicans get an additional Machine Gun.
+
+asian_upgrade_dragonfire =
+   .description = Increases Flame and Plasma Weapon Damage by 50%.
+
+asian_upgrade_celestialpower =
+   .description = Increases EMP Effect of Quasar Weapons by 100% and Firepower by 25%.
+      Increases Firepower of Railguns by 25%.
+
+asian_upgrade_banzai =
+   .description = Infantry enter Banzai Mode on low health.
+
+asian_team_upgrade_dragonway =
+   .description = Increases Speed, Firepower and Damage Resistance of all Units in your team by 5%. 
+      Doubles the effect for 1 second after taking damage.
 
 upgrade-infweapon =
    .description = Increases firepower of all Terran infantry by 25%

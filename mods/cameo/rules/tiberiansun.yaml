@@ -12,13 +12,13 @@ World:
 		Side: Tiberian Sun
 		Description: Nod from Tiberian Sun\nFeatures:\n- Subterranean vehicles\n- Stealth generators\n- Tactical missiles with fast charge and flight time\nSupport powers: Cluster & Chemical Missiles
 	FactionCA@forgotten:
-		Name: Forgotten TS
+		Name: Forgotten TS (WIP)
 		InternalName: forgotten
 		Game: Tiberian Sun
 		Side: Tiberian Sun
 		Description: Custom Forgotten from Tiberian Sun\nSupport powers: Mutant Commando, Wildlife Rampage
 	FactionCA@cabal:
-		Name: CABAL TS
+		Name: CABAL TS (WIP)
 		InternalName: cabal
 		Game: Tiberian Sun
 		Side: Tiberian Sun
@@ -998,7 +998,6 @@ TSNTAPWR:
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: building ##########
@@ -2942,12 +2941,12 @@ tsgtctwrrpg:
 	WithSpriteBody:
 	Armament@PRIMARY:
 		Weapon: TSRPGTower
-		LocalOffset: 130,-45,700
+		LocalOffset: 130,-45,500
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_railgunweaponry
 	Armament@Upgrade:
 		Weapon: TSRPGTowerRail
-		LocalOffset: 130,-45,700
+		LocalOffset: 130,-45,500
 		MuzzleSequence: muzzle
 		RequiresCondition: up_railgunweaponry
 	WithMuzzleOverlay:
@@ -3382,10 +3381,11 @@ tsntstlhcabal:
 		Image: tsntstlh
 
 tsntpulsgdi:
-	Inherits: ^BaseBuilding
+	Inherits: ^Defense
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Selectable:
 		Bounds: 2048, 2048
@@ -3395,16 +3395,16 @@ tsntpulsgdi:
 		Queue: Defence, RADefence
 		BuildDurationModifier: 40
 		Description: Disables mechanical units in an area.\nRequires power to operate.
+		BuildLimit: 1
 	Valued:
-		Cost: 1000
+		Cost: 2000
 	Tooltip:
 		Name: E.M. Pulse Cannon
 	Building:
-		Footprint: == xx ==
-		Dimensions: 2,3
-		LocalCenterOffset: 0,-512,0
+		Footprint: xx xx
+		Dimensions: 2,2
 	Health:
-		HP: 100000
+		HP: 250000
 	Armor:
 		Type: Concrete
 	RevealsShroud:
@@ -3412,6 +3412,9 @@ tsntpulsgdi:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
+	Armament@PRIMARY:
+		Weapon: TSEMPZapWeapon
+		LocalOffset: 100,0,600
 	Turreted:
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
@@ -3419,22 +3422,52 @@ tsntpulsgdi:
 	AttackTurreted:
 		OpportunityFire: false
 		PersistentTargeting: false
-	Armament:
-		Weapon: TSEMPulseCannon
-		LocalOffset: 212,0,1768
-		LocalYaw: 0,100
-	AttackOrderPower:
-		OrderName: EMPPower
-		PauseOnCondition: disabled || lowpower
-		Cursor: attackmove
-		Icon: emp
-		ChargeInterval: 3000
-		Name: E.M. Pulse
-		Description: Fires a pulse blast which disables\nall mechanical units in the area.
-		EndChargeSpeechNotification: EmPulseCannonReady
+	DetonateWeaponPower@Emp:
+		AllowMultiple: false
+		OrderName: SteelEmpCannon
+		PauseOnCondition: disabled
+		Prerequisites:
+			1: tsntpulsgdi
+		IconImage: tsntpuls
+		Icons:
+			1: icon2
+		Cursor: ioncannon
+		ChargeInterval: 6000
+		ActivationDelay: 50
+		ActivationSequence:
+		Names:
+			1: Emp Disable
+		Weapons:
+			1: SteelEmpBomb
+		Descriptions:
+			1: power-ioncannon.description
+		BeginChargeSpeechNotification: IonCannonCharging
+		EndChargeSpeechNotification: IonCannonReady
+		EndChargeSound:
 		SelectTargetSpeechNotification: SelectTarget
-	RenderRangeCircle:
+		InsufficientPowerSpeechNotification: InsufficientPower
+		DisplayRadarPing: True
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		CameraActor: camera.small
+		CameraRange: 6000
+		CameraRemoveDelay: 125
+		TargetCircleRanges:
+			1: 6000
+		TargetCircleColor: ff000080
+		LaunchSound:
+		IncomingSound:
 	SupportPowerChargeBar:
+	# AttackOrderPower:
+	# 	OrderName: EMPPower
+	# 	PauseOnCondition: disabled || lowpower
+	# 	Cursor: attackmove
+	# 	Icon: emp
+	# 	ChargeInterval: 3000
+	# 	Name: E.M. Pulse
+	# 	Description: Fires a pulse blast which disables\nall mechanical units in the area.
+	# 	EndChargeSpeechNotification: EmPulseCannonReady
+	# 	SelectTargetSpeechNotification: SelectTarget
+	RenderRangeCircle:
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tsntpuls
@@ -4411,6 +4444,7 @@ TSSHOTGUNCOM:
 		Weapon: TSCommandoShotgun
 		LocalOffset: 128,0,256
 	Armament@GARRISONED:
+		Name: garrisoned
 		Weapon: TSCommandoShotgun
 	TakeCover:
 		ProneOffset: 180,0,-200
@@ -7115,6 +7149,14 @@ TSREPAIR:
 		Weapon: TSRepair
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
 	AttackFrontal:
 		FacingTolerance: 0
 	SelectionDecorations:
@@ -9030,14 +9072,15 @@ TSORCA.Husk:
 
 TSORCAB:
 	Inherits: ^Helicopter
+	Inherits@reload: ^RearmableAircraft
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
 	Inherits@CeramicArmor: ^CeramicArmor
 	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 1900
 	Tooltip:
@@ -9051,26 +9094,31 @@ TSORCAB:
 		Description: Heavy bomber.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Aircraft:
 		CruiseAltitude: 2560
-		TurnSpeed: 35
-		Speed: 175
+		TurnSpeed: 11
+		Speed: 160
 		CruisingCondition: cruising
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
 		CanHover: false
 		CanSlide: false
 	Health:
-		HP: 120000
+		HP: 152500
 	Repairable:
-		HpPerStep: 6000
+		HpPerStep: 7625
 	ChangesHealth@SelfHealing:
-		Step: 48
-	RevealsShroud:
-		Range: 7c0
-		Type: GroundPosition
+		Step: 61
 	Armament@PRIMARY:
 		Weapon: TSBomb
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Weapon: TSBombSonic
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		RequiresCondition: up_sonicweaponry
+	FirepowerMultiplier@AmmoCompensation:
+		Modifier: 25
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 80
@@ -9085,7 +9133,7 @@ TSORCAB:
 		VoiceSet: TSHeli
 	AmmoPool:
 		Ammo: 20
-		ReloadCount: 10
+		ReloadDelay: 10
 		AmmoCondition: ammo
 	# ReloadAmmoPool:
 	# 	Delay: 25
@@ -9097,9 +9145,9 @@ TSORCAB:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 2
+		PipCount: 10
 	ActorStatValues:
-		Upgrades: up_ceramicarmor, up_mechanicalreliability
+		Upgrades: up_ceramicarmor, up_mechanicalreliability, up_sonicweaponry
 
 
 TSORCAB.Husk:
@@ -9241,12 +9289,12 @@ TSTRNSPORTMUTANT:
 
 TSSCRIN:
 	Inherits: ^Helicopter
+	Inherits@reload: ^RearmableAircraft
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
@@ -9379,24 +9427,36 @@ TSAPACHENOD:
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 5
-		RequiresCondition: !up_tiberiumlenses
+		RequiresCondition: !up_tiberiumlenses && !up_auxiliaryweapon
 	Armament@SECONDARY:
 		Weapon: TSHarpyMultiClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 0
 		RequiresCondition: !up_tiberiumlenses && up_auxiliaryweapon
+	Armament@PRIMARYAOE:
+		Weapon: TSHarpyAOEClaw
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		AmmoUsage: 5
+		RequiresCondition: !up_tiberiumlenses && up_auxiliaryweapon
 	Armament@UPGRADE:
 		Weapon: TSLaserHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 4
-		RequiresCondition: up_tiberiumlenses
+		RequiresCondition: up_tiberiumlenses && !up_auxiliaryweapon
 	Armament@SECONDARYUPGRADE:
 		Weapon: TSLaserHarpyMultiClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 0
+		RequiresCondition: up_tiberiumlenses && up_auxiliaryweapon
+	Armament@UPGRADEAOE:
+		Weapon: TSLaserHarpyAOEClaw
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		AmmoUsage: 4
 		RequiresCondition: up_tiberiumlenses && up_auxiliaryweapon
 	AttackAircraft:
 		FacingTolerance: 80
@@ -10404,28 +10464,6 @@ up_seretraining:
 	ActorStatValues:
 		Upgrades: up_seretraining
 
-up_sonicweaponry:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Sonic Weaponry
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 90
-		Queue: Addons
-		Description: upgrade-sonicweaponry.description
-		Prerequisites: ~tsgtradr, !up_sonicweaponry
-	RenderSprites:
-		Image: sonicweaponryicon
-	ProvidesPrerequisite:
-
-^SonicWeaponry:
-	GrantConditionOnPrerequisite@up_sonicweaponry:
-		Condition: up_sonicweaponry
-		Prerequisites: up_sonicweaponry
-	ActorStatValues:
-		Upgrades: up_sonicweaponry
-
 up_tsprojectileimprovements:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -10454,7 +10492,75 @@ up_tsprojectileimprovements:
 	ActorStatValues:
 		Upgrades: up_tsprojectileimprovements
 
+up_mechanicalreliability:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Mechanical Reliability
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Addons
+		Description: upgrade-mechanicalreliability.description
+		Prerequisites: ~tsgtradr, !up_mechanicalreliability
+	RenderSprites:
+		Image: mechanicalreliabilityicon
+	ProvidesPrerequisite:
+
+^MechanicalReliability:
+	GrantConditionOnPrerequisite@up_mechanicalreliability:
+		Condition: up_mechanicalreliability
+		Prerequisites: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability:
+		PercentageStep: 1
+		Delay: 40
+		StartIfBelow: 100
+		DamageCooldown: 50
+		RequiresCondition: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability2:
+		Step: 50
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 50
+		RequiresCondition: up_mechanicalreliability
+	DamageMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 90
+	SpeedMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 110
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
+
 ########## LAB ##########
+
+up_ceramicarmor:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Ceramic Armor
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 110
+		Queue: Upgrades
+		Description: upgrade-ceramicarmor.description
+		Prerequisites: ~tsgttech, !up_ceramicarmor
+	RenderSprites:
+		Image: ceramicarmoricon
+	ProvidesPrerequisite:
+
+^CeramicArmor:
+	GrantConditionOnPrerequisite@up_ceramicarmor:
+		Condition: up_ceramicarmor
+		Prerequisites: up_ceramicarmor
+	DamageMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 75
+	SpeedMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 110
+	ActorStatValues:
+		Upgrades: up_ceramicarmor
 
 up_mechengineering:
 	Inherits: ^researched_upgrade.template
@@ -10483,6 +10589,28 @@ up_mechengineering:
 		Modifier: 125
 	ActorStatValues:
 		Upgrades: up_mechengineering
+
+up_sonicweaponry:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Sonic Weaponry
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Upgrades
+		Description: upgrade-sonicweaponry.description
+		Prerequisites: ~tsgttech, !up_sonicweaponry
+	RenderSprites:
+		Image: sonicweaponryicon
+	ProvidesPrerequisite:
+
+^SonicWeaponry:
+	GrantConditionOnPrerequisite@up_sonicweaponry:
+		Condition: up_sonicweaponry
+		Prerequisites: up_sonicweaponry
+	ActorStatValues:
+		Upgrades: up_sonicweaponry
 
 up_railgunweaponry:
 	Inherits: ^researched_upgrade.template
@@ -10514,74 +10642,6 @@ up_railgunweaponry:
 		Prerequisites: up_railgunweaponry
 	ActorStatValues:
 		Upgrades: up_railgunweaponry
-
-up_mechanicalreliability:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Mechanical Reliability
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 100
-		Queue: Upgrades
-		Description: upgrade-mechanicalreliability.description
-		Prerequisites: ~tsgttech, !up_mechanicalreliability
-	RenderSprites:
-		Image: mechanicalreliabilityicon
-	ProvidesPrerequisite:
-
-^MechanicalReliability:
-	GrantConditionOnPrerequisite@up_mechanicalreliability:
-		Condition: up_mechanicalreliability
-		Prerequisites: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability:
-		PercentageStep: 1
-		Delay: 25
-		StartIfBelow: 100
-		DamageCooldown: 25
-		RequiresCondition: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability2:
-		Step: 25
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 25
-		RequiresCondition: up_mechanicalreliability
-	DamageMultiplier@up_mechanicalreliability:
-		RequiresCondition: up_mechanicalreliability
-		Modifier: 90
-	SpeedMultiplier@up_mechanicalreliability:
-		RequiresCondition: up_mechanicalreliability
-		Modifier: 110
-	ActorStatValues:
-		Upgrades: up_mechanicalreliability
-
-up_ceramicarmor:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Ceramic Armor
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 110
-		Queue: Upgrades
-		Description: upgrade-ceramicarmor.description
-		Prerequisites: ~tsgttech, !up_ceramicarmor
-	RenderSprites:
-		Image: ceramicarmoricon
-	ProvidesPrerequisite:
-
-^CeramicArmor:
-	GrantConditionOnPrerequisite@up_ceramicarmor:
-		Condition: up_ceramicarmor
-		Prerequisites: up_ceramicarmor
-	DamageMultiplier@up_ceramicarmor:
-		RequiresCondition: up_ceramicarmor
-		Modifier: 75
-	SpeedMultiplier@up_ceramicarmor:
-		RequiresCondition: up_ceramicarmor
-		Modifier: 110
-	ActorStatValues:
-		Upgrades: up_ceramicarmor
 
 up_modernfirecontrolsystems:
 	Inherits: ^researched_upgrade.template
@@ -10846,16 +10906,16 @@ up_advancedtiberiumrefinement:
 		ValidDamageStates: Critical
 	FirepowerMultiplier@Light:
 		Modifier: 110
-		RequiresCondition: damagedlight
+		RequiresCondition: damagedlight && up_willofkane
 	FirepowerMultiplier@Medium:
 		Modifier: 120
-		RequiresCondition: damagedmedium
+		RequiresCondition: damagedmedium && up_willofkane
 	FirepowerMultiplier@Heavy:
 		Modifier: 130
-		RequiresCondition: damagedheavy
+		RequiresCondition: damagedheavy && up_willofkane
 	FirepowerMultiplier@Cryticcal:
 		Modifier: 140
-		RequiresCondition: damagedcritical
+		RequiresCondition: damagedcritical && up_willofkane
 	ActorStatValues:
 		Upgrades: up_willofkane
 

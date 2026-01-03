@@ -821,7 +821,7 @@ SCACADEMY:
 		BuildPaletteOrder: 40
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~scbarracks
+		Prerequisites: ~sccommandcenter, scbarracks
 		Queue: Building, RABuilding
 		Description: Unlocks Jim Raynor, Firebat and Medic. Researches infantry upgrades.
 	Building:
@@ -857,7 +857,7 @@ SCENGINEERINGBAY:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~scbarracks
+		Prerequisites: ~sccommandcenter, scbarracks
 		Queue: Building, RABuilding
 		BuildDuration: 625
 		BuildDurationModifier: 100
@@ -907,7 +907,7 @@ SCBUNKER:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
-		Prerequisites: ~scbarracks
+		Prerequisites: ~sccommandcenter, scbarracks
 		Description: Static defense with fireports for up to 4 garrisoned soldiers.
 	Valued:
 		Cost: 1200
@@ -961,7 +961,7 @@ SCMISSILETURRET:
 		Name: Missile Turret
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~scengineeringbay
+		Prerequisites: ~sccommandcenter, scengineeringbay
 		Queue: Defence, RADefence
 		Description: Anti-aircraft base defense. Can detect cloaked units.
 	Building:
@@ -1016,7 +1016,7 @@ SCSENTINEL:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
-		Prerequisites: ~scbarracks
+		Prerequisites: ~sccommandcenter, scbarracks
 		Description: template-anti-infantry-defense.description
 	Valued:
 		Cost: 800
@@ -1100,7 +1100,7 @@ SCFACTORY:
 		Amount: 0
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~scbarracks
+		Prerequisites: ~sccommandcenter, scbarracks
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -1153,7 +1153,7 @@ SCARMORY:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~scfactory
+		Prerequisites: ~sccommandcenter, scfactory
 		Queue: Building, RABuilding
 		Description: Unlocks Goliath and Vehicle and Ship Upgrades.
 	Building:
@@ -1186,7 +1186,7 @@ SCSTARPORT:
 		Amount: 0
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: ~scfactory
+		Prerequisites: ~sccommandcenter, scfactory
 		Queue: Building, RABuilding
 		Description: Produces aircraft
 	Building:
@@ -1225,11 +1225,9 @@ SCSCIENCEFACILITY:
 	Power:
 		Amount: 0
 	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@swlimit:
-		Prerequisite: terrannuke
 	Buildable:
 		BuildPaletteOrder: 90
-		Prerequisites: ~scfactory, ~scstarport, !terrannuke
+		Prerequisites: ~sccommandcenter, scfactory, scstarport
 		Queue: Building, RABuilding
 		Description: Unlocks Battlecruiser, Ghost and Jim Raynor.
 	Building:
@@ -1267,7 +1265,7 @@ SCTerranMSLO:
 	Power:
 		Amount: 0
 	Buildable:
-		Prerequisites: ~scsciencefacility, ~techlevel.superweapons, !SCTerranMSLO
+		Prerequisites: ~sccommandcenter, scsciencefacility, ~techlevel.superweapons, !SCTerranMSLO
 		Description: actor-mslo.description
 	Building:
 		Footprint: xx xx
@@ -1642,7 +1640,7 @@ SCPHOTONCANNON:
 		Amount: -100
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~scforge
+		Prerequisites: ~scnexus, scforge
 		Queue: Defence, RADefence
 		Description: Basic Base defense. Can detect cloaked units.
 	Building:
@@ -1699,7 +1697,7 @@ SCCYBERNETICSCORE:
 		BuildPaletteOrder: 40
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~scgateway
+		Prerequisites: ~scnexus, scgateway
 		Queue: Building, RABuilding
 		Description: Unlocks Dragoon.
 	Building:
@@ -1734,7 +1732,7 @@ SCSHIELDBATTERY:
 		BuildSounds: pshbld03.aud
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~scgateway
+		Prerequisites: ~scnexus, scgateway
 		Queue: Building, RABuilding
 		Description: Automatically heals nearby units.
 	Selectable:
@@ -1797,7 +1795,7 @@ SCROBOTICSFACILITY:
 		Amount: 0
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~sccyberneticscore
+		Prerequisites: ~scnexus, sccyberneticscore
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -1840,7 +1838,7 @@ SCSTARGATE:
 		Amount: 0
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: ~sccyberneticscore
+		Prerequisites: ~scnexus, sccyberneticscore
 		Queue: Building, RABuilding
 		Description: Produces aircraft
 	Building:
@@ -1883,7 +1881,7 @@ SCCITADELOFADUN:
 		BuildPaletteOrder: 40
 		BuildDuration: 625
 		BuildDurationModifier: 100
-		Prerequisites: ~sccyberneticscore
+		Prerequisites: ~scnexus, sccyberneticscore
 		Queue: Building, RABuilding
 		Description: Unlocks Zeratul and Dark Templar.
 	Building:
@@ -1922,7 +1920,7 @@ SCROBOTICSSUPPORTBAY:
 		BuildPaletteOrder: 40
 		BuildDuration: 625
 		BuildDurationModifier: 100
-		Prerequisites: ~scroboticsfacility
+		Prerequisites: ~scnexus, scroboticsfacility
 		Queue: Building, RABuilding
 		Description: Unlocks Reaver.
 	Building:
@@ -1952,7 +1950,7 @@ SCFLEETBEACON:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~scstargate
+		Prerequisites: ~scnexus, scstargate
 		Queue: Building, RABuilding
 		Description: Unlocks Carrier and Purifier Beam support power.
 	Building:
@@ -2020,7 +2018,7 @@ SCTEMPLARARCHIVES:
 		BuildPaletteOrder: 40
 		BuildDuration: 750
 		BuildDurationModifier: 100
-		Prerequisites: ~sccitadelofadun, ~scgateway
+		Prerequisites: ~scnexus, sccitadelofadun, scgateway
 		Queue: Building, RABuilding
 		Description: Unlocks High Templar & Archon.
 	Building:
@@ -2060,7 +2058,7 @@ SCOBSERVATORY:
 		BuildPaletteOrder: 40
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~scroboticsfacility
+		Prerequisites: ~scnexus, scroboticsfacility
 		Queue: Building, RABuilding
 		Description: Unlocks Observer.
 	Building:
@@ -2099,7 +2097,7 @@ SCARBITERTRIBUNAL:
 		BuildPaletteOrder: 40
 		BuildDuration: 750
 		BuildDurationModifier: 100
-		Prerequisites: ~scstargate, ~sctemplararchives
+		Prerequisites: ~scnexus, scstargate, sctemplararchives
 		Queue: Building, RABuilding
 		Description: Unlocks Arbiter.
 	Building:
@@ -2242,7 +2240,7 @@ SCHATCHERY:
 		RequiresCondition: !sclair
 	ProvidesPrerequisite@hiveupgradeavailable:
 		Prerequisite: hiveupgradeavailable
-		RequiresCondition: !schive
+		RequiresCondition: sclair && !schive
 	Pluggable:
 		Offset: 0,0
 		Conditions:
@@ -2254,7 +2252,7 @@ SCHATCHERY:
 		Conditions:
 			sclair: schive
 		Requirements:
-			sclair: !schive
+			sclair: sclair && !schive
 	WithSpriteBody:
 		RequiresCondition: !sclair && !schive
 	WithSpriteBody@lair:
@@ -2353,7 +2351,7 @@ sclair:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: BuildingAddons
-		Prerequisites: ~scspawningpool, lairupgradeavailable
+		Prerequisites: ~schatchery, scspawningpool, lairupgradeavailable
 		Description: Unlocks Spire and Queen's Nest
 	Plug:
 		Type: schatchery
@@ -2369,7 +2367,7 @@ schive:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: BuildingAddons
-		Prerequisites: ~sclair, hiveupgradeavailable
+		Prerequisites: ~schatchery, sclair, hiveupgradeavailable
 		Description: Unlocks Ultralisk Cavern and Defiler Mound
 	Plug:
 		Type: sclair
@@ -2590,7 +2588,7 @@ scsporecolonyupgrade:
 	Buildable:
 		Queue: BuildingAddons
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
-		Description: Ground base defense.
+		Description: Zerg Ground Base Defense.
 	Plug:
 		Type: sccreepcolony
 	RenderSprites:
@@ -2605,9 +2603,45 @@ scsunkencolonyupgrade:
 	Buildable:
 		Queue: BuildingAddons
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
-		Description: Anti-aircraft base defense.
+		Description: Zerg Anti Air Base Defense.
 	Plug:
 		Type: sccreepcolony2
+	RenderSprites:
+		Image: scsporecolony
+
+scsunkencolony:
+	Inherits: SCCREEPCOLONY
+	-ProductionCostMultiplier@guardtower:
+	Tooltip:
+		Name: Sunken Colony
+	Valued:
+		Cost: 1250
+	Buildable:
+		Queue: Defence, RADefence
+		Prerequisites: ~schatchery
+		Description: Zerg Ground Base Defense.
+	GrantCondition:
+		Condition: sunken
+	Selectable:
+		Class: sccreepcolony
+	RenderSprites:
+		Image: scsunkencolony
+
+scsporecolony:
+	Inherits: SCCREEPCOLONY
+	-ProductionCostMultiplier@guardtower:
+	Tooltip:
+		Name: Spore Colony
+	Valued:
+		Cost: 1250
+	Buildable:
+		Queue: Defence, RADefence
+		Prerequisites: ~schatchery
+		Description: Zerg Anti Air Base Defense.
+	GrantCondition:
+		Condition: spore
+	Selectable:
+		Class: sccreepcolony
 	RenderSprites:
 		Image: scsporecolony
 
@@ -2804,7 +2838,7 @@ SCHYDRALISKDEN:
 		BuildPaletteOrder: 60
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~scspawningpool
+		Prerequisites: ~schatchery, scspawningpool
 		Queue: Building, RABuilding
 		Description: Unlocks Hydralisk.
 	Building:
@@ -2851,7 +2885,7 @@ SCQUEENSNEST:
 	Buildable:
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~sclair
+		Prerequisites: ~schatchery, sclair
 		Queue: Building, RABuilding
 		Description: Unlocks Queen and Kerrigan.
 	Building:
@@ -2910,7 +2944,7 @@ SCSPIRE:
 		BuildPaletteOrder: 80
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~sclair
+		Prerequisites: ~schatchery, sclair
 		Queue: Building, RABuilding
 		Description: Unlocks Mutalisk.
 	Building:
@@ -2977,7 +3011,7 @@ SCGREATERSPIRE:
 		BuildDuration: 500
 		BuildDurationModifier: 100
 		Queue: BuildingAddons
-		Prerequisites: ~sclair, greaterspireupgradeavailable
+		Prerequisites: ~schatchery, sclair, greaterspireupgradeavailable
 		Description: Unlocks multiple zerg air units.
 	Plug:
 		Type: scspire
@@ -3002,7 +3036,7 @@ SCULTRALISKCAVERN:
 		BuildPaletteOrder: 90
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~schive
+		Prerequisites: ~schatchery, schive
 		Queue: Building, RABuilding
 		Description: Unlocks Ultralisk.
 	Building:
@@ -3061,7 +3095,7 @@ SCDEFILERMOUND:
 	Buildable:
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Prerequisites: ~schive
+		Prerequisites: ~schatchery, schive
 		Queue: Building, RABuilding
 		Description: Unlocks Defiler.
 	Building:
@@ -3144,7 +3178,7 @@ SCOVERMIND:
 		Capacity: 10000
 	ProvidesPrerequisite@buildingname:
 	Buildable:
-		Prerequisites: ~schive, derricklimit
+		Prerequisites: ~schatchery, schive, derricklimit
 		Queue: Building, RABuilding
 		Description: Doubles Supply Limit. All Zerg cost half and produce twice as fast. Gives passive income.
 		IconPalette: windows256
@@ -3191,7 +3225,7 @@ SCINFESTEDCOMMANDCENTER:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 8020
-		Prerequisites: ~scovermind
+		Prerequisites: ~schatchery, scovermind
 		Queue: Building, RABuilding
 		Description: Unlocks Siege Tanks.
 		IconPalette: windows256
@@ -3415,6 +3449,8 @@ SCREAPER:
 	# 	Prerequisites: scacademy
 	Voiced:
 		VoiceSet: SCMarineVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3429,6 +3465,7 @@ SCMADCAP:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@stim: ^Stimpackable
 	Inherits@range: ^UraniumShellsUpgrade
 	Inherits@armor: ^TerranInfantryWeaponUpgrades
@@ -3457,50 +3494,17 @@ SCMADCAP:
 		Weapon: MadcapGun
 		MuzzleSequence: muzzle
 	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		ArmamentNames: primary, garrisoned
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		MaximumInstances: 10
-		RevokeDelay: 65
-		RevokeAll: false
-		IsCyclic: false
-		RevokeOnNewTarget: false
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
+		RevokeDelay: 60
+	GrantConditionOnAttack@elitegatling:
+		RevokeDelay: 30
 	WithMuzzleOverlay:
 	# ProductionTimeMultiplier@speedup:
 	# 	Multiplier: 50
 	# 	Prerequisites: scacademy
 	Voiced:
 		VoiceSet: SCMarineVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3559,6 +3563,8 @@ SCFIREBAT:
 	WithMuzzleOverlay:
 	Voiced:
 		VoiceSet: SCFirebatVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3623,6 +3629,8 @@ SCHARAKAN:
 	WithMuzzleOverlay:
 	Voiced:
 		VoiceSet: SCFirebatVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3671,6 +3679,8 @@ scmarauder:
 		Image: scmarauder
 	# Selectable:
 	# 	DecorationBounds: 1280, 1280
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3738,6 +3748,8 @@ SCGHOST:
 		ValidDamageStates: Critical
 	Voiced:
 		VoiceSet: SCGhostVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3806,6 +3818,8 @@ SCSILVERTONGUE:
 		ValidDamageStates: Critical
 	Voiced:
 		VoiceSet: SCSilvertongueVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3868,6 +3882,8 @@ SCMEDIC:
 		PipCount: 6
 	Voiced:
 		VoiceSet: SCMedicVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -3916,6 +3932,8 @@ SCJIMRAYNOR:
 		DecorationBounds: -24,0
 	Voiced:
 		VoiceSet: SCJimRaynorVoice
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -4599,8 +4617,8 @@ scwarhound:
 
 SCWRAITH:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -4682,8 +4700,8 @@ SCWRAITH:
 
 SCSUNDOG:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -4768,8 +4786,8 @@ SCSUNDOG:
 
 SCVALKYRIE:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
@@ -4828,8 +4846,8 @@ SCVALKYRIE:
 
 SCWYVERN:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -4887,8 +4905,8 @@ SCWYVERN:
 
 SCRAVEN:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AutoRepair: ^PrioritizeRepair
@@ -4966,8 +4984,8 @@ SCRAVEN:
 
 SCDROPSHIP:
 	Inherits: ^Helicopter
-	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -5032,11 +5050,11 @@ SCDROPSHIP:
 
 SCPYTHEAN:
 	Inherits: ^Helicopter
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@exp: ^GainsExperienceTD
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -5136,8 +5154,8 @@ SCPYTHEAN.Husk:
 
 SCMEDIVAC:
 	Inherits: ^Helicopter
-	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -5212,8 +5230,8 @@ SCMEDIVAC:
 
 SCBATTLECRUISER:
 	Inherits: ^Helicopter
-	Inherits@Template: ^SpaceshipTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^SpaceshipTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceGlobal
@@ -5339,9 +5357,9 @@ SCBATTLECRUISER:
 
 SCPHOBOS:
 	Inherits: ^Helicopter
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -5560,8 +5578,8 @@ scphobos.Husk:
 
 SCSCIENCEVESSEL:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@explode: ^HeliExplodeLarge
@@ -6265,6 +6283,7 @@ SCPROBE:
 
 SCZEALOT:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -6720,6 +6739,7 @@ SCHIGHTEMPLAR:
 
 SCDARKTEMPLAR:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -6913,6 +6933,7 @@ SCREAVER:
 
 SCOBSERVER:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@explode: ^HeliExplodeProtoss
 	Inherits@announce: ^AnnounceOnBuild
@@ -7390,6 +7411,7 @@ SCCORSAIR:
 
 SCCARRIER:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -7450,6 +7472,7 @@ SCCARRIER:
 
 SCSTARSHIPSOVEREIGN:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@exp: ^GainsExperienceTD
@@ -7582,6 +7605,7 @@ SCINTERCEPTOR:
 
 SCARBITER:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -7682,6 +7706,7 @@ SCPMCV:
 
 SCZERATUL:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -7728,6 +7753,7 @@ SCZERATUL:
 
 SCAMARANTH:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -7913,6 +7939,7 @@ SCPOSITRON:
 
 SCLEGIONNAIRE:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -7956,6 +7983,7 @@ SCLEGIONNAIRE:
 
 SCPATRIARCH:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -8445,7 +8473,6 @@ SCOVERLORD:
 SCBROODWEAVER:
 	Inherits: ^AirZerg
 	Inherits@Template: ^UnarmedTransportHelicopterTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -9635,8 +9662,10 @@ SCGOREMAW:
 	Inherits@ND: ^NotDevourable
 	Inherits@ZergBurrow: ^ZergBurrow
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergGroundArmorUpgrades
+	Inherits@swarmer: ^ZergSwarmerUpgrades
 	Tooltip:
 		Name: Goremaw
 	Valued:
@@ -9670,44 +9699,9 @@ SCGOREMAW:
 		Weight: 4
 		CustomPipType: blue
 	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		ArmamentNames: primary, garrisoned
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		MaximumInstances: 10
-		RevokeDelay: 75
-		RevokeAll: false
-		IsCyclic: false
-		RevokeOnNewTarget: false
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
+		RevokeDelay: 60
+	GrantConditionOnAttack@elitegatling:
+		RevokeDelay: 30
 	Voiced:
 		VoiceSet: SCUltraliskVoice ##########
 	WithShadow:
@@ -9719,7 +9713,7 @@ SCGOREMAW:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2, uplingattack, uplingspeed
 
 SCLURKER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -10133,7 +10127,6 @@ SCBEHEMOTH:
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@exp: ^GainsExperienceTD
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove

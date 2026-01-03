@@ -3184,7 +3184,7 @@ Player:
 		HighValueTargetTypes: fact.gdi, fact.nod, proc.gdi, proc.nod, weap, afld, hq.gdi, hq.nod, eye, tmpl, rafact.allies, rafact.soviet, rafact.japan, raproc.allies, raproc.soviet, jproc, raweap, ra_gigafactory, raweapa, modraweapj, dome.allies, dome.soviet, dome.japan, atek, stek, modjtek, gap, mslo, iron, pdox, jshrine, ra2gacnst, ra2nacnst, yrnacnst, ra2garefn, ra2narefn, yryarefn, ra2gaweap, ra2naweap, yrygweap, ra2gaairc, ra2naradr, ra2napsis, ra2gatech, ra2natech, yrygtech, ra2gaweat, ra2gacsph, ra2namisl, ra2nairon, yrygppet, yryggntc, aa_cgcnst, aa_cgrefn, aa_cgweap, aa_cgradr, aa_cgtech, aa_cgionc, aa_cgchao, steel_qacst, steel_qref, steel_qaweap, steel_qatech, steel_qaorbit, latin_cgcnst, latin_cgauto, latin_cgweap, latin_cgspy, latin_ca12hit, nax_conyard, nax_refin, nax_weap, nax_radar, nax_tek, nax_tech, nax_rocket, nax2_conyard, nax2_refin; nax2_weap, nax2_radar, nax2_tech, nax2_meteorray, nax2_gcore, futu_egcnst, futu_egrefn, futu_egweap2, futu_egtf, futu_egtech, construction_yard.ixian, refinery.atreides, heavy_factory.ixian, outpost.ixian research_centre.ixian, starport.ixian, storm_lasher_big, construction_yard.ordos, refinery.ordos, heavy_factory.ordos, outpost.ordos research_centre.ordos, starport.ordos, tsntmisl, tsntmislcabal, tsgtplug
 		HighValueTargetPriority: 50
 		AirToAirPriority: 25
-		BigAirThreats: gdifirehawk, mignuke, modbomber, rapierjumpjet, ra2beag, yrbpln1, ra2zep, yrdisk, d2k_farasha, steel_inspect, steel_cruiser, latin_mig, scbattlecruiser, scwyvern, sccarrier, scgladius, scguardian, scdevourer, scpythean, scphobos, scbehemoth, scstarshipsovereign
+		BigAirThreats: gdifirehawk, mignuke, modbomber, rapierjumpjet, ra2beag, yrbpln1, ra2zep, yrdisk, d2k_farasha, aa_phoenix, steel_inspect, steel_cruiser, latin_mig, scbattlecruiser, scwyvern, sccarrier, scgladius, scguardian, scdevourer, scpythean, scphobos, scbehemoth, scstarshipsovereign
 		AirSquadTargetTypes:
 			heli: Aircraft, Ground, Naval
 			orca: Aircraft, Ground, Naval
@@ -3217,7 +3217,7 @@ Player:
 			d2k_ixbomber: Ground
 			tsorcab: Ground, Naval
 			tsscrin: Aircraft, Ground, Naval
-		GuerrillaTypes: gdirig, rmbo.gdi, rmbo.nod, apc, bggy, bike, ltnk, ftnk, jeep, mtnk, mlrs, gdiarcher, mssm, stnk, orca, heli, nodvenom, chembike, chemstnk, nodbuggy2, nodltnk2, nodftnk2, nodspecter, nodlasercommando, gdiassaultapc, gdihumvee, gdipredator, gdiexosuit, gdihavoc, dog, cyberdog, sniper, e7, ra_grad, 1tnk, 2tnk, 3tnk, hammertank, ttnk2, kotin, rajeep, raapc, ftrk, modkubel, modtypej, modhover, raheli, mh60, yak, yaktesla, yakarmored, yaknuclear, hind, ra_kamov, jhind, modkami,  reconranger, modtiger, ctnk, sapc, volkov, modgtnk, monstertank, modbtr, rocketangel, hakurei, modcarr, typechiha, modhovert,  modbggy, ra2fv, ra2htk, ra2dron, yrrobo, ra2sref, yrcaos, yrdisk, yrmind, rocket_raider_ixian, shock_raider, combat_tank_ixian, storm_raider, heavy_rocket_raider_ixian, combat_siege_tank, d2k_air_drone, d2k_heavy_air_drone, aa_viper, steel_mako, aa_pelican, latin_yakolev, ra2hind, sczergling, sctalon, scsporemaw, schydralisk, scspithid, scswarmling, scshriek, scmutalisk, scscourge, scqueen, scultralisk, scgorekraken, schermit, scgoremaw, sclurker, scinfestedterran, scdefiler, scbroodling, sckerriganzerg, scbehemoth, scmarine, screaper, scmadcap, scfirebat, scharakan, scmarauder, scghost, scsilvertongue, scjimraynor, scvulture, scsiegetank, scmatador, sccyclone, scgoliath, scgoliath2, scwarhound, scwraith, scsundog, scwyvern, scpythean, scbattlecruiser, scphobos, sczealot, scdragoon, scidol, schightemplar, scdarktemplar, screaver, scobserver, scarchon, scscout, scepigraph, scgladius, sccorsair, sccarrier, scstarshipsovereign, scarbiter, sczeratul, scamaranth, scatreus, scpositron, sclegionnaire, scpatriarch, wc2_human_footman, wc2_human_elven_archer, wc2_human_elven_ranger, wc2_human_knight, wc2_human_paladin, wc2_human_mage, wc2_human_gnomish_flying_machine, wc2_human_gryphon_rider, wc2_orc_grunt, wc2_orc_troll_axethrower, wc2_orc_troll_berserker, wc2_orc_ogre, wc2_orc_ogremage, wc2_orc_deathknight, wc2_orc_goblin_zeppelin, wc2_orc_dragon
+		GuerrillaTypes: gdirig, rmbo.gdi, rmbo.nod, apc, bggy, bike, ltnk, ftnk, jeep, mtnk, mlrs, gdiarcher, mssm, stnk, orca, heli, nodvenom, chembike, chemstnk, nodbuggy2, nodltnk2, nodftnk2, nodspecter, nodlasercommando, gdiassaultapc, gdihumvee, gdipredator, gdiexosuit, gdihavoc, dog, cyberdog, sniper, e7, ra_grad, 1tnk, 2tnk, 3tnk, hammertank, ttnk2, kotin, rajeep, raapc, ftrk, modkubel, modtypej, modhover, raheli, mh60, yak, yaktesla, yakarmored, yaknuclear, hind, ra_kamov, jhind, modkami,  reconranger, modtiger, ctnk, sapc, volkov, modgtnk, monstertank, modbtr, rasamurai, rocketangel, hakurei, modcarr, typechiha, modhovert,  modbggy, ra2fv, ra2htk, ra2dron, yrrobo, ra2sref, yrcaos, yrdisk, yrmind, rocket_raider_ixian, shock_raider, combat_tank_ixian, storm_raider, heavy_rocket_raider_ixian, combat_siege_tank, d2k_air_drone, d2k_heavy_air_drone, aa_alligator, aa_samurai, aa_shinobi, aa_asdf, aa_commando, aa_dragonfly, aa_lynx, aa_pulv, aa_ptnk, aa_viper, aa_ftnk, aa_hotwi, aa_pelican, aa_wtrt, aa_mlrs, steel_mako, aa_pelican, latin_yakolev, ra2hind, sczergling, sctalon, scsporemaw, schydralisk, scspithid, scswarmling, scshriek, scmutalisk, scscourge, scqueen, scultralisk, scgorekraken, schermit, scgoremaw, sclurker, scinfestedterran, scdefiler, scbroodling, sckerriganzerg, scbehemoth, scmarine, screaper, scmadcap, scfirebat, scharakan, scmarauder, scghost, scsilvertongue, scjimraynor, scvulture, scsiegetank, scmatador, sccyclone, scgoliath, scgoliath2, scwarhound, scwraith, scsundog, scwyvern, scpythean, scbattlecruiser, scphobos, sczealot, scdragoon, scidol, schightemplar, scdarktemplar, screaver, scobserver, scarchon, scscout, scepigraph, scgladius, sccorsair, sccarrier, scstarshipsovereign, scarbiter, sczeratul, scamaranth, scatreus, scpositron, sclegionnaire, scpatriarch, wc2_human_footman, wc2_human_footman2, wc2_human_elven_archer, wc2_human_elven_ranger, wc2_human_high_elf_archer, wc2_human_knight, wc2_human_knight2, wc2_human_paladin, wc2_human_siege_engine, wc2_human_mortarteam2, wc2_human_mage, wc2_human_archmage, wc2_human_high_elf_priest, wc2_human_high_elf_sorceress, wc2_human_gnomish_flying_machine, wc2_human_gryphon_rider, wc2_orc_grunt, wc2_orc_troll_axethrower, wc2_orc_troll_berserker, wc2_orc_ogre, wc2_orc_ogremage, wc2_orc_deathknight, wc2_orc_goblin_zeppelin, wc2_orc_dragon
 	SendUnitToAttackBotModule:
 		RequiresCondition: genericbot
 		ActorTypesAndAttackOptions:
@@ -3396,6 +3396,7 @@ Player:
 			yrbfrt.bot: All
 			yrbfrt.bot2: All
 			aa_dragonfly: All
+			aa_wtrt: All
 			latin_cgpile: All
 			latin_cgup: All
 			latin_ngbunk2: All
@@ -3467,7 +3468,7 @@ Player:
 		NavalProductionTypes: cncsyrd, cncspen, raspen, ra1syrd, ra1jsyrd, yrygyard, ra2gayard, ra2nayard, aa_cgyard, latin_cgyard, nax_naval
 		SiloTypes: silo, rasilo, scsupplydepot, scpylon, scoverlord, d2k_silo, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, tkmpowerplant
 		AntiAirTypes: sam, atwr, agun, rasam, hbox, jmgnest, ra2nasam, ra2naflak, yrygggun, yrngbnkr.bot, large_gun_turret, aa_cgpuls, aa_cghype, steel_fedaa, latin_sml, latin_aatur, nax_flak88, nax2_twr, futu_ggmlt, scmissileturret, sccreepcolony, tkmbunkerquadturret
-		DefenseTypes: gtwr, atwr, gun, nodlaserturret, obli, pbox, hbox, ragun, gap, modartyturret, ftur, tsla, modpillboxfort, ra2gapill, ra2atesla, ra2gtgcan, yrngbnkr, ra2nalasr, ra2naflak, ra2tesla, yrygggun, yrngtbnk, aa_cgflam, aa_cgpnch, aa_cgrail, aa_cgchtw, aa_cgplas, machine_gun_turret, medium_gun_turret, large_gun_turret, storm_lasher, steel_fedturret, steel_qcannon, steel_bfg10k, latin_ngdshktur, latin_ngbunk2, latin_cgup, latin_sml, nax_twr, nax_flak88, nax2_twr, nax2_sturmcann, futu_ggmlt, futu_gggun, scbunker, sccreepcolony, scphotoncannon, wc2_human_scout_tower, wc2_orc_watch_tower, tkmbunker, tkmbunkertankturret
+		DefenseTypes: gtwr, atwr, gun, nodlaserturret, obli, pbox, hbox, ragun, gap, modartyturret, ftur, tsla, modpillboxfort, ra2gapill, ra2atesla, ra2gtgcan, yrngbnkr, ra2nalasr, ra2naflak, ra2tesla, yrygggun, yrngtbnk, aa_cgflam, aa_cgpnch, aa_cgrail, aa_cgchtw, aa_cgplas, machine_gun_turret, medium_gun_turret, large_gun_turret, storm_lasher, steel_fedturret, steel_qcannon, steel_bfg10k, latin_ngdshktur, latin_ngbunk2, latin_cgup, latin_sml, nax_twr, nax_flak88, nax2_twr, nax2_sturmcann, futu_ggmlt, futu_gggun, scbunker, sccreepcolony, scphotoncannon, wc2_human_scout_tower, wc2_human_sunwell, wc2_orc_watch_tower, tkmbunker, tkmbunkertankturret
 		FragileTypes: hq.gdi, hq.nod, eye, tmpl, dome.allies, dome.soviet, dome.japan, atek, stek, modjtek, jshrine, mslo, pdox, iron, modspaceport, ra2gaairc, ra2naradr, ra2napsis, ra2gatech, ra2natech, yrygtech, ra2gaorep, ra2gaspysat, yrgarobo, ra2nanrct, yrngindp, ra2yclon, yrygcomd, ra2gaweat, ra2gacsph, ra2namisl, ra2nairon, yrygppet, yryggntc, aa_cgradr, aa_cgtech, aa_cgionc, aa_cgchao, aa_cgmiac, outpost.ixian, outpost.ordos, research_centre.ixian, starport.ixian, research_centre.ordos, starport.ordos, storm_lasher_big, oilb.building, oilb.ra2, oilb.d2k, steel_qtradr, steel_qatech, latin_radar, latin_cgspy, latin_cgup, latin_cgte, latin_ca12hit, nax_radar, nax_tek, nax_tech, nax_sausage, nax_beer, nax_rocket, nax2_radar, nax2_tech, nax2_dairy, nax2_meteorray, futu_egtf, futu_egtech, futu_egshock, scengineeringbay, scacademy, scarmory, scsciencefacility, scterranmslo, wc2_human_goldmine.bot, wc2_orc_goldmine.bot, tkmradar, tkmtechcenter
 		BuildingIntervals:
 		#Refinery
@@ -4518,9 +4519,6 @@ Player:
 			schive: 10
 			scdrone: 50
 			scbotoverlord: 10
-			sccreepcolony: 40
-			scsporecolonyupgrade: 20
-			scsunkencolonyupgrade: 20
 			scextractor: 30
 			sczvespenegascollector: 1
 			scspawningpool: 1
@@ -4533,6 +4531,11 @@ Player:
 			scdefilermound: 1
 			scovermind: 1
 			scinfestedcommandcenter: 1
+			sccreepcolony: 20
+			scsunkencolony: 10
+			scsporecolony: 10
+			scsporecolonyupgrade: 1
+			scsunkencolonyupgrade: 1
 			##################### BuildingFractions Warcraft 2 Humans
 			wc2_human_peasant: 20
 			wc2_human_townhall: 1
@@ -4545,12 +4548,15 @@ Player:
 			wc2_human_blacksmith: 5
 			wc2_human_stables: 1
 			wc2_human_church: 1
+			wc2_human_sunwell: 1
 			wc2_human_mage_tower: 1
 			wc2_human_shipyard: 1
 			wc2_human_foundry: 1
 			wc2_human_oil_refinery: 1
 			wc2_human_oil_platform: 1
-			wc2_human_scout_tower: 40
+			wc2_human_scout_tower: 20
+			wc2_human_guard_tower: 10
+			wc2_human_cannon_tower: 10
 			wchumancannontowerupgrade: 1
 			wchumanguardtowerupgrade: 1
 			wc2_human_goldmine.bot: 1
@@ -4571,7 +4577,9 @@ Player:
 			wc2_orc_foundry: 1
 			wc2_orc_oil_refinery: 1
 			wc2_orc_oil_platform: 1
-			wc2_orc_watch_tower: 40
+			wc2_orc_watch_tower: 20
+			wc2_orc_guard_tower: 10
+			wc2_orc_cannon_tower: 10
 			wcorcguardtowerupgrade: 1
 			wcorccannontowerupgrade: 1
 			wc2_orc_goldmine.bot: 1
@@ -5422,6 +5430,7 @@ Player:
 			aa_shinobi: 1
 			ra2engineer.asian: 1
 			aa_asdf: 5
+			aa_commando: 1
 			aa_oilt: 1
 			aa_dragonfly: 1
 			aa_quas: 3
@@ -5438,23 +5447,27 @@ Player:
 			aa_phoenix: 3
 			aa_wtrt: 5
 			aa_mlrs: 5
-			upaa_japrif: 1
 			upaa_archer: 1
 			upaa_samurai: 1
 			upaa_asdf: 1
-			upaa_cghype: 1
-			upaa_cgchao: 1
-			upaa_chaomine: 1
-			upaa_cgplas: 1
-			upaa_ftnk: 1
-			upaa_ptnk: 1
+			upaa_warturtle: 1
+			upaa_japrif: 1
+			upaa_mlrs: 1
 			upaa_mecha: 1
 			upaa_railt2: 1
-			upaa_gren: 1
-			upaa_lynx: 1
-			upaa_banzai: 1
-			upaa_airborne: 1
+			upaa_ftnk: 1
+			upaa_plast: 1
+			upaa_ptnk: 1
+			upaa_howitzer: 1
 			upaa_tsunami: 1
+			asian_upgrade_infantryspec: 1
+			asian_upgrade_pulverizer: 1
+			asian_upgrade_diplomacy: 1
+			asian_upgrade_phalanx: 1
+			asian_upgrade_dragonfire: 1
+			asian_upgrade_quasar: 1
+			asian_upgrade_banzai: 1
+			asian_team_upgrade_dragonway: 1
 			########### Units Consortium
 			steel_qmin: 10
 			steel_fedinf: 1
@@ -5493,7 +5506,6 @@ Player:
 			upsteel_beholder: 1
 			upsteel_cruiser: 1
 			upsteel_scalpel: 1
-			upsteel_cruiser_f: 1
 			upsteel_emp: 1
 			upsteel_empquantumweapons: 1
 			upsteel_shielresistance: 1
@@ -5513,6 +5525,7 @@ Player:
 			latin_yakolev: 1
 			latin_mig: 1
 			uplatin_mili: 1
+			uplatin_cartelrockets: 1
 			uplatin_ngbunk2: 1
 			uplatin_up_tech1: 1
 			latin_up_chaingun: 1
@@ -5691,7 +5704,7 @@ Player:
 			upixians_stormraider: 1
 			upixians_stormlasher: 1
 			upixians_ixraider: 1
-			upixians_combatsiege: 1
+			upixians_siegetank: 1
 			upixians_neocymek: 1
 			upixians_projector: 1
 			upixians_ixdrone: 1
@@ -5988,7 +6001,7 @@ Player:
 			scpylonexpand: 100
 			#################### UnitsToBuild ZERG
 			scoverlord: 10
-			scdrone: 10
+			scdrone: 100
 			sczmcv: 10
 			sczergling: 1
 			schydralisk: 1
@@ -6042,14 +6055,24 @@ Player:
 			scbehemoth: 1
 			##################### UnitsToBuild Warcraft 2 Humans
 			wc2_human_peasant: 10
+			wc2_human_militia2: 10
 			wc2_human_footman: 5
+			wc2_human_footman2: 5
 			wc2_human_elven_archer: 3
 			wc2_human_elven_ranger: 5
+			wc2_human_high_elf_archer: 5
+			wc2_human_rifleman: 5
 			wc2_human_knight: 3
+			wc2_human_knight2: 3
 			wc2_human_paladin: 5
 			wc2_human_ballista: 1
+			wc2_human_siege_engine: 1
 			wc2_human_demolitionsquad: 1
+			wc2_human_mortarteam2: 1
 			wc2_human_mage: 1
+			wc2_human_archmage: 1
+			wc2_human_high_elf_priest: 1
+			wc2_human_high_elf_sorceress: 1
 			wc2_human_oil_tanker: 1
 			wc2_human_elven_destroyer: 1
 			wc2_human_transport: 1
@@ -6067,7 +6090,9 @@ Player:
 			wc2_h_str_shield2: 1
 			wc2_h_str_arrow: 1
 			wc2_h_str_arrow2: 1
+			wc2_upgrade_footman: 1
 			wc2_h_rangerupg: 1
+			wc2_upgrade_high_elf_archer: 1
 			wc2_h_ranger_longbow: 1
 			wc2_h_ranger_scouting: 1
 			wc2_h_ranger_marksman: 1
@@ -6078,6 +6103,7 @@ Player:
 			wc2_h_str_navyshield: 1
 			wc2_h_str_navyshield2: 1
 			wc2_h_paladinupg: 1
+			wc2_upgrade_paladin2: 1
 			wc2_h_healingupg: 1
 			wc2_h_exorcismupg: 1
 			wc2_h_slowupg: 1
@@ -6086,11 +6112,15 @@ Player:
 			##################### UnitsToBuild Warcraft 2 Orcs
 			wc2_orc_peon: 10
 			wc2_orc_grunt: 5
+			wc2_orc_grunt2: 5
 			wc2_orc_troll_axethrower: 3
 			wc2_orc_troll_berserker: 5
+			wc2_orc_troll_spearthrower: 5
 			wc2_orc_ogre: 3
 			wc2_orc_ogremage: 5
 			wc2_orc_catapult: 1
+			wc2_orc_siege_engine: 1
+			wc2_orc_kodo_beast: 1
 			wc2_orc_goblin_sappers: 1
 			wc2_orc_deathknight: 1
 			wc2_orc_oil_tanker: 1
@@ -6110,7 +6140,9 @@ Player:
 			wc2_o_str_shield2: 1
 			wc2_o_str_throwaxe: 1
 			wc2_o_str_throwaxe2: 1
+			wc2_upgrade_grunt: 1
 			wc2_o_berserkerupg: 1
+			wc2_upgrade_troll_spearthrower: 1
 			wc2_o_berserker_lighteraxes: 1
 			wc2_o_berserker_scouting: 1
 			wc2_o_berserker_regen: 1

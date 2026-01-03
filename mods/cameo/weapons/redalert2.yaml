@@ -9,10 +9,16 @@
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_piff
 		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_piff
+		ExplosionPalette: ra2effect
 
 ^RA2Chaingun:
 	Inherits: ^Chaingun
 	Warhead@Effect: CreateEffect
+		Explosions: ra2_piffs
+		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
 		Explosions: ra2_piffs
 		ExplosionPalette: ra2effect
 

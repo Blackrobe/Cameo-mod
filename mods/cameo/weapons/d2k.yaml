@@ -2026,7 +2026,7 @@ DeathHandCluster:
 # 		Weapon: SardaukarEliteDroppod1
 # 		Amount: 5
 # 		Delay: 75
-# 	Warhead@2: FireShrapnel
+# 	Warhead@FireShrapnel: FireShrapnel
 # 		InvalidTargets: FireImmune
 # 		Weapon: SardaukarChiefDropPod1
 # 		Amount: 1
@@ -3266,26 +3266,47 @@ autogun_turret:
 		Damage: 1
 
 autogun_tank:
+	Inherits: ^D2KMissile
 	Inherits: ^HeavyCannon
-	Inherits: ^SmallArms
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^FlakWeapon
+	Inherits: ^MediumMissile
 	Inherits: ^Chaingun
-	ReloadDelay: 22
+	ReloadDelay: 24
 	Burst: 4
 	BurstDelays: 2
-	Range: 6500
+	Range: 7480
 	-Report:
 	StartBurstReport: 20MMGUN1.WAV
 	ValidTargets: Ground, Water, Trees, Air
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
 	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-	Warhead@SmallArms: SpreadDamage
+	Warhead@HeavyAAWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
@@ -3294,25 +3315,39 @@ autogun_tank:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+	Warhead@Effect: CreateEffect
+		ExplosionPalette: effect
+		Explosions: poof
+		ImpactSounds: xplos.aud
+		ValidTargets: Ground, Water
 
 autogun_tank_small:
-	Inherits: ^SmallArms
+	Inherits: ^FlakWeapon
+	Inherits: ^MediumMissile
 	Inherits: ^Chaingun
-	ReloadDelay: 22
+	ReloadDelay: 24
 	Burst: 4
 	BurstDelays: 2
-	Range: 6200
+	Range: 6220
 	-Report:
 	StartBurstReport: 20MMGUN1.WAV
 	ValidTargets: Ground, Water, Trees, Air
-	Warhead@SmallArms: SpreadDamage
+	Warhead@FlakWeapon: SpreadDamage
 		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@Effect: CreateEffect
+		Explosions: poof
+		ImpactSounds: xplos.aud
+		ValidTargets: Ground, Water
 
 d2k_sardaukar_elite:
 	Inherits: autogun_turret
@@ -4587,7 +4622,7 @@ d2k_chemgun:
 # 		InvalidTargets: FireImmune
 # 		Weapon: DesertPhantoms
 # 		Amount: 1
-# 	Warhead@2: FireShrapnel
+# 	Warhead@FireShrapnel: FireShrapnel
 # 		InvalidTargets: FireImmune
 # 		Weapon: DesertPhantoms
 # 		Amount: 1

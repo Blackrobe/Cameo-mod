@@ -1765,6 +1765,7 @@ ra_commissar:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
 	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
+	-ExternalCondition@PropagandaEffect:
 	Tooltip:
 		Name: Commissar
 	Valued:
@@ -12626,6 +12627,8 @@ MODGTNK:
 	RangeMultiplier@GattlingSpeed3:
 		RequiresCondition: ammo <= 1
 		Modifier: 115
+	ReloadDelayMultiplier@ra_upgrade_autoloaders:
+		Modifier: 80
 	ActorStatValues:
 		Upgrades: ra_doctrine_industrialefficiency, ra_doctrine_teslatech, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, upgtnk, ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 

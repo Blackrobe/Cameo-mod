@@ -2787,6 +2787,9 @@ FirehawkMissiles:
 
 FirehawkBomb:
 	Inherits: ^HeavyBomb
+	Inherits: ^NuclearWarhead
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^MediumFlameWeapon
 	ReloadDelay: 50
 	Range: 1250
 	Burst: 2
@@ -2800,12 +2803,34 @@ FirehawkBomb:
 		Shadow: True
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Ship, Trees
-		Damage: 40000
-		Spread: 2000
+		Damage: 10000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Ship, Trees
-		Damage: 20
-		Spread: 2000
+		Damage: 5
+	Warhead@NuclearWarhead: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	Warhead@MediumFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
 
 ##########################
 # TIBERIAN DAWN EXPANSION

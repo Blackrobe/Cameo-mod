@@ -813,26 +813,29 @@ wc2_human_sunwell:
 	make:
 		Filename: AllianceSunwell2mk.png
 		Scale: 0.5
-		length: 11
-		Tick: 500
+		Length: *
+		Tick: 110
 	idle:
-		length: 5
-		Tick: 500
+		Length: 4
+		Tick: 200
 	damaged-idle:
-		length: 5
-		Tick: 500
+		Length: 4
+		Tick: 200
 	critical-idle:
-		length: 5
-		Tick: 500
+		Length: 4
+		Tick: 200
 	water:
-		length: 5
-		Tick: 500
+		Length: 4
+		Tick: 200
 	damaged-water:
-		length: 5
-		Tick: 500
+		Length: 4
+		Tick: 200
 	critical-water:
-		length: 5
-		Tick: 500
+		Length: 4
+		Tick: 200
+	dead:
+		Length: *
+		Tick: 5
 
 ####################################################################################################
 #		UNITS human2
@@ -1346,10 +1349,10 @@ wc2_human_high_elf_archer:
 		Length: 8
 		Facings: 8
 
-wc2_human_rifelman:
+wc2_human_rifleman:
 	Inherits: ^WC2HumanInfantry
 	icon:
-		Filename: wc2_Rifelman_icon.png
+		Filename: wc2_Rifleman_icon.png
 	Defaults:
 		Filename: AllianceRifleman2.png
 	stand:
@@ -1764,7 +1767,7 @@ wc2_human_high_elf_sorceress:
 		Length: 7
 		Facings: 8
 
-wc2_human_arhmage:
+wc2_human_archmage:
 	Inherits: ^WC2HumanInfantry
 	icon:
 		Filename: wc2_archmage_icon.png
@@ -2504,6 +2507,29 @@ wc2_orc_grunt:
 	icon:
 		Start: 1
 
+wc2_orc_grunt2:
+	Inherits: ^WC2OrcInfantry
+	icon:
+		Filename: HordeGruntIcon.png
+	Defaults:
+		Filename: HordePromoGrunt-135.png
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 120
+		Length: 8
+	die:
+		Start: 128
+		Length: 7
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
+
 wc2_orc_troll_axethrower:
 	Defaults:
 		Filename: wc2_orc_troll_axethrower.shp
@@ -2638,6 +2664,59 @@ wc2_orc_troll_berserker:
 				Frames: 36, 37, 7, 38, 39, 7
 	icon:
 		Start: 3
+
+wc2_orc_troll_spearthrower:
+	Inherits: ^WC2OrcInfantry
+	icon:
+		Filename: HordeHeadhunterIcon.png
+	Defaults:
+		Filename: HordeHeadhunter-136.png
+		Scale: 1
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 120
+		Length: 10
+	die:
+		Start: 130
+		Length: 6
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
+
+wc2_orc_kodo_beast:
+	Inherits: ^wc2_status_icons
+	Defaults:
+		Filename: HordeKodoBeast.png
+	stand:
+		Facings: 8
+	idle:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
+		Tick: 80
+	die:
+		Start: 120
+		Length: 16
+		Tick: 160
+	die-crushed:
+		Start: 120
+		Length: 16
+		Tick: 160
+	icon:
+		Filename: HordeKodoBeastIcon.png
 
 wc2_orc_ogre:
 	Defaults:
@@ -2938,6 +3017,35 @@ wc2_orc_catapult:
 		Tick: 800
 	icon:
 		Start: 6
+
+wc2_orc_siege_engine:
+	Inherits: ^wc2_status_icons
+	Defaults:
+		Filename: wc2_siege_engine.png
+	stand:
+		Facings: 8
+	idle:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 60
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
+		Tick: 80
+	die:
+		Start: 120
+		Length: 10
+		Tick: 100
+	die-crushed:
+		Start: 120
+		Length: 10
+		Tick: 100
+	icon:
+		Filename: wc2_siege_engine_icon.png
 
 wc2_orc_goblin_sappers:
 	Defaults:

@@ -2341,6 +2341,9 @@ explosion:
 		Scale: 2
 	pulse_explosion_small:
 		Filename: tspulsefx2.shp
+	mobileemp_small:
+		Filename: tsmempfx.shp
+		Tick: 60
 	mobileemp:
 		Filename: tsmempfx.shp
 		Scale: 2
@@ -2917,23 +2920,27 @@ ts_crate:
 
 xcratea:
 	idle:
+		Scale: 2
 		Filename: xcrate.shp
 		ZOffset: -511
 
 xcrateb:
 	idle:
+		Scale: 2
 		Filename: xcrate.shp
 		Start: 1
 		ZOffset: -511
 
 xcratec:
 	idle:
+		Scale: 2
 		Filename: xcrate.shp
 		Start: 2
 		ZOffset: -511
 
 xcrated:
 	idle:
+		Scale: 2
 		Filename: xcrate.shp
 		Start: 3
 		ZOffset: -511

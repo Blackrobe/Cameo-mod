@@ -401,7 +401,7 @@ tkmrefinery:
 		Name: TKM Ore Refinery
 	Buildable:
 		BuildPaletteOrder: 11
-		Prerequisites: ~tkmcommandcenter, ~tkmpowerplant
+		Prerequisites: ~tkmcommandcenter, tkmpowerplant
 	Building:
 		Footprint: xxx= xxx= xxx=
 		Dimensions: 4,3
@@ -487,7 +487,7 @@ tkmbarracks:
 		Prerequisite: RA2Barracks
 	Buildable:
 		BuildPaletteOrder: 13
-		Prerequisites: ~tkmcommandcenter, ~tkmpowerplant
+		Prerequisites: ~tkmcommandcenter, tkmpowerplant
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -519,7 +519,7 @@ tkmfactory:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 14
-		Prerequisites: ~tkmcommandcenter, ~tkmrefinery
+		Prerequisites: ~tkmcommandcenter, tkmrefinery
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -569,7 +569,7 @@ tkmairpad:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 16
-		Prerequisites: ~tkmcommandcenter, ~tkmradar
+		Prerequisites: ~tkmcommandcenter, tkmradar
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -606,7 +606,7 @@ tkmradar:
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 15
-		Prerequisites: ~tkmcommandcenter, ~tkmfactory
+		Prerequisites: ~tkmcommandcenter, tkmfactory
 		Description: Provides TKM technologies.
 	Production@Addons:
 		Produces: Addons
@@ -642,7 +642,7 @@ tkmtechcenter:
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 17
-		Prerequisites: ~tkmcommandcenter, ~tkmradar
+		Prerequisites: ~tkmcommandcenter, tkmradar
 		Description: Provides advanced TKM technologies.
 	Production@Addons:
 		Produces: Addons
@@ -681,7 +681,7 @@ tkmbunker:
 		Name: TKM Bunker
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
+		Prerequisites: ~tkmcommandcenter, tkmbarracks
 		Queue: Defence, RADefence
 		Description: template-anti-infantry-defense.description
 	Building:
@@ -737,7 +737,7 @@ tkmbunkerquadturret:
 		Name: TKM Quad Turret Bunker
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
+		Prerequisites: ~tkmcommandcenter, tkmbarracks
 		Queue: Defence, RADefence
 		Description: template-anti-infantry-defense.description
 	Building:
@@ -786,7 +786,7 @@ tkmbunkertankturret:
 		Name: TKM Tank Turret Bunker
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~tkmcommandcenter, ~tkmbarracks
+		Prerequisites: ~tkmcommandcenter, tkmbarracks
 		Queue: Defence, RADefence
 		Description: template-anti-infantry-defense.description
 	Building:
@@ -963,6 +963,7 @@ tkmjug:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@infantryweapon: ^tkminfantryupgrade
@@ -1006,46 +1007,6 @@ tkmjug:
 	GrantConditionOnPrerequisite@uptkmapbullets:
 		Condition: uptkmapbullets
 		Prerequisites: uptkmapbullets
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 22
-		MaximumInstances: 5
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 11
-		MaximumInstances: 5
 	AttackFrontal:
 		FacingTolerance: 2
 	# Selectable:
@@ -1434,12 +1395,11 @@ tkmvon:
 	Inherits@cloak: ^CloakedVehicle
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
-	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@infantryweapon: ^tkminfantryupgrade
-	Valued:
-		Cost: 3000
 	Tooltip:
 		Name: Von
+	Valued:
+		Cost: 3000
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tkmbarracks, ~tkmradar, ~!tkmvon
