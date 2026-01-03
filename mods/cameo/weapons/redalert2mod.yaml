@@ -7778,6 +7778,32 @@ Naxis_Jagerline_AA:
 		Explosions: med_frag
 		ImpactSounds: kaboom25.aud
 		ValidTargets: Ground, Ship, Trees
+Rammax_Sabot:
+	Inherits: ^Chaingun
+	Inherits: ^LaserWeapon
+	Inherits: ^TeslaWeapon
+	Inherits: ^TSLaserEffect
+	ReloadDelay: 15
+	Range: 3c0
+	StartBurstReport: vifvrepa.wav
+	ValidTargets: Ground, Water
+	Projectile: LaserZap
+		Width: 128
+		Duration: 12
+		ZOffset: 2047
+		Color: 8888FFFF
+		SecondaryBeam: true
+		SecondaryBeamWidth: 64
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFFFF
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 5
 ####################################################################################################
 #		Red Alert 2 Syndicate
 ####################################################################################################

@@ -2713,6 +2713,28 @@ latin_ltnk:
 	muzzle-2:
 		Filename: ra2_vtmuzzle.shp
 		Length: *
+latin_tortuga:
+	Inherits: ^RA2CannonMuzzle
+	Defaults:
+		Scale: 0.8
+	idle:
+		Filename: latin_tortuga.png
+		Start: 64
+		Facings: 64
+		Offset: 0,5
+	turret:
+		Filename: latin_tortuga.png
+		Facings: 64
+		Offset: 0,5
+	icon:
+		Filename: latin_tortuga_icon.png
+		AddExtension: False
+	muzzle:
+		Filename: ra2_gunfire.shp
+		Length: *
+	muzzle-2:
+		Filename: ra2_vtmuzzle.shp
+		Length: *
 
 latin_mtnk:
 	Inherits: ^RA2CannonMuzzle
@@ -3201,6 +3223,16 @@ latin_sub:
 		Length: *
 	icon:
 		Filename: latin_sub_icon.shp
+latin_rammax:
+	idle:
+		Filename: latin_rammax.png
+		Scale: 0.5
+		Facings: 64
+	muzzle:
+		Filename: ra2_gunfire.shp
+		Length: *
+	icon:
+		Filename: latin_rammax_icon.png
 
 latin_up_tech1:
 	icon:
