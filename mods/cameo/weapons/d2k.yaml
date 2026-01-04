@@ -1286,25 +1286,28 @@ IxianEmpBomb:
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 30000
-		Spread: 3000
+		Spread: 1500
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 15000
-		Spread: 1500
+		Spread: 3000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 15
-		Spread: 1500
+		Spread: 6000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		InvalidTargets: Infantry
 	Warhead@EMPUnit: AffectsIntegrity
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 120000
-		Spread: 12000
+		Spread: 4000
 	Warhead@Effect: CreateEffect
 		Explosions: mobileemp
 		ExplosionPalette: ra2unit

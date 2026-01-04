@@ -282,6 +282,9 @@ World:
 		Upgrades: up_elitecapacitors
 
 ^ImprovedArtilleries:
+	FirepowerMultiplier@up_improvedartilleries:
+		RequiresCondition: up_improvedartilleries
+		Modifier: 125
 	RangeMultiplier@up_improvedartilleries:
 		RequiresCondition: up_improvedartilleries
 		Modifier: 125
@@ -297,10 +300,10 @@ World:
 ^GuerillaTactics:
 	SpeedMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
-		Modifier: 105
+		Modifier: 110
 	RangeMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
-		Modifier: 105
+		Modifier: 110
 	FirepowerMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
 		Modifier: 105
@@ -319,11 +322,11 @@ World:
 ^AdvancedGuerillaTactics:
 	SpeedMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
-		Modifier: 105
-	RangeMultiplier@up_advancedguerillatactics:
-		RequiresCondition: up_advancedguerillatactics
-		Modifier: 105
+		Modifier: 110
 	FirepowerMultiplier@up_advancedguerillatactics:
+		RequiresCondition: up_advancedguerillatactics
+		Modifier: 110
+	RangeMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
 		Modifier: 105
 	RevealsShroudMultiplier@up_advancedguerillatactics:
@@ -351,13 +354,13 @@ World:
 		PercentageStep: 1
 		Delay: 10
 		StartIfBelow: 100
-		DamageCooldown: 10
+		DamageCooldown: 1
 		RequiresCondition: up_tiberiuminfusion
 	ChangesHealth@up_tiberiuminfusion2:
 		Step: 10
 		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 10
+		DamageCooldown: 1
 		RequiresCondition: up_tiberiuminfusion
 	ReloadDelayMultiplier@up_tiberiuminfusion:
 		RequiresCondition: up_tiberiuminfusion
@@ -1196,10 +1199,6 @@ ARTY:
 	#	Actor: ARTY.Husk
 	#	OwnerType: InternalName
 	#	EffectiveOwnerFromOwner: true
-	RangeMultiplier@up_improvedartilleries:
-		Modifier: 110
-	RevealsShroudMultiplier@up_improvedartilleries:
-		Modifier: 120
 	FireWarheadsOnDeath:
 		Weapon: ArtilleryShell
 		RequiresCondition: !up_blackmarketupgrades
@@ -1794,6 +1793,7 @@ MSSM:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
+	Inherits@ImprovedArtilleries: ^ImprovedArtilleries
 	Inherits@ElementalWarfare: ^ElementalWarfare
 	Inherits@GuerillaTactics: ^GuerillaTactics
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
@@ -1852,8 +1852,12 @@ MSSM:
 		RangeCircleType: vehicle
 	KeepsDistance:
 		Distance: 8
+	RangeMultiplier@up_improvedartilleries:
+		Modifier: 110
+	RevealsShroudMultiplier@up_improvedartilleries:
+		Modifier: 120
 	ActorStatValues:
-		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elementalwarfare
+		Upgrades: up_guerillatactics, up_improvedartilleries, up_advancedguerillatactics, up_elementalwarfare
 
 STNK:
 	Inherits: ^Vehicle
@@ -1912,20 +1916,20 @@ STNK:
 		Weapon: UnitExplode
 	-MustBeDestroyed:
 	SpeedMultiplier@up_guerillatactics:
-		Modifier: 110
-	RangeMultiplier@up_guerillatactics:
-		Modifier: 110
+		Modifier: 120
 	FirepowerMultiplier@up_guerillatactics:
+		Modifier: 120
+	RangeMultiplier@up_guerillatactics:
 		Modifier: 110
 	RevealsShroudMultiplier@up_guerillatactics:
 		Modifier: 110
 	DetectCloakedMultiplier@up_guerillatactics:
 		Modifier: 110
 	SpeedMultiplier@up_advancedguerillatactics:
-		Modifier: 110
-	RangeMultiplier@up_advancedguerillatactics:
-		Modifier: 110
+		Modifier: 120
 	FirepowerMultiplier@up_advancedguerillatactics:
+		Modifier: 120
+	RangeMultiplier@up_advancedguerillatactics:
 		Modifier: 110
 	RevealsShroudMultiplier@up_advancedguerillatactics:
 		Modifier: 110
@@ -4483,10 +4487,10 @@ cheme3:
 	Inherits@TiberiumInfusion: ^TiberiumInfusion
 	Inherits@CyberneticModifications: ^CyberneticModifications
 	Inherits@decoration: ^NodRankDecoration
-	Valued:
-		Cost: 400
 	Tooltip:
 		Name: Chemical Rocket Soldier
+	Valued:
+		Cost: 400
 	Health:
 		HP: 18000
 	ChangesHealth@SelfHealing:
@@ -4608,6 +4612,8 @@ chemstnk:
 	Inherits@GuerillaTactics: ^GuerillaTactics
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Inherits@decoration: ^NodRankDecoration
+	Tooltip:
+		Name: Chemical Stealth Tank
 	Valued:
 		Cost: 1800
 	Mobile:
@@ -4622,8 +4628,6 @@ chemstnk:
 		Step: 36
 	Armor:
 		Type: Medium
-	Tooltip:
-		Name: Chemical Stealth Tank
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: tmpl, ~upchemicalstealthtank
@@ -4704,10 +4708,6 @@ chemssm:
 		DecorationBounds: 1280, 1280
 	RenderSprites:
 		Image: chemssm
-	RangeMultiplier@up_improvedartilleries:
-		Modifier: 120
-	RevealsShroudMultiplier@up_improvedartilleries:
-		Modifier: 140
 	FireWarheadsOnDeath:
 		Weapon: BigTiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
@@ -5157,10 +5157,6 @@ nodspecter:
 	WithMuzzleOverlay:
 	AutoTarget:
 		InitialStanceAI: Defend
-	RangeMultiplier@up_improvedartilleries:
-		Modifier: 115
-	RevealsShroudMultiplier@up_improvedartilleries:
-		Modifier: 130
 	FireWarheadsOnDeath:
 		Weapon: SpecterArtilleryShell
 		RequiresCondition: !up_blackmarketupgrades

@@ -3623,36 +3623,43 @@ SteelEmpBomb:
 		Falloff: 100, 75, 50, 25
 		Damage: 10000
 		Spread: 2500
+		InvalidTargets: Infantry
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5000
 		Spread: 5000
+		InvalidTargets: Infantry
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5
 		Spread: 10000
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedWeapon: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 10000
 		Spread: 2500
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5000
 		Spread: 5000
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5
 		Spread: 10000
+		InvalidTargets: Infantry
 	Warhead@EMPUnit: AffectsIntegrity
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 300000
 		Spread: 10000
+		InvalidTargets: Infantry
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ground, Water
 		Explosions: mobileemp
@@ -5965,25 +5972,9 @@ NaxiCowDrop:
 		Weapon: RA2Cloud
 		InvalidTargets: Water
 
-NaxiV1RocketSpreaderScud:
-	Range: 10000
-	ReloadDelay: 13
-	ValidTargets: Ground, Water, Air
-	Projectile: AthenaProjectile
-		Altitude: 16000
-	Warhead@1: FireFragment
-		UseZOffsetAsAbsoluteHeight: true
-		ValidTargets: Ground, Water, Air
-		Weapon: NaxiV1Rocket
-		Delay: 23
-
 NaxiV1Rocket:
 	Inherits: Atomic
 	Report: vaegatta.wav, vaegattb.wav
-	ReloadDelay: 500
-	Range: 32000
-	MinRange: 6400
-	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: NaxiV1Rocket
 		MissileImage: nax_v1_rocket
@@ -7931,12 +7922,68 @@ RA2TOPOLCuba:
 		Level: 100
 		LayerName: ra2radiation
 
+RA2APCFlakCannon:
+	Inherits: ^LightMissile
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^Chaingun
+	Inherits: ^RA2FlakWeapon
+	ReloadDelay: 12
+	Range: 5740
+	ValidTargets: Ground, Water, Trees
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+
+RA2APCFlakCannonE:
+	Inherits: RA2APCFlakCannon
+	Range: 6740
+	Burst: 2
+	BurstDelays: 3
+
+RA2APCFlakCannonAA:
+	Inherits: RA2APCFlakCannon
+	ValidTargets: Air
+	Range: 8610
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_flak_puff_AA
+		ExplosionPalette: ra2effect
+		ValidTargets: Air
+
+RA2APCFlakCannonAAE:
+	Inherits: RA2APCFlakCannonAA
+	Range: 9610
+	Burst: 2
+	BurstDelays: 3
+
 RA2APCMachineGun:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
-	ValidTargets: Ground, Water, Air
-	ReloadDelay: 6
+	ValidTargets: Ground, Water, Trees
 	Range: 5740
+	ReloadDelay: 12
+	Burst: 4
+	BurstDelays: 4
 	Report: vwaratta.wav, vwarattb.wav
 	Projectile: Bullet
 		Image: 50CAL
@@ -7948,24 +7995,35 @@ RA2APCMachineGun:
 		Speed: 3000
 		Width: 100
 	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2
 	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
 RA2APCMachineGunE:
 	Inherits: RA2APCMachineGun
 	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
 	Range: 6740
-	Burst: 2
-	BurstDelays: 1
+	Burst: 8
+	BurstDelays: 2
+
+RA2APCMachineGunAA:
+	Inherits: RA2APCMachineGun
+	ValidTargets: Air
+	Range: 8610
+
+RA2APCMachineGunAAE:
+	Inherits: RA2APCMachineGunAA
+	Range: 9610
+	Burst: 8
+	BurstDelays: 2
 
 RA2APCRocket:
 	Inherits: ^HeavyBomb
@@ -7977,7 +8035,7 @@ RA2APCRocket:
 	BurstDelays: 3
 	Range: 5740
 	Report: vintatta.wav
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, Trees
 	Projectile: Missile
 		Speed: 400
 		Arm: 2
@@ -8024,6 +8082,23 @@ RA2APCRocket:
 RA2APCRocketE:
 	Inherits: RA2APCRocket
 	Range: 6740
+	Burst: 8
+	Projectile: Missile
+		Image: red_dragon
+		TrailImage: red_smokey
+		ContrailColor: e60000
+		ContrailStartColor: E60000
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
+
+RA2APCRocketAA:
+	Inherits: RA2APCRocket
+	ValidTargets: Air
+	Range: 8610
+
+RA2APCRocketAAE:
+	Inherits: RA2APCRocketAA
+	Range: 9610
 	Burst: 8
 	Projectile: Missile
 		Image: red_dragon

@@ -9443,16 +9443,6 @@ ra2sidewind:
 		Payload: 125
 	Voiced:
 		VoiceSet: TechConscriptVoice
-ra2tany.black:
-	Inherits: RA2TANY
-	Buildable:
-		Queue: Infantry, RAInfantry
-		BuildPaletteOrder: 120
-		Prerequisites: ~disable
-		BuildLimit: 1
-		Description: template-commando.description
-	Tooltip:
-		Name: Black Operation Agent
 
 # Black Operation Vehicles
 ra2leopard:

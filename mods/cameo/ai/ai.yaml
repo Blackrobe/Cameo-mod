@@ -5462,12 +5462,12 @@ Player:
 			upaa_tsunami: 1
 			asian_upgrade_infantryspec: 1
 			asian_upgrade_pulverizer: 1
-			asian_upgrade_diplomacy: 1
 			asian_upgrade_phalanx: 1
 			asian_upgrade_dragonfire: 1
 			asian_upgrade_quasar: 1
 			asian_upgrade_banzai: 1
 			asian_team_upgrade_dragonway: 1
+			asian_team_upgrade_diplomacy: 1
 			########### Units Consortium
 			steel_qmin: 10
 			steel_fedinf: 1

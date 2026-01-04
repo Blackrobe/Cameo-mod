@@ -1623,10 +1623,10 @@ actor-farasha =
 
 actor-ixprojector =
    .description =  Ultimate Ixian unit for causing chaos and distraction among enemy forces
-   Jams enemy radars and disables enemy units and buildings with an EMP beam.
-   Can make fake projections giving impression there is a larger army present.
-   Projections disappears when too far away from Projector
-   Special Abilities: Invisibility, Projections, Detector
+      Jams enemy radars and disables enemy units and buildings with an EMP beam.
+      Can make fake projections giving impression there is a larger army present.
+      Projections disappears when too far away from Projector
+      Special Abilities: Invisibility, Projections, Detector
 
 actor-d2k_munitions =
    .description = Increases firing speed of nearby units.
@@ -1655,70 +1655,67 @@ actor-oilb =
 
 upgrade-a10airstrike =
    .description = Enables the A10 Airstrike Support Power
-    Increases damage of all GDI Aircraft by 15%.
+      Increases damage of all GDI Aircraft by 15%.
 
 upgrade-longrangesensors =
    .description = Increases vision, stealth detection range
-    and accuracy of all units and defenses by 25%.
-    Increases range and damage by 5%.
+      and accuracy of all units and defenses by 25%.
+      Increases range and damage by 5%.
 
 upgrade-armorpiercingbullets =
    .description = Increases damage of all bullet based weapons by 33%.
-    while also making them more effective against tank armor.
-    Increases Minigunner and Shotgunner damage by 100%.
-    Increases GDI Sniper and A10 damage by 10%.
-    Also adds a machine gun to the Battle and Predator Tank and increases damage by 5%.
+      while also making them more effective against tank armor.
+      Increases Minigunner and Shotgunner damage by 100%.
+      Increases GDI Sniper and A10 damage by 10%.
+      Also adds a machine gun to the Battle and Predator Tank and increases damage by 5%.
 
 upgrade-heavyaircraftarmorplating =
    .description = Increases armor of Orcas, Firehawks, Chinooks and A10s by 50%.
 
 upgrade-advancedmissiletargeting =
    .description = Increases missile damage, speed and Acceleration.
-   Increases damange and range of all missile weapons by 15%.
-   Tanks increase range by 5%
-   Firehawks shoot twice the amount of missiles.
+      Increases damange and range of all missile weapons by 15%.
+      Tanks increase range by 5%
+      Firehawks shoot twice the amount of missiles.
 
 upgrade-cuttingedgeequipment =
    .description = Increases armor, damage and fire rate of all units and defenses by 10%.
-   Doubles the effect for EMP Grenadiers, Experimental Exosuits, Firehawks and Havoc.
+      Doubles the effect for EMP Grenadiers, Experimental Exosuits, Firehawks and Havoc.
 
 upgrade-highvelocitycannons =
    .description = Increases damage and range of cannons and railguns by 15%.
-   Replaces tank cannons with high velocity cannons that deal 100% more damage
-   and travel 100% faster.
+      Replaces tank cannons with high velocity cannons that deal 100% more damage
+      and travel 100% faster.
 
 upgrade-lightweightarmorplating =
    .description = TEAM UPGRADE
-   Increases armor by 20% and speed by 10% of all tanks, scout and support vehicles in your team.
+      Increases armor by 20% and speed by 10% of all tanks, scout and support vehicles in your team.
 
 upgrade-guerillatactics =
-   .description = Increases speed, range, damage and vision of all infantry,
-   scout vehicles, support vehicles, tanks, helicopters, fire support and stealth units by 5%.
-   The effect is doubled for the Stealth Tank.
+   .description = Increases Speed and Firepower of all infantry, scout vehicles, support vehicles,
+      tanks, helicopters, fire support and stealth units by 10% and Range by 5%.
+      The effect is doubled for the Stealth Tank.
 
 upgrade-tiberiuminfusion =
    .description = Gives infantry rapid regeneration and 10% more speed, fire rate and armor.
 
 upgrade-improvedartilleries =
-   .description = Increases weapon and vision range of all artillery weapons.
-      Artillery and Gun Turret: 10%
-      Specter: 15%
-      Chemical SSM Launcher: 20%
-      Ballistic Missile Submarine: 25%
+   .description = Increases Firepower and Range of all Artilleries by 25%.
+      Increases Range of Gun Turrets and the SSM by 10%.
 
 upgrade-elementalwarfare =
    .description = Increases damage of all flame and chemical weapons by 25%.
-   Increases armor of elemental warfare units by 20%
+      Increases armor of elemental warfare units by 20%
 
 upgrade-elitecapacitors =
    .description = Increases range, damage, fire rate and vision of all laser weapons by 10%
-   Obelisks of Light increase range, damage, fire rate and vision by 15%.
+      Obelisks of Light increase range, damage, fire rate and vision by 15%.
 
 upgrade-cyberneticmodifications =
    .description = Gives all infantry heavy armor platings that reduce incoming damage.
-   While the armor is active, the infantry armor type is heavy which makes them take less damage from
-   most anti infantry weapons but increased damage from anti tank weapons instead.
-   Increases Movement Speed by 20%.
+      While the armor is active, the infantry armor type is heavy which makes them take less damage from
+      most anti infantry weapons but increased damage from anti tank weapons instead.
+      Increases Movement Speed by 20%.
 
 upgrade-blackmarketupgrades =
    .description = Gives certain units new or additional weapons:
@@ -1732,10 +1729,10 @@ upgrade-blackmarketupgrades =
 
 upgrade-advancedguerillatactics =
    .description = TEAM UPGRADE
-   Increases speed, range and damage of all infantry, scouts, support vehicles and fire supports in your team
-   by 5% and gives the units higher vision.
-   For Nod it also doubles the effect for all units affected by the guerilla tactics upgrade.
-   The effect is doubled once more for the Stealth Tank.
+      Increases Speed and Firepower of all infantry, scouts, support vehicles and fire supports in your team
+      by 10% and Range by 5%
+      For Nod it also doubles the effect for all units affected by the guerilla tactics upgrade.
+      The effect is doubled once more for the Stealth Tank.
 
 upgrade-conscription =
    .description = Decreases cost and training time for all infantry Flak Tracks, BTRs and Hip Transports by 25%.
@@ -1887,7 +1884,7 @@ upgrade-uplatin_mili =
 upgrade-uplatin_cartelrockets =
    .description =  Upgrades all rockets with Black Market Cartel Rockets.
       Increases Firepower and Range of all Rocket Artilleries by 25%.
-      Gives Rusher Tanks and Smoker Tanks additional Rocket Launchers.
+      Gives Rusher Tanks, Smoker Tanks and APCs additional Rocket Launchers.
 
 upgrade-uplatin_ngbunk2 =
    .description = Increases garrisoned buildings range, vision and armor by 30%.
@@ -1916,34 +1913,39 @@ upgrade-uplatin_cashrecover =
    .description = Recycles lost vehicles for a cashback of 20%.
 
 asian_upgrade_infantryspec =
-   .description = Equips Infantry with new or additional weapons. 
+   .description = Equips Infantry with new or additional weapons.
       All Infantry have 5% more Damage Resistance, Fire Power and Range.
 
 asian_upgrade_pulverizer =
    .description = Doubles the amount of bullets fired at 75% damage per shot.
       Increases Range by 15%.
 
-asian_upgrade_diplomacy =
-   .description = Through clever diplomacy all the units in your team are 10% cheaper.
-
 asian_upgrade_phalanx =
    .description = Increases Damage Resistance of Asian Alliance Units by 10%.
       Increases Damage Resistance of Asian Alliance Units next to Lynx Tanks by 5% but slows them also down by 5%.
-      Stacks up to 5 times. Lynx Tanks and Pelicans get an additional Machine Gun.
+      Stacks up to 5 times.
+      Lynx Tanks and Pelicans get an additional Machine Gun.
 
 asian_upgrade_dragonfire =
    .description = Increases Flame and Plasma Weapon Damage by 50%.
 
 asian_upgrade_celestialpower =
-   .description = Increases EMP Effect of Quasar Weapons by 100% and Firepower by 25%.
-      Increases Firepower of Railguns by 25%.
+   .description = Increases Firepower and Range of Quasar Weapons and Railguns by 25%.
+      Increases EMP Effect of Quasar Weapons by 100%
 
 asian_upgrade_banzai =
-   .description = Infantry enter Banzai Mode on low health.
+   .description = Infantry enter Banzai Mode on low health:
+      Stacks 2 Times for Heavy and Critical Damage.
+      Reduces Range by 25% but incrases Speed by 25%.
+      Increases Damage Resistance and Firepower and Rate of Fire by 25%.
+      Increases Health Regeneration.
 
 asian_team_upgrade_dragonway =
-   .description = Increases Speed, Firepower and Damage Resistance of all Units in your team by 5%. 
+   .description = Increases Speed, Firepower and Damage Resistance of all Units in your team by 5%.
       Doubles the effect for 1 second after taking damage.
+
+asian_team_upgrade_diplomacy =
+   .description = Through clever diplomacy all the units in your team are 10% cheaper.
 
 upgrade-infweapon =
    .description = Increases firepower of all Terran infantry by 25%

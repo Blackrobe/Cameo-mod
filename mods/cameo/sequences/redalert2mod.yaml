@@ -1930,10 +1930,6 @@ asian_upgrade_pulverizer:
 	icon:
 		Filename: asian_upgrade_pulverizer_icon.png
 
-asian_upgrade_diplomacy:
-	icon:
-		Filename: asian_upgrade_diplomacy_icon.png
-
 asian_upgrade_phalanx:
 	icon:
 		Filename: asian_upgrade_phalanx_icon.png
@@ -1952,7 +1948,11 @@ asian_upgrade_banzai:
 
 asian_team_upgrade_dragonway:
 	icon:
-		Filename: asian_upgrade_dragonway_icon.png
+		Filename: asian_team_upgrade_dragonway_icon.png
+
+asian_team_upgrade_diplomacy:
+	icon:
+		Filename: asian_team_upgrade_diplomacy_icon.png
 
 ##############################################
 #   Red Alert 2 Latin Buildings

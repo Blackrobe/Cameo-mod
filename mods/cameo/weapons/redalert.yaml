@@ -3690,6 +3690,29 @@ ZeroFighterArrowsEnergized:
 	ReloadDelay: 110
 	Burst: 2
 	BurstDelays: 9
+	Warhead@ArrowWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 8000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
+		Spread: 800
 
 JHindChainGun:
 	Inherits: ^Grenade
