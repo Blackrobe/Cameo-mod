@@ -239,84 +239,84 @@ HarrierMissiles:
 	Inherits: ^HeavyAAWeapon
 	Inherits: ^FlakWeapon
 	Inherits: ^RA2MediumMissile
-	ReloadDelay: 96
+	ReloadDelay: 104
 	Burst: 4
 	BurstDelays: 2
-	Range: 5640
-	MinRange: 2820
+	Range: 5555
+	MinRange: 1111
 	Report: vintatta.wav
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
-		Inaccuracy: 282
-		Speed: 564
+		Inaccuracy: 333
+		Speed: 555
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1000
+		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1
+		Damage: 2
 		ValidRelationships: Neutral, Enemy
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1000
+		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1
+		Damage: 2
 		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1000
+		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1
+		Damage: 2
 		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyAAWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1
+		Damage: 2
 		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1
+		Damage: 2
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 2000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
-		Damage: 1
+		Damage: 2
 		ValidRelationships: Neutral, Enemy
 
 HarrierMissiles_elite:
 	Inherits: HarrierMissiles
 	Burst: 8
-	Range: 6640
+	Range: 6666
 	Projectile: Missile
-		Inaccuracy: 332
-		Speed: 664
+		Inaccuracy: 444
+		Speed: 666
 		Image: red_dragon
 		TrailImage: red_smokey
 		ContrailColor: e60000

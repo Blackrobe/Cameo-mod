@@ -4452,11 +4452,11 @@ YAK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 15000
+		HP: 32000
 	Repairable:
-		HpPerStep: 750
+		HpPerStep: 1600
 	ChangesHealth@SelfHealing:
-		Step: 6
+		Step: 32
 	Armament@BOMBS:
 		Weapon: YakNapalm
 		LocalOffset: 0,-256,-32, 0,256,-32
@@ -4489,7 +4489,7 @@ YAK:
 		PauseOnCondition: ammo < 4
 		RequiresCondition: ra_upgrade_incendiarybullets
 	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
+		Modifier: 25
 	AttackAircraft:
 		FacingTolerance: 100
 	Aircraft:
@@ -4546,23 +4546,23 @@ yaktesla:
 	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
+	Tooltip:
+		Name: Tesla Yak
+	Valued:
+		Cost: 2000
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
 		Prerequisites: ~ra_upgrade_yaktesla
 		Description: actor-yak.description
-	Valued:
-		Cost: 1200
-	Tooltip:
-		Name: Tesla Yak
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 32500
+		HP: 64000
 	Repairable:
-		HpPerStep: 1625
+		HpPerStep: 3200
 	ChangesHealth@SelfHealing:
-		Step: 13
+		Step: 64
 	Armament@BOMBS:
 		Weapon: YakTeslaBomb
 		LocalOffset: 0,0,-32
@@ -4613,8 +4613,8 @@ yaktesla:
 	AttackAircraft:
 		FacingTolerance: 100
 	Aircraft:
-		TurnSpeed: 15
-		Speed: 225
+		TurnSpeed: 13
+		Speed: 190
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
@@ -4663,6 +4663,7 @@ yakarmored:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
@@ -4671,39 +4672,39 @@ yakarmored:
 		Prerequisites: ~ra_upgrade_yakarmored
 		Description: actor-yak.description
 	Valued:
-		Cost: 1100
+		Cost: 1400
 	Tooltip:
 		Name: Armored Yak
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 45000
+		HP: 80000
 	Repairable:
-		HpPerStep: 2250
+		HpPerStep: 4000
 	ChangesHealth@SelfHealing:
-		Step: 18
+		Step: 80
 	Armament@PRIMARY:
-		Weapon: YakChainGun
+		Weapon: ArmoredYakChainGun
 		LocalOffset: 320,-266,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: YakChainGun
+		Weapon: ArmoredYakChainGun
 		LocalOffset: 320,266,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@Upgrade1:
-		Weapon: IncendiaryYakChainGun
+		Weapon: IncendiaryArmoredYakChainGun
 		LocalOffset: 320,-266,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: ra_upgrade_incendiarybullets
 	Armament@Upgrade2:
 		Name: secondary
-		Weapon: IncendiaryYakChainGun
+		Weapon: IncendiaryArmoredYakChainGun
 		LocalOffset: 320,266,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
@@ -4711,8 +4712,8 @@ yakarmored:
 	AttackAircraft:
 		FacingTolerance: 100
 	Aircraft:
-		TurnSpeed: 10
-		Speed: 145
+		TurnSpeed: 9
+		Speed: 135
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
@@ -4735,21 +4736,21 @@ yakarmored:
 	Voiced:
 		VoiceSet: RussianVehicleVoice
 	AmmoPool:
-		Ammo: 32
+		Ammo: 40
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 16
+		Delay: 30
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 8
+		PipCount: 10
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_autoloaders, ra_upgrade_stalinium
 
 yaknuclear:
 	Inherits: ^RANeutralPlane
@@ -4763,23 +4764,23 @@ yaknuclear:
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
+	Tooltip:
+		Name: Nuclear Yak
+	Valued:
+		Cost: 2000
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
 		Prerequisites: ~ra_upgrade_yaknuclear
 		Description: actor-yak.description
-	Valued:
-		Cost: 1150
-	Tooltip:
-		Name: Nuclear Yak
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 37500
+		HP: 64000
 	Repairable:
-		HpPerStep: 1875
+		HpPerStep: 3200
 	ChangesHealth@SelfHealing:
-		Step: 15
+		Step: 64
 	Armament@BOMBS:
 		Weapon: YakNuclearBomb
 		LocalOffset: 0,0,-32
@@ -4816,8 +4817,8 @@ yaknuclear:
 	AttackAircraft:
 		FacingTolerance: 100
 	Aircraft:
-		TurnSpeed: 12
-		Speed: 185
+		TurnSpeed: 13
+		Speed: 190
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
@@ -4874,7 +4875,7 @@ MODKAMI:
 		Prerequisites: ~modraafld
 		Description: actor-yak.description
 	Valued:
-		Cost: 1000
+		Cost: 1200
 	Tooltip:
 		Name: Zero Fighter
 	UpdatesPlayerStatistics:
@@ -4884,7 +4885,7 @@ MODKAMI:
 	Repairable:
 		HpPerStep: 1500
 	ChangesHealth@SelfHealing:
-		Step: 12
+		Step: 30
 	Armament@Missiles:
 		Weapon: ZeroFighterArrows
 		LocalOffset: 85,-300,-85, 85,300,-85
@@ -5209,6 +5210,7 @@ HIND:
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
@@ -5376,7 +5378,7 @@ HIND:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_promotion_hurricanerocketpod, ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_stalinium
+		Upgrades: ra_promotion_hurricanerocketpod, ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_autoloaders, ra_upgrade_stalinium
 
 ra_kamov:
 	Inherits: ^Helicopter
@@ -11707,6 +11709,9 @@ ra_upgrade_autoloaders:
 
 ^AutoloadersUpgradeRA1:
 	ReloadDelayMultiplier@ra_upgrade_autoloaders:
+		RequiresCondition: ra_upgrade_autoloaders
+		Modifier: 60
+	ReloadAmmoDelayMultiplier@ra_upgrade_autoloaders:
 		RequiresCondition: ra_upgrade_autoloaders
 		Modifier: 60
 	GrantConditionOnPrerequisite@ra_upgrade_autoloaders:

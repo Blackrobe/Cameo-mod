@@ -464,14 +464,15 @@
 		Inaccuracy: 100
 		Image: DRAGON
 		Shadow: true
-		HorizontalRateOfTurn: 35
-		VerticalRateOfTurn: 35
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
 		TrailImage: smokey
 		TrailInterval: 1
 		ContrailLength: 0
 		MaximumLaunchSpeed: 300
 		MinimumLaunchSpeed: 300
 		Speed: 600
+		CloseEnough: 600
 		Acceleration: 4
 		HomingActivationDelay: 1
 		RangeLimit: 20000
@@ -575,6 +576,7 @@
 		MaximumLaunchSpeed: 250
 		MinimumLaunchSpeed: 250
 		Speed: 500
+		CloseEnough: 500
 		Acceleration: 3
 		HomingActivationDelay: 2
 		RangeLimit: 25000
@@ -670,14 +672,15 @@
 		Inaccuracy: 300
 		Image: MISSILE
 		Shadow: true
-		HorizontalRateOfTurn: 25
-		VerticalRateOfTurn: 25
+		HorizontalRateOfTurn: 20
+		VerticalRateOfTurn: 20
 		TrailImage: smokey
 		TrailInterval: 1
 		ContrailLength: 0
 		MaximumLaunchSpeed: 200
 		MinimumLaunchSpeed: 200
 		Speed: 400
+		CloseEnough: 400
 		Acceleration: 2
 		HomingActivationDelay: 3
 		RangeLimit: 30000

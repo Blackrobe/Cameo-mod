@@ -452,6 +452,7 @@ aa_cgtech:
 
 aa_cgmiac:
 	Inherits: ^RA2Building
+	Inherits@tech: ^IsTechnoBuilding
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@shape: ^3x3Shape
@@ -4001,14 +4002,10 @@ asian_upgrade_pulverizer:
 		Upgrades: asian_upgrade_pulverizer
 
 asian_upgrade_phalanx:
-	Inherits: ^researched_upgrade.template
+	Inherits: ^doctrine_template
 	Tooltip:
 		Name: Asian Phalanx
-	Valued:
-		Cost: 7500
 	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Upgrades
 		Description: asian_upgrade_phalanx.description
 		Prerequisites: ~aa_cgradr, !asian_upgrade_phalanx
 	RenderSprites:
@@ -6871,18 +6868,18 @@ latin_yakolev:
 	Tooltip:
 		Name: Yakovlev
 	Valued:
-		Cost: 600
+		Cost: 900
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~latin_cgair
 		Queue: Aircraft, RAAircraft
 		Description: actor-latin_yakovlev.description
 	Health:
-		HP: 37500
+		HP: 40000
 	Repairable:
-		HpPerStep: 1875
+		HpPerStep: 2000
 	ChangesHealth@SelfHealing:
-		Step: 15
+		Step: 40
 	HitShape:
 	Voiced:
 		VoiceSet: LatinMigVoice
@@ -6901,7 +6898,7 @@ latin_yakolev:
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
-		RequiresCondition: !latin_up_chaingun
+		RequiresCondition: !rank-elite && !latin_up_chaingun
 	Armament@ELITE:
 		Name: primary
 		Weapon: YakovlevCannonE
@@ -6924,7 +6921,7 @@ latin_yakolev:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	AmmoPool:
-		Ammo: 10
+		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
 		Delay: 40
@@ -6935,13 +6932,10 @@ latin_yakolev:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 5
+		PipCount: 8
 	WithMuzzleOverlay:
 	Contrail@1:
-		Offset: -640,171,0
-		TrailLength: 15
-	Contrail@2:
-		Offset: -640,-171,0
+		Offset: -640,0,280
 		TrailLength: 15
 	SpawnActorOnDeath:
 		Actor: latin_yakolev.husk
@@ -8718,6 +8712,8 @@ steel_qoil:
 		Type: CenterPosition
 	Health:
 		HP: 10000
+	ChangesHealth@SelfHealing:
+		Step: 10
 	Aircraft:
 		CruiseAltitude: 1200
 		InitialFacing: 192
@@ -10329,11 +10325,10 @@ steel_twister:
 	Inherits@Template: ^FighterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@upgrade: ^RA2AdvancedAeronautics
-	Valued:
-		Cost: 800
 	Tooltip:
 		Name: Twister
+	Valued:
+		Cost: 1000
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -10343,8 +10338,8 @@ steel_twister:
 		Description: actor-falc.description
 	Aircraft:
 		CruiseAltitude: 2560
-		TurnSpeed: 12
-		Speed: 160
+		TurnSpeed: 10
+		Speed: 150
 		IdleTurnSpeed: 10
 		IdleSpeed: 100
 		TakeoffSounds: twisSounda.wav, twisSoundb.wav
@@ -10354,30 +10349,30 @@ steel_twister:
 		VTOL: true
 		Voice: Move
 	Health:
-		HP: 80000
+		HP: 50000
 	Repairable:
-		HpPerStep: 4000
+		HpPerStep: 2500
 	ChangesHealth@SelfHealing:
-		Step: 32
+		Step: 50
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: SteelTwisterMissiles
-		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
-		LocalYaw: 100, -100, 50, -50
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
 		PauseOnCondition: !ammo
 		RequiresCondition: !rank-elite
 	Armament@PRIMARYELITE:
 		Name: primary
 		Weapon: SteelTwisterMissilesE
-		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
-		LocalYaw: 100, -100, 50, -50
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
 		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
 	AmmoPool:
-		Ammo: 8
+		Ammo: 10
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 60
+		Delay: 42
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: steel_twister.Husk
@@ -10399,7 +10394,7 @@ steel_twister:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
-		PipCount: 8
+		PipCount: 10
 	RenderSprites:
 		PlayerPalette: playerra2cons
 
@@ -11746,7 +11741,7 @@ nax_interceptor:
 	Inherits@Template: ^FighterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Interceptor
 	Aircraft:
@@ -11759,9 +11754,9 @@ nax_interceptor:
 		TakeUpCellWhenLand: false
 		VTOL: true
 	Health:
-		HP: 8500
-	Armor:
-		Type: Fighter
+		HP: 10000
+	ChangesHealth@SelfHealing:
+		Step: 10
 	RevealsShroud:
 		Range: 7500
 		Type: GroundPosition
@@ -12451,6 +12446,7 @@ nax2_airfield:
 	Armament@PRIMARY:
 		Weapon: NaxDefensivePlaneTarget
 	AutoTarget:
+
 nax_drone:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^FighterTemplate
@@ -12460,18 +12456,18 @@ nax_drone:
 	Tooltip:
 		Name: Drone
 	Aircraft:
-		AltitudeVelocity: 160
+		AltitudeVelocity: 150
 		InitialFacing: 768
-		TurnSpeed: 16
-		Speed: 160
+		TurnSpeed: 15
+		Speed: 150
 		Repulsable: false
-		MaximumPitch: 48
+		MaximumPitch: 50
 		TakeUpCellWhenLand: false
 		VTOL: true
 	Health:
-		HP: 8000
-	Armor:
-		Type: Fighter
+		HP: 10000
+	ChangesHealth@SelfHealing:
+		Step: 10
 	RevealsShroud:
 		Range: 7500
 		Type: GroundPosition
@@ -17626,31 +17622,30 @@ nax_bf109:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Selectable:
 	Tooltip:
 		Name: BF 109
 	Valued:
-		Cost: 700
+		Cost: 1100
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~nax_radar, ~!nax_upgrade_me262
 		Queue: Aircraft, RAAircraft
 		Description: actor-bpln.description
 	Health:
-		HP: 42500
+		HP: 60000
 	Repairable:
-		HpPerStep: 2125
+		HpPerStep: 3000
 	ChangesHealth@SelfHealing:
-		Step: 17
+		Step: 30
 	HitShape:
 	Voiced:
 		VoiceSet: NaxiAircraftVoice
 	Aircraft:
-		TurnSpeed: 7
-		Speed: 110
-		IdleTurnSpeed: 8
-		IdleSpeed: 120
-		RepulsionSpeed: 20
+		TurnSpeed: 8
+		Speed: 115
+		RepulsionSpeed: 8
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 100
@@ -17671,12 +17666,12 @@ nax_bf109:
 		Ammo: 20
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 30
+		Delay: 25
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 5
+		PipCount: 10
 	WithMuzzleOverlay:
 	Contrail@1:
 		Offset: -960,0,0
@@ -17728,7 +17723,7 @@ nax_me262:
 	Tooltip:
 		Name: Me 262
 	Valued:
-		Cost: 1100
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~nax_upgrade_me262
@@ -17739,7 +17734,7 @@ nax_me262:
 	Repairable:
 		HpPerStep: 3750
 	ChangesHealth@SelfHealing:
-		Step: 30
+		Step: 75
 	HitShape:
 	Voiced:
 		VoiceSet: NaxiAircraftVoice
@@ -17786,7 +17781,7 @@ nax_me262:
 		Ammo: 40
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 15
+		Delay: 11
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
