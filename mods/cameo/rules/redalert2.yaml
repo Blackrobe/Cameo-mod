@@ -8089,7 +8089,7 @@ RA2FALC:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@upgrade: ^RA2AdvancedAeronautics
 	Valued:
-		Cost: 1200
+		Cost: 2100
 	Tooltip:
 		Name: Harrier
 	UpdatesPlayerStatistics:
@@ -8112,11 +8112,11 @@ RA2FALC:
 		VTOL: true
 		Voice: Move
 	Health:
-		HP: 90000
+		HP: 72000
 	Repairable:
-		HpPerStep: 4500
+		HpPerStep: 3600
 	ChangesHealth@SelfHealing:
-		Step: 36
+		Step: 72
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: HarrierMissiles
@@ -8137,7 +8137,7 @@ RA2FALC:
 		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 51
+		Delay: 52
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: RA2FALC.Husk
@@ -9443,16 +9443,6 @@ ra2sidewind:
 		Payload: 125
 	Voiced:
 		VoiceSet: TechConscriptVoice
-ra2tany.black:
-	Inherits: RA2TANY
-	Buildable:
-		Queue: Infantry, RAInfantry
-		BuildPaletteOrder: 120
-		Prerequisites: ~disable
-		BuildLimit: 1
-		Description: template-commando.description
-	Tooltip:
-		Name: Black Operation Agent
 
 # Black Operation Vehicles
 ra2leopard:

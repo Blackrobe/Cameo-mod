@@ -464,21 +464,22 @@
 		Inaccuracy: 100
 		Image: DRAGON
 		Shadow: true
-		HorizontalRateOfTurn: 35
-		VerticalRateOfTurn: 35
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
 		TrailImage: smokey
 		TrailInterval: 1
 		ContrailLength: 0
-		MaximumLaunchSpeed: 250
-		MinimumLaunchSpeed: 250
+		MaximumLaunchSpeed: 300
+		MinimumLaunchSpeed: 300
 		Speed: 600
+		CloseEnough: 600
 		Acceleration: 4
 		HomingActivationDelay: 1
 		RangeLimit: 20000
 		PointDefenseTypes: Missile
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Spread: 100
+		Spread: 200
 		Damage: 1000
 		Versus:
 			Shield: 110
@@ -572,16 +573,17 @@
 		TrailImage: smokey
 		TrailInterval: 1
 		ContrailLength: 0
-		MaximumLaunchSpeed: 200
-		MinimumLaunchSpeed: 200
+		MaximumLaunchSpeed: 250
+		MinimumLaunchSpeed: 250
 		Speed: 500
+		CloseEnough: 500
 		Acceleration: 3
 		HomingActivationDelay: 2
 		RangeLimit: 25000
 		PointDefenseTypes: Missile
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Spread: 200
+		Spread: 400
 		Damage: 1000
 		Versus:
 			Shield: 125
@@ -670,21 +672,22 @@
 		Inaccuracy: 300
 		Image: MISSILE
 		Shadow: true
-		HorizontalRateOfTurn: 25
-		VerticalRateOfTurn: 25
+		HorizontalRateOfTurn: 20
+		VerticalRateOfTurn: 20
 		TrailImage: smokey
 		TrailInterval: 1
 		ContrailLength: 0
-		MaximumLaunchSpeed: 150
-		MinimumLaunchSpeed: 150
+		MaximumLaunchSpeed: 200
+		MinimumLaunchSpeed: 200
 		Speed: 400
+		CloseEnough: 400
 		Acceleration: 2
 		HomingActivationDelay: 3
 		RangeLimit: 30000
 		PointDefenseTypes: Missile
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Spread: 300
+		Spread: 600
 		Damage: 1000
 		Versus:
 			Shield: 140
@@ -863,11 +866,11 @@
 	Projectile: Bullet
 		Image: 120MM
 		Speed: 500
-		Inaccuracy: 200
+		Inaccuracy: 300
 		Shadow: true
 	Warhead@MediumCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees
-		Spread: 200
+		Spread: 300
 		Damage: 1000
 		Versus:
 			Shield: 125
@@ -957,11 +960,11 @@
 	Projectile: Bullet
 		Image: 120MM
 		Speed: 500
-		Inaccuracy: 300
+		Inaccuracy: 450
 		Shadow: true
 	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees
-		Spread: 300
+		Spread: 450
 		Damage: 1000
 		Versus:
 			Shield: 140

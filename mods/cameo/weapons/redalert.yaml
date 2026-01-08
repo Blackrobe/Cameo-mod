@@ -3338,7 +3338,7 @@ KamovTeslaArcFragment2:
 YakChainGun:
 	Inherits: ^Chaingun
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 104
+	ReloadDelay: 100
 	Range: 7000
 	MinRange: 1400
 	Burst: 8
@@ -3351,12 +3351,19 @@ YakChainGun:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2
 
+ArmoredYakChainGun:
+	Inherits: YakChainGun
+	ReloadDelay: 150
+	Burst: 10
+	Range: 5285
+	MinRange: 1057
+
 IncendiaryYakChainGun:
 	Inherits: ^Chaingun
 	Inherits: ^LightFlameWeapon
 	Inherits: ^IncendiaryBulletProjectile
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 104
+	ReloadDelay: 100
 	Range: 7000
 	MinRange: 1400
 	Burst: 8
@@ -3378,11 +3385,18 @@ IncendiaryYakChainGun:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2
 
+IncendiaryArmoredYakChainGun:
+	Inherits: IncendiaryYakChainGun
+	ReloadDelay: 150
+	Burst: 10
+	Range: 5285
+	MinRange: 1057
+
 YakTeslaGun:
 	Inherits: ^LightMissile
 	Inherits: ^TeslaWeapon
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 104
+	ReloadDelay: 100
 	Range: 7000
 	MinRange: 1400
 	Burst: 8
@@ -3473,8 +3487,8 @@ YakNapalm:
 	Inherits: ^HeavyBomb
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^HeavyFlameWeapon
-	ReloadDelay: 114
-	Range: 1616
+	ReloadDelay: 110
+	Range: 1840
 	Burst: 4
 	BurstDelays: 3
 	Report: flamer2.aud
@@ -3690,6 +3704,29 @@ ZeroFighterArrowsEnergized:
 	ReloadDelay: 110
 	Burst: 2
 	BurstDelays: 9
+	Warhead@ArrowWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 8000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
+		Spread: 800
 
 JHindChainGun:
 	Inherits: ^Grenade

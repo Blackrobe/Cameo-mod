@@ -6205,25 +6205,25 @@ swarmer:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VehicleShieldsUpgradeOrdos: ^VehicleShieldsUpgradeOrdos
 	Inherits@ContrabandUpgradeOrdos: ^ContrabandUpgradeOrdos
+	Tooltip:
+		Name: Swarmer Drone
 	Valued:
-		Cost: 900
+		Cost: 800
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
 		Prerequisites: ~high_tech_factory.ordos
 		Description: Light plane armed with dual machine guns. \nCan attack air.\n Strong vs Infantry and Air
-	Tooltip:
-		Name: Swarmer Drone
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 22500
+		HP: 20000
 	Repairable:
-		HpPerStep: 1125
+		HpPerStep: 1000
 	ChangesHealth@SelfHealing:
-		Step: 9
+		Step: 20
 	Shielded:
-		RegenAmount: 18
+		RegenAmount: 40
 	AttackAircraft:
 		FacingTolerance: 320
 	Armament@PRIMARY:
@@ -6253,15 +6253,15 @@ swarmer:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	AmmoPool:
-		Ammo: 12
+		Ammo: 10
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 20
+		Delay: 24
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 10
 	ActorStatValues:
 		Upgrades: ordos_upgrade_shield, ordos_upgrade_contraband
 
@@ -6352,7 +6352,7 @@ ordos_eye:
 	Tooltip:
 		Name: Eye In The Sky
 	Valued:
-		Cost: 1800
+		Cost: 2500
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
@@ -6375,7 +6375,7 @@ ordos_eye:
 		MuzzlePalette: ra2effect
 	Aircraft:
 		CruiseAltitude: 1920
-		Speed: 185
+		Speed: 180
 		TurnSpeed: 12
 	Guard:
 		Voice: Guard
@@ -10072,7 +10072,6 @@ carryall.paradrop:
 		DropRange: 4c0
 		ChuteSound: chute1.aud
 
-
 ordos_carryall.reinforce:
 	Inherits: carryall.reinforce
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -10090,7 +10089,7 @@ ordos_carryall.reinforce:
 	AttackAircraft:
 		FacingTolerance: 20
 	Armament@PRIMARY:
-		Weapon: d2kChainGun
+		Weapon: d2kCarryallChainGun
 		LocalOffset: 128,-213,-85, 128,213,-85
 
 ordos_carryall:
@@ -10114,7 +10113,7 @@ ordos_carryall:
 	AttackAircraft:
 		FacingTolerance: 20
 	Armament@PRIMARY:
-		Weapon: d2kChainGun
+		Weapon: d2kCarryallChainGun
 		LocalOffset: 128,-213,-85, 128,213,-85
 
 frigate:
@@ -12479,12 +12478,11 @@ upixians_siegetank:
 	Buildable:
 		BuildPaletteOrder: 113
 		Queue: Promotions
-		IconPalette: d2kunit
+		IconPalette: ra2
 		Description: Enables construction of Ix Siege Tanks.
 		Prerequisites: ~construction_yard.ixian, upixians_ixraider, !upixians_siegetank, rank1
 	RenderSprites:
 		Image: ix_siege_tank
-		PlayerPalette: player
 	ProvidesPrerequisite:
 
 upixians_neocymek:

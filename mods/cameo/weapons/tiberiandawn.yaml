@@ -1,10 +1,10 @@
 ^AMTProjectile:
 	Projectile: Missile
-		MaximumLaunchSpeed: 250
-		MinimumLaunchSpeed: 250
+		MaximumLaunchSpeed: 400
+		MinimumLaunchSpeed: 400
 		HorizontalRateOfTurn: 25
 		VerticalRateOfTurn: 25
-		Speed: 750
+		Speed: 800
 		Acceleration: 5
 		TrailInterval: 1
 		ContrailLength: 12
@@ -1959,7 +1959,7 @@ MissileSoldierWeapon:
 	Projectile: Missile
 		MaximumLaunchSpeed: 500
 		MinimumLaunchSpeed: 500
-		Speed: 750
+		Speed: 1000
 		Acceleration: 25
 		Inaccuracy: 0
 		HomingActivationDelay: 0

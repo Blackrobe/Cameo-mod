@@ -5664,6 +5664,10 @@ wc2_orc_kodo_beast:
 		Weapon: wc2axeFire
 	Voiced:
 		VoiceSet: wc2voiceorctrollaxethrower
+	RenderSprites:
+		PlayerPalette: player_rgba
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
 	ActorStatValues:
 		Upgrades: wc2_o_str_throwaxe, wc2_o_str_throwaxe2, wc2_o_str_shield, wc2_o_str_shield2, wc2_o_berserkerupg, wc2_o_berserker_lighteraxes, wc2_o_berserker_scouting
 

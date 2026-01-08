@@ -386,72 +386,63 @@ AsianPhotonCannon:
 		Palette: ra2effect
 		ContrailStartColor: 77CCFFAA
 		ContrailLength: 12
-		RangeLimit: 15000
+		RangeLimit: 25000
 		HorizontalRateOfTurn: 200
 		Speed: 750
 		Jammable: False
 		Blockable: False
 		AllowSnapping: true
-		CloseEnough: 500
+		CloseEnough: 750
 	Warhead@MediumMissile: SpreadDamage
 		Damage: 2000
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 1
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@FlakWeapon: SpreadDamage
 		Damage: 2000
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		Damage: 1
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@MagicWeapon: SpreadDamage
 		Damage: 2000
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@MagicWeaponPercentage: HealthPercentageDamage
 		Damage: 1
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@TeslaWeapon: SpreadDamage
 		Damage: 2000
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@TeslaExtraDamage: SpreadDamage
 		Damage: 1000
-		Spread: 500
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
 		ValidTargets: Ground, Water, Air
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 1
-		Spread: 250
 		Falloff: 100, 75, 50, 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		DamageCalculationType: ClosestTargetablePosition
@@ -2146,11 +2137,23 @@ AsianMLRS:
 ^SteelSmallArms:
 	Inherits: ^RA2SmallArms
 	Report: steel_clonefire.wav
+	Projectile: Bullet
+		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
+		ContrailLength: 10
+		ContrailStartWidth: 20
+		ContrailEndWidth: 5
 	Warhead@Effect: CreateEffect
 		Explosions: steel_bluepiffs
 
 ^SteelChaingun:
 	Inherits: ^RA2Chaingun
+	Projectile: Bullet
+		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
+		ContrailLength: 20
+		ContrailStartWidth: 40
+		ContrailEndWidth: 10
 	Warhead@Effect: CreateEffect
 		Explosions: steel_bluepiffs
 
@@ -2158,6 +2161,7 @@ AsianMLRS:
 	Inherits: ^RA2LightMissile
 	Projectile: Missile
 		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
@@ -2171,6 +2175,7 @@ AsianMLRS:
 	Inherits: ^RA2MediumMissile
 	Projectile: Missile
 		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
@@ -2184,6 +2189,7 @@ AsianMLRS:
 	Inherits: ^RA2HeavyMissile
 	Projectile: Missile
 		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
@@ -2197,9 +2203,10 @@ AsianMLRS:
 	Inherits: ^RA2MediumCannon
 	Projectile: Bullet
 		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
 		ContrailLength: 25
 		ContrailStartWidth: 25
-		ContrailEndWidth: 1
+		ContrailEndWidth: 5
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
@@ -2209,9 +2216,10 @@ AsianMLRS:
 	Inherits: ^RA2HeavyCannon
 	Projectile: Bullet
 		ContrailStartColor: 77CCFFAA
+		ContrailEndColor: 4488FF00
 		ContrailLength: 25
-		ContrailStartWidth: 25
-		ContrailEndWidth: 1
+		ContrailStartWidth: 50
+		ContrailEndWidth: 25
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
@@ -3289,17 +3297,18 @@ SteelHoverMissile_elite:
 SteelTwisterMissiles:
 	Inherits: ^Grenade
 	Inherits: ^MediumFlameWeapon
+	Inherits: ^FlakWeapon
 	Inherits: ^HeavyAAWeapon
 	Inherits: ^SteelMediumMissile
-	ReloadDelay: 114
-	Burst: 4
-	BurstDelays: 2
-	Range: 5170
-	MinRange: 1034
+	ReloadDelay: 105
+	Burst: 5
+	BurstDelays: 5
+	Range: 5000
+	MinRange: 1000
 	Report: twisterfire.wav
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
-		Inaccuracy: 517
+		Inaccuracy: 500
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 2000
@@ -3321,6 +3330,14 @@ SteelTwisterMissiles:
 		Damage: 1000
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
@@ -3351,10 +3368,10 @@ SteelTwisterMissiles:
 
 SteelTwisterMissilesE:
 	Inherits: SteelTwisterMissiles
-	Range: 6170
-	Burst: 8
+	Range: 6000
+	Burst: 10
 	Projectile: Missile
-		Inaccuracy: 617
+		Inaccuracy: 600
 		Image: red_dragon
 		TrailImage: red_smokey
 		ContrailColor: e60000
@@ -3525,7 +3542,7 @@ WhiteRabbitGatling:
 	Inherits: ^FlakWeapon
 	Inherits: ^RA2Chaingun
 	Report: aa_pulvat2a.wav, aa_pulvat2b.wav, aa_pulvat2c.wav
-	Range: 6000
+	Range: 7500
 	ReloadDelay: 10
 	ValidTargets: Ground, Air, Water
 	Projectile: Bullet
@@ -3623,36 +3640,43 @@ SteelEmpBomb:
 		Falloff: 100, 75, 50, 25
 		Damage: 10000
 		Spread: 2500
+		InvalidTargets: Infantry
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5000
 		Spread: 5000
+		InvalidTargets: Infantry
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5
 		Spread: 10000
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedWeapon: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 10000
 		Spread: 2500
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5000
 		Spread: 5000
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 5
 		Spread: 10000
+		InvalidTargets: Infantry
 	Warhead@EMPUnit: AffectsIntegrity
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 300000
 		Spread: 10000
+		InvalidTargets: Infantry
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ground, Water
 		Explosions: mobileemp
@@ -5343,10 +5367,10 @@ NaxPlanegun:
 	Inherits: ^Grenade
 	Inherits: ^HeavyCannon
 	Inherits: ^RA2Chaingun
-	ReloadDelay: 132
+	ReloadDelay: 127
 	Burst: 10
 	BurstDelays: 2
-	Range: 6030
+	Range: 6090
 	Report: bghmga.wav, bghmgb.wav, bghmgc.wav, bghmgd.wav
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Bullet
@@ -5384,10 +5408,10 @@ NaxPlanegun:
 NaxPlaneRockets:
 	Inherits: ^MediumMissile
 	Inherits: ^D2KRocket
-	ReloadDelay: 110
+	ReloadDelay: 100
 	Burst: 2
-	BurstDelays: 5
-	Range: 6030
+	BurstDelays: 9
+	Range: 6090
 	Report: missile7.aud
 	Projectile: Missile
 		Acceleration: 5
@@ -5965,25 +5989,9 @@ NaxiCowDrop:
 		Weapon: RA2Cloud
 		InvalidTargets: Water
 
-NaxiV1RocketSpreaderScud:
-	Range: 10000
-	ReloadDelay: 13
-	ValidTargets: Ground, Water, Air
-	Projectile: AthenaProjectile
-		Altitude: 16000
-	Warhead@1: FireFragment
-		UseZOffsetAsAbsoluteHeight: true
-		ValidTargets: Ground, Water, Air
-		Weapon: NaxiV1Rocket
-		Delay: 23
-
 NaxiV1Rocket:
 	Inherits: Atomic
 	Report: vaegatta.wav, vaegattb.wav
-	ReloadDelay: 500
-	Range: 32000
-	MinRange: 6400
-	TargetActorCenter: true
 	Projectile: NukeLaunch
 		MissileWeapon: NaxiV1Rocket
 		MissileImage: nax_v1_rocket
@@ -7524,10 +7532,10 @@ LatinBuggyChaingunE:
 YakovlevCannon:
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^FlakWeapon
-	Inherits: ^RA2SmallArms
+	Inherits: ^HeavyCannon
 	Inherits: ^RA2Chaingun
 	ReloadDelay: 80
-	Burst: 5
+	Burst: 4
 	BurstDelays: 5
 	ValidTargets: Ground, Air, Water
 	Range: 4444
@@ -7553,10 +7561,10 @@ YakovlevCannon:
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 1
-	Warhead@SmallArms: SpreadDamage
+	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
@@ -7569,11 +7577,11 @@ YakovlevCannon:
 YakovlevCannonE:
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^FlakWeapon
-	Inherits: ^RA2SmallArms
+	Inherits: ^HeavyCannon
 	Inherits: ^RA2Chaingun
 	ValidTargets: Ground, Water, Air
 	ReloadDelay: 5
-	Range: 6666
+	Range: 5555
 	MinRange: 1111
 	Report: vwaratta.wav, vwarattb.wav
 	Projectile: Bullet
@@ -7596,10 +7604,10 @@ YakovlevCannonE:
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 1
-	Warhead@SmallArms: SpreadDamage
+	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
@@ -7608,11 +7616,6 @@ YakovlevCannonE:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 1
-
-LatinBuggyChaingunE:
-	Inherits: LatinBuggyChaingun
-	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
-	Range: 7000
 
 LatinSentryMG:
 	Inherits: ^HeavyCannon
@@ -7931,12 +7934,68 @@ RA2TOPOLCuba:
 		Level: 100
 		LayerName: ra2radiation
 
+RA2APCFlakCannon:
+	Inherits: ^LightMissile
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^Chaingun
+	Inherits: ^RA2FlakWeapon
+	ReloadDelay: 12
+	Range: 5740
+	ValidTargets: Ground, Water, Trees
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+
+RA2APCFlakCannonE:
+	Inherits: RA2APCFlakCannon
+	Range: 6740
+	Burst: 2
+	BurstDelays: 3
+
+RA2APCFlakCannonAA:
+	Inherits: RA2APCFlakCannon
+	ValidTargets: Air
+	Range: 8610
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_flak_puff_AA
+		ExplosionPalette: ra2effect
+		ValidTargets: Air
+
+RA2APCFlakCannonAAE:
+	Inherits: RA2APCFlakCannonAA
+	Range: 9610
+	Burst: 2
+	BurstDelays: 3
+
 RA2APCMachineGun:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
-	ValidTargets: Ground, Water, Air
-	ReloadDelay: 6
+	ValidTargets: Ground, Water, Trees
 	Range: 5740
+	ReloadDelay: 12
+	Burst: 4
+	BurstDelays: 4
 	Report: vwaratta.wav, vwarattb.wav
 	Projectile: Bullet
 		Image: 50CAL
@@ -7948,24 +8007,35 @@ RA2APCMachineGun:
 		Speed: 3000
 		Width: 100
 	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2
 	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
 RA2APCMachineGunE:
 	Inherits: RA2APCMachineGun
 	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
 	Range: 6740
-	Burst: 2
-	BurstDelays: 1
+	Burst: 8
+	BurstDelays: 2
+
+RA2APCMachineGunAA:
+	Inherits: RA2APCMachineGun
+	ValidTargets: Air
+	Range: 8610
+
+RA2APCMachineGunAAE:
+	Inherits: RA2APCMachineGunAA
+	Range: 9610
+	Burst: 8
+	BurstDelays: 2
 
 RA2APCRocket:
 	Inherits: ^HeavyBomb
@@ -7977,7 +8047,7 @@ RA2APCRocket:
 	BurstDelays: 3
 	Range: 5740
 	Report: vintatta.wav
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, Trees
 	Projectile: Missile
 		Speed: 400
 		Arm: 2
@@ -8024,6 +8094,23 @@ RA2APCRocket:
 RA2APCRocketE:
 	Inherits: RA2APCRocket
 	Range: 6740
+	Burst: 8
+	Projectile: Missile
+		Image: red_dragon
+		TrailImage: red_smokey
+		ContrailColor: e60000
+		ContrailStartColor: E60000
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
+
+RA2APCRocketAA:
+	Inherits: RA2APCRocket
+	ValidTargets: Air
+	Range: 8610
+
+RA2APCRocketAAE:
+	Inherits: RA2APCRocketAA
+	Range: 9610
 	Burst: 8
 	Projectile: Missile
 		Image: red_dragon

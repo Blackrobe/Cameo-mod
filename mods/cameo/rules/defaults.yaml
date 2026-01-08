@@ -1433,10 +1433,15 @@
 	Inherits@EXT: ^ExternalConditions
 	Inherits@detect: ^GenericAllDetector
 	Inherits@AircraftBuffs: ^AircraftBuffs
+	ChangesHealth@SelfHealing:
+		Step: 10
+		Delay: 2
+		StartIfBelow: 100
+		DamageCooldown: 20
 	DamageMultiplier@FighterBuff:
-		Modifier: 80
+		Modifier: 90
 	FirepowerMultiplier@FighterBuff:
-		Modifier: 125
+		Modifier: 110
 	Aircraft:
 		CruiseAltitude: 4000
 		RepulsionSpeed: 40
@@ -1454,7 +1459,7 @@
 		InitialStanceAI: AttackAnything
 		ScanRadius: 12
 	Buildable:
-		BuildDurationModifier: 50
+		BuildDurationModifier: 75
 	TooltipExtras@Fighter:
 		Description: Fighter
 
@@ -1537,7 +1542,7 @@
 		ScanRadius: 12
 	RenderRangeCircle:
 	Buildable:
-		BuildDurationModifier: 75
+		BuildDurationModifier: 50
 	TooltipExtras@Spaceship:
 		Description: Spaceship
 

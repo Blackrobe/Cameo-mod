@@ -355,7 +355,7 @@ eye_bomberguy:
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
 	ReloadDelay: 125
-	Range: 6865
+	Range: 3905
 	Report: 15-UA05.wav, 15-UA00.wav, 15-UA01.wav
 	Projectile: Bullet
 		Speed: 125
@@ -369,33 +369,33 @@ eye_bomberguy:
 		Image: ordos_eye_bombs
 		Palette: d2keffect
 	Warhead@Grenade: SpreadDamage
-		Damage: 12000
+		Damage: 20000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 10000
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 10
 	Warhead@MediumChemicalWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 20000
 	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 10000
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 10
 	Warhead@MediumFlameWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 20000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 10000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 10
 	Warhead@ShrapnelWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 20000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 10000
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 10
 	Warhead@HeavyBomb: SpreadDamage
-		Damage: 12000
+		Damage: 20000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 10
 	-Warhead@Effect1:
 	-Warhead@Effect2:
 	Warhead@Effect: CreateEffect
@@ -1286,25 +1286,28 @@ IxianEmpBomb:
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 30000
-		Spread: 3000
+		Spread: 1500
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 15000
-		Spread: 1500
+		Spread: 3000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		InvalidTargets: Infantry
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 15
-		Spread: 1500
+		Spread: 6000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		InvalidTargets: Infantry
 	Warhead@EMPUnit: AffectsIntegrity
 		ValidTargets: Ground, Water
 		Falloff: 100, 75, 50, 25
 		Damage: 120000
-		Spread: 12000
+		Spread: 4000
 	Warhead@Effect: CreateEffect
 		Explosions: mobileemp
 		ExplosionPalette: ra2unit
@@ -3982,22 +3985,29 @@ D2K_RocketsCymek:
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 
 d2kChainGun:
-	Inherits: ^SmallArms
 	Inherits: ^Chaingun
-	ReloadDelay: 55
-	Burst: 6
-	BurstDelays: 1
-	Range: 6865
-	MinRange: 1373
+	ReloadDelay: 60
+	Burst: 5
+	BurstDelays: 2
+	Range: 6184
+	Report: MGUN2.WAV
 	StartBurstReport: MGUN2.WAV
-	Warhead@SmallArms: SpreadDamage
-		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		Damage: 1
 	Warhead@Chaingun: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
+
+d2kCarryallChainGun:
+	Inherits: ^Chaingun
+	ReloadDelay: 20
+	Burst: 4
+	BurstDelays: 1
+	Range: 4000
+	StartBurstReport: MGUN2.WAV
+	Warhead@Chaingun: SpreadDamage
+		Damage: 4000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 2
 
 PhoenixRocket:
 	Inherits: ^D2KMissile
