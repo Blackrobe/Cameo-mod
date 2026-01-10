@@ -4711,7 +4711,7 @@
 	# 	Color: 4488FF
 	GrantCondition@superfreeze:
 		Condition: superfreeze
-		RequiresCondition: CryoFreeze >= 10
+		RequiresCondition: CryoFreeze == 1
 	# SpeedMultiplier@CryoFreeze1:
 	# 	Modifier: 90
 	# 	RequiresCondition: CryoFreeze == 1
@@ -4804,36 +4804,36 @@
 	# 	RequiresCondition: CryoFreeze >= 10
 	WithColoredOverlay@CryoFreeze1:
 		Color: 4488FF08
-		RequiresCondition: CryoFreeze == 1
+		RequiresCondition: CryoFreeze >= 10
 	WithColoredOverlay@CryoFreeze2:
 		Color: 5591FF16
-		RequiresCondition: CryoFreeze == 2
+		RequiresCondition: CryoFreeze == 9
 	WithColoredOverlay@CryoFreeze3:
 		Color: 669AFF24
-		RequiresCondition: CryoFreeze == 3
+		RequiresCondition: CryoFreeze == 8
 	WithColoredOverlay@CryoFreeze4:
 		Color: 77A3FF32
-		RequiresCondition: CryoFreeze == 4
+		RequiresCondition: CryoFreeze == 7
 	WithColoredOverlay@CryoFreeze5:
 		Color: 88ACFF40
-		RequiresCondition: CryoFreeze == 5
+		RequiresCondition: CryoFreeze == 6
 	WithColoredOverlay@CryoFreeze6:
 		Color: 99B5FF48
-		RequiresCondition: CryoFreeze == 6
+		RequiresCondition: CryoFreeze == 5
 	WithColoredOverlay@CryoFreeze7:
 		Color: AABEFF56
-		RequiresCondition: CryoFreeze == 7
+		RequiresCondition: CryoFreeze == 4
 	WithColoredOverlay@CryoFreeze8:
 		Color: BBC7FF64
-		RequiresCondition: CryoFreeze == 8
+		RequiresCondition: CryoFreeze == 3
 	WithColoredOverlay@CryoFreeze9:
 		Color: CCD0FF72
-		RequiresCondition: CryoFreeze == 9
+		RequiresCondition: CryoFreeze == 2
 	WithColoredOverlay@CryoFreeze10:
 		Color: DDDDFF96
-		RequiresCondition: CryoFreeze >= 10
+		RequiresCondition: CryoFreeze == 1
 	WithIdleOverlay@frostspark:
-		RequiresCondition: CryoFreeze >= 7
+		RequiresCondition: CryoFreeze >= 1 && CryoFreeze < 3
 		Image: ra2_chronosk
 		Sequence: idle
 		StartSequence: idle

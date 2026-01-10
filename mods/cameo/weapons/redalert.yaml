@@ -440,6 +440,7 @@ DragunovSniper:
 	Warhead@PhysicalState: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -40000
+		Range: 128
 
 FireRockets:
 	Inherits: ^FlakWeapon
