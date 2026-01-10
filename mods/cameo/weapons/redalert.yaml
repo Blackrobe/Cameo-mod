@@ -437,6 +437,9 @@ DragunovSniper:
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
+	Warhead@PhysicalState: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -40000
 
 FireRockets:
 	Inherits: ^FlakWeapon
@@ -668,6 +671,9 @@ FireballGun:
 		Damage: 2
 	Warhead@Effect: CreateEffect
 		Explosions: napalm
+	Warhead@PhysicalState: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: 4000
 
 FireballGunThermobaric:
 	Inherits: ^HeavyFlameWeapon

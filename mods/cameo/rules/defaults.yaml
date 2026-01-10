@@ -4601,104 +4601,207 @@
 		RequiresCondition: Magnet >= 100
 
 ^CryoFreezable:
-	ExternalCondition@CryoFreeze:
+	PhysicalState@Temperature:
+		Name: Temperature
+		MinValue: -10000
+		MaxValue: 10000
+		RelaxedValue: 0
+		RelativeToHealth: true
+		RelaxationLinear: 10
+		RelaxationInterval: 1
+		RelaxationDelay: 1
+		InitialValue: 0
+	PhysicalStateBar@TemperatureBar:
+		PhysicalStateName: Temperature
+		PositiveColor: FF0000
+		NegativeColor: 0080FF
+		NeutralColor: 808080
+		DisplayWhenRelaxed: false
+		ShowAbsoluteValues: false
+	SlowsProportionalToPhysicalState@FrostSlowdown:
+		PhysicalStateName: Temperature
+		UseDeviationFromRelaxed: true
+		OnlyNegativeValues: true
+		SpeedModifierAtMinimum: 100
+		SpeedModifierAtMaximum: 0
+		TurnSpeedModifierAtMinimum: 100
+		TurnSpeedModifierAtMaximum: 0
+		TurretTurnSpeedModifierAtMinimum: 100
+		TurretTurnSpeedModifierAtMaximum: 0
+		ReloadDelayModifierAtMinimum: 100
+		ReloadDelayModifierAtMaximum: 0
+	DamageMultiplierProportionalToPhysicalState@HeatDamage:
+		PhysicalStateName: Temperature
+		DamageMultiplierAtMinimum: 100
+		DamageMultiplierAtMaximum: 1000
+		UseDeviationFromRelaxed: true
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		PhysicalStateName: Temperature
+		DamageAtMaximum: 400
+		DamageAtMinimum: 0
+		DamageThreshold: 0
+		DamageInterval: 1
+		DamageTypes: FireDeath
+	# Conditions for demonstration
+	GrantConditionOnPhysicalState@Overheating:
+		PhysicalStateName: Temperature
+		Condition: overheating
+		UpperValue: 10000
+		LowerValue: 7500
+	GrantConditionOnPhysicalState@CryoFreeze1:
+		PhysicalStateName: Temperature
 		Condition: CryoFreeze
-	TimedConditionBar@CryoFreeze:
+		UpperValue: -100
+		LowerValue: -1000
+	GrantConditionOnPhysicalState@CryoFreeze2:
+		PhysicalStateName: Temperature
 		Condition: CryoFreeze
-		Color: 4488FF
+		UpperValue: -100
+		LowerValue: -2000
+	GrantConditionOnPhysicalState@CryoFreeze3:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -3000
+	GrantConditionOnPhysicalState@CryoFreeze4:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -4000
+	GrantConditionOnPhysicalState@CryoFreeze5:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -5000
+	GrantConditionOnPhysicalState@CryoFreeze6:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -6000
+	GrantConditionOnPhysicalState@CryoFreeze7:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -7000
+	GrantConditionOnPhysicalState@CryoFreeze8:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -8000
+	GrantConditionOnPhysicalState@CryoFreeze9:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -9000
+	GrantConditionOnPhysicalState@CryoFreeze10:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -100
+		LowerValue: -10000
+	WithColoredOverlay@Overheating:
+		RequiresCondition: overheating
+		Color: FF000080
+	# WithColoredOverlay@Frozen:
+	# 	RequiresCondition: frozen
+	# 	Color: 0080FF80
+	# ExternalCondition@CryoFreeze:
+	# 	Condition: CryoFreeze
+	# TimedConditionBar@CryoFreeze:
+	# 	Condition: CryoFreeze
+	# 	Color: 4488FF
 	GrantCondition@superfreeze:
 		Condition: superfreeze
 		RequiresCondition: CryoFreeze >= 10
-	SpeedMultiplier@CryoFreeze1:
-		Modifier: 90
-		RequiresCondition: CryoFreeze == 1
-	SpeedMultiplier@CryoFreeze2:
-		Modifier: 80
-		RequiresCondition: CryoFreeze == 2
-	SpeedMultiplier@CryoFreeze3:
-		Modifier: 70
-		RequiresCondition: CryoFreeze == 3
-	SpeedMultiplier@CryoFreeze4:
-		Modifier: 60
-		RequiresCondition: CryoFreeze == 4
-	SpeedMultiplier@CryoFreeze5:
-		Modifier: 50
-		RequiresCondition: CryoFreeze == 5
-	SpeedMultiplier@CryoFreeze6:
-		Modifier: 40
-		RequiresCondition: CryoFreeze == 6
-	SpeedMultiplier@CryoFreeze7:
-		Modifier: 30
-		RequiresCondition: CryoFreeze == 7
-	SpeedMultiplier@CryoFreeze8:
-		Modifier: 20
-		RequiresCondition: CryoFreeze == 8
-	SpeedMultiplier@CryoFreeze9:
-		Modifier: 10
-		RequiresCondition: CryoFreeze == 9
-	SpeedMultiplier@CryoFreeze10:
-		Modifier: 0
-		RequiresCondition: CryoFreeze >= 10
-	ReloadDelayMultiplier@CryoFreeze1:
-		Modifier: 110
-		RequiresCondition: CryoFreeze == 1
-	ReloadDelayMultiplier@CryoFreeze2:
-		Modifier: 120
-		RequiresCondition: CryoFreeze == 2
-	ReloadDelayMultiplier@CryoFreeze3:
-		Modifier: 130
-		RequiresCondition: CryoFreeze == 3
-	ReloadDelayMultiplier@CryoFreeze4:
-		Modifier: 140
-		RequiresCondition: CryoFreeze == 4
-	ReloadDelayMultiplier@CryoFreeze5:
-		Modifier: 150
-		RequiresCondition: CryoFreeze == 5
-	ReloadDelayMultiplier@CryoFreeze6:
-		Modifier: 160
-		RequiresCondition: CryoFreeze == 6
-	ReloadDelayMultiplier@CryoFreeze7:
-		Modifier: 170
-		RequiresCondition: CryoFreeze == 7
-	ReloadDelayMultiplier@CryoFreeze8:
-		Modifier: 180
-		RequiresCondition: CryoFreeze == 8
-	ReloadDelayMultiplier@CryoFreeze9:
-		Modifier: 190
-		RequiresCondition: CryoFreeze == 9
-	ReloadDelayMultiplier@CryoFreeze10:
-		Modifier: 200
-		RequiresCondition: CryoFreeze >= 10
-	DamageMultiplier@CryoFreeze1:
-		Modifier: 110
-		RequiresCondition: CryoFreeze == 1
-	DamageMultiplier@CryoFreeze2:
-		Modifier: 120
-		RequiresCondition: CryoFreeze == 2
-	DamageMultiplier@CryoFreeze3:
-		Modifier: 130
-		RequiresCondition: CryoFreeze == 3
-	DamageMultiplier@CryoFreeze4:
-		Modifier: 140
-		RequiresCondition: CryoFreeze == 4
-	DamageMultiplier@CryoFreeze5:
-		Modifier: 150
-		RequiresCondition: CryoFreeze == 5
-	DamageMultiplier@CryoFreeze6:
-		Modifier: 160
-		RequiresCondition: CryoFreeze == 6
-	DamageMultiplier@CryoFreeze7:
-		Modifier: 170
-		RequiresCondition: CryoFreeze == 7
-	DamageMultiplier@CryoFreeze8:
-		Modifier: 180
-		RequiresCondition: CryoFreeze == 8
-	DamageMultiplier@CryoFreeze9:
-		Modifier: 190
-		RequiresCondition: CryoFreeze == 9
-	DamageMultiplier@CryoFreeze10:
-		Modifier: 200
-		RequiresCondition: CryoFreeze >= 10
+	# SpeedMultiplier@CryoFreeze1:
+	# 	Modifier: 90
+	# 	RequiresCondition: CryoFreeze == 1
+	# SpeedMultiplier@CryoFreeze2:
+	# 	Modifier: 80
+	# 	RequiresCondition: CryoFreeze == 2
+	# SpeedMultiplier@CryoFreeze3:
+	# 	Modifier: 70
+	# 	RequiresCondition: CryoFreeze == 3
+	# SpeedMultiplier@CryoFreeze4:
+	# 	Modifier: 60
+	# 	RequiresCondition: CryoFreeze == 4
+	# SpeedMultiplier@CryoFreeze5:
+	# 	Modifier: 50
+	# 	RequiresCondition: CryoFreeze == 5
+	# SpeedMultiplier@CryoFreeze6:
+	# 	Modifier: 40
+	# 	RequiresCondition: CryoFreeze == 6
+	# SpeedMultiplier@CryoFreeze7:
+	# 	Modifier: 30
+	# 	RequiresCondition: CryoFreeze == 7
+	# SpeedMultiplier@CryoFreeze8:
+	# 	Modifier: 20
+	# 	RequiresCondition: CryoFreeze == 8
+	# SpeedMultiplier@CryoFreeze9:
+	# 	Modifier: 10
+	# 	RequiresCondition: CryoFreeze == 9
+	# SpeedMultiplier@CryoFreeze10:
+	# 	Modifier: 0
+	# 	RequiresCondition: CryoFreeze >= 10
+	# ReloadDelayMultiplier@CryoFreeze1:
+	# 	Modifier: 110
+	# 	RequiresCondition: CryoFreeze == 1
+	# ReloadDelayMultiplier@CryoFreeze2:
+	# 	Modifier: 120
+	# 	RequiresCondition: CryoFreeze == 2
+	# ReloadDelayMultiplier@CryoFreeze3:
+	# 	Modifier: 130
+	# 	RequiresCondition: CryoFreeze == 3
+	# ReloadDelayMultiplier@CryoFreeze4:
+	# 	Modifier: 140
+	# 	RequiresCondition: CryoFreeze == 4
+	# ReloadDelayMultiplier@CryoFreeze5:
+	# 	Modifier: 150
+	# 	RequiresCondition: CryoFreeze == 5
+	# ReloadDelayMultiplier@CryoFreeze6:
+	# 	Modifier: 160
+	# 	RequiresCondition: CryoFreeze == 6
+	# ReloadDelayMultiplier@CryoFreeze7:
+	# 	Modifier: 170
+	# 	RequiresCondition: CryoFreeze == 7
+	# ReloadDelayMultiplier@CryoFreeze8:
+	# 	Modifier: 180
+	# 	RequiresCondition: CryoFreeze == 8
+	# ReloadDelayMultiplier@CryoFreeze9:
+	# 	Modifier: 190
+	# 	RequiresCondition: CryoFreeze == 9
+	# ReloadDelayMultiplier@CryoFreeze10:
+	# 	Modifier: 200
+	# 	RequiresCondition: CryoFreeze >= 10
+	# DamageMultiplier@CryoFreeze1:
+	# 	Modifier: 110
+	# 	RequiresCondition: CryoFreeze == 1
+	# DamageMultiplier@CryoFreeze2:
+	# 	Modifier: 120
+	# 	RequiresCondition: CryoFreeze == 2
+	# DamageMultiplier@CryoFreeze3:
+	# 	Modifier: 130
+	# 	RequiresCondition: CryoFreeze == 3
+	# DamageMultiplier@CryoFreeze4:
+	# 	Modifier: 140
+	# 	RequiresCondition: CryoFreeze == 4
+	# DamageMultiplier@CryoFreeze5:
+	# 	Modifier: 150
+	# 	RequiresCondition: CryoFreeze == 5
+	# DamageMultiplier@CryoFreeze6:
+	# 	Modifier: 160
+	# 	RequiresCondition: CryoFreeze == 6
+	# DamageMultiplier@CryoFreeze7:
+	# 	Modifier: 170
+	# 	RequiresCondition: CryoFreeze == 7
+	# DamageMultiplier@CryoFreeze8:
+	# 	Modifier: 180
+	# 	RequiresCondition: CryoFreeze == 8
+	# DamageMultiplier@CryoFreeze9:
+	# 	Modifier: 190
+	# 	RequiresCondition: CryoFreeze == 9
+	# DamageMultiplier@CryoFreeze10:
+	# 	Modifier: 200
+	# 	RequiresCondition: CryoFreeze >= 10
 	WithColoredOverlay@CryoFreeze1:
 		Color: 4488FF08
 		RequiresCondition: CryoFreeze == 1
@@ -4730,7 +4833,7 @@
 		Color: DDDDFF96
 		RequiresCondition: CryoFreeze >= 10
 	WithIdleOverlay@frostspark:
-		RequiresCondition: CryoFreeze >= 8
+		RequiresCondition: CryoFreeze >= 7
 		Image: ra2_chronosk
 		Sequence: idle
 		StartSequence: idle
