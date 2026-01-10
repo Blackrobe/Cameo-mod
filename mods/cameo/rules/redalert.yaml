@@ -1349,7 +1349,7 @@ ra_dragunov:
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	Voiced:
-		VoiceSet: RussianConscriptVoice
+		VoiceSet: RussianCommissarVoice
 	AttackFrontal:
 		Voice: Attack
 	GrantExternalConditionToTransport:

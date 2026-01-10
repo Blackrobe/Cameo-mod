@@ -1635,6 +1635,10 @@
 	Warhead@ShieldHitEffect: CreateEffect
 		ImpactSounds: shielded_bullet_hit1.wav, shielded_bullet_hit2.wav, shielded_bullet_hit3.wav, shielded_bullet_hit4.wav
 		ValidTargets: Shielded
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: 1000
+		Range: 1000
 
 ^MediumFlameWeapon:
 	ValidTargets: Ground, Water, Trees
@@ -1738,6 +1742,10 @@
 	Warhead@ShieldHitEffect: CreateEffect
 		ImpactSounds: shielded_bullet_hit1.wav, shielded_bullet_hit2.wav, shielded_bullet_hit3.wav, shielded_bullet_hit4.wav
 		ValidTargets: Shielded
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: 1500
+		Range: 1500
 
 ^HeavyFlameWeapon:
 	ValidTargets: Ground, Water, Trees
@@ -1841,6 +1849,10 @@
 	Warhead@ShieldHitEffect: CreateEffect
 		ImpactSounds: shielded_bullet_hit1.wav, shielded_bullet_hit2.wav, shielded_bullet_hit3.wav, shielded_bullet_hit4.wav
 		ValidTargets: Shielded
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: 2000
+		Range: 2000
 
 ^LightChemicalWeapon:
 	ValidTargets: Ground, Water, Trees

@@ -4074,8 +4074,8 @@ EpigraphMG:
 	Report: blastgn2.aud
 	ValidTargets: Ground, Water, Trees, Air
 	TargetActorCenter: true
-	Range: 4006
-	ReloadDelay: 56
+	Range: 4000
+	ReloadDelay: 71
 	Projectile: Bullet
 		TrailImage: blue_smokey
 		TrailInterval: 1
@@ -4086,44 +4086,44 @@ EpigraphMG:
 		ContrailLength: 15
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 	Warhead@MediumChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@CryoFreeze: GrantExternalCondition
-		Condition: CryoFreeze
-		Duration: 125
-		Range: 1250
+		Damage: 2
+	Warhead@PhysicalStateCryo: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -10000
+		Range: 200
 		ValidRelationships: Enemy, Neutral, Ally
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect

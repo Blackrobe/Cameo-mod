@@ -7203,6 +7203,8 @@ SCEPIGRAPH:
 		Weapon: EpigraphMG
 		LocalOffset: 600,-200,0
 		PauseOnCondition: !ammo
+	FirepowerMultiplier@Cryo:
+		Modifier: 75
 	AttackAircraft:
 		FacingTolerance: 20
 		AttackType: Hover
@@ -7213,15 +7215,15 @@ SCEPIGRAPH:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	AmmoPool:
-		Ammo: 6
+		Ammo: 4
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 56
+		Delay: 71
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 4
 	ActorStatValues:
 		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:

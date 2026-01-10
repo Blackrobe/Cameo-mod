@@ -8177,6 +8177,13 @@ ra2_chronosk:
 		Offset: 0,24
 		ZOffset: 1023
 
+ra2_initfire:
+	Defaults:
+		Filename: ra2_fire01.shp
+	idle:
+		Length: *
+		ZOffset: 1023
+
 ra2uniontank:
 	Defaults:
 		Filename: UnionTankBody.png
