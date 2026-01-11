@@ -627,10 +627,10 @@ FireballLauncher:
 		Damage: 9000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 9
-	Warhead@Effect: CreateEffect
-		Explosions: napalm
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 18000
+	Warhead@Effect: CreateEffect
+		Explosions: napalm
 
 FireballLauncherThermobaric:
 	Inherits: ^HeavyFlameWeapon
@@ -656,12 +656,12 @@ FireballLauncherThermobaric:
 		Damage: 5000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 5
-	Warhead@Effect: CreateEffect
-		Explosions: med_napalm
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 10000
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 10000
+	Warhead@Effect: CreateEffect
+		Explosions: med_napalm
 
 FireballGun:
 	Inherits: ^MediumFlameWeapon
@@ -680,10 +680,10 @@ FireballGun:
 		Damage: 2000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
-	Warhead@Effect: CreateEffect
-		Explosions: napalm
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@Effect: CreateEffect
+		Explosions: napalm
 
 FireballGunThermobaric:
 	Inherits: ^HeavyFlameWeapon
@@ -709,12 +709,12 @@ FireballGunThermobaric:
 		Damage: 1000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
-	Warhead@Effect: CreateEffect
-		Explosions: med_napalm
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@Effect: CreateEffect
+		Explosions: med_napalm
 
 Flamer:
 	Inherits: ^LightFlameWeapon
@@ -770,10 +770,10 @@ PlasmaFlamer:
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
 		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-	Warhead@Effect: CreateEffect
-		Explosions: blue_small_napalm
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@Effect: CreateEffect
+		Explosions: blue_small_napalm
 
 HeavyFlamer:
 	Inherits: ^MediumFlameWeapon
@@ -794,10 +794,10 @@ HeavyFlamer:
 		Damage: 1000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
-	Warhead@Effect: CreateEffect
-		Explosions: napalm
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@Effect: CreateEffect
+		Explosions: napalm
 
 HeavyPlasmaFlamer:
 	Inherits: ^HeavyChemicalWeapon
@@ -831,10 +831,10 @@ HeavyPlasmaFlamer:
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-	Warhead@Effect: CreateEffect
-		Explosions: blue_building_napalm
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@Effect: CreateEffect
+		Explosions: blue_building_napalm
 
 SiegeMortar:
 	Inherits: ^ShrapnelWeapon

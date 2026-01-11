@@ -1548,6 +1548,8 @@ aa_flam:
 		RequiresCondition: rank-elite
 	FirepowerMultiplier@MultiWeapon:
 		Modifier: 50
+	FireWarheadsOnDeath:
+		Weapon: Flamethrower
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -5545,6 +5547,8 @@ latin_fthrow:
 	SpeedMultiplier@latin_up_hotfire:
 		Modifier: 120
 		RequiresCondition: latin_up_hotfire
+	FireWarheadsOnDeath:
+		Weapon: Flamethrower
 	ActorStatValues:
 		Upgrades: uplatin_mili, latin_up_hotfire
 	AttackFrontal:
@@ -13214,6 +13218,8 @@ nax_fcons:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	FireWarheadsOnDeath:
+		Weapon: Flamethrower
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:

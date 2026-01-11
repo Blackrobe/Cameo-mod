@@ -891,6 +891,8 @@ AsianFlameFragment:
 		Damage: 1000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 2000
 	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianFlameFragment2
 		Amount: 1
@@ -1223,6 +1225,8 @@ AsianFlamerTurret:
 		Damage: 2000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 4000
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_initfire
 		ExplosionPalette: ra2effect
@@ -6791,6 +6795,12 @@ SyndicateFireballLauncher:
 		Damage: 1000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 2000
 
 SyndicateFireballLauncherE:
 	Inherits: SyndicateFireballLauncher

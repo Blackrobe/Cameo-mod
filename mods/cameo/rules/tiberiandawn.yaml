@@ -5019,6 +5019,8 @@ tsblackhandflamer:
 		PlayerPalette: playerra2
 	WithDeathAnimation:
 		DeathSequencePalette: playerra2
+	FireWarheadsOnDeath:
+		Weapon: Flamethrower
 	Cloak:
 		UncloakOn: Attack, Damage
 		CloakSound: trans1.aud

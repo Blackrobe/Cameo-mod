@@ -64,7 +64,7 @@ namespace OpenRA.Mods.Cameo.Traits
 					? Math.Min(amount, difference)
 					: Math.Max(amount, difference);
 			}
-			physicalState?.ApplyChange(amount, self, Info.IsRelaxation);
+			physicalState?.ApplyChange(amount, self);
 		}
 
 		void ITick.Tick(Actor self)

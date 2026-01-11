@@ -3550,16 +3550,19 @@ SCFIREBAT:
 		Name: garrisoned
 		Weapon: FirebatF
 		LocalOffset: 341,-120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@GARRISONED2:
 		Name: garrisoned
 		Weapon: FirebatF
 		LocalOffset: 341,120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
+	RangeMultiplier@Garrisoned:
+		Modifier: 125
+	GrantCondition@battlefortresspassenger:
+		Condition: garrisoned
+		RequiresCondition: battlefortresspassenger
 	WithMuzzleOverlay:
 	Voiced:
 		VoiceSet: SCFirebatVoice
@@ -3594,33 +3597,31 @@ SCHARAKAN:
 	Mobile:
 		Speed: 56
 	Health:
-		HP: 116000
+		HP: 78000
 	ChangesHealth@SelfHealing:
-		Step: 116
+		Step: 78
 	Armament@1:
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,-120,128
 		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@2:
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,120,128
 		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@GARRISONED1:
 		Name: garrisoned
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,-120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@GARRISONED2:
 		Name: garrisoned
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
+		Modifier: 25
 	RangeMultiplier@Garrisoned:
 		Modifier: 125
 	GrantCondition@battlefortresspassenger:

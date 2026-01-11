@@ -96,9 +96,9 @@ FirebatF:
 	Range: 3400
 	StartBurstReport: TFBFir00.aud,TFBFir01.aud
 	Projectile: Bullet
-		Speed: 150
+		Speed: 170
 		Image: tsflameall
-		Inaccuracy: 600
+		Inaccuracy: 680
 		Palette: tseffect
 	Warhead@MediumFlameWeapon: SpreadDamage
 		Damage: 2000
@@ -106,6 +106,38 @@ FirebatF:
 		Damage: 1000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+
+HarakanF:
+	Inherits: ^HeavyFlameWeapon
+	Inherits: ^MediumFlameWeapon
+	ReloadDelay: 47
+	Burst: 20
+	BurstDelays: 2
+	Range: 4185
+	StartBurstReport: TFBFir00.aud,TFBFir01.aud
+	Projectile: Bullet
+		Speed: 210
+		Image: tsflameall
+		Inaccuracy: 840
+		Palette: tseffect
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 2000
 
 MatadorFlamer:
 	Inherits: ^MediumFlameWeapon
@@ -115,9 +147,9 @@ MatadorFlamer:
 	Range: 5938
 	StartBurstReport: TFBFir00.aud,TFBFir01.aud
 	Projectile: Bullet
-		Speed: 150
+		Speed: 296
 		Image: tsflameall
-		Inaccuracy: 600
+		Inaccuracy: 1184
 		Palette: tseffect
 	Warhead@MediumFlameWeapon: SpreadDamage
 		Damage: 2000
@@ -125,6 +157,8 @@ MatadorFlamer:
 		Damage: 1000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 2000
 
 MatadorLaser:
 	Inherits: ^LaserWeapon

@@ -4707,7 +4707,7 @@
 		LowerValue: 1
 	ChangesPhysicalState@heated:
 		PhysicalStateName: Temperature
-		Amount: -1000
+		Amount: -100
 		Delay: 1
 		IsRelaxation: true
 		RequiresCondition: heated
@@ -4718,7 +4718,7 @@
 		LowerValue: -10000
 	ChangesPhysicalState@cooled:
 		PhysicalStateName: Temperature
-		Amount: 1000
+		Amount: 100
 		Delay: 1
 		IsRelaxation: true
 		RequiresCondition: cooled

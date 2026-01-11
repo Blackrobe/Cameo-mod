@@ -115,6 +115,8 @@ Flamethrower:
 		Damage: 5000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 5
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 10000
 
 NodTurretLaser:
 	Inherits: ^SmallArms
@@ -423,6 +425,8 @@ BigFlamer:
 		Damage: 7000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 7
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 14000
 
 FlametankExplode:
 	Inherits: ^MediumFlameWeapon
@@ -432,6 +436,8 @@ FlametankExplode:
 		Damage: 20000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 20
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 40000
 	Warhead@2Eff: CreateEffect
 		Explosions: big_napalm
 		ImpactSounds: xplobig6.aud
@@ -1641,6 +1647,8 @@ BigFlamer2:
 		Damage: 10000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 10
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 20000
 
 FlametankExplode2:
 	Inherits: ^HeavyFlameWeapon
@@ -1650,6 +1658,8 @@ FlametankExplode2:
 		Damage: 25000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 25
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 50000
 	Warhead@Effect: CreateEffect
 		Explosions: big_napalm
 		ImpactSounds: xplobig6.aud
@@ -1694,6 +1704,8 @@ TSFireballLauncher:
 		Damage: 2000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 4000
 
 BHRedDarts:
 	Inherits: ^TeslaChargedWeapon
