@@ -2749,18 +2749,18 @@
 		LayerName: tibradiation
 		RequiresCondition: !parachute && !radsuits && hazmatsuits
 	PhysicalState@Temperature:
-		RelaxationLinear: 10
+		RelaxationLinear: 100
 	ChangesHealthProportionalToPhysicalState@HeatDamage:
-		DamageAtMaximum: 50
-		RequiresCondition: !hazmatsuits
+		DamageAtMaximum: 100
+		RequiresCondition: Overheating && !hazmatsuits
 	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
 		PhysicalStateName: Temperature
-		DamageAtMaximum: 25
+		DamageAtMaximum: 50
 		DamageAtMinimum: 0
 		DamageThreshold: 0
 		DamageInterval: 1
 		DamageTypes: FireDeath
-		RequiresCondition: hazmatsuits
+		RequiresCondition: Overheating && hazmatsuits
 	EdibleByLeap:
 	DeliversCash:
 		Payload: 25
@@ -3507,14 +3507,14 @@
 	WithIdleOverlay@shrouded:
 		Image: shrouded_overlay_big
 	DamagedByTerrain:
-		Damage: -200
+		Damage: -100
 		DamageInterval: 1
 		Terrain: Concrete
 	GrantConditionOnTerrain@Water:
 		TerrainTypes: Concrete
 		Condition: on_concrete
 	DamageMultiplier@on_concrete:
-		Modifier: 66
+		Modifier: 75
 		RequiresCondition: on_concrete
 
 ^CivBuilding:
@@ -4622,7 +4622,7 @@
 		RelativeToHealth: true
 		RelaxationLinear: 1
 		RelaxationInterval: 1
-		RelaxationDelay: 1
+		RelaxationDelay: 10
 		InitialValue: 0
 	PhysicalStateBar@TemperatureBar:
 		PhysicalStateName: Temperature
@@ -4642,29 +4642,36 @@
 		TurretTurnSpeedModifierAtMinimum: 100
 		TurretTurnSpeedModifierAtMaximum: 0
 		ReloadDelayModifierAtMinimum: 100
-		ReloadDelayModifierAtMaximum: 0
+		ReloadDelayModifierAtMaximum: 1
 	DamageMultiplierProportionalToPhysicalState@HeatDamage:
 		PhysicalStateName: Temperature
 		DamageMultiplierAtMinimum: 100
 		DamageMultiplierAtMaximum: 200
 		UseDeviationFromRelaxed: true
+		RequiresCondition: CryoFreeze
 	ChangesHealthProportionalToPhysicalState@HeatDamage:
 		PhysicalStateName: Temperature
-		DamageAtMaximum: 100
+		DamageAtMaximum: 200
 		DamageAtMinimum: 0
 		DamageThreshold: 0
 		DamageInterval: 1
 		DamageTypes: FireDeath
+		RequiresCondition: Overheating
 	# Conditions for demonstration
-	GrantConditionOnPhysicalState@Overheating10:
+	GrantConditionOnPhysicalState@Overheating:
 		PhysicalStateName: Temperature
 		Condition: Overheating
 		UpperValue: 10000
-		LowerValue: 9000
-	GrantConditionOnPhysicalState@CryoFreeze10:
+		LowerValue: 5000
+	GrantConditionOnPhysicalState@CryoFreeze:
+		PhysicalStateName: Temperature
+		Condition: CryoFreeze
+		UpperValue: -5000
+		LowerValue: -10000
+	GrantConditionOnPhysicalState@superfreeze:
 		PhysicalStateName: Temperature
 		Condition: superfreeze
-		UpperValue: -9000
+		UpperValue: -10000
 		LowerValue: -10000
 	WithPhysicalStateColoredOverlay@CryoFreeze:
 		PhysicalStateName: Temperature

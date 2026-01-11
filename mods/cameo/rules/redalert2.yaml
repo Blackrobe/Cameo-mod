@@ -8313,7 +8313,7 @@ ra2shad:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ra2shad.Husk
@@ -8466,7 +8466,7 @@ ra2rock:
 		Weapon: ra2roktgun
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ra2rock.husk
@@ -8889,7 +8889,7 @@ ra2_tzep:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ra2_tzep.Husk

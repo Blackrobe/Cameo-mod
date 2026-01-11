@@ -3332,7 +3332,7 @@ aa_gunb:
 	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 	DetectCloaked:
 		Range: 5000
 		DetectionTypes: Underwater
@@ -8727,7 +8727,7 @@ steel_qoil:
 	AttackAircraft:
 		AttackType: Hover
 		PersistentTargeting: false
-		FacingTolerance: 20
+		FacingTolerance: 10
 	-SpawnActorOnDeath:
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
@@ -10467,7 +10467,7 @@ steel_grun:
 		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	Aircraft:
 		Speed: 120
 		TurnSpeed: 24
@@ -10867,7 +10867,7 @@ steel_cargoship:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: steel_cargoship.Husk
@@ -10975,7 +10975,7 @@ steel_cruiser:
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: steel_cruiser.Husk
@@ -13419,7 +13419,7 @@ nax_litt:
 		RequiresCondition: rank-elite
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: nax_litt.husk
@@ -17887,7 +17887,7 @@ nax_zep:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: nax_zep.Husk
@@ -18484,7 +18484,7 @@ nax2_zep:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: nax2_zep.Husk

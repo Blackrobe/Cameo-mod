@@ -2996,31 +2996,81 @@ IdolCannon:
 		AllowSnapping: true
 
 GladiusCannon:
+	Inherits: ^LightFlameWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^HeavyFlameWeapon
+	Inherits: ^ShrapnelWeapon
 	Inherits: PhotonCannon
 	ReloadDelay: 80
 	Range: 10000
 	Projectile: Missile
-		Speed: 500
-		CloseEnough: 500
+		HorizontalRateOfTurn: 4
+		VerticalRateOfTurn: 4
+		Speed: 400
+		CloseEnough: 400
 		AllowSnapping: true
 		Image: waveforcebullet
 		TrailImage: blue_small_napalm
+	Warhead@LightFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
 	Warhead@FlakWeapon: SpreadDamage
-		Damage: 20000
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
 	Warhead@HeavyCannon: SpreadDamage
-		Damage: 20000
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 10
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
 	Warhead@MediumCannon: SpreadDamage
-		Damage: 20000
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		Damage: 10
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
 	Warhead@TankDestroyerCannon: SpreadDamage
-		Damage: 20000
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 10000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
-		Damage: 10
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 5
 	Warhead@Effect: CreateEffect
 		Explosions: steel_blueexp
 		ExplosionPalette: ra2effect
@@ -3485,89 +3535,6 @@ CorsairEMP:
 		ImpactActors: false
 
 LanifectBeam:
-	Inherits: ^LightFlameWeapon
-	Inherits: ^MediumMissile
-	Inherits: ^ShrapnelWeapon
-	Inherits: ^FlakWeapon
-	Inherits: ^MediumChemicalWeapon
-	Inherits: ^LaserWeapon
-	ReloadDelay: 60
-	Range: 5850
-	Report: tphfi201.wav, tgofi200.wav
-	ValidTargets: blindable
-	TargetActorCenter: true
-	Projectile: LaserZapCA
-		Width: 128
-		Duration: 48
-		ZOffset: 2047
-		Color: FFFFFF55
-		UsePlayerColor: true
-		SecondaryBeam: true
-		SecondaryBeamWidth: 64
-		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFFFF
-		SecondaryBeamUsePlayerColor: false
-	Warhead@LightFlameWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
-	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@ShrapnelWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
-	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@MediumChemicalWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
-	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@LaserWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@LaserWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
-	Warhead@Condition: GrantExternalCondition
-		Condition: blinded
-		Duration: 60
-		Range: 600
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@Effect: CreateEffect
-		Explosions: scblueexplosion
-		ImpactSounds: phohit00.wav
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@EffectAir: CreateEffect
-		Explosions: scblueexplosion
-		ImpactSounds: phohit00.wav
-		ExplosionPalette: ra_temperat
-		ValidTargets: Ground, Water, Trees, Air
-
-StarshipSovereignBeam:
 	Inherits: ^LightMissile
 	Inherits: ^SmallArms
 	Inherits: ^Chaingun
@@ -3575,18 +3542,21 @@ StarshipSovereignBeam:
 	Inherits: ^TeslaWeapon
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 10
-	Range: 8475
-	Report: vpalwe2d.aud
-	Projectile: LaserZap
-		Width: 250
-		Duration: 25
+	ReloadDelay: 6
+	Range: 7911
+	Report: dune2smalllaser.aud, JUTankB_weapFire1a.wav, JUTankB_weapFire1b.wav, JUTankB_weapFire1c.wav, JUTankB_weapFire1d.wav, JUTankB_weapFire1e.wav, JUTankB_weapFire1f.wav, JUTankB_weapFire1g.wav, JUTankB_weapFire1h.wav
+	TargetActorCenter: true
+	Projectile: LaserZapCA
+		Width: 128
+		Duration: 12
 		ZOffset: 2047
 		Color: 4488FF44
+		UsePlayerColor: false
 		SecondaryBeam: true
-		SecondaryBeamWidth: 125
+		SecondaryBeamWidth: 64
 		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFF
+		SecondaryBeamColor: FFFFFFFF
+		SecondaryBeamUsePlayerColor: false
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
@@ -3639,6 +3609,116 @@ StarshipSovereignBeam:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
+	Warhead@PhysicalStateCryo: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 200
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water, Air
+	Warhead@Effect: CreateEffect
+		Explosions: scblueexplosion
+		ImpactSounds: phohit00.wav
+		ExplosionPalette: ra_temperat
+		ValidTargets: Ground, Water, Trees, Air
+		Volume: 0.5
+	Warhead@EffectAir: CreateEffect
+		Explosions: scblueexplosion
+		ImpactSounds: phohit00.wav
+		ExplosionPalette: ra_temperat
+		ValidTargets: Ground, Water, Trees, Air
+		Volume: 0.5
+
+StarshipSovereignBeam:
+	Inherits: ^LightMissile
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	Inherits: ^FlakWeapon
+	Inherits: ^TeslaWeapon
+	Inherits: ^LaserWeapon
+	ValidTargets: Ground, Water, Trees, Air
+	ReloadDelay: 10
+	Range: 8475
+	Report: vpalwe2d.aud, tphfi201.wav, tgofi200.wav, dune2smalllaser.aud, JUTankB_weapFire1a.wav, JUTankB_weapFire1b.wav, JUTankB_weapFire1c.wav, JUTankB_weapFire1d.wav, JUTankB_weapFire1e.wav, JUTankB_weapFire1f.wav, JUTankB_weapFire1g.wav, JUTankB_weapFire1h.wav
+	TargetActorCenter: true
+	Projectile: LaserZapCA
+		Width: 250
+		Duration: 25
+		ZOffset: 2047
+		Color: 4488FF44
+		SecondaryBeam: true
+		SecondaryBeamWidth: 125
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FFFFFFFF
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@PhysicalStateCryo: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 200
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water, Air
+	Warhead@Effect: CreateEffect
+		Explosions: scblueexplosion
+		ImpactSounds: phohit00.wav
+		ExplosionPalette: ra_temperat
+		ValidTargets: Ground, Water, Trees, Air
+		Volume: 0.5
+	Warhead@EffectAir: CreateEffect
+		Explosions: scblueexplosion
+		ImpactSounds: phohit00.wav
+		ExplosionPalette: ra_temperat
+		ValidTargets: Ground, Water, Trees, Air
+		Volume: 0.5
 
 ScienceVesselDefenseMatrix:
 	ValidTargets: Vehicle, Ship, Air
@@ -4067,15 +4147,19 @@ ScoutMG:
 
 EpigraphMG:
 	Inherits: ^Grenade
+	Inherits: ^ArrowWeapon
+	Inherits: ^LightMissile
+	Inherits: ^MediumMissile
+	Inherits: ^HeavyMissile
 	Inherits: ^MediumChemicalWeapon
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^HeavyCannon
 	Inherits: ^FlakWeapon
-	Inherits: ^RA2Chaingun
+	Inherits: ^Chaingun
 	Report: blastgn2.aud
 	ValidTargets: Ground, Water, Trees, Air
-	TargetActorCenter: true
-	Range: 4000
-	ReloadDelay: 71
+	Range: 5077
+	ReloadDelay: 36
 	Projectile: Bullet
 		TrailImage: blue_smokey
 		TrailInterval: 1
@@ -4086,49 +4170,71 @@ EpigraphMG:
 		ContrailLength: 15
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 1000
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
-	Warhead@MediumChemicalWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
-	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1
+	Warhead@ArrowWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
 	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 1
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
-	Warhead@PhysicalStateCryo: ApplyPhysicalState
-		PhysicalStateName: Temperature
-		Amount: -10000
-		Range: 200
-		ValidRelationships: Enemy, Neutral, Ally
-		ValidTargets: Ground, Water, Air
+		Damage: 1
 	Warhead@Effect: CreateEffect
-		Explosions: steel_bluepiffs
-	Warhead@Effect2: CreateEffect
 		Explosions: cryo_blast
 	Warhead@EffectWater: CreateEffect
 		Explosions: cryo_blast

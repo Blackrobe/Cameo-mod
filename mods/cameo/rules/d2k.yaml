@@ -6424,7 +6424,7 @@ ordos_banshee:
 	Shielded:
 		RegenAmount: 30
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	Armament:
 		Weapon: Laboratory_Bioball
 		LocalOffset: 256,-213,0, 256,213,0
@@ -10087,7 +10087,7 @@ ordos_carryall.reinforce:
 		Image: ordos_carryall
 		PlayerPalette: player_rgba
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	Armament@PRIMARY:
 		Weapon: d2kCarryallChainGun
 		LocalOffset: 128,-213,-85, 128,213,-85
@@ -10111,7 +10111,7 @@ ordos_carryall:
 		Image: ordos_carryall
 		PlayerPalette: player_rgba
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	Armament@PRIMARY:
 		Weapon: d2kCarryallChainGun
 		LocalOffset: 128,-213,-85, 128,213,-85
@@ -13671,7 +13671,7 @@ d2k_ixdrone:
 		LocalOffset: 750,0,-250
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		OpportunityFire: false
 		PersistentTargeting: false
 		AttackType: Hover
@@ -13886,7 +13886,7 @@ d2k_ixbomber:
 		LocalOffset: 250,0,-250
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 512
 		OpportunityFire: false
 		PersistentTargeting: false
 	AmmoPool:
@@ -13994,7 +13994,7 @@ d2k_resonancedrone:
 		Position: BottomLeft
 		RequiresSelection: True
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		OpportunityFire: false
 		PersistentTargeting: false
 		AttackType: Hover

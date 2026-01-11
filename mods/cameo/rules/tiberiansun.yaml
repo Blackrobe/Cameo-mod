@@ -4151,7 +4151,7 @@ tsjumpjet2:
 	Armament@PRIMARY:
 		Weapon: TSJumpCannon
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: TSJUMPJET.Husk

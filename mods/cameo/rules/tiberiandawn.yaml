@@ -2090,7 +2090,7 @@ HELI:
 		PauseOnCondition: !ammo
 		RequiresCondition: up_blackmarketupgrades
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	WithIdleOverlay@ROTORAIR:
 		Offset: 0,0,85
@@ -2174,7 +2174,7 @@ ORCA:
 		PauseOnCondition: !ammo
 		RequiresCondition: up_advancedmissiletargeting
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
@@ -7205,7 +7205,7 @@ gdirigdrone:
 	AttackAircraft:
 		AttackType: Hover
 		PersistentTargeting: false
-		FacingTolerance: 20
+		FacingTolerance: 10
 	-Targetable@SpecialRepair:
 	-SpawnActorOnDeath:
 	-ActorLostNotification:

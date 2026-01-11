@@ -17,7 +17,7 @@
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -2000
-		Range: 1250
+		Range: 200
 		ValidRelationships: Enemy, Neutral, Ally
 		ValidTargets: Ground, Water, Air
 
@@ -4654,7 +4654,7 @@ TigerCannon:
 		Explosions: cryo_artillery
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -30000
-		Range: 2500
+		Range: 400
 
 155mmBastion:
 	Inherits: 155mm
