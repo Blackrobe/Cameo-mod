@@ -4620,7 +4620,7 @@
 		MaxValue: 10000
 		RelaxedValue: 0
 		RelativeToHealth: true
-		RelaxationLinear: 4
+		RelaxationLinear: 1
 		RelaxationInterval: 1
 		RelaxationDelay: 1
 		InitialValue: 0
@@ -4663,12 +4663,9 @@
 		LowerValue: 9000
 	GrantConditionOnPhysicalState@CryoFreeze10:
 		PhysicalStateName: Temperature
-		Condition: CryoFreeze
+		Condition: superfreeze
 		UpperValue: -9000
 		LowerValue: -10000
-	GrantCondition@superfreeze:
-		Condition: superfreeze
-		RequiresCondition: CryoFreeze == 1
 	WithPhysicalStateColoredOverlay@CryoFreeze:
 		PhysicalStateName: Temperature
 		MinColor: DDDDFF96
@@ -4676,7 +4673,7 @@
 		LowerValue: -10000
 		UpperValue: -1
 	WithIdleOverlay@frostspark:
-		RequiresCondition: CryoFreeze
+		RequiresCondition: superfreeze
 		Image: ra2_chronosk
 		Sequence: idle
 		StartSequence: idle
@@ -4695,6 +4692,29 @@
 		StartSequence: idle
 		Palette: ra2effect
 		IsDecoration: True
+	# equilibriation
+	GrantConditionOnPhysicalState@heated:
+		PhysicalStateName: Temperature
+		Condition: heated
+		UpperValue: 10000
+		LowerValue: 1
+	ChangesPhysicalState@heated:
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Delay: 1
+		IsRelaxation: true
+		RequiresCondition: heated
+	GrantConditionOnPhysicalState@cooled:
+		PhysicalStateName: Temperature
+		Condition: cooled
+		UpperValue: -1
+		LowerValue: -10000
+	ChangesPhysicalState@cooled:
+		PhysicalStateName: Temperature
+		Amount: 1000
+		Delay: 1
+		IsRelaxation: true
+		RequiresCondition: cooled
 
 ^GravityWeighter:
 	ExternalCondition@GravityGenerator:
