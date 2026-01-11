@@ -4656,178 +4656,40 @@
 		DamageInterval: 1
 		DamageTypes: FireDeath
 	# Conditions for demonstration
-	GrantConditionOnPhysicalState@Overheating1:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 1000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating2:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 2000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating3:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 3000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating4:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 4000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating5:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 5000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating6:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 6000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating7:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 7000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating8:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 8000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@Overheating9:
-		PhysicalStateName: Temperature
-		Condition: Overheating
-		UpperValue: 9000
-		LowerValue: 1
 	GrantConditionOnPhysicalState@Overheating10:
 		PhysicalStateName: Temperature
 		Condition: Overheating
 		UpperValue: 10000
-		LowerValue: 1
-	GrantConditionOnPhysicalState@CryoFreeze1:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -1000
-	GrantConditionOnPhysicalState@CryoFreeze2:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -2000
-	GrantConditionOnPhysicalState@CryoFreeze3:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -3000
-	GrantConditionOnPhysicalState@CryoFreeze4:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -4000
-	GrantConditionOnPhysicalState@CryoFreeze5:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -5000
-	GrantConditionOnPhysicalState@CryoFreeze6:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -6000
-	GrantConditionOnPhysicalState@CryoFreeze7:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -7000
-	GrantConditionOnPhysicalState@CryoFreeze8:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -8000
-	GrantConditionOnPhysicalState@CryoFreeze9:
-		PhysicalStateName: Temperature
-		Condition: CryoFreeze
-		UpperValue: -1
-		LowerValue: -9000
+		LowerValue: 9000
 	GrantConditionOnPhysicalState@CryoFreeze10:
 		PhysicalStateName: Temperature
 		Condition: CryoFreeze
-		UpperValue: -1
+		UpperValue: -9000
 		LowerValue: -10000
 	GrantCondition@superfreeze:
 		Condition: superfreeze
 		RequiresCondition: CryoFreeze == 1
-	WithColoredOverlay@CryoFreeze1:
-		Color: 4488FF08
-		RequiresCondition: CryoFreeze >= 10
-	WithColoredOverlay@CryoFreeze2:
-		Color: 5591FF16
-		RequiresCondition: CryoFreeze == 9
-	WithColoredOverlay@CryoFreeze3:
-		Color: 669AFF24
-		RequiresCondition: CryoFreeze == 8
-	WithColoredOverlay@CryoFreeze4:
-		Color: 77A3FF32
-		RequiresCondition: CryoFreeze == 7
-	WithColoredOverlay@CryoFreeze5:
-		Color: 88ACFF40
-		RequiresCondition: CryoFreeze == 6
-	WithColoredOverlay@CryoFreeze6:
-		Color: 99B5FF48
-		RequiresCondition: CryoFreeze == 5
-	WithColoredOverlay@CryoFreeze7:
-		Color: AABEFF56
-		RequiresCondition: CryoFreeze == 4
-	WithColoredOverlay@CryoFreeze8:
-		Color: BBC7FF64
-		RequiresCondition: CryoFreeze == 3
-	WithColoredOverlay@CryoFreeze9:
-		Color: CCD0FF72
-		RequiresCondition: CryoFreeze == 2
-	WithColoredOverlay@CryoFreeze10:
-		Color: DDDDFF96
-		RequiresCondition: CryoFreeze == 1
+	WithPhysicalStateColoredOverlay@CryoFreeze:
+		PhysicalStateName: Temperature
+		MinColor: DDDDFF96
+		MaxColor: 4488FF08
+		LowerValue: -10000
+		UpperValue: -1
 	WithIdleOverlay@frostspark:
-		RequiresCondition: CryoFreeze >= 1 && CryoFreeze <= 5
+		RequiresCondition: CryoFreeze
 		Image: ra2_chronosk
 		Sequence: idle
 		StartSequence: idle
 		Palette: ra2effect
 		IsDecoration: True
-	WithColoredOverlay@Overheating1:
-		Color: FF884408
-		RequiresCondition: Overheating >= 10
-	WithColoredOverlay@Overheating2:
-		Color: FF804016
-		RequiresCondition: Overheating == 9
-	WithColoredOverlay@Overheating3:
-		Color: FF783C24
-		RequiresCondition: Overheating == 8
-	WithColoredOverlay@Overheating4:
-		Color: FF703832
-		RequiresCondition: Overheating == 7
-	WithColoredOverlay@Overheating5:
-		Color: FF683440
-		RequiresCondition: Overheating == 6
-	WithColoredOverlay@Overheating6:
-		Color: FF603048
-		RequiresCondition: Overheating == 5
-	WithColoredOverlay@Overheating7:
-		Color: FF582C56
-		RequiresCondition: Overheating == 4
-	WithColoredOverlay@Overheating8:
-		Color: FF502864
-		RequiresCondition: Overheating == 3
-	WithColoredOverlay@Overheating9:
-		Color: FF482472
-		RequiresCondition: Overheating == 2
-	WithColoredOverlay@Overheating10:
-		Color: FF402096
-		RequiresCondition: Overheating == 1
-	WithIdleOverlay@frostspark:
-		RequiresCondition: Overheating >= 1 && Overheating <= 5
+	WithPhysicalStateColoredOverlay@Overheating:
+		PhysicalStateName: Temperature
+		MinColor: FF884408
+		MaxColor: FF402096
+		LowerValue: 1
+		UpperValue: 10000
+	WithIdleOverlay@overheat:
+		RequiresCondition: Overheating
 		Image: ra2_initfire
 		Sequence: idle
 		StartSequence: idle
