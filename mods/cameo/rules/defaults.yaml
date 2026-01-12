@@ -4620,7 +4620,8 @@
 		MaxValue: 10000
 		RelaxedValue: 0
 		RelativeToHealth: true
-		RelaxationLinear: 1
+		RelaxationLinear: 0
+		RelaxationScaled: 100
 		RelaxationInterval: 1
 		RelaxationDelay: 10
 		InitialValue: 0
@@ -4700,28 +4701,30 @@
 		Palette: ra2effect
 		IsDecoration: True
 	# equilibriation
-	GrantConditionOnPhysicalState@heated:
-		PhysicalStateName: Temperature
-		Condition: heated
-		UpperValue: 10000
-		LowerValue: 1
-	ChangesPhysicalState@heated:
-		PhysicalStateName: Temperature
-		Amount: -100
-		Delay: 1
-		IsRelaxation: true
-		RequiresCondition: heated
-	GrantConditionOnPhysicalState@cooled:
-		PhysicalStateName: Temperature
-		Condition: cooled
-		UpperValue: -1
-		LowerValue: -10000
-	ChangesPhysicalState@cooled:
-		PhysicalStateName: Temperature
-		Amount: 100
-		Delay: 1
-		IsRelaxation: true
-		RequiresCondition: cooled
+	#GrantConditionOnPhysicalState@heated:
+	#	PhysicalStateName: Temperature
+	#	Condition: heated
+	#	UpperValue: 10000
+	#	LowerValue: 1
+	#ChangesPhysicalState@heated:
+	#	PhysicalStateName: Temperature
+	#	Amount: -100
+	#	Delay: 1
+	#	IsRelaxation: true
+	#	RelativeToHealth: true
+	#	RequiresCondition: heated
+	#GrantConditionOnPhysicalState@cooled:
+	#	PhysicalStateName: Temperature
+	#	Condition: cooled
+	#	UpperValue: -1
+	#	LowerValue: -10000
+	#ChangesPhysicalState@cooled:
+	#	PhysicalStateName: Temperature
+	#	Amount: 100
+	#	Delay: 1
+	#	IsRelaxation: true
+	#	RelativeToHealth: true
+	#	RequiresCondition: cooled
 
 ^GravityWeighter:
 	ExternalCondition@GravityGenerator:

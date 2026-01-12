@@ -17,7 +17,7 @@ using System;
 
 namespace OpenRA.Mods.Cameo.Traits
 {
-	[Desc("Applies linear changes to PhysicalState. Will be scaled if the PhysicalState has RelativeToHealth enabled.")]
+	[Desc("Applies linear changes to PhysicalState.")]
 	public class ChangesPhysicalStateInfo : ConditionalTraitInfo, Requires<PhysicalStateInfo>
 	{
 		[FieldLoader.Require]
@@ -33,6 +33,12 @@ namespace OpenRA.Mods.Cameo.Traits
 		[Desc("Cap off change if it passes RelaxedValue.")]
 		public readonly bool IsRelaxation = false;
 
+		[Desc("Scales absolute change against health.")]
+		public readonly bool RelativeToHealth = false;
+
+		[Desc("Damage modifiers will affect the change. Has no effect if IsRelaxation is enabled.")]
+		public readonly bool AffectedByModifiers = true;
+
 		public override object Create(ActorInitializer init) { return new ChangesPhysicalState(init.Self, this); }
 	}
 
@@ -45,6 +51,8 @@ namespace OpenRA.Mods.Cameo.Traits
 		[Sync]
 		int ticks;
 
+		int amount;
+
 		public ChangesPhysicalState(Actor self, ChangesPhysicalStateInfo info)
 			: base(info)
 		{
@@ -52,19 +60,19 @@ namespace OpenRA.Mods.Cameo.Traits
 			physicalState = self.TraitsImplementing<PhysicalState>()
 				.FirstOrDefault(ps => ps.Name == info.PhysicalStateName);
 			relaxedValue = physicalState.Info.RelaxedValue;
+			amount = Info.RelativeToHealth ? physicalState.ScaleChangeToHealth(Info.Amount) : Info.Amount;
+			if (Info.IsRelaxation) amount = Math.Abs(amount);
 		}
 
 		void ApplyChange()
 		{
-			var amount = Info.Amount;
 			if (Info.IsRelaxation)
 			{
-				var difference = relaxedValue - physicalState.Value;
-				amount = difference > 0
-					? Math.Min(amount, difference)
-					: Math.Max(amount, difference);
+				if (physicalState.RelaxationDelayTicks != 0)
+					return;
+				physicalState.ApplyLinearRelaxation(relaxedValue - physicalState.Value, amount);
 			}
-			physicalState?.ApplyChange(amount, self);
+			else physicalState.ApplyChange(amount, self, Info.AffectedByModifiers, false); // already scaled if yes
 		}
 
 		void ITick.Tick(Actor self)
