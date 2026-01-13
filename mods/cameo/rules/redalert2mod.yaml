@@ -673,7 +673,7 @@ aa_cgflam:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Sentry Flamer
+		Name: Asian Sentry Flamer
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -1514,7 +1514,7 @@ aa_flam:
 	Inherits@kami: ^KamikazeMode
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Tooltip:
-		Name: Flame Trooper
+		Name: Asian Flame Trooper
 	Valued:
 		Cost: 400
 	Buildable:
@@ -2652,7 +2652,7 @@ aa_ftnk:
 	Valued:
 		Cost: 1300
 	Tooltip:
-		Name: Flame Tank
+		Name: Asian Flame Tank
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~upaa_ftnk
@@ -5504,7 +5504,7 @@ latin_fthrow:
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
 	Tooltip:
-		Name: Flame Trooper
+		Name: Latin Flame Trooper
 	Valued:
 		Cost: 500
 	Buildable:

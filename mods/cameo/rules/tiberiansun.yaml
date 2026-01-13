@@ -7421,6 +7421,7 @@ TSART2:
 TSSUBTANK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -7453,7 +7454,7 @@ TSSUBTANK:
 	RevealsShroud:
 		Range: 6c0
 	Armament@PRIMARY:
-		Weapon: TSFireballLauncher2
+		Weapon: TSFireballLauncher
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions ##########

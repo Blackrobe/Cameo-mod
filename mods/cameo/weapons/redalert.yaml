@@ -286,6 +286,35 @@ ConscriptMolotov:
 		ContrailStartColor: FF8888FF
 		ContrailEndColor: FFFFFF22
 	Warhead@Grenade: SpreadDamage
+		Damage: 8000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 8000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 4000
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1, 3
+		Duration: 50
+		Speed: 8, 24
+		TurnRate: 4
+		Image: burn-l
+		Sequences: idle
+		Palette: ra_temperat
+		Weapon: CHFlame
+		InvalidTargets: Water
+
+ConscriptMolotovExplode:
+	Inherits: ConscriptMolotov
+	Warhead@Grenade: SpreadDamage
 		Damage: 4000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		Damage: 2000
@@ -297,16 +326,13 @@ ConscriptMolotov:
 		Damage: 2000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 4000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
 	Warhead@Cloud: SpawnSmokeParticle
 		Count: 1, 3
-		Duration: 50
-		Speed: 8, 24
-		TurnRate: 4
-		Image: burn-l
-		Sequences: idle
-		Palette: ra_temperat
-		Weapon: CHFlame
-		InvalidTargets: Water
+		Duration: 25
 
 RocketsRA:
 	Inherits: ^MediumMissile
@@ -441,10 +467,6 @@ DragunovSniper:
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
-	Warhead@PhysicalState: ApplyPhysicalState
-		PhysicalStateName: Temperature
-		Amount: -40000
-		Range: 400
 
 FireRockets:
 	Inherits: ^FlakWeapon
@@ -629,6 +651,8 @@ FireballLauncher:
 		Damage: 9
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 18000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 9000
 	Warhead@Effect: CreateEffect
 		Explosions: napalm
 
@@ -658,8 +682,12 @@ FireballLauncherThermobaric:
 		Damage: 5
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 10000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 5000
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 10000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 5000
 	Warhead@Effect: CreateEffect
 		Explosions: med_napalm
 
@@ -682,6 +710,8 @@ FireballGun:
 		Damage: 2
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@Effect: CreateEffect
 		Explosions: napalm
 
@@ -711,8 +741,12 @@ FireballGunThermobaric:
 		Damage: 1
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@Effect: CreateEffect
 		Explosions: med_napalm
 
@@ -737,6 +771,8 @@ Flamer:
 		Damage: 1
 	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 
 PlasmaFlamer:
 	Inherits: ^MediumFlameWeapon
@@ -772,6 +808,8 @@ PlasmaFlamer:
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
 	Warhead@Effect: CreateEffect
 		Explosions: blue_small_napalm
 
@@ -796,6 +834,8 @@ HeavyFlamer:
 		Damage: 1
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@Effect: CreateEffect
 		Explosions: napalm
 
@@ -833,6 +873,8 @@ HeavyPlasmaFlamer:
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
 	Warhead@Effect: CreateEffect
 		Explosions: blue_building_napalm
 
@@ -1215,7 +1257,7 @@ HeatRayBeam1:
 	Inherits: ^LaserWeapon
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^LightFlameWeapon
-	Range: 7865
+	Range: 8212
 	ReloadDelay: 8
 	Report: idesat1a.wav
 	SoundVolume: 0.25
@@ -1250,14 +1292,16 @@ HeatRayBeam1:
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 6000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 3000
+	# Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+	# 	Amount: 2000
+	# Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+	# 	Amount: 2000
 	Warhead@Effect: CreateEffect
 		Volume: 0.25
-	Warhead@Condition: GrantExternalCondition
-		Range: 640
-		Condition: corroded
-		Duration: 64
-		ValidTargets: corrodible
-		ValidRelationships: Enemy
 
 HeatRayBeam2:
 	Inherits: HeatRayBeam1

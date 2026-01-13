@@ -1159,7 +1159,7 @@ ra_cons_molo:
 	Inherits: ^Soldier
 	Inherits@anim: ^RA2Infantry
 	Inherits@Template: ^GrenadierInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1197,7 +1197,7 @@ ra_cons_molo:
 		StandSequences: parachute
 		RequiresCondition: parachute
 	FireWarheadsOnDeath:
-		Weapon: ConscriptMolotov
+		Weapon: ConscriptMolotovExplode
 	FireWarheadsOnDeath@Vengeance1:
 		Weapon: VengeanceActivator1
 		RequiresCondition: !ra_upgrade_vengeance
@@ -1362,6 +1362,7 @@ ra_dragunov:
 e3flamer:
 	Inherits: ^RAE3
 	Inherits@explode: ^ExplodingInfantry
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
@@ -2934,8 +2935,6 @@ Kotin:
 		LocalOffset: 1100,100,200, 1100,-100,200
 		MuzzleSequence: muzzle
 		RequiresCondition: ra_upgrade_nuclearshells
-	Targetable@FireImmune:
-		TargetTypes: FireActor
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
 	-DamagedByTintedCells@tib:
@@ -3830,6 +3829,7 @@ ra_heatraytank:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@FireActor: ^FireActor
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
@@ -3842,7 +3842,7 @@ ra_heatraytank:
 	Tooltip:
 		Name: Heatray Tank
 	Valued:
-		Cost: 2200
+		Cost: 1900
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 170

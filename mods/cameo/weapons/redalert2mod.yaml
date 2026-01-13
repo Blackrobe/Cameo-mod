@@ -893,6 +893,8 @@ AsianFlameFragment:
 		Damage: 1
 	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianFlameFragment2
 		Amount: 1
@@ -1227,6 +1229,8 @@ AsianFlamerTurret:
 		Damage: 2
 	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
 		Amount: 4000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_initfire
 		ExplosionPalette: ra2effect
@@ -5259,7 +5263,8 @@ DalekCannonScatter:
 	Inherits: DalekCannon
 	Range: 4030
 	Report: tphfi201.wav, tgofi200.wav
-	Projectile: Railgun
+	-Report:
+	Projectile: LaserZap
 		-HitAnim:
 	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -6797,10 +6802,16 @@ SyndicateFireballLauncher:
 		Damage: 1
 	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 
 SyndicateFireballLauncherE:
 	Inherits: SyndicateFireballLauncher

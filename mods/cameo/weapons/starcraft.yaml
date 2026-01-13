@@ -108,6 +108,8 @@ FirebatF:
 		Damage: 1
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 
 HarakanF:
 	Inherits: ^HeavyFlameWeapon
@@ -136,11 +138,33 @@ HarakanF:
 		Damage: 1
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
+
+Flamethrower:
+	Inherits: ^LightFlameWeapon
+	ReloadDelay: 60
+	Range: 2085
+	Report: flamer2.aud
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 20000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 10000
 
 MatadorFlamer:
+	Inherits: ^LightFlameWeapon
 	Inherits: ^MediumFlameWeapon
+	Inherits: ^HeavyFlameWeapon
 	ReloadDelay: 18
 	Burst: 13
 	BurstDelays: 2
@@ -151,14 +175,36 @@ MatadorFlamer:
 		Image: tsflameall
 		Inaccuracy: 1184
 		Palette: tseffect
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
 	Warhead@MediumFlameWeapon: SpreadDamage
 		Damage: 2000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		Damage: 1000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
 
 MatadorLaser:
 	Inherits: ^LaserWeapon
@@ -3594,60 +3640,46 @@ LanifectBeam:
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-		ValidRelationships: Neutral, Enemy
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-		ValidRelationships: Neutral, Enemy
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-		ValidRelationships: Neutral, Enemy
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-		ValidRelationships: Neutral, Enemy
 	Warhead@Chaingun: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-		ValidRelationships: Neutral, Enemy
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
-		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-		ValidRelationships: Neutral, Enemy
 	Warhead@LaserWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-		ValidRelationships: Neutral, Enemy
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -12000
 		Range: 200
-		ValidRelationships: Neutral, Enemy
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion

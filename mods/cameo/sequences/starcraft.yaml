@@ -1614,7 +1614,7 @@ scmatador:
 		Filename: scmatadormake.png
 		Facings: -16
 		Length: 7
-		Tick: 110
+		Tick: 35
 	deployed:
 		Filename: scmatadordeployed.png
 		Facings: -32

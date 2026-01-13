@@ -968,9 +968,19 @@
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	TooltipExtras@FireActor:
 		Description: Fire Weapon
+	DamageMultiplier@FireActorBuffs:
+		Modifier: 90
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		DamageAtMaximum: 100
 
 ^FireInfantry:
 	Inherits@FireActor: ^FireActor
+	DamageMultiplier@FireActorBuffs:
+		Modifier: 80
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		DamageAtMaximum: 50
+	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
+		DamageAtMaximum: 25
 	GrantExternalConditionToTransport:
 		Condition: ifv-fire
 
@@ -2749,13 +2759,14 @@
 		LayerName: tibradiation
 		RequiresCondition: !parachute && !radsuits && hazmatsuits
 	PhysicalState@Temperature:
-		RelaxationLinear: 100
+		RelaxationLinear: 10
+		RelaxationScaled: 100
 	ChangesHealthProportionalToPhysicalState@HeatDamage:
 		DamageAtMaximum: 100
 		RequiresCondition: Overheating && !hazmatsuits
 	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
 		PhysicalStateName: Temperature
-		DamageAtMaximum: 50
+		DamageAtMaximum: 25
 		DamageAtMinimum: 0
 		DamageThreshold: 0
 		DamageInterval: 1
@@ -4620,8 +4631,8 @@
 		MaxValue: 10000
 		RelaxedValue: 0
 		RelativeToHealth: true
-		RelaxationLinear: 0
-		RelaxationScaled: 100
+		RelaxationLinear: 5
+		RelaxationScaled: 50
 		RelaxationInterval: 1
 		RelaxationDelay: 10
 		InitialValue: 0

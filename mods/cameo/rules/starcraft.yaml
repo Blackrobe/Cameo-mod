@@ -3514,6 +3514,7 @@ SCFIREBAT:
 	Inherits: ^SCTINFANTRY
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@announce: ^AnnounceOnBuild
@@ -3577,10 +3578,11 @@ SCHARAKAN:
 	Inherits: ^SCTINFANTRY
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@stim: ^Stimpackable
 	Inherits@armor: ^TerranInfantryWeaponUpgrades
 	Inherits@weapon: ^TerranInfantryArmorUpgrades
@@ -4146,8 +4148,9 @@ SCMATADOR:
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@FireActor: ^FireActor
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@Crushes: ^VehicleCrusher
@@ -4163,7 +4166,7 @@ SCMATADOR:
 		Amount: -85
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~scengineeringbay, ~upmatador
+		Prerequisites: ~scfactory, ~upmatador
 		Description: Terran mobile artillery.\n Strong vs Infantry, Buildings\n Weak vs Vehicles, Aircraft\nCan deploy for increased range and splash damage
 	Mobile:
 		Speed: 100
@@ -4204,6 +4207,9 @@ SCMATADOR:
 		MuzzleSequence: muzzle
 		LocalOffset: 512,0,128
 		RequiresCondition: deployed
+	FirepowerMultiplier@undeployed:
+		Modifier: 33
+		RequiresCondition: undeployed
 	RevealsShroudMultiplier@deployed:
 		Modifier: 125
 		RequiresCondition: deployed
@@ -7183,11 +7189,10 @@ SCEPIGRAPH:
 		Queue: Aircraft, RAAircraft
 		Description: Protoss fighter aircraft.\n Strong vs Aircraft
 	Aircraft:
-		InitialFacing: 896
-		TurnSpeed: 20
 		Speed: 100
-		IdealSeparation: 1c0
-		RepulsionSpeed: 10
+		TurnSpeed: 20
+		RepulsionSpeed: 20
+		IdealSeparation: 2000
 	Health:
 		HP: 200000
 	Repairable:
@@ -7263,7 +7268,7 @@ SCLANIFECT:
 		Speed: 120
 		TurnSpeed: 24
 		RepulsionSpeed: 24
-		IdealSeparation: 1000
+		IdealSeparation: 1200
 	Health:
 		HP: 60000
 	Repairable:
@@ -7518,7 +7523,7 @@ SCSTARSHIPSOVEREIGN:
 		RegenAmount: 600
 	Armament:
 		Weapon: StarshipSovereignBeam
-		LocalOffset: 1650,0,50
+		LocalOffset: 1700,0,25
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	FirepowerMultiplier@Cryo:

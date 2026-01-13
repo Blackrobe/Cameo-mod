@@ -1637,8 +1637,14 @@
 		ValidTargets: Shielded
 	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: 1000
-		Range: 1000
+		ValidRelationships: Neutral, Enemy
+		Amount: 1500
+		Range: 1500
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		ValidRelationships: Ally
+		Amount: 750
+		Range: 750
 
 ^MediumFlameWeapon:
 	ValidTargets: Ground, Water, Trees
@@ -1744,8 +1750,14 @@
 		ValidTargets: Shielded
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: 1500
-		Range: 1500
+		ValidRelationships: Neutral, Enemy
+		Amount: 2000
+		Range: 2000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		ValidRelationships: Ally
+		Amount: 1000
+		Range: 1000
 
 ^HeavyFlameWeapon:
 	ValidTargets: Ground, Water, Trees
@@ -1851,8 +1863,14 @@
 		ValidTargets: Shielded
 	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: 2000
-		Range: 2000
+		ValidRelationships: Neutral, Enemy
+		Amount: 2500
+		Range: 2500
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		ValidRelationships: Ally
+		Amount: 1250
+		Range: 1250
 
 ^LightChemicalWeapon:
 	ValidTargets: Ground, Water, Trees
