@@ -994,6 +994,7 @@
 	RevealsShroud:
 		Range: 4000
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildDurationModifier: 100
 	-RenderDetectionCircle:
 	Armament@Dummy:
@@ -1020,6 +1021,7 @@
 	RevealsShroud:
 		Range: 4000
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildDurationModifier: 100
 	-RenderDetectionCircle:
 	Armament@Dummy:
@@ -1050,6 +1052,7 @@
 	DetectCloaked:
 		Range: 4000
 	Buildable:
+		BuildPaletteOrder: 10
 		BuildDurationModifier: 75 #60
 	TooltipExtras@Scout:
 		Description: Scout Infantry
@@ -1067,6 +1070,7 @@
 	RevealsShroud:
 		Range: 5500
 	Buildable:
+		BuildPaletteOrder: 20
 		BuildDurationModifier: 75
 	TooltipExtras@Grenadier:
 		Description: Grenadier
@@ -1083,6 +1087,7 @@
 	RevealsShroud:
 		Range: 7000
 	Buildable:
+		BuildPaletteOrder: 40
 		BuildDurationModifier: 100
 	KeepsDistance:
 		Distance: 10
@@ -1100,6 +1105,7 @@
 	RevealsShroud:
 		Range: 6500
 	Buildable:
+		BuildPaletteOrder: 30
 		BuildDurationModifier: 100
 	TooltipExtras@AntiTank:
 		Description: Anti-Tank and Anti-Air
@@ -1119,6 +1125,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildPaletteOrder: 60
 		BuildDurationModifier: 50
 	TooltipExtras@HeavyInf:
 		Description: Heavy Infantry
@@ -1151,6 +1158,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildPaletteOrder: 50
 		BuildDurationModifier: 50
 	SpeedMultiplier@meleeinfantrydamagecooldown:
 		RequiresCondition: meleeinfantrydamage && (!meleeinfantrydamagecooldown || meleeinfantryattack)
@@ -1199,6 +1207,7 @@
 		Range: 3750
 	RenderDetectionCircle:
 	Buildable:
+		BuildPaletteOrder: 70
 		BuildDurationModifier: 75
 	KeepsDistance:
 		Distance: 10
@@ -1233,6 +1242,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildPaletteOrder: 90
 		BuildLimit: 1
 		BuildDurationModifier: 25
 	Cloneable:
@@ -1261,6 +1271,7 @@
 		Range: 5000
 	RenderDetectionCircle:
 	Buildable:
+		BuildPaletteOrder: 20
 		BuildDurationModifier: 50
 	TooltipExtras@Scout:
 		Description: Scout Vehicle
@@ -1280,6 +1291,7 @@
 		Range: 4000
 	RenderDetectionCircle:
 	Buildable:
+		BuildPaletteOrder: 40
 		BuildDurationModifier: 50
 	TooltipExtras@Support:
 		Description: Support Vehicle
@@ -1319,6 +1331,7 @@
 	RevealsShroud:
 		Range: 6000
 	Buildable:
+		BuildPaletteOrder: 30
 		BuildDurationModifier: 50
 	TooltipExtras@MainBattleTank:
 		Description: Main Battle Tank
@@ -1335,6 +1348,7 @@
 	RevealsShroud:
 		Range: 7000
 	Buildable:
+		BuildPaletteOrder: 80
 		BuildDurationModifier: 50
 	TooltipExtras@HighTechTank:
 		Description: High-Tech Tank
@@ -1357,6 +1371,7 @@
 	AutoTarget:
 		ScanRadius: 10
 	Buildable:
+		BuildPaletteOrder: 70
 		BuildDurationModifier: 50
 	TooltipExtras@Linebreaker:
 		Description: Linebreaker
@@ -1376,6 +1391,7 @@
 	RevealsShroud:
 		Range: 8000
 	Buildable:
+		BuildPaletteOrder: 50
 		BuildDurationModifier: 75
 	KeepsDistance:
 		Distance: 8
@@ -1400,6 +1416,7 @@
 	RevealsShroud:
 		Range: 9000
 	Buildable:
+		BuildPaletteOrder: 60
 		BuildDurationModifier: 75
 	AttackFrontal:
 		TargetFrozenActors: True
@@ -1433,6 +1450,7 @@
 	RenderRangeCircle:
 		RangeCircleType: vehicle
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildLimit: 1
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
@@ -1469,6 +1487,7 @@
 		InitialStanceAI: AttackAnything
 		ScanRadius: 12
 	Buildable:
+		BuildPaletteOrder: 10
 		BuildDurationModifier: 75
 	TooltipExtras@Fighter:
 		Description: Fighter
@@ -1496,6 +1515,7 @@
 		InitialStanceAI: AttackAnything
 		ScanRadius: 12
 	Buildable:
+		BuildPaletteOrder: 30
 		BuildDurationModifier: 75
 	TooltipExtras@Bomber:
 		Description: Bomber
@@ -1524,6 +1544,7 @@
 		ScanRadius: 12
 	RenderRangeCircle:
 	Buildable:
+		BuildPaletteOrder: 20
 		BuildDurationModifier: 50
 	TooltipExtras@Helicopter:
 		Description: Helicopter
@@ -1552,6 +1573,7 @@
 		ScanRadius: 12
 	RenderRangeCircle:
 	Buildable:
+		BuildPaletteOrder: 40
 		BuildDurationModifier: 50
 	TooltipExtras@Spaceship:
 		Description: Spaceship
@@ -1572,6 +1594,7 @@
 	Integrity:
 		MaxPercentageStrength: 200
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildLimit: 1
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
@@ -2914,12 +2937,6 @@
 		Probability: 100
 		OwnerType: Killer
 		DeathType: ZombieInfection
-
-^ExplodingInfantry:
-	FirepowerMultiplier@ExplodingInfantry:
-		Modifier: 200
-	FireWarheadsOnDeath:
-		Weapon: Grenade
 
 ^TDRAInfantry:
 	WithDeathAnimation:
@@ -4690,7 +4707,7 @@
 		MinColor: DDDDFF96
 		MaxColor: 4488FF08
 		LowerValue: -10000
-		UpperValue: -1
+		UpperValue: -10
 	WithIdleOverlay@frostspark:
 		RequiresCondition: superfreeze
 		Image: ra2_chronosk
@@ -4702,7 +4719,7 @@
 		PhysicalStateName: Temperature
 		MinColor: FF884408
 		MaxColor: FF402096
-		LowerValue: 1
+		LowerValue: 10
 		UpperValue: 10000
 	WithIdleOverlay@overheat:
 		RequiresCondition: Overheating
@@ -5079,6 +5096,39 @@
 		RequiresCondition: gatling >= 9
 		Modifier: 95
 	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 95
+
+^GatlingSpeedUpSpecialUnitBehavior:
+	Inherits: ^GatlingSpeedUpUnitBehavior
+	DamageMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed10:
 		RequiresCondition: gatling >= 10
 		Modifier: 95
 

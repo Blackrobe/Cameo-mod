@@ -228,6 +228,21 @@ GrenadeRA:
 		ContrailStartColor: FF8888FF
 		ContrailEndColor: FFFFFF22
 	Warhead@Grenade: SpreadDamage
+		Damage: 8000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+
+GrenadeRAExplode:
+	Inherits: GrenadeRA
+	Warhead@Grenade: SpreadDamage
 		Damage: 4000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		Damage: 2000
@@ -246,6 +261,33 @@ GrenadeThermobaric:
 	Inherits: GrenadeRA
 	Projectile: Bullet
 		ContrailStartColor: FF8844FF
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+
+GrenadeThermobaricExplode:
+	Inherits: GrenadeThermobaric
 	Warhead@ShrapnelWeapon: SpreadDamage
 		Damage: 2000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
@@ -354,6 +396,7 @@ RocketsRACryo:
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -20000
+		Range: 300
 
 TankBusterBeamCannon:
 	Inherits: ^TankDestroyerCannon
@@ -482,39 +525,39 @@ FireRockets:
 		TrailDelay: 0
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@Smudge: LeaveSmudge
 		SmudgeType: Scorch
@@ -525,6 +568,27 @@ FireRockets:
 	Warhead@EffectAir: CreateEffect
 		Explosions: small_napalm
 		ImpactSounds: firebl3.aud
+
+FireRocketsExplode:
+	Inherits: FireRockets
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 4000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@LightMissile: SpreadDamage
+		Damage: 4000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 2
 
 FireRocketsThermobaric:
 	Inherits: ^HeavyFlameWeapon
@@ -544,83 +608,83 @@ FireRocketsThermobaric:
 		TrailDelay: 0
 	Warhead@HeavyFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@Smudge: LeaveSmudge
 		SmudgeType: Scorch
@@ -631,6 +695,49 @@ FireRocketsThermobaric:
 	Warhead@EffectAir: CreateEffect
 		Explosions: med_napalm
 		ImpactSounds: firebl3.aud
+
+FireRocketsThermobaricExplode:
+	Inherits: FireRocketsThermobaric
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@LightMissile: SpreadDamage
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 1
 
 FireballLauncher:
 	Inherits: ^MediumFlameWeapon
@@ -703,6 +810,21 @@ FireballGun:
 		TrailInterval: 1
 		TrailDelay: 0
 	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 8000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 4000
+	Warhead@Effect: CreateEffect
+		Explosions: napalm
+
+FireballGunExplode:
+	Inherits: FireballGun
+	Warhead@MediumFlameWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		Damage: 2000
@@ -711,9 +833,7 @@ FireballGun:
 	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
 		Amount: 4000
 	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
-		Amount: 1000
-	Warhead@Effect: CreateEffect
-		Explosions: napalm
+		Amount: 2000
 
 FireballGunThermobaric:
 	Inherits: ^HeavyFlameWeapon
@@ -727,6 +847,31 @@ FireballGunThermobaric:
 		Image: FB1
 		TrailInterval: 1
 		TrailDelay: 0
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 4000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 4000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
+	Warhead@Effect: CreateEffect
+		Explosions: med_napalm
+
+FireballGunThermobaricExplode:
+	Inherits: FireballGunThermobaric
 	Warhead@HeavyFlameWeapon: SpreadDamage
 		Damage: 2000
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
@@ -747,8 +892,6 @@ FireballGunThermobaric:
 		Amount: 2000
 	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
 		Amount: 1000
-	Warhead@Effect: CreateEffect
-		Explosions: med_napalm
 
 Flamer:
 	Inherits: ^LightFlameWeapon
@@ -898,6 +1041,33 @@ SiegeMortar:
 		ContrailStartColor: FEDCBA98
 		ContrailEndColor: 87654321
 	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@Grenade: SpreadDamage
+		Damage: 8000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+
+SiegeMortarExplode:
+	Inherits: SiegeMortar
+	Warhead@ShrapnelWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		Damage: 2000
@@ -934,60 +1104,97 @@ SiegeMortarThermobaric:
 		ContrailStartColor: FFBB8844
 		ContrailEndColor: 33221100
 	Warhead@ShrapnelWeapon: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
-		Damage: 1000
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
-		Damage: 1
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@Grenade: SpreadDamage
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumFlameWeapon: SpreadDamage
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-		Damage: 2000
+		Damage: 4000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-		Damage: 1000
+		Damage: 2000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-		Damage: 1
+		Damage: 2
 	Warhead@LightFlameWeapon: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyCannon: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyFlameWeapon: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 1000
+		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@Effect: CreateEffect
 		Explosions: big_napalm
 		ImpactSounds: firebl3.aud
 		ImpactActors: false
+
+SiegeMortarThermobaricExplode:
+	Inherits: SiegeMortarThermobaric
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Grenade: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
 
 PortaTesla:
 	Inherits: ^TeslaWeapon
@@ -2989,6 +3196,7 @@ HellfireCryo:
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -16000
+		Range: 400
 
 ChainGunMH60:
 	Inherits: ^SmallArms
@@ -4326,7 +4534,8 @@ SheridanMissilesCryo:
 	Inherits: SheridanMissiles
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
-		Amount: -16000
+		Amount: -48000
+		Range: 300
 
 SheridanVulcan:
 	Inherits: ^SmallArms
@@ -4421,6 +4630,7 @@ AphidCryo:
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -16000
+		Range: 400
 
 ReconRangerRecoillessGun:
 	Inherits: ^Grenade
@@ -4575,6 +4785,7 @@ APTuskCryo:
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -16000
+		Range: 300
 
 ChronoTusk:
 	Inherits: ^Grenade
@@ -4627,6 +4838,7 @@ ChronoTuskCryo:
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -20000
+		Range: 400
 
 TigerCannon:
 	Inherits: ^HeavyCannon
@@ -4698,7 +4910,7 @@ TigerCannon:
 		Explosions: cryo_artillery
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -30000
-		Range: 400
+		Range: 600
 
 155mmBastion:
 	Inherits: 155mm
@@ -6878,7 +7090,7 @@ RAAtomic:
 		ImpactSounds: kaboom22.aud
 
 SpyPlaneTargeting:
-	ReloadDelay: 100
+	ReloadDelay: 5
 	Range: 10000
 	Projectile: InstantExplode
 	Warhead@Condition: GrantExternalCondition
@@ -8634,6 +8846,7 @@ StingerCryo:
 	Inherits: ^CryoMissileProjectile
 	Warhead@PhysicalStateCryo: ApplyPhysicalState
 		Amount: -10000
+		Range: 400
 
 JapanSpeedBoatGun:
 	Inherits: ^SmallArms
@@ -8737,13 +8950,13 @@ ChronoVortex:
 	Report: rift1.aud, rift2.aud, rift3.aud
 	Warhead@MagicWeapon: SpreadDamage
 		ValidTargets: Air, Ground, Water
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Falloff: 111, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
 		Spread: 1000
 		Damage: 2000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MagicWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Air, Ground, Water
-		Spread: 10000
+		Spread: 12345
 		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@HeavyBomb: SpreadDamage
@@ -8753,13 +8966,79 @@ ChronoVortex:
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Air, Ground, Water
-		Spread: 10000
+		Spread: 12345
 		Damage: 1
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-	Warhead@CryoFreeze: GrantExternalCondition
-		Condition: CryoFreeze
-		Duration: 125
+	Warhead@PhysicalStateCryo1: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 1000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo2: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 2000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo3: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 3000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo4: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 4000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo5: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 5000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo6: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 6000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo7: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 7000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo8: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 8000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo9: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
+		Range: 9000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo10: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1000
 		Range: 10000
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo11: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1111
+		Range: 11111
+		ValidRelationships: Enemy, Neutral, Ally
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo12: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -1234
+		Range: 12345
 		ValidRelationships: Enemy, Neutral, Ally
 		ValidTargets: Ground, Water, Air
 	-Warhead@Effect: CreateEffect

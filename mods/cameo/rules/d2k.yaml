@@ -9969,14 +9969,14 @@ combat_tank_ixian:
 carryall.reinforce:
 	Inherits: ^AirstrikePlane
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Valued:
-		Cost: 2000
 	Tooltip:
 		Name: Autonomous Carryall
+	Valued:
+		Cost: 5000
 	Health:
 		HP: 500000
 	Armor:
-		Type: Helicopter
+		Type: Bomber
 	Selectable:
 		Bounds: 1440, 1440
 		DecorationBounds: 1440, 1440
@@ -10008,8 +10008,6 @@ carryall.reinforce:
 		Delay: 3
 		StartIfBelow: 75
 	Buildable:
-		BuildDuration: 1500
-		BuildDurationModifier: 100
 		Description: actor-carryall.description
 		IconPalette: d2kunit
 		BuildLimit: 10
@@ -10043,6 +10041,8 @@ carryall:
 	Inherits: carryall.reinforce
 	Health:
 		HP: 200000
+	Valued:
+		Cost: 2000
 	-Carryall:
 	AutoCarryall:
 		BeforeLoadDelay: 10
