@@ -3717,7 +3717,7 @@ RA2Mutate:
 		Spread: 4c0
 		Damage: 300
 		ValidTargets: Infantry
-		InvalidTargets: Vehicle, Structure, Wall, Husk, TerrorDrone
+		InvalidTargets: Vehicle, Structure, Wall, Husk, TerrorDrone, Hero, MCImmune
 		AffectsParent: True
 		DamageTypes: BruteMutate
 	Warhead@2eff: CreateEffect

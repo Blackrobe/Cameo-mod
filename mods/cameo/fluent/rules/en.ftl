@@ -1907,7 +1907,7 @@ upgrade-uplatin_alliedstolentech =
 upgrade-latin_up_hotfire =
    .description =  Stolen Tech from Asian Alliance:
       Increases Firepower and Rate of Fire of all Fire Weapons by 25%.
-      Suicide Units ,Flame Troopers and Mortar Bikes have their Firepower increased by 100% instead.
+      Terrorists, Demo Trucks, Flame Troopers and Mortar Bikes have their Firepower increased by 100% instead.
 
 upgrade-uplatin_cashrecover =
    .description = Recycles lost vehicles for a cashback of 20%.

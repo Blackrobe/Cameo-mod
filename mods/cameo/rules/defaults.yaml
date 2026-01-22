@@ -968,9 +968,19 @@
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	TooltipExtras@FireActor:
 		Description: Fire Weapon
+	DamageMultiplier@FireActorBuffs:
+		Modifier: 90
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		DamageAtMaximum: 100
 
 ^FireInfantry:
 	Inherits@FireActor: ^FireActor
+	DamageMultiplier@FireActorBuffs:
+		Modifier: 80
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		DamageAtMaximum: 50
+	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
+		DamageAtMaximum: 25
 	GrantExternalConditionToTransport:
 		Condition: ifv-fire
 
@@ -984,6 +994,7 @@
 	RevealsShroud:
 		Range: 4000
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildDurationModifier: 100
 	-RenderDetectionCircle:
 	Armament@Dummy:
@@ -1010,6 +1021,7 @@
 	RevealsShroud:
 		Range: 4000
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildDurationModifier: 100
 	-RenderDetectionCircle:
 	Armament@Dummy:
@@ -1040,6 +1052,7 @@
 	DetectCloaked:
 		Range: 4000
 	Buildable:
+		BuildPaletteOrder: 10
 		BuildDurationModifier: 75 #60
 	TooltipExtras@Scout:
 		Description: Scout Infantry
@@ -1057,6 +1070,7 @@
 	RevealsShroud:
 		Range: 5500
 	Buildable:
+		BuildPaletteOrder: 20
 		BuildDurationModifier: 75
 	TooltipExtras@Grenadier:
 		Description: Grenadier
@@ -1073,6 +1087,7 @@
 	RevealsShroud:
 		Range: 7000
 	Buildable:
+		BuildPaletteOrder: 40
 		BuildDurationModifier: 100
 	KeepsDistance:
 		Distance: 10
@@ -1090,6 +1105,7 @@
 	RevealsShroud:
 		Range: 6500
 	Buildable:
+		BuildPaletteOrder: 30
 		BuildDurationModifier: 100
 	TooltipExtras@AntiTank:
 		Description: Anti-Tank and Anti-Air
@@ -1109,6 +1125,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildPaletteOrder: 60
 		BuildDurationModifier: 50
 	TooltipExtras@HeavyInf:
 		Description: Heavy Infantry
@@ -1141,6 +1158,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildPaletteOrder: 50
 		BuildDurationModifier: 50
 	SpeedMultiplier@meleeinfantrydamagecooldown:
 		RequiresCondition: meleeinfantrydamage && (!meleeinfantrydamagecooldown || meleeinfantryattack)
@@ -1189,6 +1207,7 @@
 		Range: 3750
 	RenderDetectionCircle:
 	Buildable:
+		BuildPaletteOrder: 70
 		BuildDurationModifier: 75
 	KeepsDistance:
 		Distance: 10
@@ -1223,6 +1242,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildPaletteOrder: 90
 		BuildLimit: 1
 		BuildDurationModifier: 25
 	Cloneable:
@@ -1251,6 +1271,7 @@
 		Range: 5000
 	RenderDetectionCircle:
 	Buildable:
+		BuildPaletteOrder: 20
 		BuildDurationModifier: 50
 	TooltipExtras@Scout:
 		Description: Scout Vehicle
@@ -1270,6 +1291,7 @@
 		Range: 4000
 	RenderDetectionCircle:
 	Buildable:
+		BuildPaletteOrder: 40
 		BuildDurationModifier: 50
 	TooltipExtras@Support:
 		Description: Support Vehicle
@@ -1309,6 +1331,7 @@
 	RevealsShroud:
 		Range: 6000
 	Buildable:
+		BuildPaletteOrder: 30
 		BuildDurationModifier: 50
 	TooltipExtras@MainBattleTank:
 		Description: Main Battle Tank
@@ -1325,6 +1348,7 @@
 	RevealsShroud:
 		Range: 7000
 	Buildable:
+		BuildPaletteOrder: 80
 		BuildDurationModifier: 50
 	TooltipExtras@HighTechTank:
 		Description: High-Tech Tank
@@ -1347,6 +1371,7 @@
 	AutoTarget:
 		ScanRadius: 10
 	Buildable:
+		BuildPaletteOrder: 70
 		BuildDurationModifier: 50
 	TooltipExtras@Linebreaker:
 		Description: Linebreaker
@@ -1366,6 +1391,7 @@
 	RevealsShroud:
 		Range: 8000
 	Buildable:
+		BuildPaletteOrder: 50
 		BuildDurationModifier: 75
 	KeepsDistance:
 		Distance: 8
@@ -1390,6 +1416,7 @@
 	RevealsShroud:
 		Range: 9000
 	Buildable:
+		BuildPaletteOrder: 60
 		BuildDurationModifier: 75
 	AttackFrontal:
 		TargetFrozenActors: True
@@ -1423,6 +1450,7 @@
 	RenderRangeCircle:
 		RangeCircleType: vehicle
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildLimit: 1
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
@@ -1459,6 +1487,7 @@
 		InitialStanceAI: AttackAnything
 		ScanRadius: 12
 	Buildable:
+		BuildPaletteOrder: 10
 		BuildDurationModifier: 75
 	TooltipExtras@Fighter:
 		Description: Fighter
@@ -1486,6 +1515,7 @@
 		InitialStanceAI: AttackAnything
 		ScanRadius: 12
 	Buildable:
+		BuildPaletteOrder: 30
 		BuildDurationModifier: 75
 	TooltipExtras@Bomber:
 		Description: Bomber
@@ -1514,6 +1544,7 @@
 		ScanRadius: 12
 	RenderRangeCircle:
 	Buildable:
+		BuildPaletteOrder: 20
 		BuildDurationModifier: 50
 	TooltipExtras@Helicopter:
 		Description: Helicopter
@@ -1542,6 +1573,7 @@
 		ScanRadius: 12
 	RenderRangeCircle:
 	Buildable:
+		BuildPaletteOrder: 40
 		BuildDurationModifier: 50
 	TooltipExtras@Spaceship:
 		Description: Spaceship
@@ -1562,6 +1594,7 @@
 	Integrity:
 		MaxPercentageStrength: 200
 	Buildable:
+		BuildPaletteOrder: 100
 		BuildLimit: 1
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
@@ -2748,6 +2781,20 @@
 		DamageTypes: TiberiumDeath
 		LayerName: tibradiation
 		RequiresCondition: !parachute && !radsuits && hazmatsuits
+	PhysicalState@Temperature:
+		RelaxationLinear: 10
+		RelaxationScaled: 100
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		DamageAtMaximum: 100
+		RequiresCondition: Overheating && !hazmatsuits
+	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
+		PhysicalStateName: Temperature
+		DamageAtMaximum: 25
+		DamageAtMinimum: 0
+		DamageThreshold: 0
+		DamageInterval: 1
+		DamageTypes: FireDeath
+		RequiresCondition: Overheating && hazmatsuits
 	EdibleByLeap:
 	DeliversCash:
 		Payload: 25
@@ -2890,12 +2937,6 @@
 		Probability: 100
 		OwnerType: Killer
 		DeathType: ZombieInfection
-
-^ExplodingInfantry:
-	FirepowerMultiplier@ExplodingInfantry:
-		Modifier: 200
-	FireWarheadsOnDeath:
-		Weapon: Grenade
 
 ^TDRAInfantry:
 	WithDeathAnimation:
@@ -3494,14 +3535,14 @@
 	WithIdleOverlay@shrouded:
 		Image: shrouded_overlay_big
 	DamagedByTerrain:
-		Damage: -200
+		Damage: -100
 		DamageInterval: 1
 		Terrain: Concrete
 	GrantConditionOnTerrain@Water:
 		TerrainTypes: Concrete
 		Condition: on_concrete
 	DamageMultiplier@on_concrete:
-		Modifier: 66
+		Modifier: 75
 		RequiresCondition: on_concrete
 
 ^CivBuilding:
@@ -4601,141 +4642,117 @@
 		RequiresCondition: Magnet >= 100
 
 ^CryoFreezable:
-	ExternalCondition@CryoFreeze:
+	PhysicalState@Temperature:
+		Name: Temperature
+		MinValue: -10000
+		MaxValue: 10000
+		RelaxedValue: 0
+		RelativeToHealth: true
+		RelaxationLinear: 5
+		RelaxationScaled: 50
+		RelaxationInterval: 1
+		RelaxationDelay: 10
+		InitialValue: 0
+	PhysicalStateBar@TemperatureBar:
+		PhysicalStateName: Temperature
+		PositiveColor: FF0000
+		NegativeColor: 0080FF
+		NeutralColor: 808080
+		DisplayWhenRelaxed: false
+		ShowAbsoluteValues: false
+	SlowsProportionalToPhysicalState@FrostSlowdown:
+		PhysicalStateName: Temperature
+		UseDeviationFromRelaxed: true
+		OnlyNegativeValues: true
+		SpeedModifierAtMinimum: 100
+		SpeedModifierAtMaximum: 0
+		TurnSpeedModifierAtMinimum: 100
+		TurnSpeedModifierAtMaximum: 0
+		TurretTurnSpeedModifierAtMinimum: 100
+		TurretTurnSpeedModifierAtMaximum: 0
+		ReloadDelayModifierAtMinimum: 100
+		ReloadDelayModifierAtMaximum: 1
+	DamageMultiplierProportionalToPhysicalState@HeatDamage:
+		PhysicalStateName: Temperature
+		DamageMultiplierAtMinimum: 100
+		DamageMultiplierAtMaximum: 200
+		UseDeviationFromRelaxed: true
+		RequiresCondition: CryoFreeze
+	ChangesHealthProportionalToPhysicalState@HeatDamage:
+		PhysicalStateName: Temperature
+		DamageAtMaximum: 200
+		DamageAtMinimum: 0
+		DamageThreshold: 0
+		DamageInterval: 1
+		DamageTypes: FireDeath
+		RequiresCondition: Overheating
+	# Conditions for demonstration
+	GrantConditionOnPhysicalState@Overheating:
+		PhysicalStateName: Temperature
+		Condition: Overheating
+		UpperValue: 10000
+		LowerValue: 5000
+	GrantConditionOnPhysicalState@CryoFreeze:
+		PhysicalStateName: Temperature
 		Condition: CryoFreeze
-	TimedConditionBar@CryoFreeze:
-		Condition: CryoFreeze
-		Color: 4488FF
-	GrantCondition@superfreeze:
+		UpperValue: -5000
+		LowerValue: -10000
+	GrantConditionOnPhysicalState@superfreeze:
+		PhysicalStateName: Temperature
 		Condition: superfreeze
-		RequiresCondition: CryoFreeze >= 10
-	SpeedMultiplier@CryoFreeze1:
-		Modifier: 90
-		RequiresCondition: CryoFreeze == 1
-	SpeedMultiplier@CryoFreeze2:
-		Modifier: 80
-		RequiresCondition: CryoFreeze == 2
-	SpeedMultiplier@CryoFreeze3:
-		Modifier: 70
-		RequiresCondition: CryoFreeze == 3
-	SpeedMultiplier@CryoFreeze4:
-		Modifier: 60
-		RequiresCondition: CryoFreeze == 4
-	SpeedMultiplier@CryoFreeze5:
-		Modifier: 50
-		RequiresCondition: CryoFreeze == 5
-	SpeedMultiplier@CryoFreeze6:
-		Modifier: 40
-		RequiresCondition: CryoFreeze == 6
-	SpeedMultiplier@CryoFreeze7:
-		Modifier: 30
-		RequiresCondition: CryoFreeze == 7
-	SpeedMultiplier@CryoFreeze8:
-		Modifier: 20
-		RequiresCondition: CryoFreeze == 8
-	SpeedMultiplier@CryoFreeze9:
-		Modifier: 10
-		RequiresCondition: CryoFreeze == 9
-	SpeedMultiplier@CryoFreeze10:
-		Modifier: 0
-		RequiresCondition: CryoFreeze >= 10
-	ReloadDelayMultiplier@CryoFreeze1:
-		Modifier: 110
-		RequiresCondition: CryoFreeze == 1
-	ReloadDelayMultiplier@CryoFreeze2:
-		Modifier: 120
-		RequiresCondition: CryoFreeze == 2
-	ReloadDelayMultiplier@CryoFreeze3:
-		Modifier: 130
-		RequiresCondition: CryoFreeze == 3
-	ReloadDelayMultiplier@CryoFreeze4:
-		Modifier: 140
-		RequiresCondition: CryoFreeze == 4
-	ReloadDelayMultiplier@CryoFreeze5:
-		Modifier: 150
-		RequiresCondition: CryoFreeze == 5
-	ReloadDelayMultiplier@CryoFreeze6:
-		Modifier: 160
-		RequiresCondition: CryoFreeze == 6
-	ReloadDelayMultiplier@CryoFreeze7:
-		Modifier: 170
-		RequiresCondition: CryoFreeze == 7
-	ReloadDelayMultiplier@CryoFreeze8:
-		Modifier: 180
-		RequiresCondition: CryoFreeze == 8
-	ReloadDelayMultiplier@CryoFreeze9:
-		Modifier: 190
-		RequiresCondition: CryoFreeze == 9
-	ReloadDelayMultiplier@CryoFreeze10:
-		Modifier: 200
-		RequiresCondition: CryoFreeze >= 10
-	DamageMultiplier@CryoFreeze1:
-		Modifier: 110
-		RequiresCondition: CryoFreeze == 1
-	DamageMultiplier@CryoFreeze2:
-		Modifier: 120
-		RequiresCondition: CryoFreeze == 2
-	DamageMultiplier@CryoFreeze3:
-		Modifier: 130
-		RequiresCondition: CryoFreeze == 3
-	DamageMultiplier@CryoFreeze4:
-		Modifier: 140
-		RequiresCondition: CryoFreeze == 4
-	DamageMultiplier@CryoFreeze5:
-		Modifier: 150
-		RequiresCondition: CryoFreeze == 5
-	DamageMultiplier@CryoFreeze6:
-		Modifier: 160
-		RequiresCondition: CryoFreeze == 6
-	DamageMultiplier@CryoFreeze7:
-		Modifier: 170
-		RequiresCondition: CryoFreeze == 7
-	DamageMultiplier@CryoFreeze8:
-		Modifier: 180
-		RequiresCondition: CryoFreeze == 8
-	DamageMultiplier@CryoFreeze9:
-		Modifier: 190
-		RequiresCondition: CryoFreeze == 9
-	DamageMultiplier@CryoFreeze10:
-		Modifier: 200
-		RequiresCondition: CryoFreeze >= 10
-	WithColoredOverlay@CryoFreeze1:
-		Color: 4488FF08
-		RequiresCondition: CryoFreeze == 1
-	WithColoredOverlay@CryoFreeze2:
-		Color: 5591FF16
-		RequiresCondition: CryoFreeze == 2
-	WithColoredOverlay@CryoFreeze3:
-		Color: 669AFF24
-		RequiresCondition: CryoFreeze == 3
-	WithColoredOverlay@CryoFreeze4:
-		Color: 77A3FF32
-		RequiresCondition: CryoFreeze == 4
-	WithColoredOverlay@CryoFreeze5:
-		Color: 88ACFF40
-		RequiresCondition: CryoFreeze == 5
-	WithColoredOverlay@CryoFreeze6:
-		Color: 99B5FF48
-		RequiresCondition: CryoFreeze == 6
-	WithColoredOverlay@CryoFreeze7:
-		Color: AABEFF56
-		RequiresCondition: CryoFreeze == 7
-	WithColoredOverlay@CryoFreeze8:
-		Color: BBC7FF64
-		RequiresCondition: CryoFreeze == 8
-	WithColoredOverlay@CryoFreeze9:
-		Color: CCD0FF72
-		RequiresCondition: CryoFreeze == 9
-	WithColoredOverlay@CryoFreeze10:
-		Color: DDDDFF96
-		RequiresCondition: CryoFreeze >= 10
+		UpperValue: -10000
+		LowerValue: -10000
+	WithPhysicalStateColoredOverlay@CryoFreeze:
+		PhysicalStateName: Temperature
+		MinColor: DDDDFF96
+		MaxColor: 4488FF08
+		LowerValue: -10000
+		UpperValue: -10
 	WithIdleOverlay@frostspark:
-		RequiresCondition: CryoFreeze >= 8
+		RequiresCondition: superfreeze
 		Image: ra2_chronosk
 		Sequence: idle
 		StartSequence: idle
 		Palette: ra2effect
 		IsDecoration: True
+	WithPhysicalStateColoredOverlay@Overheating:
+		PhysicalStateName: Temperature
+		MinColor: FF884408
+		MaxColor: FF402096
+		LowerValue: 10
+		UpperValue: 10000
+	WithIdleOverlay@overheat:
+		RequiresCondition: Overheating
+		Image: ra2_initfire
+		Sequence: idle
+		StartSequence: idle
+		Palette: ra2effect
+		IsDecoration: True
+	# equilibriation
+	#GrantConditionOnPhysicalState@heated:
+	#	PhysicalStateName: Temperature
+	#	Condition: heated
+	#	UpperValue: 10000
+	#	LowerValue: 1
+	#ChangesPhysicalState@heated:
+	#	PhysicalStateName: Temperature
+	#	Amount: -100
+	#	Delay: 1
+	#	IsRelaxation: true
+	#	RelativeToHealth: true
+	#	RequiresCondition: heated
+	#GrantConditionOnPhysicalState@cooled:
+	#	PhysicalStateName: Temperature
+	#	Condition: cooled
+	#	UpperValue: -1
+	#	LowerValue: -10000
+	#ChangesPhysicalState@cooled:
+	#	PhysicalStateName: Temperature
+	#	Amount: 100
+	#	Delay: 1
+	#	IsRelaxation: true
+	#	RelativeToHealth: true
+	#	RequiresCondition: cooled
 
 ^GravityWeighter:
 	ExternalCondition@GravityGenerator:
@@ -5079,6 +5096,39 @@
 		RequiresCondition: gatling >= 9
 		Modifier: 95
 	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 95
+
+^GatlingSpeedUpSpecialUnitBehavior:
+	Inherits: ^GatlingSpeedUpUnitBehavior
+	DamageMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 95
+	DamageMultiplier@GattlingSpeed10:
 		RequiresCondition: gatling >= 10
 		Modifier: 95
 

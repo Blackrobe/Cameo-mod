@@ -519,7 +519,6 @@ E2:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^GrenadierInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -559,7 +558,7 @@ E2:
 		StandSequences: parachute
 		RequiresCondition: parachute
 	FireWarheadsOnDeath:
-		Weapon: Grenade
+		Weapon: GrenadeExplode
 	WithDeathAnimation:
 		DeathSequencePalette: raplayer
 	RenderSprites:
@@ -669,7 +668,6 @@ E4:
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@FireInfantry: ^FireInfantry
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -705,7 +703,7 @@ E4:
 		Weapon: Flamethrower
 		MuzzleSequence: muzzle
 	FireWarheadsOnDeath:
-		Weapon: Flamethrower
+		Weapon: FlamethrowerExplode
 	TakeCover:
 		ProneOffset: 190,0,-198
 	WithMuzzleOverlay:
@@ -726,7 +724,6 @@ E5:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^MeleeInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -2090,7 +2087,7 @@ HELI:
 		PauseOnCondition: !ammo
 		RequiresCondition: up_blackmarketupgrades
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	WithIdleOverlay@ROTORAIR:
 		Offset: 0,0,85
@@ -2174,7 +2171,7 @@ ORCA:
 		PauseOnCondition: !ammo
 		RequiresCondition: up_advancedmissiletargeting
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
@@ -4473,7 +4470,6 @@ cheme3:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -5002,12 +4998,12 @@ tsblackhandflamer:
 	Mobile:
 		Speed: 66
 	Armament@PRIMARY:
-		Weapon: TSFireballLauncher
+		Weapon: BlackHandFlamer
 		LocalOffset: 384,0,256
 		FireDelay: 5
 	Armament@Garrison:
 		Name: garrisoned
-		Weapon: TSFireballLauncher
+		Weapon: BlackHandFlamer
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 	AttackFrontal:
@@ -5019,6 +5015,8 @@ tsblackhandflamer:
 		PlayerPalette: playerra2
 	WithDeathAnimation:
 		DeathSequencePalette: playerra2
+	FireWarheadsOnDeath:
+		Weapon: BlackHandFlamerExplode
 	Cloak:
 		UncloakOn: Attack, Damage
 		CloakSound: trans1.aud
@@ -5668,7 +5666,6 @@ gdiempgrenadier:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^GrenadierInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -5712,7 +5709,7 @@ gdiempgrenadier:
 	WithInfantryBody:
 		DefaultAttackSequence: throw
 	FireWarheadsOnDeath:
-		Weapon: EMPGrenade
+		Weapon: EMPGrenadeExplode
 	Voiced:
 		VoiceSet: TSInfantry
 	ActorStatValues:
@@ -7205,7 +7202,7 @@ gdirigdrone:
 	AttackAircraft:
 		AttackType: Hover
 		PersistentTargeting: false
-		FacingTolerance: 20
+		FacingTolerance: 10
 	-Targetable@SpecialRepair:
 	-SpawnActorOnDeath:
 	-ActorLostNotification:

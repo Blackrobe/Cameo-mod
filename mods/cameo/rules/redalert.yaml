@@ -1018,7 +1018,6 @@ RAE2:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^GrenadierInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1070,10 +1069,10 @@ RAE2:
 		StandSequences: parachute
 		RequiresCondition: parachute
 	FireWarheadsOnDeath:
-		Weapon: GrenadeRA
+		Weapon: GrenadeRAExplode
 		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
-		Weapon: GrenadeThermobaric
+		Weapon: GrenadeThermobaricExplode
 		RequiresCondition: ra_upgrade_scorchedearth
 	WithDeathAnimation:
 		DeathSequencePalette: raplayer
@@ -1088,7 +1087,6 @@ RAE2:
 mortarsoldier:
 	Inherits: ^Soldier
 	Inherits@Template: ^MortarInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -1135,10 +1133,10 @@ mortarsoldier:
 	FirepowerMultiplier@SplashDamage:
 		Modifier: 75
 	FireWarheadsOnDeath:
-		Weapon: SiegeMortar
+		Weapon: SiegeMortarExplode
 		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
-		Weapon: SiegeMortarThermobaric
+		Weapon: SiegeMortarThermobaricExplode
 		RequiresCondition: ra_upgrade_scorchedearth
 	TakeCover:
 		ProneOffset: 227,0,-245
@@ -1159,7 +1157,7 @@ ra_cons_molo:
 	Inherits: ^Soldier
 	Inherits@anim: ^RA2Infantry
 	Inherits@Template: ^GrenadierInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1197,7 +1195,7 @@ ra_cons_molo:
 		StandSequences: parachute
 		RequiresCondition: parachute
 	FireWarheadsOnDeath:
-		Weapon: ConscriptMolotov
+		Weapon: ConscriptMolotovExplode
 	FireWarheadsOnDeath@Vengeance1:
 		Weapon: VengeanceActivator1
 		RequiresCondition: !ra_upgrade_vengeance
@@ -1349,7 +1347,7 @@ ra_dragunov:
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	Voiced:
-		VoiceSet: RussianConscriptVoice
+		VoiceSet: RussianCommissarVoice
 	AttackFrontal:
 		Voice: Attack
 	GrantExternalConditionToTransport:
@@ -1361,7 +1359,7 @@ ra_dragunov:
 
 e3flamer:
 	Inherits: ^RAE3
-	Inherits@explode: ^ExplodingInfantry
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
@@ -1400,10 +1398,10 @@ e3flamer:
 		Weapon: FireRocketsThermobaric
 		RequiresCondition: ra_upgrade_scorchedearth
 	FireWarheadsOnDeath:
-		Weapon: FireRockets
+		Weapon: FireRocketsExplode
 		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
-		Weapon: FireRocketsThermobaric
+		Weapon: FireRocketsThermobaricExplode
 		RequiresCondition: ra_upgrade_scorchedearth
 	RenderSprites:
 		Image: e3flamer
@@ -1486,7 +1484,6 @@ RAE4:
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^HeavyInfantryTemplate
 	Inherits@FireInfantry: ^FireInfantry
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1540,10 +1537,10 @@ RAE4:
 	TakeCover:
 		ProneOffset: 160,0,-200
 	FireWarheadsOnDeath:
-		Weapon: FireballGun
+		Weapon: FireballGunExplode
 		RequiresCondition: !ra_upgrade_scorchedearth
 	FireWarheadsOnDeath@Upgrade:
-		Weapon: FireballGunThermobaric
+		Weapon: FireballGunThermobaricExplode
 		RequiresCondition: ra_upgrade_scorchedearth
 	RenderSprites:
 		Image: rae4
@@ -2934,8 +2931,6 @@ Kotin:
 		LocalOffset: 1100,100,200, 1100,-100,200
 		MuzzleSequence: muzzle
 		RequiresCondition: ra_upgrade_nuclearshells
-	Targetable@FireImmune:
-		TargetTypes: FireActor
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
 	-DamagedByTintedCells@tib:
@@ -3830,6 +3825,7 @@ ra_heatraytank:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@FireActor: ^FireActor
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
@@ -3842,7 +3838,7 @@ ra_heatraytank:
 	Tooltip:
 		Name: Heatray Tank
 	Valued:
-		Cost: 2200
+		Cost: 1900
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 170
@@ -4241,10 +4237,14 @@ U2:
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
-	Health:
-		HP: 100000
 	Tooltip:
 		Name: Spy Plane
+	Valued:
+		Cost: 5000
+	Health:
+		HP: 100000
+	Armor:
+		Type: Bomber
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 20
@@ -4269,7 +4269,7 @@ U2:
 		DropRange: 5c0
 		ChuteSound: chute1.aud
 	Cargo:
-		MaxWeight: 1
+		MaxWeight: 25
 	LeavesTrails:
 		Offsets: -1c43,0,0
 		MovingInterval: 2
@@ -5610,7 +5610,7 @@ MH60:
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 25
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	Aircraft:
 		TurnSpeed: 26
@@ -5719,7 +5719,7 @@ RAHELI:
 		PauseOnCondition: !ammo
 		RequiresCondition: up_cryomissiles
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	Aircraft:
 		Speed: 150
@@ -9124,10 +9124,10 @@ PDOX:
 		BeaconPosters:
 			1: chronovortexicon
 		TargetCircleRanges:
-			1: 10000
+			1: 12345
 		TargetCircleColors: ff000080
 		BeaconActor: BLASTRADIUS.atomic
-		CameraRange: 10000
+		CameraRange: 12345
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		PlayerPalette: raplayer
@@ -13401,7 +13401,7 @@ ROCKETANGEL:
 		Modifier: 50
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ROCKETANGEL.husk
@@ -13875,7 +13875,7 @@ shogunexecutioner:
 	Armament:
 		Weapon: ExecutionerSword
 	AttackFrontal:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	WithInfantryBody:
 		IdleSequences: idle
 		MinIdleDelay: 90

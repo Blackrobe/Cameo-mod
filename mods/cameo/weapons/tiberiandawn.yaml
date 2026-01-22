@@ -84,6 +84,15 @@ Grenade:
 		ContrailStartColor: FFFF88FF
 		ContrailEndColor: FF884422
 	Warhead@Grenade: SpreadDamage
+		Damage: 16000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 8000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 8
+
+GrenadeExplode:
+	Inherits: Grenade
+	Warhead@Grenade: SpreadDamage
 		Damage: 8000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		Damage: 4000
@@ -110,11 +119,28 @@ Flamethrower:
 	Range: 2085
 	Report: flamer2.aud
 	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 10000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 20000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 10000
+
+FlamethrowerExplode:
+	Inherits: Flamethrower
+	Warhead@LightFlameWeapon: SpreadDamage
 		Damage: 10000
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		Damage: 5000
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 5
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 10000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 5000
 
 NodTurretLaser:
 	Inherits: ^SmallArms
@@ -171,14 +197,20 @@ Chemspray:
 	Range: 3414
 	Report: flamer2.aud
 	Warhead@LightChemicalWeapon: SpreadDamage
+		Damage: 48000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 24000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 24
+
+SmallTiberiumExplosion:
+	Inherits: Chemspray
+	Warhead@LightChemicalWeapon: SpreadDamage
 		Damage: 24000
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
 		Damage: 12000
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
 		Damage: 12
-
-SmallTiberiumExplosion:
-	Inherits: Chemspray
 	Warhead@Resource: CreateResource
 		AddsResourceType: Tiberium
 		Size: 0,0
@@ -423,20 +455,26 @@ BigFlamer:
 		Damage: 7000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 7
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 14000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 7000
 
 FlametankExplode:
 	Inherits: ^MediumFlameWeapon
 	Warhead@MediumFlameWeapon: SpreadDamage
-		Damage: 40000
+		Damage: 28000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 20000
+		Damage: 14000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 20
-	Warhead@2Eff: CreateEffect
+		Damage: 14
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 28000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 14000
+	Warhead@Effect: CreateEffect
 		Explosions: big_napalm
 		ImpactSounds: xplobig6.aud
-	Warhead@3Smu: LeaveSmudge
-		SmudgeType: Scorch
 
 MachineGun:
 	Inherits: ^SmallArms
@@ -1217,35 +1255,35 @@ ChemRockets:
 		TrailImage: spittrail
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 6000
+		Damage: 12000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 3000
+		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 3
+		Damage: 6
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 6000
+		Damage: 12000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 3000
+		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 3
+		Damage: 6
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 6000
+		Damage: 12000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 3
+		Damage: 6
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@Effect: CreateEffect
 		Explosions: chemball
@@ -1256,6 +1294,22 @@ ChemRockets:
 
 ChemRocketsExplosion:
 	Inherits: ChemRockets
+	Warhead@Grenade: SpreadDamage
+		Damage: 6000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 3000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@LightChemicalWeapon: SpreadDamage
+		Damage: 6000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 3000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@LightMissile: SpreadDamage
+		Damage: 6000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 3
 	Warhead@Resource: CreateResource
 		AddsResourceType: Tiberium
 		Size: 0,0
@@ -1641,15 +1695,23 @@ BigFlamer2:
 		Damage: 10000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 10
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 20000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 10000
 
 FlametankExplode2:
 	Inherits: ^HeavyFlameWeapon
 	Warhead@HeavyFlameWeapon: SpreadDamage
-		Damage: 50000
+		Damage: 40000
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 25000
+		Damage: 20000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
-		Damage: 25
+		Damage: 20
+	Warhead@PhysicalStateHeavyFlameWeapon: ApplyPhysicalState
+		Amount: 40000
+	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 20000
 	Warhead@Effect: CreateEffect
 		Explosions: big_napalm
 		ImpactSounds: xplobig6.aud
@@ -1676,7 +1738,7 @@ BlackHandLaser:
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 15
 
-TSFireballLauncher:
+BlackHandFlamer:
 	Inherits: ^MediumFlameWeapon
 	ReloadDelay: 46
 	Burst: 6
@@ -1694,6 +1756,23 @@ TSFireballLauncher:
 		Damage: 2000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 4000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 2000
+
+BlackHandFlamerExplode:
+	Inherits: ^MediumFlameWeapon
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 12000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 6000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 6
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 12000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 6000
 
 BHRedDarts:
 	Inherits: ^TeslaChargedWeapon
@@ -2015,11 +2094,15 @@ MissileSoldierWeapon:
 
 EMPGrenade:
 	Inherits: ^TeslaChargedWeapon
+	Inherits: ^TeslaWeapon
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^ShrapnelWeapon
-	Inherits: ^Grenade
+	Inherits: ^HeavyCannon
+	Inherits: ^MediumCannon
+	Inherits: ^MediumMissile
+	Inherits: ^HeavyMissile
 	ReloadDelay: 111
-	Range: 6487
+	Range: 5694
 	Report: toss1.aud
 	Projectile: Bullet
 		Speed: 222
@@ -2029,6 +2112,9 @@ EMPGrenade:
 		ContrailEndWidth: 22
 		ContrailStartColor: 8888FFFF
 		ContrailEndColor: 4488FF22
+		Inaccuracy: 333
+		Image: BOMB
+		TrailImage: blue_smokey
 	Warhead@TeslaChargedWeapon: SpreadDamage
 		Damage: 8000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
@@ -2036,6 +2122,15 @@ EMPGrenade:
 		Damage: 4000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 4
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MediumFlameWeapon: SpreadDamage
@@ -2056,18 +2151,83 @@ EMPGrenade:
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		Damage: 4
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-	Warhead@Grenade: SpreadDamage
+	Warhead@HeavyCannon: SpreadDamage
 		Damage: 8000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 4000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 4
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-	Warhead@GrenadePercentage: HealthPercentageDamage
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		Damage: 4
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@EMPUnit: AffectsIntegrity
 		Damage: 32000
 		Spread: 1600
+	Warhead@Effect: CreateEffect
+		Explosions: blue_med_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Ship, Trees
+
+EMPGrenadeExplode:
+	Inherits: EMPGrenade
+	Warhead@TeslaChargedWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 4000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 16000
 	Warhead@Effect: CreateEffect
 		Explosions: blue_med_frag
 		ImpactSounds: xplos.aud

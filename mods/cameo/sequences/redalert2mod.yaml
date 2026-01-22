@@ -4342,9 +4342,6 @@ steel_mako:
 	muzzle:
 		Filename: steel_energymuzzle.shp
 		Length: 14
-	muzzle-2:
-		Filename: steel_energymuzzle.shp
-		Length: 14
 
 steel_manta:
 	Defaults:

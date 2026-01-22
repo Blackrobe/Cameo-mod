@@ -1909,7 +1909,7 @@ TSMammothTuskChem:
 #		Tiberian Sun Other
 ####################################################################################################
 
-TSFireballLauncher2:
+TSFireballLauncher:
 	Inherits: ^MediumFlameWeapon
 	ReloadDelay: 52
 	Range: 4250
@@ -1928,6 +1928,10 @@ TSFireballLauncher2:
 		Damage: 4000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 4
+	Warhead@PhysicalStateMediumFlameWeapon: ApplyPhysicalState
+		Amount: 8000
+	Warhead@PhysicalStateMediumFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 4000
 
 TSBomb:
 	Inherits: ^ShrapnelWeapon

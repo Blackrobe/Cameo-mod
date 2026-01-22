@@ -1036,7 +1036,6 @@ tkmjug:
 tkmthermonaut:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
-	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides

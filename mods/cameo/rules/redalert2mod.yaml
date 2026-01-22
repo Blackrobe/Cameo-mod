@@ -673,7 +673,7 @@ aa_cgflam:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Sentry Flamer
+		Name: Asian Sentry Flamer
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -1221,6 +1221,7 @@ aa_tankmine:
 	RejectsOrders:
 	Health:
 		HP: 20000
+
 aa_chaomine:
 	Inherits: ^Mine
 	RenderSprites:
@@ -1514,7 +1515,7 @@ aa_flam:
 	Inherits@kami: ^KamikazeMode
 	Inherits@DragonFireUpgrades: ^DragonFireUpgrades
 	Tooltip:
-		Name: Flame Trooper
+		Name: Asian Flame Trooper
 	Valued:
 		Cost: 400
 	Buildable:
@@ -1548,6 +1549,8 @@ aa_flam:
 		RequiresCondition: rank-elite
 	FirepowerMultiplier@MultiWeapon:
 		Modifier: 50
+	FireWarheadsOnDeath:
+		Weapon: AsianFlamerTroopExplode
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -2650,7 +2653,7 @@ aa_ftnk:
 	Valued:
 		Cost: 1300
 	Tooltip:
-		Name: Flame Tank
+		Name: Asian Flame Tank
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~upaa_ftnk
@@ -2691,7 +2694,6 @@ aa_ftnk:
 		VoiceSet: CHDragonTankVoice
 	FireWarheadsOnDeath@flame:
 		Weapon: AsianOilBombFragments
-		EmptyWeapon: AsianOilBombFragments
 	ActorStatValues:
 		Upgrades: asian_team_upgrade_diplomacy, asian_upgrade_phalanx, asian_upgrade_dragonfire
 
@@ -3332,7 +3334,7 @@ aa_gunb:
 	WithMuzzleOverlay:
 	AttackFrontal:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 	DetectCloaked:
 		Range: 5000
 		DetectionTypes: Underwater
@@ -5487,7 +5489,7 @@ latin_monkey:
 	IgnoresDisguise:
 	-Targetable@disguise:
 	FireWarheadsOnDeath:
-		Weapon: d2k_grenade
+		Weapon: LatinMonkeyGrenadeExplode
 
 latin_fthrow:
 	Inherits: ^Soldier
@@ -5502,7 +5504,7 @@ latin_fthrow:
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
 	Tooltip:
-		Name: Flame Trooper
+		Name: Latin Flame Trooper
 	Valued:
 		Cost: 500
 	Buildable:
@@ -5545,6 +5547,8 @@ latin_fthrow:
 	SpeedMultiplier@latin_up_hotfire:
 		Modifier: 120
 		RequiresCondition: latin_up_hotfire
+	FireWarheadsOnDeath:
+		Weapon: SyndicateFireballLauncherExplode
 	ActorStatValues:
 		Upgrades: uplatin_mili, latin_up_hotfire
 	AttackFrontal:
@@ -6351,7 +6355,7 @@ latin_humvee:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@gat: ^GatlingSpeedUpSpecialUnitBehavior
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@uprecover: ^LatinCashrecover
@@ -6435,7 +6439,7 @@ latin_cartel:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@gat: ^GatlingSpeedUpSpecialUnitBehavior
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@uprecover: ^LatinCashrecover
@@ -6670,20 +6674,20 @@ latin_lars:
 		Prerequisites: ~uplatin_lars, latin_cgup
 		Description: actor-latin_lars.description
 	Valued:
-		Cost: 1100
+		Cost: 1300
 	Tooltip:
 		Name: LARS
 	Health:
-		HP: 32500
+		HP: 47500
 	Repairable:
-		HpPerStep: 1625
+		HpPerStep: 2375
 	ChangesHealth@SelfHealing:
-		Step: 13
+		Step: 19
 	Armor:
-		Type: Light
+		Type: Medium
 	Mobile:
-		Speed: 65
-		TurnSpeed: 26
+		Speed: 70
+		TurnSpeed: 28
 	Armament:
 		Weapon: RA2LarsRocket
 		LocalOffset: -500,250,250, -500,0,250, -500,-250,250, -500,250,500, -500,0,500, -500,-250,500
@@ -7630,7 +7634,7 @@ latin_ra2dtruck:
 latin_nuketruk:
 	Inherits: DTRK
 	Inherits@anim: ^RA2Vehicle
-	Inherits@GAINSEXPERIENCE: ^EpicVehicleTemplate
+	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@announce: ^AnnounceGlobal
@@ -7642,13 +7646,13 @@ latin_nuketruk:
 		Name: Nuke Truck
 	Valued:
 		Cost: 3000
-	Buildable:
-		Queue: Vehicle, RAVehicle
-		BuildPaletteOrder: 180
-		Prerequisites: ~uplatin_nuketruk, latin_cgspy
-		BuildLimit: 1
 	Health:
 		HP: 60000
+	Buildable:
+		Queue: Vehicle, RAVehicle
+		Prerequisites: ~uplatin_nuketruk, latin_cgspy
+		BuildLimit: 1
+		BuildDurationModifier: 50
 	Voiced:
 		VoiceSet: RA2DemolitionTruckVoice
 	GrantConditionOnDeploy:
@@ -7657,8 +7661,6 @@ latin_nuketruk:
 		Weapon: RA2Atomic
 		EmptyWeapon: RA2Atomic
 	-RenderRangeCircle:
-	FirepowerMultiplier@latin_up_hotfire:
-		Modifier: 200
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
 	DeathSounds:
@@ -7675,25 +7677,23 @@ latin_nuketruk:
 latin_topol:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
-	Inherits@GAINSEXPERIENCE: ^EpicVehicleTemplate
+	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@flamerup: ^LatinFlameUpgrades
-	Buildable:
-		Queue: Vehicle, RAVehicle
-		BuildPaletteOrder: 80
-		BuildLimit: 1
-		Prerequisites: ~uplatin_topol, latin_cgup
-		Description: actor-latin_topol.description
-	Valued:
-		Cost: 5000
 	Tooltip:
 		Name: Topol-M
+	Valued:
+		Cost: 6000
+	Buildable:
+		Queue: Vehicle, RAVehicle
+		Prerequisites: ~uplatin_topol, latin_cgup
+		Description: actor-latin_topol.description
+		BuildLimit: 1
 	Health:
 		HP: 100000
 	Repairable:
@@ -7707,21 +7707,30 @@ latin_topol:
 		TurnSpeed: 15
 	Armament:
 		Weapon: RA2TOPOLCubaTarget
-		LocalOffset: -1024,250,1000
+		LocalOffset: -1500,250,1000
+		FireDelay: 5
 	Armament@Launch:
 		Name: secondary
 		Weapon: RA2TOPOLCuba
-		LocalOffset: -1024,250,5000
+		LocalOffset: -1500,250,2500
 		PauseOnCondition: scudup != 5
+		FireDelay: 5
 	FireWarheadsOnDeathCA@bomb:
 		Weapon: RA2TOPOLCuba
 		EmptyWeapon: RA2TOPOLCuba
+	SpeedMultiplier@scudup:
+		RequiresCondition: scudup
+		Modifier: 50
 	ActorStatValues:
-		ReloadDelay: 750
+		ReloadDelay: 500
 	RevealsShroud@SWReveal:
 		Range: 2500
 		ValidRelationships: Neutral, Enemy
 		RequiresCondition: swreveal
+	RevealsShroud@scudup:
+		Range: 10000
+		ValidRelationships: Neutral, Enemy
+		RequiresCondition: scudup
 	ReloadArmamentsBar:
 		Armaments: secondary
 	SelectionDecorations:
@@ -7733,7 +7742,7 @@ latin_topol:
 		VoiceSet: LatinSCUDVoice
 	GrantConditionOnAttack:
 		Condition: scudup
-		RevokeDelay: 5
+		RevokeDelay: 50
 		MaximumInstances: 5
 	WithFacingSpriteBody:
 		RequiresCondition: !scudup
@@ -7796,30 +7805,30 @@ uplatin_narco:
 		Image: latin_narco
 	ProvidesPrerequisite:
 
-uplatin_burrito:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Burritos
-	Buildable:
-		BuildPaletteOrder: 127
-		Queue: Promotions
-		Description: Enables construction of Burritos.
-		Prerequisites: ~latin_cgcnst, !uplatin_burrito, uplatin_narco, rank1
-	RenderSprites:
-		Image: latin_burrito
-	ProvidesPrerequisite:
-
 uplatin_cartel:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Unlock Cartel Trucks
 	Buildable:
-		BuildPaletteOrder: 130
+		BuildPaletteOrder: 127
 		Queue: Promotions
 		Description: Enables construction of Cartel Trucks.
-		Prerequisites: ~latin_cgcnst, !uplatin_cartel, uplatin_burrito, rank1
+		Prerequisites: ~latin_cgcnst, !uplatin_cartel, uplatin_narco, rank1
 	RenderSprites:
 		Image: latin_cartel
+	ProvidesPrerequisite:
+
+uplatin_burrito:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Burritos
+	Buildable:
+		BuildPaletteOrder: 130
+		Queue: Promotions
+		Description: Enables construction of Burritos.
+		Prerequisites: ~latin_cgcnst, !uplatin_burrito, uplatin_cartel, rank1
+	RenderSprites:
+		Image: latin_burrito
 	ProvidesPrerequisite:
 
 ### War tree
@@ -7849,30 +7858,30 @@ uplatin_mtnk:
 		Image: latin_mtnk
 	ProvidesPrerequisite:
 
-uplatin_apc:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Latin APC.
-	Buildable:
-		BuildPaletteOrder: 128
-		Queue: Promotions
-		Description: Enables construction of Latin APCs.
-		Prerequisites: ~latin_cgcnst, !uplatin_apc, uplatin_mtnk, rank1
-	RenderSprites:
-		Image: latin_apc
-	ProvidesPrerequisite:
-
 uplatin_lars:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Unlock LARS
 	Buildable:
-		BuildPaletteOrder: 131
+		BuildPaletteOrder: 128
 		Queue: Promotions
 		Description: Enables construction of LARS.
-		Prerequisites: ~latin_cgcnst, !uplatin_lars, uplatin_apc, rank1
+		Prerequisites: ~latin_cgcnst, !uplatin_lars, uplatin_mtnk, rank1
 	RenderSprites:
 		Image: latin_lars
+	ProvidesPrerequisite:
+
+uplatin_apc:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Latin APC.
+	Buildable:
+		BuildPaletteOrder: 131
+		Queue: Promotions
+		Description: Enables construction of Latin APCs.
+		Prerequisites: ~latin_cgcnst, !uplatin_apc, uplatin_lars, rank1
+	RenderSprites:
+		Image: latin_apc
 	ProvidesPrerequisite:
 
 ### Artillery Weapons tree
@@ -9031,7 +9040,7 @@ steel_qoil:
 	AttackAircraft:
 		AttackType: Hover
 		PersistentTargeting: false
-		FacingTolerance: 20
+		FacingTolerance: 10
 	-SpawnActorOnDeath:
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
@@ -10771,7 +10780,7 @@ steel_grun:
 		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	Aircraft:
 		Speed: 120
 		TurnSpeed: 24
@@ -11171,7 +11180,7 @@ steel_cargoship:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: steel_cargoship.Husk
@@ -11279,7 +11288,7 @@ steel_cruiser:
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: steel_cruiser.Husk
@@ -13518,6 +13527,8 @@ nax_fcons:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	FireWarheadsOnDeath:
+		Weapon: Flamethrower
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -13723,7 +13734,7 @@ nax_litt:
 		RequiresCondition: rank-elite
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: nax_litt.husk
@@ -18191,7 +18202,7 @@ nax_zep:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: nax_zep.Husk
@@ -18788,7 +18799,7 @@ nax2_zep:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: nax2_zep.Husk
@@ -19328,14 +19339,14 @@ futu_gggun:
 		Prerequisites: ~futu_egcnst, futu_egpile
 		Description: template-anti-infantry-defense.description
 	Valued:
-		Cost: 1000
+		Cost: 750
 	Tooltip:
 		Name: Freezer Turret
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 87500
+		HP: 90000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -19350,6 +19361,8 @@ futu_gggun:
 		LocalOffset: 500,2,100, 500,-2,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+	FirepowerMultiplier@Cryo:
+		Modifier: 32
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 16
@@ -19359,7 +19372,7 @@ futu_gggun:
 	Power:
 		Amount: -50
 	RevealsShroud:
-		Range: 6666
+		Range: 7124
 	ProvidesPrerequisite@buildingname:
 
 futu_ggmlt:
@@ -20635,17 +20648,17 @@ futu_hvrt:
 	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@announce: ^AnnounceOnBuild
 	Valued:
-		Cost: 1000
+		Cost: 1700
 	Tooltip:
-		Name: Riptide ACV (WIP)
+		Name: Riptide ACV
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~futu_egweap2
 		Queue: Vehicle, RAVehicle
 		Description: Hover transport, can attack with torpedos in water
 	Mobile:
-		Speed: 95
-		TurnSpeed: 19
+		Speed: 105
+		TurnSpeed: 21
 		Locomotor: hover
 	Hovers:
 		Ticks: 10
@@ -20654,15 +20667,15 @@ futu_hvrt:
 	Health:
 		HP: 65000
 	Repairable:
-		HpPerStep: 2250
+		HpPerStep: 3250
 	ChangesHealth@SelfHealing:
-		Step: 18
+		Step: 26
 	Turreted:
-		TurnSpeed: 38
+		TurnSpeed: 21
 		Offset: -150,0,5
 	Armament@AG:
 		Weapon: ACV_Machinegun
-		LocalOffset: 600,0,300
+		LocalOffset: 150,0,0
 		Recoil: 85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
@@ -20686,7 +20699,7 @@ futu_hvrt:
 	Cargo:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 5
-		InitialUnits: future_robot_shotgun, future_robot_shotgun, future_robot_shotgun, future_robot_shotgun, future_robot_missiles
+		InitialUnits: futu_enforcer, futu_enforcer, futu_enforcer, futu_javelinsoldier, futu_javelinsoldier
 
 futu_phal:
 	Inherits: ^Tank
@@ -21187,23 +21200,27 @@ futu_cryo:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Cryo Copter (WIP)
+		Name: Cryo Copter
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 42000
+		HP: 90000
+	Repairable:
+		HpPerStep: 4500
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 36
 	Armament@PRIMARY:
 		Weapon: Future_Cryocopter_Cryo
-		LocalOffset: 85,-213,-85, 85,213,-85
+		LocalOffset: 350,0,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
 	Armament@Rocket:
+		Name: secondary
 		Weapon: Future_Cryocopter_Rocket
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
+	FirepowerMultiplier@Cryo:
+		Modifier: 16
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -21233,15 +21250,16 @@ futu_cryo:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	AmmoPool:
-		Ammo: 8
+		Armaments: secondary
+		Ammo: 4
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 80
-		Count: 4
+		Delay: 60
+		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 4
 	FireWarheadsOnDeath:
 		Weapon: LargeHeliExplode
 	RenderSprites:

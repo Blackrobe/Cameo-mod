@@ -4533,6 +4533,7 @@ YRBRUTE:
 
 YRSLAV:
 	Inherits: ^Soldier
+	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -8313,7 +8314,7 @@ ra2shad:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ra2shad.Husk
@@ -8466,7 +8467,7 @@ ra2rock:
 		Weapon: ra2roktgun
 	AttackAircraft:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ra2rock.husk
@@ -8560,12 +8561,14 @@ yrlunr.husk:
 
 yrspyp:
 	Inherits: ^AirstrikePlane
-	Health:
-		HP: 200000
-	Armor:
-		Type: Bomber
 	Tooltip:
 		Name: Spy Plane
+	Valued:
+		Cost: 5000
+	Health:
+		HP: 150000
+	Armor:
+		Type: Bomber
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 28
@@ -8889,7 +8892,7 @@ ra2_tzep:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SpawnActorOnDeath:
 		Actor: ra2_tzep.Husk

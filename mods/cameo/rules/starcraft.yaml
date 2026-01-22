@@ -3514,6 +3514,7 @@ SCFIREBAT:
 	Inherits: ^SCTINFANTRY
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@announce: ^AnnounceOnBuild
@@ -3550,16 +3551,19 @@ SCFIREBAT:
 		Name: garrisoned
 		Weapon: FirebatF
 		LocalOffset: 341,-120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@GARRISONED2:
 		Name: garrisoned
 		Weapon: FirebatF
 		LocalOffset: 341,120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
+	RangeMultiplier@Garrisoned:
+		Modifier: 125
+	GrantCondition@battlefortresspassenger:
+		Condition: garrisoned
+		RequiresCondition: battlefortresspassenger
 	WithMuzzleOverlay:
 	Voiced:
 		VoiceSet: SCFirebatVoice
@@ -3574,10 +3578,11 @@ SCHARAKAN:
 	Inherits: ^SCTINFANTRY
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@stim: ^Stimpackable
 	Inherits@armor: ^TerranInfantryWeaponUpgrades
 	Inherits@weapon: ^TerranInfantryArmorUpgrades
@@ -3594,33 +3599,31 @@ SCHARAKAN:
 	Mobile:
 		Speed: 56
 	Health:
-		HP: 116000
+		HP: 78000
 	ChangesHealth@SelfHealing:
-		Step: 116
+		Step: 78
 	Armament@1:
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,-120,128
 		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@2:
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,120,128
 		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@GARRISONED1:
 		Name: garrisoned
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,-120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	Armament@GARRISONED2:
 		Name: garrisoned
-		Weapon: FirebatF
+		Weapon: HarakanF
 		LocalOffset: 341,120,128
-		FireDelay: 3
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
+		Modifier: 25
 	RangeMultiplier@Garrisoned:
 		Modifier: 125
 	GrantCondition@battlefortresspassenger:
@@ -4145,8 +4148,9 @@ SCMATADOR:
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@FireActor: ^FireActor
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@Crushes: ^VehicleCrusher
@@ -4162,7 +4166,7 @@ SCMATADOR:
 		Amount: -85
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~scengineeringbay, ~upmatador
+		Prerequisites: ~scfactory, ~upmatador
 		Description: Terran mobile artillery.\n Strong vs Infantry, Buildings\n Weak vs Vehicles, Aircraft\nCan deploy for increased range and splash damage
 	Mobile:
 		Speed: 100
@@ -4203,6 +4207,9 @@ SCMATADOR:
 		MuzzleSequence: muzzle
 		LocalOffset: 512,0,128
 		RequiresCondition: deployed
+	FirepowerMultiplier@undeployed:
+		Modifier: 33
+		RequiresCondition: undeployed
 	RevealsShroudMultiplier@deployed:
 		Modifier: 125
 		RequiresCondition: deployed
@@ -5291,7 +5298,7 @@ SCBATTLECRUISER:
 		Condition: tacticaljump
 		Duration: 100
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	FireWarheadsOnDeath:
 		Weapon: HeliExplode
@@ -7129,7 +7136,7 @@ SCSCOUT:
 		Name: secondary
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 		Armaments: primary, secondary
 	-SpawnActorOnDeath:
@@ -7182,11 +7189,10 @@ SCEPIGRAPH:
 		Queue: Aircraft, RAAircraft
 		Description: Protoss fighter aircraft.\n Strong vs Aircraft
 	Aircraft:
-		InitialFacing: 896
-		TurnSpeed: 28
-		Speed: 125
-		IdealSeparation: 1c0
-		RepulsionSpeed: 10
+		Speed: 100
+		TurnSpeed: 20
+		RepulsionSpeed: 20
+		IdealSeparation: 2000
 	Health:
 		HP: 200000
 	Repairable:
@@ -7203,8 +7209,10 @@ SCEPIGRAPH:
 		Weapon: EpigraphMG
 		LocalOffset: 600,-200,0
 		PauseOnCondition: !ammo
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 		Armaments: primary, secondary
 	-SpawnActorOnDeath:
@@ -7213,15 +7221,15 @@ SCEPIGRAPH:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	AmmoPool:
-		Ammo: 6
+		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 56
+		Delay: 36
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 8
 	ActorStatValues:
 		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:
@@ -7244,7 +7252,7 @@ SCLANIFECT:
 	Inherits@speed: ^GraviticUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
-		Name: Lanifect
+		Name: Void Ray
 	Valued:
 		Cost: 1200
 	Power:
@@ -7260,7 +7268,7 @@ SCLANIFECT:
 		Speed: 120
 		TurnSpeed: 24
 		RepulsionSpeed: 24
-		IdealSeparation: 1000
+		IdealSeparation: 1200
 	Health:
 		HP: 60000
 	Repairable:
@@ -7271,9 +7279,11 @@ SCLANIFECT:
 		RegenAmount: 48
 	Armament:
 		Weapon: LanifectBeam
-		LocalOffset: 400,0,0
+		LocalOffset: 500,0,0
+	FirepowerMultiplier@Cryo:
+		Modifier: 9
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	-SpawnActorOnDeath:
 	DeathSounds:
 	SelectionDecorations:
@@ -7328,9 +7338,11 @@ SCGLADIUS:
 	Armament:
 		Weapon: GladiusCannon
 		LocalOffset: 400,0,0
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	# AttackFrontalCharged:
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 	-SpawnActorOnDeath:
 	DeathSounds:
 	SelectionDecorations:
@@ -7394,7 +7406,7 @@ SCCORSAIR:
 		LocalOffset: 400,-400,0
 		Name: secondary
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 		Armaments: primary, secondary
 	-SpawnActorOnDeath:
@@ -7449,7 +7461,7 @@ SCCARRIER:
 	Armament:
 		Weapon: InterceptorLauncher
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	CarrierMaster:
 		Actors: SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR
@@ -7511,9 +7523,13 @@ SCSTARSHIPSOVEREIGN:
 		RegenAmount: 600
 	Armament:
 		Weapon: StarshipSovereignBeam
-		LocalOffset: 1600,0,0
+		LocalOffset: 1700,0,25
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	FirepowerMultiplier@Cryo:
+		Modifier: 75
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	CarrierMaster:
 		Actors: SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR
@@ -7523,6 +7539,7 @@ SCSTARSHIPSOVEREIGN:
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
 	-SpawnActorOnDeath:
+	WithMuzzleOverlay:
 	DeathSounds:
 	SelectionDecorations:
 	Selectable:
@@ -7653,7 +7670,7 @@ SCARBITER:
 		Armaments: secondary
 		Color: 0000FF
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	-SpawnActorOnDeath:
 	DeathSounds:
@@ -8884,7 +8901,7 @@ SCDREADSHROUD:
 	Armament:
 		Weapon: DreadshroudSpore
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	-RenderRangeCircle:
 	-RenderDetectionCircle:
@@ -8934,7 +8951,7 @@ SCCORRUPTOR:
 		Weapon: CorruptorSpore
 		LocalOffset: 0,0,0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	-RenderRangeCircle:
 	-RenderDetectionCircle:
@@ -8992,7 +9009,7 @@ SCSWARMLING:
 	# 	Weapon: MutaliskAA
 	# 	LocalOffset: 0,0,0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	# -RenderRangeCircle:
 	-RenderDetectionCircle:
@@ -9181,7 +9198,7 @@ SCSHRIEK:
 	# 	Weapon: MutaliskAA
 	# 	LocalOffset: 0,0,0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	WithAttackAnimation:
 		Sequence: shoot
@@ -9236,7 +9253,7 @@ SCMUTALISK:
 	FirepowerMultiplier@MultiWeapon:
 		Modifier: 25
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	-RenderRangeCircle:
 	-RenderDetectionCircle:
@@ -9295,7 +9312,7 @@ SCDEVOURER:
 		Weapon: SCDevourerAA
 		LocalOffset: 0,0,0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SelectionDecorations:
 	Selectable:
@@ -9394,7 +9411,7 @@ SCQUEEN:
 	ChangesHealth@SelfHealing:
 		Step: 50
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SelectionDecorations:
 	Armament@Spines:
@@ -9470,7 +9487,7 @@ SCGUARDIAN:
 		Weapon: GuardianShoot
 		LocalOffset: 400,0,0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SelectionDecorations:
 	Selectable:
@@ -9572,7 +9589,7 @@ SCGOREKRAKEN:
 		Weapon: GorekrakenClaw
 		LocalOffset: 400,0,0
 	AttackAircraft:
-		FacingTolerance: 20
+		FacingTolerance: 10
 		AttackType: Hover
 	SelectionDecorations:
 	Selectable:
