@@ -3175,7 +3175,7 @@ Player:
 		IgnoredEnemyTargetTypes: TechHusk, DisguisedSpy
 		SuggestedGroundLeaderLocomotor: foot, wheeled, tracked, heavytracked
 		SuggestedNavyLeaderLocomotor: naval
-		ExcludeFromSquadsTypes: e6, rae6, ra2engineer, ra2engineer.soviet, ra2engineer.yuri, ra2engineer.asian, ra2engineer.syndicate, steel_fedeng, tsengineer, tsengineer2, engineer, d2k_hijacker, d2k_mechanic, harv.gdi, harv.nod, tanodharv, mcv.gdi, mcv.nod, raharv.soviet, raharv.allies, raharv.japan, ramcv.allies, ramcv.soviet, ramcv.japan, mnly, modcore, modcore1, modcore2, modcore3, modcore4, modcore5, modcore6, modcore7, ra2cmin, ra2harv, yrslav, yrsmin, aa_drmn, scoverlord, tsharv, ra2amcv, ra2smcv, yrpcv, aa_acv, tsmcvgdi, tsmcvnod, tsmcvmutant, tsmcvcabal, glworker, chharv, usahook, chhacker, harvester, carryall, carryall.reinforce, d2k_mcv.ixian, d2k_mcv.ordos, raspy, ra2spy, ra2cleg, dtrk, ctnk, qtnk, quake_tank, ra2dtruck, ra2terror, tran.gdi, tran.nod, ratran, modhip, ra2shad, ra2hind, aa_shinobi, aa_oilt, steel_qmcv, steel_qmin, latin_mcv, latin_harv, nax_mcv, nax2_mcv, nax2_armor_harv, nax_slavemaster, nax_slav, latin_ra2terror, latin_ra2dtruck, latin_nuketruk, futu_mcv, futu_harv, futu_fedeng, futu_spy, sczmcv, scpmcv, sctmcv, scscv, scprobe, scdrone, scdropship, scmedivac, scshuttle, wc2_human_mcv, wc2_orc_mcv, wc2_human_peasant, wc2_orc_peon, wc2_human_demolitionsquad, wc2_orc_goblin_sappers, ordos_harv, tkmmcv, tkmharv, tkmengineer, tkmradartruck, tkmworker
+		ExcludeFromSquadsTypes: e6, rae6, ra2engineer, ra2engineer.soviet, ra2engineer.yuri, ra2engineer.asian, ra2engineer.syndicate, steel_fedeng, tsengineer, tsengineer2, engineer, d2k_hijacker, d2k_mechanic, harv.gdi, harv.nod, tanodharv, mcv.gdi, mcv.nod, raharv.soviet, raharv.allies, raharv.japan, ramcv.allies, ramcv.soviet, ramcv.japan, mnly, modcore, modcore1, modcore2, modcore3, modcore4, modcore5, modcore6, modcore7, ra2cmin, ra2harv, yrslav, yrsmin, aa_drmn, scoverlord, tsharv, ra2amcv, ra2smcv, yrpcv, aa_acv, tsmcvgdi, tsmcvnod, tsmcvmutant, tsmcvcabal, glworker, chharv, usahook, chhacker, harvester, carryall, carryall.reinforce, d2k_mcv.ixian, d2k_mcv.ordos, raspy, ra2spy, ra2cleg, dtrk, ctnk, qtnk, quake_tank, tran.gdi, tran.nod, ratran, modhip, ra2shad, ra2hind, aa_shinobi, aa_oilt, steel_qmcv, steel_qmin, latin_mcv, latin_harv, nax_mcv, nax2_mcv, nax2_armor_harv, nax_slavemaster, nax_slav, latin_ra2terror, latin_ra2dtruck, latin_nuketruk, futu_mcv, futu_harv, futu_fedeng, futu_spy, sczmcv, scpmcv, sctmcv, scscv, scprobe, scdrone, scdropship, scmedivac, scshuttle, wc2_human_mcv, wc2_orc_mcv, wc2_human_peasant, wc2_orc_peon, wc2_human_demolitionsquad, wc2_orc_goblin_sappers, ordos_harv, tkmmcv, tkmharv, tkmengineer, tkmradartruck, tkmworker
 		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabal, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, latin_cgcnst, steel_qacst, nax_conyard, nax2_conyard, futu_egcnst, tkmcommandcenter
 		NavalUnitsTypes: ss, msub, dd, ca, pt, japanspeedboat, japancarrier, yamatobattleship, cncss, nodlasercorvette, ssmsub, cncdd, cncca, cncpt, ra2sqd, ra2dlph, ra2dest, ra2aegis, ra2sub, ra2hyd, ra2dred, ra2carrier, yrbsub, glgunboat, chflameboat, usagunboat, usabattleship, usacarrier, aa_gunb, aa_lsub, aa_quasfrig, aa_karrier, aa_tsun, aa_ksub, latin_triton, latin_sub, nax_tuboat, nax_muboat
 		NavalProductionTypes: raspen, ra1syrd, ra1jsyrd, cncsyrd, cncspen, yrygyard, ra2gayard, ra2nayard, glsyrd, chsyrd, usasyrd, aa_cgyard, latin_cgyard, nax_naval
@@ -3267,14 +3267,6 @@ Player:
 				TryGetHealed: false
 				AttackOrderName: AssaultMove
 			quake_tank:
-				AttackDesireOfEach: 100
-				TryGetHealed: false
-				AttackOrderName: AssaultMove
-			ra2dtruck:
-				AttackDesireOfEach: 100
-				TryGetHealed: false
-				AttackOrderName: AssaultMove
-			ra2terror:
 				AttackDesireOfEach: 100
 				TryGetHealed: false
 				AttackOrderName: AssaultMove
@@ -5362,8 +5354,6 @@ Player:
 			ra2shk: 5
 			yrboris: 1
 			ra2engineer.soviet: 1
-			ra2terror: 1
-			ra2dtruck: 1
 			ra2htnk: 5
 			ra2apoc: 5
 			ra2v3: 3
@@ -5376,18 +5366,23 @@ Player:
 			yrbpln1: 1
 			ra2hind: 1
 			ra2_tzep: 1
-			upemptesla: 1
-			upra2ttnk: 1
-			uparctesla: 1
-			upcoilchargers: 1
-			upra2terror: 1
-			upra2deso: 1
-			upra2dtruck: 1
-			upradshells: 1
-			upra2mig: 1
-			updronesurprise: 1
-			upyrngindp: 1
-			upsovietarmor: 1
+			ra2_soviets_upgrade_conscription: 1
+			ra2_soviets_upgrade_infantryconditioning: 1
+			ra2_soviets_upgrade_shocktroopertraining: 1
+			ra2_soviets_upgrade_heavyarmorplatings: 1
+			ra2_soviets_upgrade_reactivearmor: 1
+			ra2_soviets_upgrade_tesladischargearmor: 1
+			ra2_soviets_upgrade_fireshells: 1
+			ra2_soviets_upgrade_radiationshells: 1
+			ra2_soviets_upgrade_teslashells: 1
+			ra2_soviets_upgrade_terrordronesurprise: 1
+			ra2_soviets_upgrade_coilchargers: 1
+			ra2_soviets_upgrade_teslaoverload: 1
+			ra2_soviets_upgrade_heavycannons: 1
+			ra2_soviets_upgrade_grindertanktreads: 1
+			ra2_soviets_upgrade_kirovarmorplatings: 1
+			ra2_soviets_upgrade_kirovgastroburners: 1
+			ra2_soviets_upgrade_kirovnuclearshells: 1
 			########### Units Yuri
 			yrsmin: 10
 			yrinit: 3

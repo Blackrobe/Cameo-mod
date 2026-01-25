@@ -9311,7 +9311,7 @@ TSSCRIN:
 		Description: Advanced fighter-bomber craft\nwith twin plasma cannons.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Aircraft:
 		CruiseAltitude: 2560
-		TurnSpeed: 72
+		TurnSpeed: 12
 		Speed: 180
 		AirborneCondition: airborne
 		TakeoffSounds: dropup1.aud
@@ -10512,7 +10512,7 @@ up_mechanicalreliability:
 	GrantConditionOnPrerequisite@up_mechanicalreliability:
 		Condition: up_mechanicalreliability
 		Prerequisites: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability:
+	ChangesHealth@up_mechanicalreliability1:
 		PercentageStep: 1
 		Delay: 40
 		StartIfBelow: 100

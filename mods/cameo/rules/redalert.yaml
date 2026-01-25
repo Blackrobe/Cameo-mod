@@ -926,7 +926,7 @@ ra_conscript_ak:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~ra_doctrine_conscription
+		Prerequisites: ~ra_doctrine_conscription, ~!ra2_soviets_upgrade_conscription
 		Queue: Infantry, RAInfantry
 		AdditionalActors: ra_cons_molo
 		Description: actor-e2.description
