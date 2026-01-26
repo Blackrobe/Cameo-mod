@@ -970,16 +970,16 @@
 		Description: Fire Weapon
 	DamageMultiplier@FireActorBuffs:
 		Modifier: 90
-	ChangesHealthProportionalToPhysicalState@HeatDamage:
+	ChangesHealthProportionalToPhysicalState@Overheating:
 		DamageAtMaximum: 100
 
 ^FireInfantry:
 	Inherits@FireActor: ^FireActor
 	DamageMultiplier@FireActorBuffs:
 		Modifier: 80
-	ChangesHealthProportionalToPhysicalState@HeatDamage:
+	ChangesHealthProportionalToPhysicalState@Overheating:
 		DamageAtMaximum: 50
-	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
+	ChangesHealthProportionalToPhysicalState@OverheatingHazmat:
 		DamageAtMaximum: 25
 	GrantExternalConditionToTransport:
 		Condition: ifv-fire
@@ -2784,10 +2784,10 @@
 	PhysicalState@Temperature:
 		RelaxationLinear: 10
 		RelaxationScaled: 100
-	ChangesHealthProportionalToPhysicalState@HeatDamage:
+	ChangesHealthProportionalToPhysicalState@Overheating:
 		DamageAtMaximum: 100
 		RequiresCondition: Overheating && !hazmatsuits
-	ChangesHealthProportionalToPhysicalState@HeatDamageHazmat:
+	ChangesHealthProportionalToPhysicalState@OverheatingHazmat:
 		PhysicalStateName: Temperature
 		DamageAtMaximum: 25
 		DamageAtMinimum: 0
@@ -4672,26 +4672,41 @@
 		TurretTurnSpeedModifierAtMaximum: 0
 		ReloadDelayModifierAtMinimum: 100
 		ReloadDelayModifierAtMaximum: 1
-	DamageMultiplierProportionalToPhysicalState@HeatDamage:
+	DamageMultiplierProportionalToPhysicalState@CryoFreeze:
 		PhysicalStateName: Temperature
 		DamageMultiplierAtMinimum: 100
 		DamageMultiplierAtMaximum: 200
 		UseDeviationFromRelaxed: true
 		RequiresCondition: CryoFreeze
-	ChangesHealthProportionalToPhysicalState@HeatDamage:
+	ChangesHealthProportionalToPhysicalState@Overheating:
 		PhysicalStateName: Temperature
+		UsePercentageDamage: false
 		DamageAtMaximum: 200
 		DamageAtMinimum: 0
 		DamageThreshold: 0
 		DamageInterval: 1
 		DamageTypes: FireDeath
 		RequiresCondition: Overheating
+	ChangesHealthProportionalToPhysicalState@superhot:
+		PhysicalStateName: Temperature
+		UsePercentageDamage: true
+		DamageAtMaximum: 1
+		DamageAtMinimum: 0
+		DamageThreshold: 0
+		DamageInterval: 10
+		DamageTypes: FireDeath
+		RequiresCondition: superhot
 	# Conditions for demonstration
 	GrantConditionOnPhysicalState@Overheating:
 		PhysicalStateName: Temperature
 		Condition: Overheating
 		UpperValue: 10000
 		LowerValue: 5000
+	GrantConditionOnPhysicalState@superhot:
+		PhysicalStateName: Temperature
+		Condition: superhot
+		UpperValue: 10000
+		LowerValue: 10000
 	GrantConditionOnPhysicalState@CryoFreeze:
 		PhysicalStateName: Temperature
 		Condition: CryoFreeze

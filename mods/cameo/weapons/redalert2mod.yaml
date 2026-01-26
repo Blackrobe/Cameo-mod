@@ -786,7 +786,7 @@ AsianHowitzerCannon:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air, GroundActor, WaterActor, AirborneActor
 		AirThreshold: 10000
-		TriggerAtLevelMin: 100
+		TriggerAtLevelMin: 400
 	Warhead@2Fire: TriggerLayerWeapon
 		LayerName: InfernoLayer
 		Spread: 1250
@@ -797,6 +797,11 @@ AsianHowitzerCannon:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air, GroundActor, WaterActor, AirborneActor
 		AirThreshold: 10000
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianOilBombFragments
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
 
 AsianHowitzerCannonE:
 	Inherits: AsianHowitzerCannon
@@ -4568,6 +4573,19 @@ NaxiFlamerTroopE:
 	Burst: 6
 	BurstDelays: 3
 
+NaxiFlamerTroopExplode:
+	Inherits: AsianFlamerTurret
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 6000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 3000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 6000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 3000
+
 NaxiSniper:
 	Inherits: ^SniperWeapon
 	ReloadDelay: 120
@@ -6563,8 +6581,14 @@ RA2Molotov:
 		InvalidTargets: FireImmune
 		Weapon: AsianFlameFragment
 		Amount: 4
-		AimChance: 0
+		AimChance: 25
 		AimTargetStances: Enemy, Neutral
+
+RA2MolotovE:
+	Inherits: RA2Molotov
+	Range: 5375
+	Burst: 6
+	BurstDelays: 3
 
 LatinTankKillerRocket:
 	Inherits: ^RA2LightMissile
@@ -6595,26 +6619,20 @@ LatinTankKillerRocket_elite:
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
 
-RA2MolotovE:
-	Inherits: RA2Molotov
-	Range: 5375
-	Burst: 6
-	BurstDelays: 3
-
 RA2NarcoPistol:
 	Inherits: ^SniperWeapon
 	ReloadDelay: 22
 	Range: 6300
 	Report: itanatta.wav, itanattb.wav
-	ValidTargets: Ground, Water, Trees, Garrisoned
+	ValidTargets: Ground, Water, Trees, Garrisoned, Air
 	Warhead@SniperWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Garrisoned
+		ValidTargets: Ground, Water, Trees, Garrisoned, Air
 		Damage: 20000
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
-		ValidTargets: Ground, Water, Trees, Garrisoned
+		ValidTargets: Ground, Water, Trees, Garrisoned, Air
 		Damage: 20000
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Garrisoned
+		ValidTargets: Ground, Water, Trees, Garrisoned, Air
 		Damage: 10
 
 RA2NarcoPistolsE:
@@ -6642,12 +6660,19 @@ NarcoGrenade:
 		Damage: 35000
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		Damage: 35
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment2
+		Amount: 3
+		AimChance: 33
+		AimTargetStances: Enemy, Neutral
 
 NarcoGrenadeE:
 	Inherits: NarcoGrenade
 	Range: 7300
 	Burst: 2
 	BurstDelays: 3
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment
 
 RA2NarcoAKM:
 	Inherits: ^RA2SmallArms
@@ -6865,7 +6890,7 @@ SyndicateFireballLauncherExplode:
 	Warhead@PhysicalStateHeavyFlameWeaponFriendlyFire: ApplyPhysicalState
 		Amount: 2000
 
-LatinMonkeyGrenade:
+LatinMonkeyGrenade1:
 	Inherits: ^Grenade
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyCannon
@@ -6928,15 +6953,30 @@ LatinMonkeyGrenade:
 		ExplosionPalette: effect75alpha
 	Warhead@4Concrete: DamagesConcrete
 		Damage: 1875
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment2
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
 
-LatinMonkeyGrenadeE:
-	Inherits: LatinMonkeyGrenade
+LatinMonkeyGrenade2:
+	Inherits: LatinMonkeyGrenade1
 	Range: 7000
-	Burst: 3
+	Burst: 2
 	BurstDelays: 3
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment
+
+LatinMonkeyGrenade3:
+	Inherits: LatinMonkeyGrenade2
+	Range: 7500
+	Burst: 3
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment
+		Amount: 4
 
 LatinMonkeyGrenadeExplode:
-	Inherits: LatinMonkeyGrenade
+	Inherits: LatinMonkeyGrenade2
 	Warhead@Grenade: SpreadDamage
 		Damage: 4000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
@@ -8302,17 +8342,17 @@ NaxisSarubianTarget:
 	Projectile: InstantHit
 		Inaccuracy: 1000
 
-Naxis_Jagerline_AA:
+Naxis_Jagerline:
 	Inherits: ^FlakWeapon
 	Inherits: ^Grenade
-	Inherits: ^HeavyMissile
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^MediumMissile
-	ValidTargets: Air
-	ReloadDelay: 50
-	Range: 18000
-	MinRange: 3600
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 60
+	Range: 7825
+	MinRange: 1565
 	Burst: 2
-	BurstDelays: 5
+	BurstDelays: 4
 	TargetActorCenter: true
 	Report: rocket1.aud
 	Projectile: Missile
@@ -8320,41 +8360,48 @@ Naxis_Jagerline_AA:
 		Image: DRAGON
 		Shadow: true
 		TrailImage: smokey
-		Inaccuracy: 800
+		Inaccuracy: 400
 		LaunchAngle: 125
 		Speed: 800
-		RangeLimit: 20c204
+		RangeLimit: 31300
 	Warhead@Grenade: SpreadDamage
-		ValidTargets: Air
-		Damage: 4000
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		ValidTargets: Air
-		Damage: 2000
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Air
-		Damage: 2
-	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Air
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
-	Warhead@HeavyMissile: SpreadDamage
+		Damage: 4
+	Warhead@HeavyAAWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
-	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 8000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 	Warhead@Effect: CreateEffect
 		Explosions: med_frag
 		ImpactSounds: kaboom25.aud
 		ValidTargets: Ground, Ship, Trees
+
+Naxis_Jagerline_AA:
+	Inherits: Naxis_Jagerline
+	ValidTargets: Air
+	Range: 11740
+	MinRange: 2348
+
 Rammax_Sabot:
 	Inherits: ^Chaingun
 	Inherits: ^LaserWeapon
@@ -8565,10 +8612,6 @@ Future_Cryocopter_Cryo:
 		ImpactSounds: phohit00.wav
 		ValidTargets: Ground, Water, Trees, Air
 		Volume: 0.25
-
-Future_Turret_Cryo:
-	Inherits: Future_Cryocopter_Cryo
-	ValidTargets: Ground, Water, Trees
 
 FutureMicrotorpedos:
 	Inherits: ^RA2Grenade

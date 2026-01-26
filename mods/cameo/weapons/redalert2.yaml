@@ -178,8 +178,8 @@
 	Warhead@Radiation: CreateTintedCells
 		InvalidTargets: RadiationImmmune
 		Spread: 1000
-		Falloff: 100, 50, 25
-		Level: 20
+		Falloff: 100, 75, 50, 25
+		Level: 25
 		MaxLevel: 1000
 		LayerName: ra2radiation
 
@@ -957,30 +957,76 @@ RA2KirovBomb:
 	-Warhead@Effect2:
 
 RA2KirovBomb_rad:
+	Inherits: ^HeavyChemicalWeapon
 	Inherits: RA2KirovBomb
 	Inherits@rad: ^RA2RadShell
-	Warhead@Radiation: CreateTintedCells
-		Falloff: 100, 50, 33, 25, 20
-		Level: 150
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 48000
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 24000
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 24
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@HeavyBomb: SpreadDamage
+		Damage: 48000
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@HeavyBombFriendlyFire: SpreadDamage
+		Damage: 24000
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		Damage: 24
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@Radiation: CreateTintedCells
+		Falloff: 100, 75, 66, 50, 33, 25, 20
+		Level: 480
 
-RA2KirovBombElite:
-	Inherits: ^TeslaWeapon
+RA2KirovBomb_fire:
 	Inherits: RA2KirovBomb
-	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 100000
-		Spread: 1000
-	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 50000
-		Spread: 2000
-	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 50
-		Spread: 1000
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 125
+		Speed: 0
+		TurnRate: 10
+		Image: tscloud1
+		Sequences: idle
+		EndSequences: die
+		Palette: shield60
+	Warhead@1Fire: TriggerLayerWeapon
+		LayerName: InfernoLayer
+		TriggerWeapon: AsianSmallOilBomb
+		TriggerSetLevel: 0
+		Level: 0
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air, GroundActor, WaterActor, AirborneActor
+		AirThreshold: 10000
+		TriggerAtLevelMin: 400
+	Warhead@2Fire: TriggerLayerWeapon
+		LayerName: InfernoLayer
+		Spread: 1250
+		Falloff: 125, 100, 75, 50, 25, 0
+		AllowSetLevelWhenTrigger: false
+		TriggerAtLevelMin: 50
+		TriggerWeapon: AsianHowitzerSplash
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air, GroundActor, WaterActor, AirborneActor
+		AirThreshold: 10000
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianOilBombFragments
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
+RA2KirovBomb_tesla:
+	Inherits: ^TeslaChargedWeapon
+	Inherits: RA2KirovBomb
+	Warhead@TeslaChargedWeapon: SpreadDamage
+		Damage: 80000
+	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		Damage: 40000
+	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		Damage: 40
 	Warhead@HeavyBomb: SpreadDamage
 		DamageTypes: Prone75Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@HeavyBombFriendlyFire: SpreadDamage
@@ -995,37 +1041,66 @@ RA2KirovBombElite:
 		ValidTargets: Ground, Ship, Trees
 	Warhead@Shrapnel: FireShrapnel
 		InvalidTargets: FireImmune
-		Weapon: TeslaFragment
+		Weapon: TeslaFragmentLarge
 		Amount: 3
 		AimChance: 100
 		AimTargetStances: Enemy, Neutral
-	#Warhead@Radiation: CreateTintedCells
-	#	Spread: 1c512
-	#	Falloff: 100, 66, 33
-	#	Level: 300
-	#	LayerName: ra2radiation
 
-RA2KirovBombElite_rad:
+RA2KirovBomb_nuclear:
 	Inherits@rad: ^NuclearWarhead
-	Inherits: RA2KirovBomb_rad
+	Inherits: RA2KirovBomb
+	Warhead@NuclearWarhead: SpreadDamage
+		Damage: 80000
+		Spread: 800
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		Damage: 40
+		Spread: 4000
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@Effect: CreateEffect
+		Delay: 0
+		Explosions: ra2nukesmall
+		ExplosionPalette: ra2effect
+		ImpactSounds: snukexpl.wav
+		ValidTargets: Ground, Ship, Trees
+		Volume: 0.5
+	Warhead@Radiation: CreateTintedCells
+		Falloff: 100, 75, 66, 50, 33, 25, 20
+		Level: 800
+		LayerName: ra2radiation
+
+RA2KirovBomb_nuclear_Elite:
+	Inherits: RA2KirovBomb_nuclear
+	Warhead@HeavyBomb: SpreadDamage
+		Damage: 100000
+		Spread: 1000
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@HeavyBombFriendlyFire: SpreadDamage
+		Damage: 50000
+		Spread: 500
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidRelationships: Neutral, Enemy
+		Damage: 50
+		Spread: 5000
+		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@NuclearWarhead: SpreadDamage
 		Damage: 100000
 		Spread: 1000
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
 		Damage: 50
-		Spread: 1000
+		Spread: 5000
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@Effect: CreateEffect
 		Delay: 0
-		Explosions: ra2_terrorist_explosion
+		Explosions: ra2nuke
 		ExplosionPalette: ra2effect
-		ImpactSounds: gexpapoa.wav
+		ImpactSounds: snukexpl.wav
 		ValidTargets: Ground, Ship, Trees
 	Warhead@Radiation: CreateTintedCells
-		Spread: 1c512
-		Falloff: 100, 66, 33
-		Level: 300
+		Falloff: 100, 75, 66, 50, 33, 25, 20
+		Level: 1000
 		LayerName: ra2radiation
 
 RA2IMPAA:
@@ -1292,19 +1367,63 @@ RA2120mm:
 		Damage: 5
 
 RA2120mm_rad:
+	Inherits: ^MediumChemicalWeapon
 	Inherits: RA2120mm
 	Inherits@rad: ^RA2RadShell
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 6000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 3000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 6000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 3
+
+RA2120mm_fire:
+	Inherits: RA2120mm
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment2
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
+RA2120mm_tesla:
+	Inherits: RA2120mm
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: TeslaFragmentWeak
+		Amount: 1
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
 
 RA2120mm_elite:
 	Inherits: RA2120mm
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 6200
+	Range: 6142
 	Burst: 2
 	BurstDelays: 3
 
 RA2120mm_elite_rad:
-	Inherits: RA2120mm_elite
-	Inherits@rad: ^RA2RadShell
+	Inherits: RA2120mm_rad
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 6142
+	Burst: 2
+	BurstDelays: 3
+
+RA2120mm_elite_fire:
+	Inherits: RA2120mm_fire
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 6142
+	Burst: 2
+	BurstDelays: 3
+
+RA2120mm_elite_tesla:
+	Inherits: RA2120mm_tesla
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 6142
+	Burst: 2
+	BurstDelays: 3
 
 RA160mm:
 	Inherits: ^ShrapnelWeapon
@@ -1340,8 +1459,62 @@ RA160mm:
 		Damage: 30
 
 RA160mm_rad:
+	Inherits: ^LightChemicalWeapon
+	Inherits: ^MediumChemicalWeapon
 	Inherits: RA160mm
 	Inherits@rad: ^RA2RadShell
+	Projectile: Bullet
+		ContrailStartColor: 88BB66
+		TrailImage: green_smokey
+		TrailPalette: effect
+	Warhead@LightChemicalWeapon: SpreadDamage
+		Damage: 36000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 18000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 18
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 36000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 18000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 18
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 36000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 18000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 18
+	Warhead@Grenade: SpreadDamage
+		Damage: 36000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 18000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 18
+
+RA160mm_fire:
+	Inherits: RA160mm
+	Projectile: Bullet
+		ContrailStartColor: FFBB88
+		TrailImage: red_smokey
+		TrailPalette: effect
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianOilBombFragments
+		Amount: 1
+		AimChance: 0
+		AimTargetStances: Enemy, Neutral
+
+RA160mm_tesla:
+	Inherits: RA160mm
+	Projectile: Bullet
+		ContrailStartColor: 6688BB
+		TrailImage: blue_smokey
+		TrailPalette: effect
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: TeslaFragmentLarge
+		Amount: 1
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
 
 RA160mmE_elite:
 	Inherits: RA160mm
@@ -1351,8 +1524,38 @@ RA160mmE_elite:
 	BurstDelays: 3
 
 RA160mmE_elite_rad:
-	Inherits: RA160mmE_elite
-	Inherits@rad: ^RA2RadShell
+	Inherits@rad: ^NuclearWarhead
+	Inherits: RA160mm_rad
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 12345
+	Warhead@NuclearWarhead: SpreadDamage
+		Damage: 36000
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		Damage: 18
+	Warhead@Effect: CreateEffect
+		Explosions: ra2nukesmall
+
+RA160mmE_elite_fire:
+	Inherits: RA160mm_fire
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 12345
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianOilBombFragments
+		Amount: 2
+
+RA160mmE_elite_tesla:
+	Inherits: RA160mm_tesla
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 12345
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: TeslaFragmentLarge
+		Amount: 2
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_kirovtesla
 
 RA2120xmm:
 	Inherits: ^TankDestroyerCannon
@@ -1384,8 +1587,59 @@ RA2120xmm:
 		ImpactSounds: gexpapoa.wav
 
 RA2120xmm_rad:
+	Inherits: ^LightChemicalWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^HeavyChemicalWeapon
 	Inherits: RA2120xmm
 	Inherits@rad: ^RA2RadShell
+	Warhead@LightChemicalWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 1
+
+RA2120xmm_fire:
+	Inherits: RA2120xmm
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
+RA2120xmm_tesla:
+	Inherits: RA2120xmm
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: TeslaFragment
+		Amount: 1
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
 
 RA2120xmm_elite:
 	Inherits: RA2120xmm
@@ -1395,8 +1649,25 @@ RA2120xmm_elite:
 	BurstDelays: 3
 
 RA2120xmm_elite_rad:
-	Inherits: RA2120xmm_elite
-	Inherits@rad: ^RA2RadShell
+	Inherits: RA2120xmm_rad
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 7992
+	Burst: 4
+	BurstDelays: 3
+
+RA2120xmm_elite_fire:
+	Inherits: RA2120xmm_fire
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 7992
+	Burst: 4
+	BurstDelays: 3
+
+RA2120xmm_elite_tesla:
+	Inherits: RA2120xmm_tesla
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 7992
+	Burst: 4
+	BurstDelays: 3
 
 RA2Lashmm:
 	Inherits: ^Grenade
@@ -1786,24 +2057,30 @@ RA2CoilBolt:
 		Damage: 32000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 32
-
-RA2CoilBolt2:
-	Inherits: RA2CoilBolt
-	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 64000
-
-RA2CoilBolt3:
-	Inherits: RA2CoilBolt2
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: TeslaFragment2
+		Weapon: TeslaFragmentWeak
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
 
+RA2CoilBolt2:
+	Inherits: RA2CoilBolt
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 32000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaFragment
+
+RA2CoilBolt3:
+	Inherits: RA2CoilBolt2
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 64000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaFragment2
+
 RA2OPCoilBolt1:
 	Inherits: ^TeslaChargedWeapon
-	Range: 9284
+	Range: 8842
 	ReloadDelay: 3
 	Report: btesat2a.wav
 	Warhead@TeslaChargedWeapon: SpreadDamage
@@ -1812,6 +2089,8 @@ RA2OPCoilBolt1:
 		Damage: 32000
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
 		Damage: 32
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 32000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaFragment
 		Amount: 1
@@ -1822,22 +2101,16 @@ RA2OPCoilBolt1:
 RA2OPCoilBolt2:
 	Inherits: RA2OPCoilBolt1
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 128000
+		Damage: 64000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaFragment2
-		Amount: 1
-		AimChance: 100
-		AllowDirectHit: true
-		AimTargetStances: Enemy, Neutral
 
 RA2OPCoilBolt3:
 	Inherits: RA2OPCoilBolt2
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 128000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaFragmentLarge
-		Amount: 1
-		AimChance: 100
-		AllowDirectHit: true
-		AimTargetStances: Enemy, Neutral
 
 TeslaFragmentLarge:
 	Inherits: ^TeslaChargedWeapon
@@ -1881,6 +2154,30 @@ RA2TeslaCoilCharge_cosmetic:
 	ValidTargets: TeslaCoil
 	Projectile: TeslaZap
 
+RA2TeslaDummy:
+	Inherits: ^TeslaWeapon
+	ValidRelationships: Enemy, Neutral
+	ValidTargets: Ground, Water, Trees, Air
+	Range: 6666
+	-Report:
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 0
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 0
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 0
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: RA2TeslaDummy2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+RA2TeslaDummy2:
+	Inherits: RA2TeslaDummy
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: MammothTuskTeslaFragment1
+
 RA2PortaTesla:
 	Inherits: ^TeslaWeapon
 	Range: 5222
@@ -1895,11 +2192,9 @@ RA2PortaTesla:
 
 RA2PortaTesla2:
 	Inherits: RA2PortaTesla
+	Range: 5777
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 24000
-
-RA2PortaTesla3:
-	Inherits: RA2PortaTesla2
+		Damage: 12000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaFragment
 		Amount: 1
@@ -1907,12 +2202,27 @@ RA2PortaTesla3:
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
 
-RA2PortaTeslaE:
-	Inherits: RA2PortaTesla3
+RA2PortaTesla3:
+	Inherits: RA2PortaTesla2
 	Range: 6222
 	Report: itesat2a.wav, itesat2b.wav
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 24000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaFragment2
+
+TeslaFragmentWeak:
+	Inherits: ^TeslaWeapon
+	Range: 1555
+	ValidTargets: Infantry, Vehicle, Ship, Structure, Wall
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 6000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 3000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 6000
 
 TeslaFragment:
 	Inherits: ^TeslaWeapon
@@ -1962,11 +2272,9 @@ RA2TankBolt:
 
 RA2TankBolt2:
 	Inherits: RA2TankBolt
+	Range: 8000
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 12000
-
-RA2TankBolt3:
-	Inherits: RA2TankBolt2
+		Damage: 6000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaTankFragment
 		Amount: 1
@@ -1974,9 +2282,11 @@ RA2TankBolt3:
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
 
-RA2TankBoltE:
-	Inherits: RA2TankBolt3
-	Range: 8000
+RA2TankBolt3:
+	Inherits: RA2TankBolt2
+	Range: 8500
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 12000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaTankFragment2
 
@@ -2183,8 +2493,8 @@ RA2Dronegas:
 
 RA2RadBeamWeapon:
 	Inherits: ^MediumChemicalWeapon
-	Range: 6393
-	ReloadDelay: 46
+	Range: 6444
+	ReloadDelay: 45
 	Report: idesat1a.wav
 	Projectile: RadBeam
 		Amplitude: 120
@@ -2201,7 +2511,7 @@ RA2RadBeamWeapon:
 
 RA2RadBeamWeaponE:
 	Inherits: RA2RadBeamWeapon
-	Range: 7393
+	Range: 7444
 	Burst: 2
 	BurstDelays: 3
 	Projectile: RadBeam
@@ -2482,36 +2792,87 @@ MigMissiles:
 		MaximumLaunchSpeed: 384
 		MinimumLaunchSpeed: 384
 		Acceleration: 10
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF
 	Warhead@HeavyBomb: SpreadDamage
 		Damage: 8000
-		ValidTargets: Ground, Water
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		Damage: 4
-		ValidTargets: Ground, Water
 	Warhead@HeavyAAWeapon: SpreadDamage
 		Damage: 8000
-		ValidTargets: Ground, Water
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
 		Damage: 4
-		ValidTargets: Ground, Water
 	Warhead@FlakWeapon: SpreadDamage
 		Damage: 8000
-		ValidTargets: Ground, Water
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		Damage: 4
-		ValidTargets: Ground, Water
 	Warhead@MediumMissile: SpreadDamage
 		Damage: 8000
-		ValidTargets: Ground, Water
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 4
-		ValidTargets: Ground, Water
 	-Warhead@Effect1:
 	-Warhead@Effect2:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+
+MigMissiles_rad:
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^HeavyChemicalWeapon
+	Inherits: MigMissiles
+	Inherits@rad: ^RA2RadShell
+	Projectile: Missile
+		TrailImage: green_smokey
+		TrailPalette: effect
+		ContrailStartColor: 00EE00
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@Radiation: CreateTintedCells
+		Level: 80
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_terrorist_explosion
+		ImpactSounds: gexpapoa.wav
+
+MigMissiles_fire:
+	Inherits: MigMissiles
+	Projectile: Missile
+		TrailImage: red_smokey
+		TrailPalette: effect
+		ContrailStartColor: EE0000
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianFlameFragment
+		Amount: 8
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
+MigMissiles_tesla:
+	Inherits: MigMissiles
+	Projectile: Missile
+		TrailImage: blue_smokey
+		TrailPalette: effect
+		ContrailStartColor: 0000EE
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: TeslaFragment
+		Amount: 4
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
 
 MigMissilesE:
 	Inherits: MigMissiles
@@ -2525,26 +2886,20 @@ MigMissilesE:
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
 
-MigMissiles_rad:
-	Inherits: MigMissiles
-	Inherits@rad: ^RA2RadShell
-	Warhead@Radiation: CreateTintedCells
-		Level: 250
-	Warhead@Effect: CreateEffect
-		Explosions: ra2_terrorist_explosion
-		ImpactSounds: gexpapoa.wav
-
 MigMissilesE_rad:
 	Inherits: MigMissiles_rad
 	Range: 8600
 	Burst: 8
-	Projectile: Missile
-		Image: red_dragon
-		TrailImage: red_smokey
-		ContrailColor: e60000
-		ContrailStartColor: E60000
-		ContrailEndColorUsePlayerColor: true
-		ContrailEndColor: FFFFFF
+
+MigMissilesE_fire:
+	Inherits: MigMissiles_fire
+	Range: 8600
+	Burst: 8
+
+MigMissilesE_tesla:
+	Inherits: MigMissiles_tesla
+	Range: 8600
+	Burst: 8
 
 MigMissiles_AA:
 	Inherits: MigMissiles
@@ -2696,10 +3051,63 @@ RA2SCUD:
 		ValidTargets: Ground, Air
 
 RA2SCUD_rad:
+	Inherits: ^LightChemicalWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^HeavyChemicalWeapon
 	Inherits: RA2SCUD
 	Inherits@rad: ^RA2RadShell
+	Warhead@LightChemicalWeapon: SpreadDamage
+		Damage: 18000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 9000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 9
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 18000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 9000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 9
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 18000
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 9000
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 9
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 18000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 9000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 9
+	Warhead@Grenade: SpreadDamage
+		Damage: 18000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 9000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 9
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 18000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 9
 	Warhead@Radiation: CreateTintedCells
-		Level: 100
+		Level: 180
+
+RA2SCUD_fire:
+	Inherits: RA2SCUD
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: AsianOilBombFragments
+		Amount: 1
+		AimChance: 0
+		AimTargetStances: Enemy, Neutral
+
+RA2SCUD_tesla:
+	Inherits: RA2SCUD
+	Warhead@FireShrapnel: FireShrapnel
+		Weapon: TeslaFragmentLarge
+		Amount: 1
+		AimChance: 100
+		AimTargetStances: Enemy, Neutral
 
 RA2SCUDELITE:
 	Inherits: ^NuclearWarhead
@@ -2719,8 +3127,7 @@ RA2SCUDELITE:
 		ImpactSounds: gexpapoa.wav
 		ValidTargets: Ground, Ship, Trees
 	Warhead@Radiation: CreateTintedCells
-		Spread: 1c512
-		Falloff: 100, 66, 33
+		Falloff: 100, 75, 66, 50, 33, 25, 20
 		Level: 300
 		LayerName: ra2radiation
 

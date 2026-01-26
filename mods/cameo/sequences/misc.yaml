@@ -2626,6 +2626,9 @@ explosion:
 		Scale: 2
 	ra2nuke:
 		Filename: ra2_nukeanim.shp
+	ra2nukesmall:
+		Filename: ra2_nukeanim.shp
+		Scale: 0.5
 	ra2_nuke_ball:
 		Filename: ra2_nukeball.shp
 	demotruck_explosion:

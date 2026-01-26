@@ -4133,7 +4133,7 @@ asian_upgrade_banzai:
 		Name: Banzai Mode
 	Buildable:
 		Description: asian_upgrade_banzai.description
-		Prerequisites: ~aa_cgtech, !asian_upgrade_banzai
+		Prerequisites: ~aa_cgtech, aa_cgmiac, !asian_upgrade_banzai
 	RenderSprites:
 		Image: asian_upgrade_banzai
 	ProvidesPrerequisite:
@@ -4223,7 +4223,7 @@ asian_team_upgrade_dragonway:
 		Name: Way of the Dragon
 	Buildable:
 		Description: asian_team_upgrade_dragonway.description
-		Prerequisites: ~aa_cgmiac, !asian_team_upgrade_dragonway
+		Prerequisites: ~aa_cgtech, aa_cgmiac, !asian_team_upgrade_dragonway
 	RenderSprites:
 		Image: asian_team_upgrade_dragonway
 	ProvidesTeamProxyActor:
@@ -4277,7 +4277,7 @@ asian_team_upgrade_diplomacy:
 		Name: Asian Diplomacy
 	Buildable:
 		Description: asian_team_upgrade_diplomacy.description
-		Prerequisites: ~aa_cgmiac, !asian_team_upgrade_diplomacy
+		Prerequisites: ~aa_cgtech, aa_cgmiac, !asian_team_upgrade_diplomacy
 	RenderSprites:
 		Image: asian_team_upgrade_diplomacy
 	ProvidesTeamProxyActor:
@@ -5019,6 +5019,8 @@ latin_sml:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^SyndicateSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 50
@@ -5067,6 +5069,15 @@ latin_sml:
 		Range: 15000
 	DetectCloaked:
 		Range: 7000
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
+	ActorStatValues:
+		Upgrades: latin_up_chaingun, latin_up_hotfire
 
 latin_aatur:
 	Inherits: ^RA2Defense
@@ -5343,13 +5354,13 @@ latin_mili:
 	Armament@MolotovGARRISONED:
 		Name: garrisoned
 		Weapon: RA2Molotov
-		RequiresCondition: !rank-elite
+		RequiresCondition: uplatin_mili && !rank-elite
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	Armament@MolotovGARRISONEDELITE:
 		Name: garrisoned
 		Weapon: RA2MolotovE
-		RequiresCondition: rank-elite
+		RequiresCondition: uplatin_mili && rank-elite
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	AttackFrontal:
@@ -5446,21 +5457,29 @@ latin_monkey:
 	ChangesHealth@SelfHealing:
 		Step: 30
 	Armament@PRIMARY:
-		Weapon: LatinMonkeyGrenade
+		Weapon: LatinMonkeyGrenade1
 		LocalOffset: 128,0,256
-		RequiresCondition: !rank-elite
+		RequiresCondition: (!latin_up_hotfire && !rank-elite)
+	Armament@SECONDARY:
+		Weapon: LatinMonkeyGrenade2
+		LocalOffset: 128,0,256
+		RequiresCondition: (latin_up_hotfire && !rank-elite) || (!latin_up_hotfire && rank-elite)
 	Armament@ELITE:
-		Weapon: LatinMonkeyGrenadeE
+		Weapon: LatinMonkeyGrenade3
 		LocalOffset: 128,0,256
-		RequiresCondition: rank-elite
+		RequiresCondition: (latin_up_hotfire && rank-elite)
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: LatinMonkeyGrenade
-		RequiresCondition: !rank-elite
+		Weapon: LatinMonkeyGrenade1
+		RequiresCondition: (!latin_up_hotfire && !rank-elite)
+	Armament@GARRISONEDSECONDARY:
+		Name: garrisoned
+		Weapon: LatinMonkeyGrenade2
+		RequiresCondition: (latin_up_hotfire && !rank-elite) || (!latin_up_hotfire && rank-elite)
 	Armament@GARRISONEDELITE:
 		Name: garrisoned
-		Weapon: LatinMonkeyGrenadeE
-		RequiresCondition: rank-elite
+		Weapon: LatinMonkeyGrenade3
+		RequiresCondition: (latin_up_hotfire && rank-elite)
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -5490,6 +5509,8 @@ latin_monkey:
 	-Targetable@disguise:
 	FireWarheadsOnDeath:
 		Weapon: LatinMonkeyGrenadeExplode
+	ActorStatValues:
+		Upgrades: latin_up_hotfire
 
 latin_fthrow:
 	Inherits: ^Soldier
@@ -5561,11 +5582,13 @@ latin_narco:
 	Inherits@Template: ^SniperInfantryTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@flamerup: ^LatinFlameUpgrades
 	Tooltip:
 		Name: Narco
 	Valued:
@@ -5581,52 +5604,84 @@ latin_narco:
 		HP: 28000
 	ChangesHealth@SelfHealing:
 		Step: 28
-	Armament@PRIMARY:
-		Weapon: RA2NarcoPistol
-		LocalOffset: 128,0,256
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: RA2NarcoPistolsE
-		LocalOffset: 128,0,256
-		RequiresCondition: rank-elite
-	Armament@SECONDARY:
+	Armament@Grenade:
 		Weapon: NarcoGrenade
 		LocalOffset: 250,0,400
+		AmmoUsage: 7
+		PauseOnCondition: ammo < 7
 		RequiresCondition: !rank-elite
-	Armament@SECONDARYELITE:
+	Armament@GrenadeELITE:
 		Weapon: NarcoGrenadeE
 		LocalOffset: 250,0,400
+		AmmoUsage: 7
+		PauseOnCondition: ammo < 7
 		RequiresCondition: rank-elite
-	Armament@GARRISONED:
-		Name: garrisoned
+	Armament@Pistol:
 		Weapon: RA2NarcoPistol
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
+		LocalOffset: 128,0,256
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 7
 		RequiresCondition: !rank-elite
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
+	Armament@PistolELITE:
 		Weapon: RA2NarcoPistolsE
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
+		LocalOffset: 128,0,256
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 7
 		RequiresCondition: rank-elite
-	Armament@SECONDARYGARRISONED:
+	Armament@GrenadeGARRISONED:
 		Name: garrisoned
 		Weapon: NarcoGrenade
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: !rank-elite
-	Armament@SECONDARYGARRISONEDELITE:
+	Armament@GrenadeGARRISONEDELITE:
 		Name: garrisoned
 		Weapon: NarcoGrenadeE
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	Armament@PistolGARRISONED:
+		Name: garrisoned
+		Weapon: RA2NarcoPistol
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@PistolGARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2NarcoPistolsE
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
+	AmmoPool:
+		Ammo: 7
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 1
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+	-ReloadAmmoDelayMultiplier@RANK-1:
+	-ReloadAmmoDelayMultiplier@RANK-2:
+	-ReloadAmmoDelayMultiplier@RANK-3:
+	-ReloadAmmoDelayMultiplier@RANK-ELITE:
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: LatinNarcoVoice
+	FireWarheadsOnDeath:
+		Weapon: LatinMonkeyGrenadeExplode
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
+	ActorStatValues:
+		Upgrades: uplatin_mili, latin_up_chaingun, latin_up_hotfire
 
 latin_fftr:
 	Inherits: ^Soldier
@@ -5637,6 +5692,7 @@ latin_fftr:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@flamerup: ^LatinFlameUpgrades
 	Tooltip:
 		Name: Freedom Fighter
@@ -5721,8 +5777,15 @@ latin_fftr:
 		RequiresCondition: tree && uplatin_alliedstolentech
 		IsPlayerPalette: false
 		Palette: ra_temperat
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	ActorStatValues:
-		Upgrades: uplatin_mili, uplatin_alliedstolentech, latin_up_hotfire
+		Upgrades: uplatin_mili, latin_up_chaingun, uplatin_alliedstolentech, latin_up_hotfire
 
 latin_buggy:
 	Inherits: ^Tank
@@ -6228,7 +6291,7 @@ latin_apc:
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 18
+		TurnSpeed: 36
 		Offset: -1,0,4
 	Armament@Flak:
 		Weapon: RA2APCFlakCannon
@@ -6974,7 +7037,6 @@ latin_mig:
 	Inherits@Template: ^BomberTemplate
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@rad: ^RA2RadShells
 	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@flamerup: ^CartelRocketsUpgrade
@@ -13528,7 +13590,7 @@ nax_fcons:
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
 	FireWarheadsOnDeath:
-		Weapon: Flamethrower
+		Weapon: NaxiFlamerTroopExplode
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
@@ -15680,8 +15742,8 @@ nax2_bradley:
 nax2_aatank:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
+	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
@@ -15696,22 +15758,28 @@ nax2_aatank:
 	Tooltip:
 		Name: M-200B Jagerline
 	Health:
-		HP: 35000
+		HP: 70000
 	Repairable:
-		HpPerStep: 1750
+		HpPerStep: 3500
 	ChangesHealth@SelfHealing:
-		Step: 14
+		Step: 28
 	Armor:
 		Type: Medium
 	Mobile:
 		Locomotor: hover
-		Speed: 70
-		TurnSpeed: 16
+		Speed: 60
+		TurnSpeed: 12
+	Turreted:
+		TurnSpeed: 24
 	Hovers:
 		Ticks: 10
 		BobDistance: -64
 		InitialHeight: 384
 	Armament:
+		Weapon: Naxis_Jagerline
+		LocalOffset: 1000,333,1000, 1000,-333,1000, 1000,333,1000, 1000,-333,1000
+		MuzzleSequence: muzzle
+	Armament@AA:
 		Weapon: Naxis_Jagerline_AA
 		LocalOffset: 1000,333,1000, 1000,-333,1000, 1000,333,1000, 1000,-333,1000
 		MuzzleSequence: muzzle
@@ -15743,9 +15811,6 @@ nax2_aatank:
 		Name: reloading
 	RenderSprites:
 		PlayerPalette: playerra2
-	Turreted:
-		TurnSpeed: 5 #3
-		RealignDelay: 80
 	AttackTurreted:
 	WithSpriteTurret:
 		RequiresCondition: !firing
@@ -15880,7 +15945,7 @@ up_ostfrontexperience:
 	DamageMultiplier@up_atlantikwall:
 		RequiresCondition: up_atlantikwall
 		Modifier: 80
-	ChangesHealth@up_atlantikwall:
+	ChangesHealth@up_atlantikwall1:
 		PercentageStep: 1
 		Delay: 40
 		StartIfBelow: 100
@@ -19328,25 +19393,25 @@ futu_egshock:
 
 futu_gggun:
 	Inherits: ^RA2Defense
-	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
-		Prerequisites: ~futu_egcnst, futu_egpile
+		Prerequisites: ~futu_egcnst, futu_egtech
 		Description: template-anti-infantry-defense.description
 	Valued:
-		Cost: 750
+		Cost: 1500
 	Tooltip:
 		Name: Freezer Turret
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 90000
+		HP: 120000
 	Selectable:
 		Bounds: 1024, 1024
 	Turreted:
@@ -19357,12 +19422,12 @@ futu_gggun:
 	AttackTurreted:
 		Voice: Attack
 	Armament:
-		Weapon: Future_Turret_Cryo
+		Weapon: Future_Cryocopter_Cryo
 		LocalOffset: 500,2,100, 500,-2,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	FirepowerMultiplier@Cryo:
-		Modifier: 32
+		Modifier: 64
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 16
@@ -19370,9 +19435,11 @@ futu_gggun:
 		RequiresCondition: !build-incomplete
 	AutoTarget:
 	Power:
-		Amount: -50
+		Amount: -75
 	RevealsShroud:
 		Range: 7124
+	DetectCloaked:
+		Range: 3562
 	ProvidesPrerequisite@buildingname:
 
 futu_ggmlt:

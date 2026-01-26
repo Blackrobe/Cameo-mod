@@ -8279,3 +8279,63 @@ ra2mig:
 		Facings: 8
 	icon:
 		Filename: tkmvipericon.png
+
+ra2_soviets_upgrade_conscription:
+	icon:
+		Filename: ra2_soviets_upgrade_conscription_icon.png
+
+ra2_soviets_upgrade_infantryconditioning:
+	icon:
+		Filename: ra2_soviets_upgrade_infantryconditioning_icon.png
+
+ra2_soviets_upgrade_shocktroopertraining:
+	icon:
+		Filename: ra2_soviets_upgrade_shocktroopertraining_icon.png
+
+ra2_soviets_upgrade_heavyarmorplatings:
+	icon:
+		Filename: ra2_soviets_upgrade_heavyarmorplatings_icon.png
+
+ra2_soviets_upgrade_reactivearmor:
+	icon:
+		Filename: ra2_soviets_upgrade_reactivearmor_icon.png
+
+ra2_soviets_upgrade_tesladischargearmor:
+	icon:
+		Filename: ra2_soviets_upgrade_tesladischargearmor_icon.png
+
+ra2_soviets_upgrade_fireshells:
+	icon:
+		Filename: ra2_soviets_upgrade_fireshells_icon.png
+
+ra2_soviets_upgrade_radiationshells:
+	icon:
+		Filename: ra2_soviets_upgrade_radiationshells_icon.png
+
+ra2_soviets_upgrade_teslashells:
+	icon:
+		Filename: ra2_soviets_upgrade_teslashells_icon.png
+
+ra2_soviets_upgrade_teslaoverload:
+	icon:
+		Filename: ra2_soviets_upgrade_teslaoverload_icon.png
+
+ra2_soviets_upgrade_heavycannons:
+	icon:
+		Filename: ra2_soviets_upgrade_heavycannons_icon.png
+
+ra2_soviets_upgrade_grindertanktreads:
+	icon:
+		Filename: ra2_soviets_upgrade_grindertanktreads_icon.png
+
+ra2_soviets_upgrade_kirovarmorplatings:
+	icon:
+		Filename: ra2_soviets_upgrade_kirovarmorplatings_icon.png
+
+ra2_soviets_upgrade_kirovgastroburners:
+	icon:
+		Filename: ra2_soviets_upgrade_kirovgastroburners_icon.png
+
+ra2_soviets_upgrade_kirovnuclearshells:
+	icon:
+		Filename: ra2_soviets_upgrade_kirovnuclearshells_icon.png
