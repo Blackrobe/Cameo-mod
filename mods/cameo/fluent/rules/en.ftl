@@ -1692,8 +1692,8 @@ upgrade-lightweightarmorplating =
       Increases armor by 20% and speed by 10% of all tanks, scout and support vehicles in your team.
 
 upgrade-guerillatactics =
-   .description = Increases Speed and Firepower of all infantry, scout vehicles, support vehicles,
-      tanks, helicopters, fire support and stealth units by 10% and Range by 5%.
+   .description = Increases Firepower of all infantry, scout vehicles, support vehicles,
+      tanks, helicopters, fire support and stealth units by 30%, Speed by 20% and Range by 5%.
       The effect is doubled for the Stealth Tank.
 
 upgrade-tiberiuminfusion =
@@ -1729,8 +1729,8 @@ upgrade-blackmarketupgrades =
 
 upgrade-advancedguerillatactics =
    .description = TEAM UPGRADE
-      Increases Speed and Firepower of all infantry, scouts, support vehicles and fire supports in your team
-      by 10% and Range by 5%
+      Increases Firepower of all infantry, scouts, support vehicles and fire supports in your team
+      by 30%, Speed by 20% and Range by 10%
       For Nod it also doubles the effect for all units affected by the guerilla tactics upgrade.
       The effect is doubled once more for the Stealth Tank.
 

@@ -2843,8 +2843,9 @@ MigMissiles_rad:
 	Warhead@Radiation: CreateTintedCells
 		Level: 80
 	Warhead@Effect: CreateEffect
-		Explosions: ra2_terrorist_explosion
-		ImpactSounds: gexpapoa.wav
+		Explosions: ra2radbang
+		ExplosionPalette: ra2effect
+		ImpactSounds: snukexpl.wav
 
 MigMissiles_fire:
 	Inherits: MigMissiles
@@ -2854,6 +2855,9 @@ MigMissiles_fire:
 		ContrailStartColor: EE0000
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_terrorist_explosion
+		ImpactSounds: gexpapoa.wav
 	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianFlameFragment
 		Amount: 8
@@ -2868,6 +2872,10 @@ MigMissiles_tesla:
 		ContrailStartColor: 0000EE
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_kirovtesla
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpapoa.wav
 	Warhead@FireShrapnel: FireShrapnel
 		Weapon: TeslaFragment
 		Amount: 4

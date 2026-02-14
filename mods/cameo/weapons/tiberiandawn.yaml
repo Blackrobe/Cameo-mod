@@ -1248,8 +1248,8 @@ ChemRockets:
 	Inherits: ^Grenade
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^LightMissile
-	ReloadDelay: 60
-	Range: 6763
+	ReloadDelay: 54
+	Range: 6006
 	Report: bazook1.aud
 	Projectile: Missile
 		TrailImage: spittrail

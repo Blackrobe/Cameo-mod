@@ -58,6 +58,21 @@ AsianTankKillerRocket:
 	Warhead@LightMissilePercentage: HealthPercentageDamage
 		Damage: 17
 
+AsianTankKillerRocket_upgrade:
+	Inherits: AsianTankKillerRocket
+	Projectile: Missile
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF00
+	Warhead@Shrapnel: FireShrapnel
+		ValidTargets: Ground, Water, Trees, Air
+		Weapon: PhoenixRocketShrapnel
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
 AsianTankKillerRocket_elite:
 	Inherits: AsianTankKillerRocket
 	Range: 7460
@@ -74,13 +89,25 @@ AsianTankKillerRocket_elite:
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
 
-RA2AsianShotgunFanatic:
+AsianTankKillerRocket_elite_upgrade:
+	Inherits: AsianTankKillerRocket_elite
+	Projectile: Missile
+		Image: d2k_missile2
+		Palette: d2keffect
+	Warhead@Shrapnel: FireShrapnel
+		ValidTargets: Ground, Water, Trees, Air
+		Weapon: PhoenixRocketShrapnel
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
+RA2AsianShotgunFanatic1:
 	Inherits: ^Grenade
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
 	ReloadDelay: 50
-	Range: 4985
+	Range: 5000
 	Report: aa_sshtgatt.wav
 	Warhead@Grenade: SpreadDamage
 		Damage: 2000
@@ -106,13 +133,19 @@ RA2AsianShotgunFanatic:
 		Explosions: ra2_piffs
 		ExplosionPalette: ra2effect
 
-RA2AsianShotgunFanaticE:
-	Inherits: RA2AsianShotgunFanatic
-	Range: 5985
+RA2AsianShotgunFanatic2:
+	Inherits: RA2AsianShotgunFanatic1
+	Range: 5500
 	Burst: 2
 	BurstDelays: 3
 
-AsianSamuraiSword:
+RA2AsianShotgunFanatic3:
+	Inherits: RA2AsianShotgunFanatic1
+	Range: 6000
+	Burst: 3
+	BurstDelays: 3
+
+AsianSamuraiSword1:
 	Inherits: ^SwordWeapon
 	ReloadDelay: 40
 	Report: aa_samu_kil1.wav
@@ -125,9 +158,14 @@ AsianSamuraiSword:
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
 		Damage: 10
 
-AsianSamuraiSwordE:
-	Inherits: AsianSamuraiSword
+AsianSamuraiSword2:
+	Inherits: AsianSamuraiSword1
 	Burst: 2
+	BurstDelays: 3
+
+AsianSamuraiSword3:
+	Inherits: AsianSamuraiSword1
+	Burst: 3
 	BurstDelays: 3
 
 AsianMaidenBow:
@@ -989,7 +1027,7 @@ AsianPulverizerMechaGatling:
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^MediumMissile
 	Inherits: AsianPulverizerGatling
-	Range: 7580
+	Range: 7020
 	ReloadDelay: 15
 	Warhead@MediumChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Air, Water
@@ -1267,6 +1305,11 @@ AsianFlamerTroop:
 	Burst: 6
 	BurstDelays: 3
 	Range: 4444
+
+AsianFlamerTroop2:
+	Inherits: AsianFlamerTroop
+	ReloadDelay: 34
+	Range: 5555
 
 AsianFlamerTroopExplode:
 	Inherits: AsianFlamerTurret
@@ -1890,12 +1933,11 @@ ASDFGun:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
 	Report: varmatta.wav, varmattb.wav
-	ValidTargets: Ground, Water
-	InvalidTargets: Structure, Bridge, Wall
 	Range: 7250
 	ReloadDelay: 16
 	Burst: 3
 	BurstDelays: 2
+	InvalidTargets: Structure, Bridge, Wall
 	ValidTargets: Ground, Water, Trees, Air
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -1910,11 +1952,33 @@ ASDFGun:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
+ASDFGun2:
+	Inherits: ^RailgunWeapon
+	Inherits: ASDFGun
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+
 ASDFKamikazeTargeting:
 	Range: 7250
 	ReloadDelay: 100
-	ValidTargets: Structure
-	Projectile: InstantHit
+	ValidTargets: Structure, Bridge, Wall
+	TargetActorCenter: true
+	Projectile: LaserZap
+		Width: 36
+		Duration: 25
+		SecondaryBeamWidth: 96
+		SecondaryBeamColor: FF000030
+	Warhead@1: TargetDamage
+		ValidTargets: Structure
+	Warhead@2: GrantExternalCondition
+		ValidTargets: Structure
+		Range: 250
+		Duration: 250
+		Condition: BorisFlare
 
 ASDFKamikazeExplosion:
 	Inherits: ^HeavyBomb

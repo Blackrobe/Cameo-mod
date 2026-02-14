@@ -12,6 +12,7 @@ FileSystem: DefaultFileSystem
 		~^SupportDir|Content/cameo/: game
 		^EngineDir
 		$cameo: cameo
+		cameo|ContentPacks: ContentPacks
 		cameo|uibits
 		^EngineDir|mods/common: common
 		~^SupportDir|Content/cameo/music
@@ -519,3 +520,5 @@ ModCredits:
 
 DiscordService:
 	ApplicationId: 1269927383994077296
+
+#Include: ContentPacks|TiberianDawn/GDI/mod.yaml

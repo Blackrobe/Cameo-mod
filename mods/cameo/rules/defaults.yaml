@@ -677,7 +677,7 @@
 ^UnitDisable:
 	GrantCondition@disable:
 		Condition: disabled
-		RequiresCondition: (empdisable || superfreeze || chronodisabled || diskdrain || being-captured || leaflet || magnetfreeze) && !invulnerability
+		RequiresCondition: (empdisable || superfreeze || chronodisabled || diskdrain || driver-dead || being-captured || leaflet || magnetfreeze) && !invulnerability
 	ExternalCondition@EMP:
 		TotalCap: 1
 		Condition: empdisable
@@ -874,7 +874,7 @@
 
 ^InfantryBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
-	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
+	Inherits@ConscriptionBuff: ^ConscriptionBuff
 	Inherits@MenOfSteelTeamUpgradeRA1: ^MenOfSteelTeamUpgradeRA1
 	Inherits@WillOfKane: ^WillOfKane
 	Inherits@upgrade: ^AdvancedGuerillaTactics
@@ -2350,8 +2350,11 @@
 	Parachutable:
 		FallRate: 20
 		KilledOnImpassableTerrain: false
-	KillsSelf@EMP:
+	# KillsSelf@EMP:
+	# 	RequiresCondition: (empdisable || superfreeze) && airborne
+	DamageMultiplier@aircraftdisabled:
 		RequiresCondition: (empdisable || superfreeze) && airborne
+		Modifier: 1000
 
 ^AircraftEjectOnDeath:
 	EjectOnDeath:
@@ -5146,6 +5149,38 @@
 	DamageMultiplier@GattlingSpeed10:
 		RequiresCondition: gatling >= 10
 		Modifier: 95
+
+^ConscriptionBuff:
+	ProductionCostMultiplier@global_conscription_buff:
+		Prerequisites: global_conscription_buff
+		Multiplier: 75
+	ProductionTimeMultiplier@global_conscription_buff:
+		Prerequisites: global_conscription_buff
+		Multiplier: 75
+	FirepowerMultiplier@global_conscription_buff:
+		RequiresCondition: global_conscription_buff
+		Modifier: 110
+	SpeedMultiplier@global_conscription_buff:
+		RequiresCondition: global_conscription_buff
+		Modifier: 110
+	DamageMultiplier@global_conscription_buff:
+		RequiresCondition: global_conscription_buff
+		Modifier: 90
+	ReloadDelayMultiplier@global_conscription_buff:
+		RequiresCondition: global_conscription_buff
+		Modifier: 90
+	GrantConditionOnPrerequisite@global_conscription_buff:
+		Condition: global_conscription_buff
+		Prerequisites: global_conscription_buff
+	ProvidesPrerequisite@global_conscription_buff:
+		Prerequisite: global_conscription_buff
+		RequiresCondition: ra_doctrine_conscription || ra2_soviets_upgrade_conscription
+	GrantConditionOnPrerequisite@ra_doctrine_conscription:
+		Condition: ra_doctrine_conscription
+		Prerequisites: ra_doctrine_conscription
+	GrantConditionOnPrerequisite@ra2_soviets_upgrade_conscription:
+		Condition: ra2_soviets_upgrade_conscription
+		Prerequisites: ra2_soviets_upgrade_conscription
 
 ^Mine:
 	Inherits: ^SpriteActor

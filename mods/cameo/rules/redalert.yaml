@@ -926,7 +926,7 @@ ra_conscript_ak:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~ra_doctrine_conscription, ~!ra2_soviets_upgrade_conscription
+		Prerequisites: ~ra_doctrine_conscription
 		Queue: Infantry, RAInfantry
 		AdditionalActors: ra_cons_molo
 		Description: actor-e2.description
@@ -1852,8 +1852,7 @@ SNIPER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
+		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 80
 		Prerequisites: ~dome.allies
 		Description: actor-rasniper.description
@@ -3955,7 +3954,6 @@ FTRK:
 		Weapon: UnitExplodeSmall
 	RenderSprites:
 		Image: ftrk
-	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
 		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
@@ -3970,7 +3968,7 @@ MODBTR:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@botmicro: ^BotAutoDeployTransport
-	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
+	Inherits@ConscriptionBuff: ^ConscriptionBuff
 	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
@@ -6005,7 +6003,7 @@ modhip:
 	Inherits@CM: ^CountermeasuresUpgrade
 	Inherits@eject: ^AircraftEjectOnDeath
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
-	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
+	Inherits@ConscriptionBuff: ^ConscriptionBuff
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Tooltip:
 		Name: Hip Transport
@@ -11311,33 +11309,11 @@ ra_doctrine_conscription:
 		Name: Conscription Doctrine
 	Buildable:
 		Description: ra_doctrine_conscription.description
-		Prerequisites: ~dome.soviet, !ra_soviet_doctrine_1
+		Prerequisites: ~dome.soviet, !ra_soviet_doctrine_1, !global_conscription_buff
 	RenderSprites:
 		Image: ra_doctrine_conscription
 	ProvidesPrerequisite@ra_soviet_doctrine_1:
 		Prerequisite: ra_soviet_doctrine_1
-
-^ConscriptionDoctrineRA1:
-	ProductionCostMultiplier@ra_doctrine_conscription:
-		Prerequisites: ra_doctrine_conscription
-		Multiplier: 75
-	ProductionTimeMultiplier@ra_doctrine_conscription:
-		Prerequisites: ra_doctrine_conscription
-		Multiplier: 75
-	FirepowerMultiplier@ra_doctrine_conscription:
-		RequiresCondition: ra_doctrine_conscription
-		Modifier: 110
-	SpeedMultiplier@ra_doctrine_conscription:
-		RequiresCondition: ra_doctrine_conscription
-		Modifier: 110
-	DamageMultiplier@ra_doctrine_conscription:
-		RequiresCondition: ra_doctrine_conscription
-		Modifier: 90
-	GrantConditionOnPrerequisite@ra_doctrine_conscription:
-		Condition: ra_doctrine_conscription
-		Prerequisites: ra_doctrine_conscription
-	ActorStatValues:
-		Upgrades: ra_doctrine_conscription
 
 ra_doctrine_industrialefficiency:
 	Inherits: ^doctrine_template

@@ -895,7 +895,7 @@ World:
 		CheckboxLabel: Creeps
 		CheckboxDescription: Some Maps may contain hostile entities
 		CheckboxDisplayOrder: 21
-		CheckboxEnabled: False
+		CheckboxEnabled: True
 	SmudgeLayer@SCORCH:
 		Type: Scorch
 		Sequence: scorches

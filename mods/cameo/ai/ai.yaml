@@ -5456,6 +5456,9 @@ Player:
 			upaa_ptnk: 1
 			upaa_howitzer: 1
 			upaa_tsunami: 1
+			upaa_massparadrop: 1
+			upaa_clusterbombs: 1
+			upaa_chaosbombs: 1
 			asian_upgrade_infantryspec: 1
 			asian_upgrade_pulverizer: 1
 			asian_upgrade_phalanx: 1

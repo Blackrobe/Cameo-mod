@@ -6344,6 +6344,12 @@ RA2V3:
 		Modifier: 175
 	FirepowerMultiplier@RANK-ELITE:
 		Modifier: 200
+	RangeMultiplier@ra2_soviets_upgrade_kirovgastroburners:
+		Modifier: 115
+		RequiresCondition: ra2_soviets_upgrade_kirovgastroburners
+	GrantConditionOnPrerequisite@ra2_soviets_upgrade_kirovgastroburners:
+		Condition: ra2_soviets_upgrade_kirovgastroburners
+		Prerequisites: ra2_soviets_upgrade_kirovgastroburners
 	SelectionDecorations:
 	FireWarheadsOnDeath:
 		Weapon: V3Explode
@@ -6362,10 +6368,11 @@ RA2V3:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells, ra2_soviets_upgrade_terrordronesurprise
+		Upgrades: ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells, ra2_soviets_upgrade_terrordronesurprise, ra2_soviets_upgrade_kirovarmorplatings, ra2_soviets_upgrade_kirovgastroburners
 
 ra2v3rocket:
 	Inherits: ^ShootableMissile
+	Inherits@RA2KirovArmorPlatings: ^RA2KirovArmorPlatings
 	Inherits@RA2SovietRadShells: ^RA2SovietRadShells
 	Inherits@RA2SovietFireShells: ^RA2SovietFireShells
 	Inherits@RA2SovietTeslaShells: ^RA2SovietTeslaShells
@@ -6415,7 +6422,7 @@ ra2v3rocket:
 		PlayerPalette: playerra2
 	WithFacingSpriteBody:
 	ActorStatValues:
-		Upgrades: ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells
+		Upgrades: ra2_soviets_upgrade_kirovarmorplatings, ra2_soviets_upgrade_kirovgastroburners, ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells
 
 ra2v3rocketelite:
 	Inherits: ra2v3rocket
@@ -11978,7 +11985,7 @@ ra2_soviets_upgrade_conscription:
 		Name: Conscription
 	Buildable:
 		Description: All Soviet Infantry costs 25% less und train 25% faster.
-		Prerequisites: ~ra2naradr, !ra2_soviet_doctrine_1
+		Prerequisites: ~ra2naradr, !global_conscription_buff, !ra2_soviet_doctrine_1
 	RenderSprites:
 		Image: ra2_soviets_upgrade_conscription
 	ProvidesPrerequisite@ra_doctrine_conscription:
@@ -12030,7 +12037,7 @@ ra2_soviets_upgrade_infantryconditioning:
 		DamageCooldown: 1
 		RequiresCondition: ra2_soviets_upgrade_infantryconditioning
 	DamageMultiplier@ra2_soviets_upgrade_infantryconditioning:
-		Modifier: 95
+		Modifier: 75
 		RequiresCondition: ra2_soviets_upgrade_infantryconditioning
 	SpeedMultiplier@ra2_soviets_upgrade_infantryconditioning:
 		Modifier: 105
@@ -12148,7 +12155,7 @@ ra2_soviets_upgrade_tesladischargearmor:
 	FireWarheads@Tesla:
 		Weapons: RA2TeslaDummy
 		Interval: 125
-		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown
+		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown && firing
 	GrantTimedCondition@ra2_soviets_upgrade_tesladischargearmor:
 		RequiresCondition: tesladischargearmor
 		PauseOnCondition: !tesladischargearmor
@@ -12159,6 +12166,9 @@ ra2_soviets_upgrade_tesladischargearmor:
 		Condition: tesladischargearmor
 		Duration: 10
 		PlayerRelationship: Ally, Neutral, Enemy
+	GrantConditionOnAttack:
+		Condition: firing
+		RevokeDelay: 25
 	GrantConditionOnPrerequisite@ra2_soviets_upgrade_tesladischargearmor:
 		Condition: ra2_soviets_upgrade_tesladischargearmor
 		Prerequisites: ra2_soviets_upgrade_tesladischargearmor
@@ -12343,7 +12353,7 @@ ra2_soviets_upgrade_kirovarmorplatings:
 	Tooltip:
 		Name: Kirov Armor Platings
 	Buildable:
-		Description: Increases Damage Resistance of Kirovs by 25%.
+		Description: Increases Damage Resistance of Kirovs and V3 Rockets by 25%.
 		Prerequisites: ~ra2natech, yrngindp, !ra2_soviets_upgrade_kirovarmorplatings
 	RenderSprites:
 		Image: ra2_soviets_upgrade_kirovarmorplatings
@@ -12361,9 +12371,9 @@ ra2_soviets_upgrade_kirovarmorplatings:
 ra2_soviets_upgrade_kirovgastroburners:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
-		Name: Kirov Gastroburners
+		Name: Gastroburners
 	Buildable:
-		Description: Increases Speed of Kirovs by 25%.
+		Description: Increases Speed of Kirovs by 25% and V3 Range by 15%.
 		Prerequisites: ~ra2natech, yrngindp, !ra2_soviets_upgrade_kirovgastroburners
 	RenderSprites:
 		Image: ra2_soviets_upgrade_kirovgastroburners

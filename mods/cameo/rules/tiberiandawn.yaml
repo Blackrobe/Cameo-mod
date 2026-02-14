@@ -298,21 +298,21 @@ World:
 		Upgrades: up_improvedartilleries
 
 ^GuerillaTactics:
+	FirepowerMultiplier@up_guerillatactics:
+		RequiresCondition: up_guerillatactics
+		Modifier: 130
 	SpeedMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
-		Modifier: 110
+		Modifier: 120
 	RangeMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
 		Modifier: 110
-	FirepowerMultiplier@up_guerillatactics:
-		RequiresCondition: up_guerillatactics
-		Modifier: 105
 	RevealsShroudMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
-		Modifier: 105
+		Modifier: 110
 	DetectCloakedMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
-		Modifier: 105
+		Modifier: 110
 	GrantConditionOnPrerequisite@up_guerillatactics:
 		Condition: up_guerillatactics
 		Prerequisites: up_guerillatactics
@@ -320,21 +320,21 @@ World:
 		Upgrades: up_guerillatactics
 
 ^AdvancedGuerillaTactics:
-	SpeedMultiplier@up_advancedguerillatactics:
-		RequiresCondition: up_advancedguerillatactics
-		Modifier: 110
 	FirepowerMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
-		Modifier: 110
+		Modifier: 130
+	SpeedMultiplier@up_advancedguerillatactics:
+		RequiresCondition: up_advancedguerillatactics
+		Modifier: 120
 	RangeMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
-		Modifier: 105
+		Modifier: 110
 	RevealsShroudMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
-		Modifier: 105
+		Modifier: 110
 	DetectCloakedMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
-		Modifier: 105
+		Modifier: 110
 	GrantConditionOnPrerequisite@up_advancedguerillatactics:
 		Condition: up_advancedguerillatactics
 		Prerequisites: up_advancedguerillatactics
@@ -1912,26 +1912,26 @@ STNK:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 	-MustBeDestroyed:
-	SpeedMultiplier@up_guerillatactics:
-		Modifier: 120
 	FirepowerMultiplier@up_guerillatactics:
-		Modifier: 120
+		Modifier: 160
+	SpeedMultiplier@up_guerillatactics:
+		Modifier: 140
 	RangeMultiplier@up_guerillatactics:
-		Modifier: 110
+		Modifier: 120
 	RevealsShroudMultiplier@up_guerillatactics:
-		Modifier: 110
+		Modifier: 120
 	DetectCloakedMultiplier@up_guerillatactics:
-		Modifier: 110
-	SpeedMultiplier@up_advancedguerillatactics:
 		Modifier: 120
 	FirepowerMultiplier@up_advancedguerillatactics:
-		Modifier: 120
+		Modifier: 160
+	SpeedMultiplier@up_advancedguerillatactics:
+		Modifier: 140
 	RangeMultiplier@up_advancedguerillatactics:
-		Modifier: 110
+		Modifier: 120
 	RevealsShroudMultiplier@up_advancedguerillatactics:
-		Modifier: 110
+		Modifier: 120
 	DetectCloakedMultiplier@up_advancedguerillatactics:
-		Modifier: 110
+		Modifier: 120
 	ActorStatValues:
 		Upgrades: up_guerillatactics, up_advancedguerillatactics
 
