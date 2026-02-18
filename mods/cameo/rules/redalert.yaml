@@ -8078,7 +8078,6 @@ RAAFLD:
 	Reservable:
 	AirstrikePower@spyplane:
 		OrderName: SovietSpyPlane
-		Cost: 1000
 		Prerequisites:
 			1:
 			2: ra_promotion_superspyplane
@@ -8135,7 +8134,6 @@ RAAFLD:
 	AirstrikePower@parabombs:
 		OrderName: Parabombs
 		ChargeInterval: 7500
-		Cost: 1000
 		Prerequisites:
 			1: parabombs1
 			2: parabombs2
@@ -8180,7 +8178,6 @@ RAAFLD:
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
 		ChargeInterval: 9000
-		Cost: 1000
 		Prerequisites:
 			1: ra_upgrade_afterburners
 			2: ra_upgrade_afterburners, ra_doctrine_conscription
@@ -10663,7 +10660,7 @@ alliedcybertank:
 
 MODTNKD:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove

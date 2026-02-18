@@ -8339,3 +8339,61 @@ ra2_soviets_upgrade_kirovgastroburners:
 ra2_soviets_upgrade_kirovnuclearshells:
 	icon:
 		Filename: ra2_soviets_upgrade_kirovnuclearshells_icon.png
+
+### Allies
+
+ra2_allies_upgrade_assaultsquadtraining:
+	icon:
+		Filename: ra2_allies_upgrade_assaultsquadtraining_icon.png
+
+ra2_allies_upgrade_vanguardtraining:
+	icon:
+		Filename: ra2_allies_upgrade_vanguardtraining_icon.png
+
+ra2_allies_upgrade_infiltratorstraining:
+	icon:
+		Filename: ra2_allies_upgrade_infiltratorstraining_icon.png
+
+ra2_allies_upgrade_compositearmorplating:
+	icon:
+		Filename: ra2_allies_upgrade_compositearmorplating_icon.png
+
+ra2_allies_upgrade_reflectivearmorplating:
+	icon:
+		Filename: ra2_allies_upgrade_reflectivearmorplating_icon.png
+
+ra2_allies_upgrade_ionpulseplating:
+	icon:
+		Filename: ra2_allies_upgrade_ionpulseplating_icon.png
+
+ra2_allies_upgrade_elitegi:
+	icon:
+		Filename: ra2_allies_upgrade_elitegi_icon.png
+
+ra2_allies_upgrade_eliterocketeer:
+	icon:
+		Filename: ra2_allies_upgrade_eliterocketeer_icon.png
+
+ra2_allies_upgrade_prismlinking:
+	icon:
+		Filename: ra2_allies_upgrade_prismlinking_icon.png
+
+ra2_allies_upgrade_advancedaeronautics:
+	icon:
+		Filename: ra2_allies_upgrade_advancedaeronautics_icon.png
+
+ra2_allies_upgrade_tanklasertargeting:
+	icon:
+		Filename: ra2_allies_upgrade_tanklasertargeting_icon.png
+
+ra2_allies_upgrade_intensifiedprismbeams:
+	icon:
+		Filename: ra2_allies_upgrade_intensifiedprismbeams_icon.png
+
+ra2_allies_upgrade_prismaticbarrier:
+	icon:
+		Filename: ra2_allies_upgrade_prismaticbarrier_icon.png
+
+ra2_allies_upgrade_chronoengine:
+	icon:
+		Filename: ra2_allies_upgrade_chronoengine_icon.png

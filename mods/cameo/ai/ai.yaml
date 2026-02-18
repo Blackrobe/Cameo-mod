@@ -5331,20 +5331,23 @@ Player:
 			ra2falc: 3
 			ra2beag: 3
 			ra2shad: 1
-			upra2airborne: 1
-			upra2seal: 1
-			upra2snipe: 1
-			upra2gi: 1
-			upra2tnkd: 1
-			upra2rock: 1
-			upheavymiragetank: 1
-			upra2beag: 1
-			upra2aeronautics: 1
-			upprismchain: 1
-			upforceshield: 1
-			upra2gaorep: 1
-			upra2gtgcan: 1
-			upra2aegismissiles: 1
+			ra2_allies_upgrade_assaultsquadtraining: 1
+			ra2_allies_upgrade_vanguardtraining: 1
+			ra2_allies_upgrade_infiltratorstraining: 1
+			ra2_allies_upgrade_compositearmorplating: 1
+			ra2_allies_upgrade_reflectivearmorplating: 1
+			ra2_allies_upgrade_ionpulseplating: 1
+			ra2_allies_upgrade_elitegi: 1
+			ra2_allies_upgrade_paratroopers: 1
+			ra2_allies_upgrade_eliterocketeer: 1
+			ra2_allies_upgrade_prismlinking: 1
+			ra2_allies_upgrade_forceshield: 1
+			ra2_allies_upgrade_heavymiragetank: 1
+			ra2_allies_upgrade_advancedaeronautics: 1
+			ra2_allies_upgrade_tanklasertargeting: 1
+			ra2_allies_upgrade_intensifiedprismbeams: 1
+			ra2_allies_upgrade_prismaticbarrier: 1
+			ra2_allies_upgrade_chronoengine: 1
 			########### Units Soviets
 			ra2harv: 10
 			ra2dog: 1

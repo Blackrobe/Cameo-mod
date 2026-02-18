@@ -1059,6 +1059,7 @@
 		Spread: 300
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 140
 			Superheavy: 100
 			Spaceship: 96
@@ -1082,6 +1083,7 @@
 		Spread: 300
 		Damage: 1
 		Versus:
+			REFLECTOR: 50
 			Shield: 35
 			Superheavy: 25
 			Spaceship: 24
@@ -1106,6 +1108,7 @@
 		Spread: 300
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 100
 			None: 1
 			Flak: 1
@@ -1167,6 +1170,7 @@
 		Spread: 300
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 140
 			Superheavy: 100
 			Heavy: 96
@@ -1190,6 +1194,7 @@
 		Spread: 300
 		Damage: 1
 		Versus:
+			REFLECTOR: 50
 			Shield: 35
 			Superheavy: 25
 			Heavy: 24
@@ -1214,6 +1219,7 @@
 		Spread: 300
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 100
 			None: 1
 			Flak: 1
@@ -1260,6 +1266,7 @@
 		Spread: 100
 		Damage: 2000
 		Versus:
+			REFLECTOR: 50
 			Shield: 150
 			Heroic: 100
 			Plate: 96
@@ -1284,6 +1291,7 @@
 		Spread: 250
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 300
 			Heroic: 200
 			Plate: 175
@@ -1307,6 +1315,7 @@
 		Spread: 100
 		Damage: 1
 		Versus:
+			REFLECTOR: 50
 			Shield: 35
 			Heroic: 25
 			Plate: 24
@@ -1351,6 +1360,7 @@
 		Spread: 200
 		Damage: 2000
 		Versus:
+			REFLECTOR: 50
 			Shield: 200
 			Heroic: 100
 			Plate: 97
@@ -1375,6 +1385,7 @@
 		Spread: 500
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 400
 			Heroic: 300
 			Plate: 275
@@ -1398,6 +1409,7 @@
 		Spread: 200
 		Damage: 1
 		Versus:
+			REFLECTOR: 50
 			Shield: 50
 			Heroic: 30
 			Plate: 29
@@ -2686,6 +2698,7 @@
 		Spread: 333
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 140
 			Superheavy: 100
 			Heroic: 96
@@ -2709,6 +2722,7 @@
 		Spread: 333
 		Damage: 1
 		Versus:
+			REFLECTOR: 50
 			Shield: 35
 			Superheavy: 25
 			Heroic: 24
@@ -2733,6 +2747,7 @@
 		Spread: 333
 		Damage: 1000
 		Versus:
+			REFLECTOR: 50
 			Shield: 100
 			None: 1
 			Flak: 1

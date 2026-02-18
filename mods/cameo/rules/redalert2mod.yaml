@@ -541,7 +541,6 @@ aa_cgairf:
 	AirstrikePower@cluster:
 		OrderName: AAClusterBomb
 		PauseOnCondition: disabled
-		Cost: 1000
 		Prerequisites:
 			1: upaa_clusterbombs
 			2: upaa_chaosbombs
@@ -581,7 +580,6 @@ aa_cgairf:
 	ParatroopersPower@aaparatroopers:
 		OrderName: aaparatroopers
 		PauseOnCondition: disabled
-		Cost: 1000
 		Prerequisites:
 			1: upaa_massparadrop
 			2: upaa_massparadrop, upaa_japrif
@@ -1130,8 +1128,6 @@ aa_cgtnkr:
 		Prerequisite: aa_cgtnkr
 	Buildable:
 		BuildPaletteOrder: 60
-		BuildDuration: 750
-		BuildDurationModifier: 100
 		Queue: Building, RABuilding
 		Description: actor-cgtnkr.description
 		Prerequisites: ~aa_cgcnst, aa_cgtech
@@ -8881,6 +8877,7 @@ steel_conpad:
 
 steel_qoil:
 	Inherits: ^RA2Building
+	Inherits@power: ^PowerPlant
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@shape: ^4x4Shape
@@ -8896,23 +8893,23 @@ steel_qoil:
 		BuildDurationModifier: 100
 		Prerequisites: ~steel_qatech, ~techlevel.medium, derricklimit
 		Description: Super Income Building. Produces 3x the income of an oil derrick.
-	Valued:
-		Cost: 7500
 	Building:
 		Footprint: xxxx xxxx xxxx xxxx
 		Dimensions: 4,4
+	Valued:
+		Cost: 7500
 	Health:
 		HP: 750000
-	RenderSprites:
-		Image: steel_qoil
-		PlayerPalette: playerra2cons
-	-WithDeathAnimation:
 	Power:
 		Amount: 750
 	CashTrickler:
 		Amount: 750
 	ExperienceTrickler@1:
 		Amount: 750
+	RenderSprites:
+		Image: steel_qoil
+		PlayerPalette: playerra2cons
+	-WithDeathAnimation:
 	WithIdleOverlay@idle-water:
 		Sequence: idle-water
 		PauseOnCondition: lowpower
@@ -9774,7 +9771,7 @@ steel_mega:
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
 	Valued:
-		Cost: 4400
+		Cost: 4600
 	Tooltip:
 		Name: Megalodon
 	Buildable:
@@ -9787,11 +9784,11 @@ steel_mega:
 		Speed: 65
 		TurnSpeed: 26
 	Health:
-		HP: 425000
+		HP: 450000
 	Repairable:
-		HpPerStep: 21250
+		HpPerStep: 22500
 	ChangesHealth@SelfHealing:
-		Step: 170
+		Step: 180
 	Armor:
 		Type: Superheavy
 	Armament@PRIMARY:
@@ -19224,31 +19221,32 @@ futu_egshock:
 	Inherits: ^RA2Building
 	Inherits@sell: ^RA2SSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
-	Inherits@FS: ^AIForceShield
+	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
+	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@shape: ^3x3Shape
-	Valued:
-		Cost: 2000
 	Tooltip:
 		Name: Shock Center
 	Buildable:
+		BuildLimit: 1
 		Prerequisites: ~futu_egcnst, futu_egtech
-		BuildPaletteOrder: 200
+		BuildPaletteOrder: 999
+		BuildDuration: 1500
+		BuildDurationModifier: 100
 		Queue: Building, RABuilding
 		Description: actor-nanrct.description
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
+	Valued:
+		Cost: 7500
 	Health:
-		HP: 400000
-	Armor:
-		Type: Concrete
-	RevealsShroud:
-		Range: 4c0
+		HP: 750000
 	Power:
-		Amount: 1500
-	ScalePowerWithHealth:
-	AcceptsDeliveredExperience:
-		ValidTypes: building
+		Amount: 750
+	CashTrickler:
+		Amount: 750
+	ExperienceTrickler@1:
+		Amount: 750
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
 		RequiresCondition: !build-incomplete

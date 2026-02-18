@@ -9659,7 +9659,7 @@ d2k_autogun_tank:
 
 combat_tank_o_stealth:
 	Inherits@D2KT: ^D2KTank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@D2KSprite: ^D2KPaletteRender
