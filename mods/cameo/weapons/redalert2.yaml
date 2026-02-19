@@ -2401,8 +2401,8 @@ RA2Shovel:
 		Damage: 1
 
 IonPulseDischarge:
-	Range: 5000
-	ReloadDelay: 25
+	Range: 4000
+	ReloadDelay: 40
 	Projectile: InstantExplode
 	Warhead@Effect1: CreateEffect
 		Explosions: ra2_emp_fx
@@ -2415,8 +2415,8 @@ IonPulseDischarge:
 		AffectsParent: true
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@Condition: GrantExternalCondition
-		Range: 5000
-		Duration: 25
+		Range: 4000
+		Duration: 40
 		Condition: lockon
 		ValidTargets: lockable
 		ValidRelationships: Enemy

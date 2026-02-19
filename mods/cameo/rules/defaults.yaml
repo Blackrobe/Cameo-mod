@@ -1831,6 +1831,7 @@
 	Inherits@jammable: ^ArtilleryJammable
 	Inherits@PropagandaEffectBuff: ^PropagandaEffectBuff
 	Inherits@CryoFreezable: ^CryoFreezable
+	Inherits@EnemyInProximity: ^EnemyInProximity
 	Inherits@HealingField: ^AffectedByHealingField
 	Huntable:
 	OwnerLostAction:
@@ -2798,6 +2799,16 @@
 		DamageInterval: 1
 		DamageTypes: FireDeath
 		RequiresCondition: Overheating && hazmatsuits
+	PhysicalStateAura@EnemyProximity1:
+		AmountPerTick: 1
+	PhysicalStateAura@EnemyProximity2:
+		AmountPerTick: 2
+	PhysicalStateAura@EnemyProximity3:
+		AmountPerTick: 3
+	PhysicalStateAura@EnemyProximity4:
+		AmountPerTick: 4
+	PhysicalStateAura@EnemyProximity5:
+		AmountPerTick: 5
 	EdibleByLeap:
 	DeliversCash:
 		Payload: 25
@@ -4129,6 +4140,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceBuildings
 	Inherits@selection: ^SelectableCombatBuilding
 	Inherits@LockOn: ^LockOn
+	Inherits@EnemyInProximity: ^EnemyInProximity
 	RenderRangeCircle:
 		RangeCircleType: defense
 	RevealOnFire:
@@ -4644,6 +4656,67 @@
 		Color: FF88FFAA
 		RequiresCondition: Magnet >= 100
 
+^EnemyInProximity:
+	PhysicalState@EnemyProximity:
+		Name: EnemyProximity
+		MinValue: 0
+		MaxValue: 10000
+		RelaxedValue: 0
+		RelativeToHealth: false
+		RelaxationLinear: 100
+		RelaxationInterval: 1
+		RelaxationDelay: 10
+		InitialValue: 0
+	GrantConditionOnPhysicalState@EnemyProximity:
+		PhysicalStateName: EnemyProximity
+		Condition: EnemyProximity
+		UpperValue: 10000
+		LowerValue: 10000
+	PhysicalStateBar@EnemyProximity:
+		PhysicalStateName: EnemyProximity
+		PositiveColor: 123456
+		NeutralColor: 808080
+		DisplayWhenRelaxed: false
+		ShowAbsoluteValues: false
+		RequiresCondition: EnemyProximityEnabled
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		PhysicalStateName: EnemyProximity
+		MinColor: 00000000
+		MaxColor: 12345678
+		UpperValue: 10000
+		LowerValue: 10
+		RequiresCondition: EnemyProximityEnabled
+	PhysicalStateAura@EnemyProximity1:
+		PhysicalStateName: EnemyProximity
+		Range: 10000
+		AmountPerTick: 4
+		Interval: 1
+		ValidRelationships: Enemy
+	PhysicalStateAura@EnemyProximity2:
+		PhysicalStateName: EnemyProximity
+		Range: 8000
+		AmountPerTick: 8
+		Interval: 1
+		ValidRelationships: Enemy
+	PhysicalStateAura@EnemyProximity3:
+		PhysicalStateName: EnemyProximity
+		Range: 6000
+		AmountPerTick: 12
+		Interval: 1
+		ValidRelationships: Enemy
+	PhysicalStateAura@EnemyProximity4:
+		PhysicalStateName: EnemyProximity
+		Range: 4000
+		AmountPerTick: 16
+		Interval: 1
+		ValidRelationships: Enemy
+	PhysicalStateAura@EnemyProximity5:
+		PhysicalStateName: EnemyProximity
+		Range: 2000
+		AmountPerTick: 20
+		Interval: 1
+		ValidRelationships: Enemy
+
 ^CryoFreezable:
 	PhysicalState@Temperature:
 		Name: Temperature
@@ -4663,6 +4736,7 @@
 		NeutralColor: 808080
 		DisplayWhenRelaxed: false
 		ShowAbsoluteValues: false
+		RequiresCondition: !Deadzone
 	SlowsProportionalToPhysicalState@FrostSlowdown:
 		PhysicalStateName: Temperature
 		UseDeviationFromRelaxed: true
@@ -4675,6 +4749,7 @@
 		TurretTurnSpeedModifierAtMaximum: 0
 		ReloadDelayModifierAtMinimum: 100
 		ReloadDelayModifierAtMaximum: 1
+		RequiresCondition: !Deadzone
 	DamageMultiplierProportionalToPhysicalState@CryoFreeze:
 		PhysicalStateName: Temperature
 		DamageMultiplierAtMinimum: 100
@@ -4700,6 +4775,11 @@
 		DamageTypes: FireDeath
 		RequiresCondition: superhot
 	# Conditions for demonstration
+	GrantConditionOnPhysicalState@Deadzone:
+		PhysicalStateName: Temperature
+		Condition: Deadzone
+		UpperValue: 10
+		LowerValue: -10
 	GrantConditionOnPhysicalState@Overheating:
 		PhysicalStateName: Temperature
 		Condition: Overheating
@@ -4724,8 +4804,8 @@
 		PhysicalStateName: Temperature
 		MinColor: DDDDFF96
 		MaxColor: 4488FF08
-		LowerValue: -10000
 		UpperValue: -10
+		LowerValue: -10000
 	WithIdleOverlay@frostspark:
 		RequiresCondition: superfreeze
 		Image: ra2_chronosk
@@ -4737,8 +4817,8 @@
 		PhysicalStateName: Temperature
 		MinColor: FF884408
 		MaxColor: FF402096
-		LowerValue: 10
 		UpperValue: 10000
+		LowerValue: 10
 	WithIdleOverlay@overheat:
 		RequiresCondition: Overheating
 		Image: ra2_initfire

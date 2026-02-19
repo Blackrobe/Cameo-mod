@@ -12247,26 +12247,33 @@ ra2_soviets_upgrade_tesladischargearmor:
 		Prerequisite: ra2_soviet_doctrine_2
 
 ^RA2SovietTeslaDischargeArmor:
+	Inherits@EnemyInProximity: ^EnemyInProximity
 	DamageMultiplier@ra2_soviets_upgrade_tesladischargearmor:
 		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
 		Modifier: 90
 	FireWarheads@Tesla:
 		Weapons: RA2TeslaDummy
 		Interval: 125
-		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown && firing
-	GrantTimedCondition@ra2_soviets_upgrade_tesladischargearmor:
+		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown && EnemyProximity
+	GrantTimedCondition@tesladischargearmorcooldown:
 		RequiresCondition: tesladischargearmor
 		PauseOnCondition: !tesladischargearmor
 		Condition: tesladischargearmorcooldown
 		Duration: 5
-	GrantConditionOnDamage@ra2_soviets_upgrade_tesladischargearmor:
+	GrantConditionOnDamage@tesladischargearmor:
 		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
 		Condition: tesladischargearmor
 		Duration: 10
 		PlayerRelationship: Ally, Neutral, Enemy
-	GrantConditionOnAttack:
-		Condition: firing
-		RevokeDelay: 20
+	ChangesPhysicalState@tesladischargearmor:
+		PhysicalStateName: EnemyProximity
+		Amount: -10000
+		Delay: 1
+		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown && EnemyProximity
+	PhysicalStateBar@EnemyProximity:
+		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
 	GrantConditionOnPrerequisite@ra2_soviets_upgrade_tesladischargearmor:
 		Condition: ra2_soviets_upgrade_tesladischargearmor
 		Prerequisites: ra2_soviets_upgrade_tesladischargearmor
@@ -12862,26 +12869,38 @@ ra2_allies_upgrade_ionpulseplating:
 		Prerequisite: ra2_allied_doctrine_2
 
 ^RA2AlliedChromiumIonPulsePlatings:
+	Inherits@EnemyInProximity: ^EnemyInProximity
 	DamageMultiplier@ra2_allies_upgrade_ionpulseplating:
 		RequiresCondition: ra2_allies_upgrade_ionpulseplating
 		Modifier: 90
-	FireWarheads@Tesla:
+	GrantTimedCondition@IonPulseDischargeCooldown:
+		Condition: IonPulseDischargeCooldown
+		Duration: 40
+		RevokeAfterDurationOnly: true
+		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && EnemyProximity
+	FireWarheads@IonPulseDischarge:
 		Weapons: IonPulseDischarge
 		Interval: 125
-		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && firing
-	GrantTimedCondition@ra2_allies_upgrade_ionpulseplating:
+		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && !IonPulseDischargeCooldown && EnemyProximity
+	GrantTimedCondition@ionpulseplatingcooldown:
 		RequiresCondition: ionpulseplating
 		PauseOnCondition: !ionpulseplating
 		Condition: ionpulseplatingcooldown
 		Duration: 5
-	GrantConditionOnDamage@ra2_allies_upgrade_ionpulseplating:
+	GrantConditionOnDamage@ionpulseplating:
 		RequiresCondition: ra2_allies_upgrade_ionpulseplating
 		Condition: ionpulseplating
 		Duration: 10
 		PlayerRelationship: Ally, Neutral, Enemy
-	GrantConditionOnAttack:
-		Condition: firing
-		RevokeDelay: 20
+	ChangesPhysicalState@ionpulseplating:
+		PhysicalStateName: EnemyProximity
+		Amount: -10000
+		Delay: 1
+		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && !IonPulseDischargeCooldown && EnemyProximity
+	PhysicalStateBar@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
 	GrantConditionOnPrerequisite@ra2_allies_upgrade_ionpulseplating:
 		Condition: ra2_allies_upgrade_ionpulseplating
 		Prerequisites: ra2_allies_upgrade_ionpulseplating
@@ -13031,22 +13050,36 @@ ra2_allies_upgrade_prismaticbarrier:
 		Image: ra2_allies_upgrade_prismaticbarrier
 
 ^RA2AlliedPrismaticBarrier:
-	GrantCondition@prismaticbarrier:
+	Inherits@EnemyInProximity: ^EnemyInProximity
+	GrantTimedCondition@shroudedcooldown:
+		Condition: shroudedcooldown
+		Duration: 40
+		RevokeAfterDurationOnly: true
+		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && EnemyProximity
+	GrantTimedCondition@prismaticbarrier:
 		Condition: shrouded
-		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && !firing
-	GrantTimedCondition@ra2_allies_upgrade_prismaticbarrier:
+		Duration: 40
+		RevokeAfterDurationOnly: true
+		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && !shroudedcooldown && EnemyProximity
+	GrantTimedCondition@prismaticbarriercooldown:
 		RequiresCondition: prismaticbarrier
 		PauseOnCondition: !prismaticbarrier
 		Condition: prismaticbarriercooldown
 		Duration: 10
-	GrantConditionOnDamage@ra2_allies_upgrade_prismaticbarrier:
+	GrantConditionOnDamage@prismaticbarrier:
 		RequiresCondition: ra2_allies_upgrade_prismaticbarrier
 		Condition: prismaticbarrier
 		Duration: 20
 		PlayerRelationship: Ally, Neutral, Enemy
-	GrantConditionOnAttack:
-		Condition: firing
-		RevokeDelay: 5
+	ChangesPhysicalState@prismaticbarrier:
+		PhysicalStateName: EnemyProximity
+		Amount: -10000
+		Delay: 1
+		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && !shroudedcooldown && EnemyProximity
+	PhysicalStateBar@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
 	GrantConditionOnPrerequisite@ra2_allies_upgrade_prismaticbarrier:
 		Condition: ra2_allies_upgrade_prismaticbarrier
 		Prerequisites: ra2_allies_upgrade_prismaticbarrier
