@@ -2685,14 +2685,14 @@ QueenSpine:
 UltraliskHusk:
 	Inherits: ^SwordWeapon
 	Report: zulatt00.aud,zulatt01.aud,zulatt02.aud
-	ReloadDelay: 20
-	Range: 1320
+	ReloadDelay: 15
+	Range: 1600
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 20000
+		Damage: 40000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 10000
+		Damage: 20000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 20
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
@@ -3939,11 +3939,27 @@ DefilerPlague:
 	#	ValidStances: Enemy, Neutral
 	#	Condition: DefilerPlague
 	#	Duration: 190
+	Warhead@1: AttachDelayedWeapon
+		Weapon: RemovableDebuffDummy
+		Type: defilerplague
+		TriggerTime: 150
+		Range: 1000
+		ValidTargets: Ground, Air, Water
+		InvalidTargets: plagued
+		ValidRelationships: Enemy, Neutral
 	Warhead@2: AttachDelayedWeapon
 		Weapon: RemovableDebuffDummy
 		Type: defilerplague
-		TriggerTime: 175
-		Range: 3500
+		TriggerTime: 100
+		Range: 2000
+		ValidTargets: Ground, Air, Water
+		InvalidTargets: plagued
+		ValidRelationships: Enemy, Neutral
+	Warhead@3: AttachDelayedWeapon
+		Weapon: RemovableDebuffDummy
+		Type: defilerplague
+		TriggerTime: 50
+		Range: 3000
 		ValidTargets: Ground, Air, Water
 		InvalidTargets: plagued
 		ValidRelationships: Enemy, Neutral

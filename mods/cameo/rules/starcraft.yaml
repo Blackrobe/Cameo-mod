@@ -9513,9 +9513,9 @@ SCULTRALISK:
 	Tooltip:
 		Name: Ultralisk
 	Valued:
-		Cost: 1800
+		Cost: 4400
 	Power:
-		Amount: -90
+		Amount: -220
 	Buildable:
 		BuildPaletteOrder: 80
 		Prerequisites: ~scultraliskcavern

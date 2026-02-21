@@ -752,7 +752,7 @@ ra2gaairc:
 	ParatroopersPower@ra2paratroopers:
 		PauseOnCondition: disabled
 		Prerequisites:
-			1: upra2airborne
+			1: ra2_allies_upgrade_paratroopers
 		OrderName: USA Paratroopers
 		IconImage: ra2gaairc
 		Icons:
@@ -763,7 +763,7 @@ ra2gaairc:
 		Descriptions:
 			1: power-paratroopers.description
 		DropItems:
-			1: RA2E1,RA2E1,RA2E1,YRGGI,YRGGI,RA2E1,RA2E1,RA2E1,YRGGI,YRGGI,RA2E1,RA2E1,RA2E1,YRGGI,YRGGI
+			1: RA2E1,YRGGI,RA2E1,YRGGI,RA2E1,RA2E1,YRGGI,RA2E1,YRGGI,RA2E1,RA2E1,YRGGI,RA2E1,YRGGI,RA2E1
 		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
 		SelectTargetSpeechNotification: SelectTarget
 		IncomingSpeechNotification: EnemyUnitsApproaching
@@ -822,9 +822,7 @@ ra2gaorep:
 		Name: Ore Purifier
 	Buildable:
 		BuildPaletteOrder: 120
-		BuildDuration: 1500
-		BuildDurationModifier: 100
-		Prerequisites: ~ra2gacnst, ra2gatech, ~upra2gaorep
+		Prerequisites: ~ra2gacnst, ra2gatech
 		Queue: Building, RABuilding
 		Description: actor-gaorep.description
 		BuildLimit: 1
@@ -889,7 +887,7 @@ ra2gatech:
 		OrderName: ForceShield
 		PauseOnCondition: disabled
 		Prerequisites:
-			1: upforceshield
+			1: ra2_allies_upgrade_forceshield
 		Icons:
 			1: forceshield
 		ChargeInterval: 4500
@@ -921,8 +919,8 @@ ra2gaspysat:
 	Inherits@radar: ^RadarBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
-	Selectable:
-		Bounds: 2048, 2048
+	Tooltip:
+		Name: Spy Satellite Uplink
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 150
@@ -938,8 +936,6 @@ ra2gaspysat:
 		Type: Wood
 	Power:
 		Amount: -200
-	Tooltip:
-		Name: Spy Satellite Uplink
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1293,6 +1289,7 @@ ra2atesla:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@RA2AlliedIntensifiedPrismBeams: ^RA2AlliedIntensifiedPrismBeams
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 80
@@ -1314,13 +1311,13 @@ ra2atesla:
 	WithPrismChargeAnimation:
 		ChargeSequence: active
 	GrantConditionOnPrerequisite@prismcharge:
-		Condition: upprismchain
-		Prerequisites: upprismchain
+		Condition: ra2_allies_upgrade_prismlinking
+		Prerequisites: ra2_allies_upgrade_prismlinking
 	Armament@Charge:
 		Name: support
 		Weapon: PrismCharge
 		LocalOffset: 0,0,1280
-		RequiresCondition: upprismchain
+		RequiresCondition: ra2_allies_upgrade_prismlinking
 	#Armament@beam1:
 	#	Weapon: RA2PrismBeam
 	#	LocalOffset: 0,0,1280
@@ -1352,7 +1349,7 @@ ra2atesla:
 		RequiresCondition: !build-incomplete
 	Targetable@POWERCHARGING:
 		TargetTypes: PrismTowerChargeable
-		RequiresCondition: charging && upprismchain
+		RequiresCondition: charging && ra2_allies_upgrade_prismlinking
 	ExternalCondition@POWERCHARGED:
 		Condition: powercharged
 	FirepowerMultiplier@POWERCHARGED:
@@ -1378,7 +1375,7 @@ ra2atesla:
 	DetectCloaked:
 		Range: 4815
 	ActorStatValues:
-		Upgrades: upprismchain
+		Upgrades: ra2_allies_upgrade_prismlinking, ra2_allies_upgrade_intensifiedprismbeams
 
 ra2gtgcan:
 	Inherits: ^RA2Defense
@@ -1393,7 +1390,7 @@ ra2gtgcan:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 50
-		Prerequisites: ~ra2gacnst, ra2gatech, ~upra2gtgcan
+		Prerequisites: ~ra2gacnst, ra2gatech
 		Description: actor-gtgcan.description
 	Valued:
 		Cost: 5000
@@ -1907,8 +1904,6 @@ ra2namisl:
 		Name: Nuclear Missile Silo
 	Buildable:
 		BuildPaletteOrder: 100
-		BuildDuration: 1500
-		BuildDurationModifier: 100
 		Prerequisites: ~ra2nacnst, ra2natech, !ra2nuke
 		Queue: Defence, RADefence
 		Description: actor-namisl.description
@@ -2693,8 +2688,6 @@ yrygcomd:
 		Queue: Building, RABuilding
 		BuildLimit: 1
 		BuildPaletteOrder: 150
-		BuildDuration: 1500
-		BuildDurationModifier: 100
 		Prerequisites: ~yrnacnst, yrygtech, derricklimit
 		Description: template-airfield.description
 	Building:
@@ -2749,8 +2742,6 @@ ra2yclon:
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Buildable:
 		BuildPaletteOrder: 90
-		BuildDuration: 1500
-		BuildDurationModifier: 100
 		Prerequisites: ~yrnacnst, yrygtech, ~upyryaclon, derricklimit
 		Queue: Building, RABuilding
 		Description: Clones produced infantry.
@@ -3181,6 +3172,9 @@ RA2E1:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Tooltip:
 		Name: G.I.
 	Valued:
@@ -3205,15 +3199,15 @@ RA2E1:
 	RenderRangeCircle:
 		RequiresCondition: deployed
 	GrantConditionOnPrerequisite@upgrade:
-		Condition: upra2gi
-		Prerequisites: upra2gi
+		Condition: ra2_allies_upgrade_elitegi
+		Prerequisites: ra2_allies_upgrade_elitegi
 	Armament@PRIMARY:
 		Weapon: RA2M60
-		RequiresCondition: !deployed && !upra2gi
+		RequiresCondition: !deployed && !ra2_allies_upgrade_elitegi
 		LocalOffset: 128,0,256
 	Armament@PRIMARY2:
 		Weapon: RA2para
-		RequiresCondition: !deployed && upra2gi
+		RequiresCondition: !deployed && ra2_allies_upgrade_elitegi
 		LocalOffset: 128,0,256
 	Armament@DEPLOYED:
 		Name: deployed
@@ -3240,9 +3234,9 @@ RA2E1:
 	DamageMultiplier@deployed:
 		Modifier: 75
 		RequiresCondition: deployed
-	DamageMultiplier@upra2gi:
+	DamageMultiplier@ra2_allies_upgrade_elitegi:
 		Modifier: 75
-		RequiresCondition: deployed && upra2gi
+		RequiresCondition: deployed && ra2_allies_upgrade_elitegi
 	Turreted:
 		Turret: deploy
 		RealignDelay: -1
@@ -3289,14 +3283,14 @@ RA2E1:
 	TakeCover:
 		RequiresCondition: undeployed
 	Crushable:
-		RequiresCondition: undeployed || (deployed && !upra2gi)
+		RequiresCondition: undeployed || (deployed && !ra2_allies_upgrade_elitegi)
 	Crushable@deployed:
 		CrushClasses: vehicle
-		RequiresCondition: !undeployed && upra2gi
+		RequiresCondition: !undeployed && ra2_allies_upgrade_elitegi
 	Voiced:
 		VoiceSet: GIVoice
 	ActorStatValues:
-		Upgrades: upra2gi
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_elitegi
 
 YRGGI:
 	Inherits: ^Soldier
@@ -3310,6 +3304,9 @@ YRGGI:
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Tooltip:
 		Name: Guardian G.I.
 	Valued:
@@ -3334,23 +3331,23 @@ YRGGI:
 	RevealOnFire:
 		ArmamentNames: primary, deployed
 	GrantConditionOnPrerequisite@upgrade:
-		Condition: upra2gi
-		Prerequisites: upra2gi
+		Condition: ra2_allies_upgrade_elitegi
+		Prerequisites: ra2_allies_upgrade_elitegi
 	Armament@PRIMARY:
 		Weapon: GuardianGIMG
-		RequiresCondition: !deployed && !rank-elite && !upra2gi
+		RequiresCondition: !deployed && !rank-elite && !ra2_allies_upgrade_elitegi
 		LocalOffset: 128,0,256
 	Armament@PRIMARY2:
 		Weapon: GuardianGIMG2
-		RequiresCondition: !deployed && !rank-elite && upra2gi
+		RequiresCondition: !deployed && !rank-elite && ra2_allies_upgrade_elitegi
 		LocalOffset: 128,0,256
 	Armament@ELITE:
 		Weapon: GuardianGIMGE
-		RequiresCondition: !deployed && rank-elite && !upra2gi
+		RequiresCondition: !deployed && rank-elite && !ra2_allies_upgrade_elitegi
 		LocalOffset: 128,0,256
 	Armament@ELITE2:
 		Weapon: GuardianGIMG2E
-		RequiresCondition: !deployed && rank-elite && upra2gi
+		RequiresCondition: !deployed && rank-elite && ra2_allies_upgrade_elitegi
 		LocalOffset: 128,0,256
 	Armament@BOTAA:
 		Weapon: aadeploytargeting.8c0
@@ -3442,15 +3439,17 @@ YRGGI:
 	DamageMultiplier@deployed:
 		Modifier: 60
 		RequiresCondition: deployed
-	DamageMultiplier@upra2gi:
+	DamageMultiplier@ra2_allies_upgrade_elitegi:
 		Modifier: 60
-		RequiresCondition: deployed && upra2gi
+		RequiresCondition: deployed && ra2_allies_upgrade_elitegi
 	Voiced:
 		VoiceSet: GGIVoice
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	ActorStatValues:
-		Upgrades: upra2gi
+		Upgrades: ra2_allies_upgrade_elitegi
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_elitegi
 
 RA2CLEG:
 	Inherits: ^Soldier
@@ -3461,6 +3460,9 @@ RA2CLEG:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -3523,6 +3525,8 @@ RA2CLEG:
 	GrantExternalConditionToTransport:
 		Condition: ifv-chrono
 	-TakeCover:
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining
 
 RA2SNIPE:
 	Inherits: ^Soldier
@@ -3534,17 +3538,20 @@ RA2SNIPE:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Sniper
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~ra2gaairc, ~upra2snipe
+		Prerequisites: ~ra2gatech
 		Queue: Infantry, RAInfantry
 		Description: actor-ra2snipe.description
 	Mobile:
-		Speed: 55
+		Speed: 56
 	Health:
 		HP: 22000
 	ChangesHealth@SelfHealing:
@@ -3565,10 +3572,18 @@ RA2SNIPE:
 		Name: garrisoned
 		Weapon: RA2AWPE
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 200
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	ReloadDelayMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 50
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
 	AttackFrontal:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: RA2SniperVoice
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining
 
 RA2ENGINEER:
 	Inherits: E6
@@ -3616,6 +3631,9 @@ RA2TANY:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 120
@@ -3661,6 +3679,12 @@ RA2TANY:
 		Name: garrisoned
 		Weapon: RA2DoublePistolsE
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 200
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	ReloadDelayMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 50
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
 	AttackFrontal:
 		FacingTolerance: 0
 	WithInfantryBody:
@@ -3671,18 +3695,22 @@ RA2TANY:
 	Voiced:
 		VoiceSet: RA2TanyaVoice
 	ProvidesPrerequisite:
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining
 
 RA2SEAL:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@announce: ^AnnounceGlobal
 	Inherits@anim: ^RA2Infantry
 	Inherits@swim: ^WithSwimsuit
 	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Valued:
 		Cost: 900
 	Health:
@@ -3698,7 +3726,7 @@ RA2SEAL:
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 120
-		Prerequisites: ~ra2gaairc, ~upra2seal
+		Prerequisites: ~ra2gaairc
 		Description: actor-seal.description
 	Armament@PRIMARY:
 		Weapon: RA2MP5
@@ -3722,6 +3750,12 @@ RA2SEAL:
 		Cursor: c4
 		OutsideRangeCursor: c4
 		Voice: Demolish
+	FirepowerMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 200
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	ReloadDelayMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 50
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
 	FirepowerMultiplier@Elite:
 		Modifier: 225
 	AttackFrontal:
@@ -3737,6 +3771,8 @@ RA2SEAL:
 		VoiceSet: SealVoice
 	GrantExternalConditionToTransport:
 		Condition: ifv-hmg
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining
 
 RA2SPY:
 	Inherits: ^Soldier
@@ -3746,6 +3782,9 @@ RA2SPY:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@pip: ^WithSpecialCargoPip
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 90
@@ -3781,6 +3820,8 @@ RA2SPY:
 		VoiceSet: RA2SpyVoice
 	GrantExternalConditionToTransport:
 		Condition: ifv-spy
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining
 
 RA2ADOG:
 	Inherits: ^DefaultInfantry
@@ -3906,7 +3947,7 @@ RA2E2:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@RA2SovietConscription: ^RA2SovietConscription
-	Inherits@RA2InfantryConditioning: ^RA2InfantryConditioning
+	Inherits@RA2SovietInfantryConditioning: ^RA2SovietInfantryConditioning
 	Inherits@RA2SovietShockTrooperTraining: ^RA2SovietShockTrooperTraining
 	Valued:
 		Cost: 100
@@ -3953,7 +3994,7 @@ RA2flakt:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@RA2SovietConscription: ^RA2SovietConscription
-	Inherits@RA2InfantryConditioning: ^RA2InfantryConditioning
+	Inherits@RA2SovietInfantryConditioning: ^RA2SovietInfantryConditioning
 	Inherits@RA2SovietShockTrooperTraining: ^RA2SovietShockTrooperTraining
 	Inherits@RA2HeavyCannons: ^RA2HeavyCannons
 	Valued:
@@ -4042,7 +4083,7 @@ RA2IVAN:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@RA2SovietConscription: ^RA2SovietConscription
-	Inherits@RA2InfantryConditioning: ^RA2InfantryConditioning
+	Inherits@RA2SovietInfantryConditioning: ^RA2SovietInfantryConditioning
 	Inherits@RA2SovietShockTrooperTraining: ^RA2SovietShockTrooperTraining
 	Valued:
 		Cost: 600
@@ -4096,7 +4137,7 @@ ra2shk:
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@TeslaTargeting: ^PrioritizeTesla
 	Inherits@RA2SovietConscription: ^RA2SovietConscription
-	Inherits@RA2InfantryConditioning: ^RA2InfantryConditioning
+	Inherits@RA2SovietInfantryConditioning: ^RA2SovietInfantryConditioning
 	Inherits@RA2SovietShockTrooperTraining: ^RA2SovietShockTrooperTraining
 	Inherits@RA2TeslaOverload: ^RA2TeslaOverload
 	AutoTargetPriority@DEFAULT:
@@ -4235,7 +4276,7 @@ RA2DESO:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@bot: ^BotAutoDeployOnLowHealth
 	Inherits@RA2SovietConscription: ^RA2SovietConscription
-	Inherits@RA2InfantryConditioning: ^RA2InfantryConditioning
+	Inherits@RA2SovietInfantryConditioning: ^RA2SovietInfantryConditioning
 	Inherits@RA2SovietShockTrooperTraining: ^RA2SovietShockTrooperTraining
 	Valued:
 		Cost: 700
@@ -4317,7 +4358,7 @@ YRBORIS:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@RA2SovietConscription: ^RA2SovietConscription
-	Inherits@RA2InfantryConditioning: ^RA2InfantryConditioning
+	Inherits@RA2SovietInfantryConditioning: ^RA2SovietInfantryConditioning
 	Inherits@RA2SovietShockTrooperTraining: ^RA2SovietShockTrooperTraining
 	Buildable:
 		Queue: Infantry, RAInfantry
@@ -5069,6 +5110,11 @@ RA2AMCV:
 	Inherits@anim: ^RA2Vehicle
 	Inherits@mcv: ^MCV
 	Inherits@SHADOWS: ^Shadows
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
 	Tooltip:
 		Name: Allied Mobile Construction Vehicle
 	Buildable:
@@ -5086,6 +5132,8 @@ RA2AMCV:
 		Prerequisite: mmalliesra2
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine
 
 RA2CMIN:
 	Inherits: ^Tank
@@ -5095,6 +5143,11 @@ RA2CMIN:
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@SHADOWS: ^Shadows
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -5141,6 +5194,8 @@ RA2CMIN:
 	WithHarvestOverlay@harvesting:
 		Sequence: harvesting
 		Palette: ra2effect
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine
 
 RA2MTNK:
 	Inherits: ^Tank
@@ -5151,10 +5206,16 @@ RA2MTNK:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
+	Inherits@RA2AlliedTankLaserTargeting: ^RA2AlliedTankLaserTargeting
 	Tooltip:
 		Name: Grizzly Tank
 	Valued:
-		Cost: 600
+		Cost: 700
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~ra2gaweap
@@ -5162,8 +5223,8 @@ RA2MTNK:
 		Description: template-mbt.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 100
-		TurnSpeed: 20
+		Speed: 90
+		TurnSpeed: 18
 	Health:
 		HP: 100000
 	Repairable:
@@ -5192,6 +5253,10 @@ RA2MTNK:
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	RangeMultiplier@ra2_allies_upgrade_tanklasertargeting:
+		Modifier: 120
+	FirepowerMultiplier@ra2_allies_upgrade_tanklasertargeting:
+		Modifier: 140
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -5201,23 +5266,30 @@ RA2MTNK:
 		VoiceSet: RA2AlliesVehicleVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_tanklasertargeting
 
 RA2TNKD:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
+	Inherits@RA2AlliedTankLaserTargeting: ^RA2AlliedTankLaserTargeting
 	Valued:
-		Cost: 900
+		Cost: 1500
 	Tooltip:
 		Name: Tank Destroyer
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~upra2tnkd #~ra2gaairc
+		Prerequisites: ~ra2gaairc
 		Queue: Vehicle, RAVehicle
 		Description: actor-ra2tnkd.description
 	Mobile:
@@ -5257,6 +5329,8 @@ RA2TNKD:
 		Payload: 450
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_tanklasertargeting
 
 RA2FV:
 	Inherits: ^Vehicle
@@ -5269,6 +5343,11 @@ RA2FV:
 	Inherits@IFV: ^IFVConditions
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -5492,6 +5571,7 @@ RA2FV:
 		PlayerPalette: playerra2
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo, Kills
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine
 
 RA2FVBOTMG:
 	Inherits: RA2FV
@@ -5562,6 +5642,12 @@ RA2SREF:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
+	Inherits@RA2AlliedIntensifiedPrismBeams: ^RA2AlliedIntensifiedPrismBeams
 	AutoTargetPriority@TESLAAMOVE:
 		ValidTargets: PrismTowerChargeable
 	Valued:
@@ -5631,6 +5717,8 @@ RA2SREF:
 		VoiceSet: PrismTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_intensifiedprismbeams
 
 RA2MGTK:
 	Inherits: ^Tank
@@ -5640,8 +5728,14 @@ RA2MGTK:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
+	Inherits@RA2AlliedTankLaserTargeting: ^RA2AlliedTankLaserTargeting
 	Valued:
-		Cost: 1200
+		Cost: 1600
 	Tooltip:
 		Name: Mirage Tank
 		RequiresCondition: !tree
@@ -5652,23 +5746,23 @@ RA2MGTK:
 		RequiresCondition: tree
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~ra2gaairc
+		Prerequisites: ~ra2gatech, ~!ra2_allies_upgrade_heavymiragetank
 		Queue: Vehicle, RAVehicle
 		Description: actor-mgtk.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 85
-		TurnSpeed: 17
+		Speed: 90
+		TurnSpeed: 18
 	Health:
-		HP: 100000
+		HP: 120000
 	Repairable:
-		HpPerStep: 5000
+		HpPerStep: 6000
 	ChangesHealth@SelfHealing:
-		Step: 40
+		Step: 48
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 17
+		TurnSpeed: 18
 	Armament:
 		Name: primary
 		Weapon: RA2MirageGun
@@ -5712,6 +5806,8 @@ RA2MGTK:
 		Palette: ra_temperat
 	Voiced:
 		VoiceSet: MirageTankVoice
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_tanklasertargeting
 
 RA2HMGTK:
 	Inherits: ^Tank
@@ -5722,6 +5818,12 @@ RA2HMGTK:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
+	Inherits@RA2AlliedTankLaserTargeting: ^RA2AlliedTankLaserTargeting
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -5734,7 +5836,7 @@ RA2HMGTK:
 		RequiresCondition: tree
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~upheavymiragetank, ra2gatech
+		Prerequisites: ~ra2_allies_upgrade_heavymiragetank, ra2gatech
 		Queue: Vehicle, RAVehicle
 		Description: actor-mgtk.description
 	Mobile:
@@ -5793,6 +5895,8 @@ RA2HMGTK:
 		PlayerPalette: player_rgba
 	Voiced:
 		VoiceSet: MirageTankVoice
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_tanklasertargeting
 
 yrbfrt:
 	Inherits: ^Tank
@@ -5805,6 +5909,11 @@ yrbfrt:
 	Inherits@crush: ^VehicleCrusher
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
+	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
+	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
+	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
+	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -5865,6 +5974,8 @@ yrbfrt:
 	RenderSprites:
 		Image: yrbfrt
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine
 	#RenderVoxels:
 	#	Image: yrbfrt
 
@@ -5893,6 +6004,7 @@ yrbfrt.bot2:
 ##############################################
 #   Red Alert 2 Soviet Vehicles
 ##############################################
+
 RA2SMCV:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
@@ -6344,6 +6456,12 @@ RA2V3:
 		Modifier: 175
 	FirepowerMultiplier@RANK-ELITE:
 		Modifier: 200
+	RangeMultiplier@ra2_soviets_upgrade_kirovgastroburners:
+		Modifier: 115
+		RequiresCondition: ra2_soviets_upgrade_kirovgastroburners
+	GrantConditionOnPrerequisite@ra2_soviets_upgrade_kirovgastroburners:
+		Condition: ra2_soviets_upgrade_kirovgastroburners
+		Prerequisites: ra2_soviets_upgrade_kirovgastroburners
 	SelectionDecorations:
 	FireWarheadsOnDeath:
 		Weapon: V3Explode
@@ -6362,10 +6480,11 @@ RA2V3:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells, ra2_soviets_upgrade_terrordronesurprise
+		Upgrades: ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells, ra2_soviets_upgrade_terrordronesurprise, ra2_soviets_upgrade_kirovarmorplatings, ra2_soviets_upgrade_kirovgastroburners
 
 ra2v3rocket:
 	Inherits: ^ShootableMissile
+	Inherits@RA2KirovArmorPlatings: ^RA2KirovArmorPlatings
 	Inherits@RA2SovietRadShells: ^RA2SovietRadShells
 	Inherits@RA2SovietFireShells: ^RA2SovietFireShells
 	Inherits@RA2SovietTeslaShells: ^RA2SovietTeslaShells
@@ -6415,7 +6534,7 @@ ra2v3rocket:
 		PlayerPalette: playerra2
 	WithFacingSpriteBody:
 	ActorStatValues:
-		Upgrades: ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells
+		Upgrades: ra2_soviets_upgrade_kirovarmorplatings, ra2_soviets_upgrade_kirovgastroburners, ra2_soviets_upgrade_heavyarmorplatings, ra2_soviets_upgrade_reactivearmor, ra2_soviets_upgrade_tesladischargearmor, ra2_soviets_upgrade_radiationshells, ra2_soviets_upgrade_fireshells, ra2_soviets_upgrade_teslashells
 
 ra2v3rocketelite:
 	Inherits: ra2v3rocket
@@ -6858,8 +6977,8 @@ YRLTNK:
 		Description: template-mbt.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 115
-		TurnSpeed: 23
+		Speed: 110
+		TurnSpeed: 22
 	Health:
 		HP: 70000
 	Repairable:
@@ -7447,7 +7566,7 @@ ra2asw:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@upgrade: ^RA2AdvancedAeronautics
+	Inherits@upgrade: ^RA2AlliedAdvancedAeronautics
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -7608,7 +7727,7 @@ ra2hornet:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@upgrade: ^RA2AdvancedAeronautics
+	Inherits@upgrade: ^RA2AlliedAdvancedAeronautics
 	Valued:
 		Cost: 1250
 	Tooltip:
@@ -8551,7 +8670,7 @@ RA2FALC:
 	Inherits@Template: ^FighterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@upgrade: ^RA2AdvancedAeronautics
+	Inherits@upgrade: ^RA2AlliedAdvancedAeronautics
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -8629,13 +8748,12 @@ RA2FALC:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: upra2aeronautics
+		Upgrades: ra2_allies_upgrade_advancedaeronautics
 
 RA2BEAG:
 	Inherits: ^RANeutralPlane
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@upgrade: ^RA2AdvancedAeronautics
+	Inherits@upgrade: ^RA2AlliedAdvancedAeronautics
 	Inherits@reload: ^RearmableAircraft
 	Inherits@Template: ^BomberTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -8643,7 +8761,7 @@ RA2BEAG:
 		Name: Black Eagle
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: ~ra2gatech, ~upra2beag
+		Prerequisites: ~ra2gatech
 		Queue: Aircraft, RAAircraft
 		Description: actor-beag.description
 	Valued:
@@ -8712,7 +8830,7 @@ RA2BEAG:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: upra2aeronautics
+		Upgrades: ra2_allies_upgrade_advancedaeronautics
 
 ra2shad:
 	Inherits: ^Helicopter
@@ -8962,14 +9080,14 @@ ra2rock:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ReloadDelayMultiplier@upgrade:
-		Modifier: 66
-		RequiresCondition: upra2rock
+		Modifier: 50
+		RequiresCondition: ra2_allies_upgrade_eliterocketeer
 	DamageMultiplier@upgrade:
-		Modifier: 75
-		RequiresCondition: upra2rock
+		Modifier: 50
+		RequiresCondition: ra2_allies_upgrade_eliterocketeer
 	GrantConditionOnPrerequisite@Upgrade:
-		Condition: upra2rock
-		Prerequisites: upra2rock
+		Condition: ra2_allies_upgrade_eliterocketeer
+		Prerequisites: ra2_allies_upgrade_eliterocketeer
 	ProducibleWithLevel@spyinfantry:
 		Prerequisites: infantry.upgraded
 
@@ -11476,7 +11594,7 @@ upra2aegismissiles:
 		BuildPaletteOrder: 70
 		Queue: Upgrades
 		Description: Allows Aegis Cruisers to target ground targets.
-		Prerequisites: ~ra2gatech, ra2gayard, !upra2aegismissiles
+		Prerequisites: ~ra2gatech, ~ra2gayard, !upra2aegismissiles
 	RenderSprites:
 		Image: ra2aegis
 	ProvidesPrerequisite:
@@ -11779,8 +11897,10 @@ ra2shkhero:
 		StartIfBelow: 100
 		DamageCooldown: 125
 
-# RA2 Promotions
-## Soviets
+####################################################################################################
+#		Promotions Soviets
+####################################################################################################
+
 # ### Tesla tree
 
 # upemptesla:
@@ -11972,36 +12092,21 @@ ra2shkhero:
 #		Upgrades Soviets
 ####################################################################################################
 
+### Radar ###
+
 ra2_soviets_upgrade_conscription:
 	Inherits: ^doctrine_template
 	Tooltip:
 		Name: Conscription
 	Buildable:
 		Description: All Soviet Infantry costs 25% less und train 25% faster.
-		Prerequisites: ~ra2naradr, !ra2_soviet_doctrine_1
+		Prerequisites: ~ra2naradr, !ra2_soviet_doctrine_1, !global_conscription_buff
 	RenderSprites:
 		Image: ra2_soviets_upgrade_conscription
-	ProvidesPrerequisite@ra_doctrine_conscription:
-		Prerequisite: ra_doctrine_conscription
 	ProvidesPrerequisite@ra2_soviet_doctrine_1:
 		Prerequisite: ra2_soviet_doctrine_1
 
 ^RA2SovietConscription:
-	# ProductionCostMultiplier@ra_doctrine_conscription:
-	# 	Prerequisites: ra_doctrine_conscription
-	# 	Multiplier: 75
-	# ProductionTimeMultiplier@ra_doctrine_conscription:
-	# 	Prerequisites: ra_doctrine_conscription
-	# 	Multiplier: 75
-	# FirepowerMultiplier@ra_doctrine_conscription:
-	# 	RequiresCondition: ra_doctrine_conscription
-	# 	Modifier: 110
-	# SpeedMultiplier@ra_doctrine_conscription:
-	# 	RequiresCondition: ra_doctrine_conscription
-	# 	Modifier: 110
-	# DamageMultiplier@ra_doctrine_conscription:
-	# 	RequiresCondition: ra_doctrine_conscription
-	# 	Modifier: 90
 	GrantConditionOnPrerequisite@ra2_soviets_upgrade_conscription:
 		Condition: ra2_soviets_upgrade_conscription
 		Prerequisites: ra2_soviets_upgrade_conscription
@@ -12022,7 +12127,7 @@ ra2_soviets_upgrade_infantryconditioning:
 	ProvidesPrerequisite@ra2_soviet_doctrine_1:
 		Prerequisite: ra2_soviet_doctrine_1
 
-^RA2InfantryConditioning:
+^RA2SovietInfantryConditioning:
 	ChangesHealth@ra2_soviets_upgrade_infantryconditioning:
 		Step: 10
 		Delay: 1
@@ -12030,7 +12135,7 @@ ra2_soviets_upgrade_infantryconditioning:
 		DamageCooldown: 1
 		RequiresCondition: ra2_soviets_upgrade_infantryconditioning
 	DamageMultiplier@ra2_soviets_upgrade_infantryconditioning:
-		Modifier: 95
+		Modifier: 75
 		RequiresCondition: ra2_soviets_upgrade_infantryconditioning
 	SpeedMultiplier@ra2_soviets_upgrade_infantryconditioning:
 		Modifier: 105
@@ -12098,7 +12203,7 @@ ra2_soviets_upgrade_reactivearmor:
 	Tooltip:
 		Name: Reactive Armor
 	Buildable:
-		Description: Tanks gain gain 50% Damage Resistance to Area of Effect weapons  but take 10% increased damage overall.
+		Description: Tanks gain gain 50% Damage Resistance to Area of Effect weapons and take 5% less damage overall.
 		Prerequisites: ~ra2naradr, ra2natech, ra2_soviet_doctrine_1, !ra2_soviet_doctrine_2
 	RenderSprites:
 		Image: ra2_soviets_upgrade_reactivearmor
@@ -12122,7 +12227,7 @@ ra2_soviets_upgrade_reactivearmor:
 		RequiresCondition: ra2_soviets_upgrade_reactivearmor
 	DamageMultiplier@ra2_soviets_upgrade_reactivearmor:
 		RequiresCondition: ra2_soviets_upgrade_reactivearmor
-		Modifier: 110
+		Modifier: 95
 	GrantConditionOnPrerequisite@ra2_soviets_upgrade_reactivearmor:
 		Condition: ra2_soviets_upgrade_reactivearmor
 		Prerequisites: ra2_soviets_upgrade_reactivearmor
@@ -12142,23 +12247,33 @@ ra2_soviets_upgrade_tesladischargearmor:
 		Prerequisite: ra2_soviet_doctrine_2
 
 ^RA2SovietTeslaDischargeArmor:
+	Inherits@EnemyInProximity: ^EnemyInProximity
 	DamageMultiplier@ra2_soviets_upgrade_tesladischargearmor:
 		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
 		Modifier: 90
 	FireWarheads@Tesla:
 		Weapons: RA2TeslaDummy
 		Interval: 125
-		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown
-	GrantTimedCondition@ra2_soviets_upgrade_tesladischargearmor:
+		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown && EnemyProximity
+	GrantTimedCondition@tesladischargearmorcooldown:
 		RequiresCondition: tesladischargearmor
 		PauseOnCondition: !tesladischargearmor
 		Condition: tesladischargearmorcooldown
 		Duration: 5
-	GrantConditionOnDamage@ra2_soviets_upgrade_tesladischargearmor:
+	GrantConditionOnDamage@tesladischargearmor:
 		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
 		Condition: tesladischargearmor
 		Duration: 10
 		PlayerRelationship: Ally, Neutral, Enemy
+	ChangesPhysicalState@tesladischargearmor:
+		PhysicalStateName: EnemyProximity
+		Amount: -10000
+		Delay: 1
+		RequiresCondition: tesladischargearmor && !tesladischargearmorcooldown && EnemyProximity
+	PhysicalStateBar@EnemyProximity:
+		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		RequiresCondition: ra2_soviets_upgrade_tesladischargearmor
 	GrantConditionOnPrerequisite@ra2_soviets_upgrade_tesladischargearmor:
 		Condition: ra2_soviets_upgrade_tesladischargearmor
 		Prerequisites: ra2_soviets_upgrade_tesladischargearmor
@@ -12234,7 +12349,6 @@ ra2_soviets_upgrade_terrordronesurprise:
 		Prerequisites: ~ra2naradr, !ra2_soviets_upgrade_terrordronesurprise
 	RenderSprites:
 		Image: ra2dron
-	ProvidesPrerequisite:
 
 ^TerrorDroneSurprise:
 	GrantConditionOnPrerequisite@ra2_soviets_upgrade_terrordronesurprise:
@@ -12258,7 +12372,7 @@ ra2_soviets_upgrade_coilchargers:
 		Image: ra2tesla
 	ProvidesPrerequisite:
 
-### Battle Lab
+### Battle Lab ###
 
 ra2_soviets_upgrade_teslaoverload:
 	Inherits: ^tech_upgrade_template
@@ -12343,7 +12457,7 @@ ra2_soviets_upgrade_kirovarmorplatings:
 	Tooltip:
 		Name: Kirov Armor Platings
 	Buildable:
-		Description: Increases Damage Resistance of Kirovs by 25%.
+		Description: Increases Damage Resistance of Kirovs and V3 Rockets by 25%.
 		Prerequisites: ~ra2natech, yrngindp, !ra2_soviets_upgrade_kirovarmorplatings
 	RenderSprites:
 		Image: ra2_soviets_upgrade_kirovarmorplatings
@@ -12361,9 +12475,9 @@ ra2_soviets_upgrade_kirovarmorplatings:
 ra2_soviets_upgrade_kirovgastroburners:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
-		Name: Kirov Gastroburners
+		Name: Gastroburners
 	Buildable:
-		Description: Increases Speed of Kirovs by 25%.
+		Description: Increases Speed of Kirovs by 25% and V3 Range by 15%.
 		Prerequisites: ~ra2natech, yrngindp, !ra2_soviets_upgrade_kirovgastroburners
 	RenderSprites:
 		Image: ra2_soviets_upgrade_kirovgastroburners
@@ -12395,197 +12509,607 @@ ra2_soviets_upgrade_kirovnuclearshells:
 	ActorStatValues:
 		Upgrades: ra2_soviets_upgrade_kirovnuclearshells
 
-## Allies
+####################################################################################################
+#		Promotions Allies
+####################################################################################################
 
-### Infantry tree
+# ### Infantry tree
 
-upra2airborne:
-	Inherits: ^promotion_upgrade.template
+# ra2_allies_upgrade_paratroopers:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Airborne
+# 	Buildable:
+# 		BuildPaletteOrder: 73
+# 		Icon: icon2
+# 		Queue: Promotions
+# 		Description: Allows paratroopers to be accessed from the Airforce Command.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_paratroopers, rank1
+# 	RenderSprites:
+# 		Image: ra2gaairc
+# 	ProvidesPrerequisite:
+
+# upra2seal:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock SEAL
+# 	Buildable:
+# 		BuildPaletteOrder: 76
+# 		Queue: Promotions
+# 		Description: Allows training of SEALs.
+# 		Prerequisites: ~ra2gacnst, !upra2seal, ra2_allies_upgrade_paratroopers, rank1
+# 	RenderSprites:
+# 		Image: ra2seal
+# 	ProvidesPrerequisite:
+
+# upra2snipe:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Sniper
+# 	Buildable:
+# 		BuildPaletteOrder: 79
+# 		Queue: Promotions
+# 		Description: Allows training of Snipers.
+# 		Prerequisites: ~ra2gacnst, !upra2snipe, upra2seal, rank1
+# 	RenderSprites:
+# 		Image: ra2snipe
+# 	ProvidesPrerequisite:
+
+# ra2_allies_upgrade_elitegi:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Upgrade GIs
+# 	Buildable:
+# 		BuildPaletteOrder: 82
+# 		Queue: Promotions
+# 		Description: Upgrade GI undeployed weapons and deployment armor.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_elitegi, upra2snipe, rank1
+# 	RenderSprites:
+# 		Image: ra2e1
+# 	ProvidesPrerequisite:
+
+# ### Offensive tree
+
+# upra2tnkd:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Tank Destroyer
+# 	Buildable:
+# 		BuildPaletteOrder: 74
+# 		Queue: Promotions
+# 		Description: Allows construction of the Tank Destroyer.
+# 		Prerequisites: ~ra2gacnst, !upra2tnkd, rank1
+# 	RenderSprites:
+# 		Image: ra2tnkd
+# 	ProvidesPrerequisite:
+
+# ra2_allies_upgrade_eliterocketeer:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Rocketeers
+# 	Buildable:
+# 		BuildPaletteOrder: 77
+# 		-Queue: #Promotions
+# 		Description: Upgrades the Rocketeer to fire faster and take less damage.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_paratroopers, upra2tnkd, rank1
+# 	RenderSprites:
+# 		Image: ra2rock
+# 	ProvidesPrerequisite:
+
+# ra2_allies_upgrade_heavymiragetank:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Heavy Mirage Tanks
+# 	Buildable:
+# 		BuildPaletteOrder: 77
+# 		Queue: Promotions
+# 		Description: Allows construction of Heavy Mirage Tanks.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_heavymiragetank, upra2tnkd, rank1
+# 	RenderSprites:
+# 		Image: ra2hmgtk
+# 	ProvidesPrerequisite:
+
+# upra2beag:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Black Eagle
+# 	Buildable:
+# 		BuildPaletteOrder: 80
+# 		Queue: Promotions
+# 		Description: Allows construction of the Black Eagle.
+# 		Prerequisites: ~ra2gacnst, !upra2beag, ra2_allies_upgrade_heavymiragetank, rank1
+# 	RenderSprites:
+# 		Image: ra2beag
+# 	ProvidesPrerequisite:
+
+# ra2_allies_upgrade_advancedaeronautics:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Advanced Aeronautics
+# 	Buildable:
+# 		BuildPaletteOrder: 83
+# 		Queue: Promotions
+# 		Description: Allied jets receive speed and armor bonuses when attacking.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_advancedaeronautics, upra2beag, rank1
+# 	RenderSprites:
+# 		Image: ra2falc
+# 	ProvidesPrerequisite:
+
+# ^RA2AlliedAdvancedAeronautics:
+# 	GrantConditionOnPrerequisite@supersonic:
+# 		Condition: upaeronautics
+# 		Prerequisites: ra2_allies_upgrade_advancedaeronautics
+# 	GrantConditionOnActivity@supersonic:
+# 		Condition: supersonic
+# 	SpeedMultiplier@supersonic:
+# 		Modifier: 120
+# 		RequiresCondition: supersonic && ammo && upaeronautics
+# 	DamageMultiplier@supersonic:
+# 		RequiresCondition: supersonic && ammo && upaeronautics
+# 		Modifier: 85
+
+# ### Defensive tree
+
+# ra2_allies_upgrade_prismlinking:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Prism Chaining
+# 	Buildable:
+# 		BuildPaletteOrder: 75
+# 		Queue: Promotions
+# 		Description: Allows Prism Towers to chain, boosting damage.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_prismlinking, rank1
+# 	RenderSprites:
+# 		Image: ra2atesla
+# 	ProvidesPrerequisite:
+
+# ra2_allies_upgrade_forceshield:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Force Shield
+# 	Buildable:
+# 		Icon: forceshield
+# 		BuildPaletteOrder: 78
+# 		Queue: Promotions
+# 		Description: Enables the Force Shield power from the Battle Lab.
+# 		Prerequisites: ~ra2gacnst, !ra2_allies_upgrade_forceshield, ra2_allies_upgrade_prismlinking, rank1
+# 	RenderSprites:
+# 		Image: icon
+# 	ProvidesPrerequisite:
+
+# upra2gaorep:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Ore Purifier
+# 	Buildable:
+# 		BuildPaletteOrder: 81
+# 		Queue: Promotions
+# 		Description: Allows construction of the Ore Purifier.
+# 		Prerequisites: ~ra2gacnst, !upra2gaorep, ra2_allies_upgrade_forceshield, rank1
+# 	RenderSprites:
+# 		Image: ra2gaorep
+# 	ProvidesPrerequisite:
+
+# upra2gtgcan:
+# 	Inherits: ^promotion_upgrade.template
+# 	Tooltip:
+# 		Name: Unlock Grand Cannon
+# 	Buildable:
+# 		BuildPaletteOrder: 84
+# 		Queue: Promotions
+# 		Description: Allows construction of the Grand Cannon.
+# 		Prerequisites: ~ra2gacnst, !upra2gtgcan, upra2gaorep, rank1
+# 	RenderSprites:
+# 		Image: ra2gtgcan
+# 	ProvidesPrerequisite:
+
+####################################################################################################
+#		Upgrades Allies
+####################################################################################################
+
+### Radar ###
+
+ra2_allies_upgrade_assaultsquadtraining:
+	Inherits: ^doctrine_template
 	Tooltip:
-		Name: Unlock Airborne
+		Name: Assault Squad Training
 	Buildable:
-		BuildPaletteOrder: 73
-		Icon: icon2
-		Queue: Promotions
-		Description: Allows paratroopers to be accessed from the Airforce Command.
-		Prerequisites: ~ra2gacnst, !upra2airborne, rank1
+		Description: All Allied Infantry move 25% faster, have 33% higher Firepower, 15% faster Reload Delay and 10% Damage Reduction.
+		Prerequisites: ~ra2gaairc, !ra2_allied_doctrine_1
 	RenderSprites:
-		Image: ra2gaairc
-	ProvidesPrerequisite:
+		Image: ra2_allies_upgrade_assaultsquadtraining
+	ProvidesPrerequisite@ra2_allied_doctrine_1:
+		Prerequisite: ra2_allied_doctrine_1
 
-upra2seal:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock SEAL
-	Buildable:
-		BuildPaletteOrder: 76
-		Queue: Promotions
-		Description: Allows training of SEALs.
-		Prerequisites: ~ra2gacnst, !upra2seal, upra2airborne, rank1
-	RenderSprites:
-		Image: ra2seal
-	ProvidesPrerequisite:
-
-upra2snipe:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Sniper
-	Buildable:
-		BuildPaletteOrder: 79
-		Queue: Promotions
-		Description: Allows training of Snipers.
-		Prerequisites: ~ra2gacnst, !upra2snipe, upra2seal, rank1
-	RenderSprites:
-		Image: ra2snipe
-	ProvidesPrerequisite:
-
-upra2gi:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Upgrade GIs
-	Buildable:
-		BuildPaletteOrder: 82
-		Queue: Promotions
-		Description: Upgrade GI undeployed weapons and deployment armor.
-		Prerequisites: ~ra2gacnst, !upra2gi, upra2snipe, rank1
-	RenderSprites:
-		Image: ra2e1
-	ProvidesPrerequisite:
-
-### Offensive tree
-
-upra2tnkd:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Tank Destroyer
-	Buildable:
-		BuildPaletteOrder: 74
-		Queue: Promotions
-		Description: Allows construction of the Tank Destroyer.
-		Prerequisites: ~ra2gacnst, !upra2tnkd, rank1
-	RenderSprites:
-		Image: ra2tnkd
-	ProvidesPrerequisite:
-
-upra2rock:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Rocketeers
-	Buildable:
-		BuildPaletteOrder: 77
-		-Queue: #Promotions
-		Description: Upgrades the Rocketeer to fire faster and take less damage.
-		Prerequisites: ~ra2gacnst, !upra2airborne, upra2tnkd, rank1
-	RenderSprites:
-		Image: ra2rock
-	ProvidesPrerequisite:
-
-upheavymiragetank:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Heavy Mirage Tanks
-	Buildable:
-		BuildPaletteOrder: 77
-		Queue: Promotions
-		Description: Allows construction of Heavy Mirage Tanks.
-		Prerequisites: ~ra2gacnst, !upheavymiragetank, upra2tnkd, rank1
-	RenderSprites:
-		Image: ra2hmgtk
-	ProvidesPrerequisite:
-
-upra2beag:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Black Eagle
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Promotions
-		Description: Allows construction of the Black Eagle.
-		Prerequisites: ~ra2gacnst, !upra2beag, upheavymiragetank, rank1
-	RenderSprites:
-		Image: ra2beag
-	ProvidesPrerequisite:
-
-upra2aeronautics:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Advanced Aeronautics
-	Buildable:
-		BuildPaletteOrder: 83
-		Queue: Promotions
-		Description: Allied jets receive speed and armor bonuses when attacking.
-		Prerequisites: ~ra2gacnst, !upra2aeronautics, upra2beag, rank1
-	RenderSprites:
-		Image: ra2falc
-	ProvidesPrerequisite:
-
-^RA2AdvancedAeronautics:
-	GrantConditionOnPrerequisite@supersonic:
-		Condition: upaeronautics
-		Prerequisites: upra2aeronautics
-	GrantConditionOnActivity@supersonic:
-		Condition: supersonic
-	SpeedMultiplier@supersonic:
-		Modifier: 120
-		RequiresCondition: supersonic && ammo && upaeronautics
-	DamageMultiplier@supersonic:
-		RequiresCondition: supersonic && ammo && upaeronautics
+^RA2AlliedAssaultSquadTraining:
+	SpeedMultiplier@ra2_allies_upgrade_assaultsquadtraining:
+		Modifier: 125
+		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
+	FirepowerMultiplier@ra2_allies_upgrade_assaultsquadtraining:
+		Modifier: 133
+		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
+	ReloadDelayMultiplier@ra2_allies_upgrade_assaultsquadtraining:
 		Modifier: 85
+		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
+	DamageMultiplier@ra2_allies_upgrade_assaultsquadtraining:
+		Modifier: 90
+		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_assaultsquadtraining:
+		Condition: ra2_allies_upgrade_assaultsquadtraining
+		Prerequisites: ra2_allies_upgrade_assaultsquadtraining
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining
 
-### Defensive tree
-
-upprismchain:
-	Inherits: ^promotion_upgrade.template
+ra2_allies_upgrade_vanguardtraining:
+	Inherits: ^doctrine_template
 	Tooltip:
-		Name: Prism Chaining
+		Name: Vanguard Training
 	Buildable:
-		BuildPaletteOrder: 75
-		Queue: Promotions
-		Description: Allows Prism Towers to chain, boosting damage.
-		Prerequisites: ~ra2gacnst, !upprismchain, rank1
+		Description: All Allied Infantry start as Veteran rank, gain 40% Damage Reduction, have 10% more Firepower, move 10% faster and gain extra regeneration.
+		Prerequisites: ~ra2gaairc, !ra2_allied_doctrine_1
 	RenderSprites:
-		Image: ra2atesla
-	ProvidesPrerequisite:
+		Image: ra2_allies_upgrade_vanguardtraining
+	ProvidesPrerequisite@infantry:
+		Prerequisite: infantry.upgraded
+	ProvidesPrerequisite@ra2_allied_doctrine_1:
+		Prerequisite: ra2_allied_doctrine_1
 
-upforceshield:
-	Inherits: ^promotion_upgrade.template
+^RA2AlliedEliteVanguardTraining:
+	ChangesHealth@ra2_allies_upgrade_vanguardtraining:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: ra2_allies_upgrade_vanguardtraining
+	DamageMultiplier@ra2_allies_upgrade_vanguardtraining:
+		Modifier: 60
+		RequiresCondition: ra2_allies_upgrade_vanguardtraining
+	FirepowerMultiplier@ra2_allies_upgrade_vanguardtraining:
+		Modifier: 110
+		RequiresCondition: ra2_allies_upgrade_vanguardtraining
+	SpeedMultiplier@ra2_allies_upgrade_vanguardtraining:
+		Modifier: 110
+		RequiresCondition: ra2_allies_upgrade_vanguardtraining
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_vanguardtraining:
+		Condition: ra2_allies_upgrade_vanguardtraining
+		Prerequisites: ra2_allies_upgrade_vanguardtraining
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_vanguardtraining
+
+ra2_allies_upgrade_infiltratorstraining:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Infiltrators Training
+	Buildable:
+		Description: All Allied Infantry gain 20% more Range and 40% more Vision and Stealth Detection Radius. Tanya, SEALs and Snipers have 100% higher Fire Rate and Firepower.
+		Prerequisites: ~ra2gaairc, !ra2_allied_doctrine_1
+	RenderSprites:
+		Image: ra2_allies_upgrade_infiltratorstraining
+	ProvidesPrerequisite@ra2_allied_doctrine_1:
+		Prerequisite: ra2_allied_doctrine_1
+
+^RA2AlliedInfiltratorsTraining:
+	RangeMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 120
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	RevealsShroudMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 140
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	DetectCloakedMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 140
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_infiltratorstraining:
+		Condition: ra2_allies_upgrade_infiltratorstraining
+		Prerequisites: ra2_allies_upgrade_infiltratorstraining
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_infiltratorstraining
+
+ra2_allies_upgrade_compositearmorplating:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Composite Armor Plating
+	Buildable:
+		Description: All Allied Vehicles and Aircraft take 20% less damage.
+		Prerequisites: ~ra2gaairc, ra2gatech, ra2_allied_doctrine_1, !ra2_allied_doctrine_2
+	RenderSprites:
+		Image: ra2_allies_upgrade_compositearmorplating
+	ProvidesPrerequisite@ra2_allied_doctrine_2:
+		Prerequisite: ra2_allied_doctrine_2
+
+^RA2AlliedCompositeArmorPlatings:
+	DamageMultiplier@ra2_allies_upgrade_compositearmorplating:
+		Modifier: 80
+		RequiresCondition: ra2_allies_upgrade_compositearmorplating
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_compositearmorplating:
+		Condition: ra2_allies_upgrade_compositearmorplating
+		Prerequisites: ra2_allies_upgrade_compositearmorplating
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_compositearmorplating
+
+ra2_allies_upgrade_reflectivearmorplating:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Reflective Armor Plating
+	Buildable:
+		Description: Tanks gain gain 50% Damage Resistance to Energy weapons and take 5% less damage overall.
+		Prerequisites: ~ra2gaairc, ra2gatech, ra2_allied_doctrine_1, !ra2_allied_doctrine_2
+	RenderSprites:
+		Image: ra2_allies_upgrade_reflectivearmorplating
+	ProvidesPrerequisite@ra2_allied_doctrine_2:
+		Prerequisite: ra2_allied_doctrine_2
+
+^RA2AlliedReflectiveArmorPlatings:
+	Armor@REFLECTOR:
+		Type: REFLECTOR
+		RequiresCondition: ra2_allies_upgrade_reflectivearmorplating
+	WithDecoration@REFLECTOR:
+		Image: pips
+		Sequence: pip-reflectivearmor
+		Position: BottomRight
+		RequiresCondition: ra2_allies_upgrade_reflectivearmorplating
+	DamageMultiplier@ra2_allies_upgrade_reflectivearmorplating:
+		RequiresCondition: ra2_allies_upgrade_reflectivearmorplating
+		Modifier: 95
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_reflectivearmorplating:
+		Condition: ra2_allies_upgrade_reflectivearmorplating
+		Prerequisites: ra2_allies_upgrade_reflectivearmorplating
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_reflectivearmorplating
+
+ra2_allies_upgrade_ionpulseplating:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Chromium Ion Pulse Plating
+	Buildable:
+		Description: Causes Ion Discharges everytime a Vehicle takes damage with a 5 second cooldown. Gives 10% more Damage Resistance. Ion Discharges mark enemy units in a small radius for additional damage.
+		Prerequisites: ~ra2gaairc, ra2gatech, ra2_allied_doctrine_1, !ra2_allied_doctrine_2
+	RenderSprites:
+		Image: ra2_allies_upgrade_ionpulseplating
+	ProvidesPrerequisite@ra2_allied_doctrine_2:
+		Prerequisite: ra2_allied_doctrine_2
+
+^RA2AlliedChromiumIonPulsePlatings:
+	Inherits@EnemyInProximity: ^EnemyInProximity
+	DamageMultiplier@ra2_allies_upgrade_ionpulseplating:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating
+		Modifier: 90
+	GrantTimedCondition@IonPulseDischargeCooldown:
+		Condition: IonPulseDischargeCooldown
+		Duration: 40
+		RevokeAfterDurationOnly: true
+		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && EnemyProximity
+	FireWarheads@IonPulseDischarge:
+		Weapons: IonPulseDischarge
+		Interval: 125
+		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && !IonPulseDischargeCooldown && EnemyProximity
+	GrantTimedCondition@ionpulseplatingcooldown:
+		RequiresCondition: ionpulseplating
+		PauseOnCondition: !ionpulseplating
+		Condition: ionpulseplatingcooldown
+		Duration: 5
+	GrantConditionOnDamage@ionpulseplating:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating
+		Condition: ionpulseplating
+		Duration: 10
+		PlayerRelationship: Ally, Neutral, Enemy
+	ChangesPhysicalState@ionpulseplating:
+		PhysicalStateName: EnemyProximity
+		Amount: -10000
+		Delay: 1
+		RequiresCondition: ionpulseplating && !ionpulseplatingcooldown && !IonPulseDischargeCooldown && EnemyProximity
+	PhysicalStateBar@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_ionpulseplating:
+		Condition: ra2_allies_upgrade_ionpulseplating
+		Prerequisites: ra2_allies_upgrade_ionpulseplating
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_ionpulseplating
+
+ra2_allies_upgrade_elitegi:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Elite G.I.
+	Buildable:
+		Description: Upgrade GI undeployed weapons and deployment armor.
+		Prerequisites: ~ra2gaairc, !ra2_allies_upgrade_elitegi
+	RenderSprites:
+		Image: ra2_allies_upgrade_elitegi
+
+ra2_allies_upgrade_paratroopers:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Paratroopers
+	Buildable:
+		Icon: paratroopers
+		Description: Allows paratroopers to be accessed from the Airforce Command.
+		Prerequisites: ~ra2gaairc, !ra2_allies_upgrade_paratroopers
+	RenderSprites:
+		Image: icon
+
+ra2_allies_upgrade_eliterocketeer:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Elite Rocketeers
+	Buildable:
+		Description: Upgrades the Rocketeer to fire 100% faster and take 50% less damage.
+		Prerequisites: ~ra2gaairc, ra2gatech, !ra2_allies_upgrade_eliterocketeer
+	RenderSprites:
+		Image: ra2_allies_upgrade_eliterocketeer
+
+ra2_allies_upgrade_prismlinking:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Prism Linking
+	Buildable:
+		Description: Allows Prism Towers to link, boosting damage.
+		Prerequisites: ~ra2gaairc, ra2gatech, !ra2_allies_upgrade_prismlinking
+	RenderSprites:
+		Image: ra2_allies_upgrade_prismlinking
+
+ra2_allies_upgrade_forceshield:
+	Inherits: ^unit_upgrade_template
 	Tooltip:
 		Name: Force Shield
 	Buildable:
 		Icon: forceshield
-		BuildPaletteOrder: 78
-		Queue: Promotions
 		Description: Enables the Force Shield power from the Battle Lab.
-		Prerequisites: ~ra2gacnst, !upforceshield, upprismchain, rank1
+		Prerequisites: ~ra2gaairc, ra2gatech, !ra2_allies_upgrade_forceshield
 	RenderSprites:
 		Image: icon
-	ProvidesPrerequisite:
 
-upra2gaorep:
-	Inherits: ^promotion_upgrade.template
+ra2_allies_upgrade_heavymiragetank:
+	Inherits: ^unit_upgrade_template
 	Tooltip:
-		Name: Unlock Ore Purifier
+		Name: Unlock Heavy Mirage Tanks
 	Buildable:
-		BuildPaletteOrder: 81
-		Queue: Promotions
-		Description: Allows construction of the Ore Purifier.
-		Prerequisites: ~ra2gacnst, !upra2gaorep, upforceshield, rank1
+		Description: Allows construction of Heavy Mirage Tanks.
+		Prerequisites: ~ra2gaairc, ra2gatech, !ra2_allies_upgrade_heavymiragetank
 	RenderSprites:
-		Image: ra2gaorep
-	ProvidesPrerequisite:
+		Image: ra2hmgtk
 
-upra2gtgcan:
-	Inherits: ^promotion_upgrade.template
+### Battle Lab ###
+
+ra2_allies_upgrade_advancedaeronautics:
+	Inherits: ^tech_upgrade_template
 	Tooltip:
-		Name: Unlock Grand Cannon
+		Name: Advanced Aeronautics
 	Buildable:
-		BuildPaletteOrder: 84
-		Queue: Promotions
-		Description: Allows construction of the Grand Cannon.
-		Prerequisites: ~ra2gacnst, !upra2gtgcan, upra2gaorep, rank1
+		Description: Harriers and Black Eagles have 25% increased Speed, Firepower and Damage Reduction.
+		Prerequisites: ~ra2gatech, !ra2_allies_upgrade_advancedaeronautics
 	RenderSprites:
-		Image: ra2gtgcan
-	ProvidesPrerequisite:
+		Image: ra2_allies_upgrade_advancedaeronautics
+
+^RA2AlliedAdvancedAeronautics:
+	SpeedMultiplier@ra2_allies_upgrade_advancedaeronautics:
+		RequiresCondition: ra2_allies_upgrade_advancedaeronautics
+		Modifier: 125
+	FirepowerMultiplier@ra2_allies_upgrade_advancedaeronautics:
+		RequiresCondition: ra2_allies_upgrade_advancedaeronautics
+		Modifier: 125
+	DamageMultiplier@ra2_allies_upgrade_advancedaeronautics:
+		RequiresCondition: ra2_allies_upgrade_advancedaeronautics
+		Modifier: 75
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_advancedaeronautics:
+		Condition: ra2_allies_upgrade_advancedaeronautics
+		Prerequisites: ra2_allies_upgrade_advancedaeronautics
+
+ra2_allies_upgrade_tanklasertargeting:
+	Inherits: ^tech_upgrade_template
+	Tooltip:
+		Name: Tank Laser Targeting
+	Buildable:
+		Description: Increases Firepower of Tank Destroyers and Mirage Tanks by 20% and Range by 10%. Grizzly Tanks receive twice that bonus.
+		Prerequisites: ~ra2gatech, !ra2_allies_upgrade_tanklasertargeting
+	RenderSprites:
+		Image: ra2_allies_upgrade_tanklasertargeting
+
+^RA2AlliedTankLaserTargeting:
+	RangeMultiplier@ra2_allies_upgrade_tanklasertargeting:
+		RequiresCondition: ra2_allies_upgrade_tanklasertargeting
+		Modifier: 110
+	FirepowerMultiplier@ra2_allies_upgrade_tanklasertargeting:
+		RequiresCondition: ra2_allies_upgrade_tanklasertargeting
+		Modifier: 120
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_tanklasertargeting:
+		Condition: ra2_allies_upgrade_tanklasertargeting
+		Prerequisites: ra2_allies_upgrade_tanklasertargeting
+
+ra2_allies_upgrade_intensifiedprismbeams:
+	Inherits: ^tech_upgrade_template
+	Tooltip:
+		Name: Intensified Prism Beams
+	Buildable:
+		Description: Prism Tanks and Prism Towers have 25% more Range and Firepower.
+		Prerequisites: ~ra2gatech, !ra2_allies_upgrade_intensifiedprismbeams
+	RenderSprites:
+		Image: ra2_allies_upgrade_intensifiedprismbeams
+
+^RA2AlliedIntensifiedPrismBeams:
+	RangeMultiplier@ra2_allies_upgrade_intensifiedprismbeams:
+		RequiresCondition: ra2_allies_upgrade_intensifiedprismbeams
+		Modifier: 125
+	FirepowerMultiplier@ra2_allies_upgrade_intensifiedprismbeams:
+		RequiresCondition: ra2_allies_upgrade_intensifiedprismbeams
+		Modifier: 125
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_intensifiedprismbeams:
+		Condition: ra2_allies_upgrade_intensifiedprismbeams
+		Prerequisites: ra2_allies_upgrade_intensifiedprismbeams
+
+ra2_allies_upgrade_prismaticbarrier:
+	Inherits: ^tech_upgrade_template
+	Tooltip:
+		Name: Prismatic Barrier
+	Valued:
+		Cost: 10000
+	Buildable:
+		Description: Causes Prismatic Barrier effect every time a Vehicle takes damage with a 5 second cooldown. The Prismatic Barrier stops once the unit starts attacking.
+		Prerequisites: ~ra2gatech, !ra2_allies_upgrade_prismaticbarrier
+	RenderSprites:
+		Image: ra2_allies_upgrade_prismaticbarrier
+
+^RA2AlliedPrismaticBarrier:
+	Inherits@EnemyInProximity: ^EnemyInProximity
+	GrantTimedCondition@shroudedcooldown:
+		Condition: shroudedcooldown
+		Duration: 40
+		RevokeAfterDurationOnly: true
+		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && EnemyProximity
+	GrantTimedCondition@prismaticbarrier:
+		Condition: shrouded
+		Duration: 40
+		RevokeAfterDurationOnly: true
+		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && !shroudedcooldown && EnemyProximity
+	GrantTimedCondition@prismaticbarriercooldown:
+		RequiresCondition: prismaticbarrier
+		PauseOnCondition: !prismaticbarrier
+		Condition: prismaticbarriercooldown
+		Duration: 10
+	GrantConditionOnDamage@prismaticbarrier:
+		RequiresCondition: ra2_allies_upgrade_prismaticbarrier
+		Condition: prismaticbarrier
+		Duration: 20
+		PlayerRelationship: Ally, Neutral, Enemy
+	ChangesPhysicalState@prismaticbarrier:
+		PhysicalStateName: EnemyProximity
+		Amount: -10000
+		Delay: 1
+		RequiresCondition: prismaticbarrier && !prismaticbarriercooldown && !shroudedcooldown && EnemyProximity
+	PhysicalStateBar@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
+	WithPhysicalStateColoredOverlay@EnemyProximity:
+		RequiresCondition: ra2_allies_upgrade_ionpulseplating || ra2_allies_upgrade_prismaticbarrier
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_prismaticbarrier:
+		Condition: ra2_allies_upgrade_prismaticbarrier
+		Prerequisites: ra2_allies_upgrade_prismaticbarrier
+	ActorStatValues:
+		Upgrades: ra2_allies_upgrade_prismaticbarrier
+
+ra2_allies_upgrade_chronoengine:
+	Inherits: ^tech_upgrade_template
+	Tooltip:
+		Name: Chrono Engines
+	Valued:
+		Cost: 12500
+	Buildable:
+		Description: All Allied Vehicles drive 50% faster.
+		Prerequisites: ~ra2gatech, ra2gacsph, !ra2_allies_upgrade_chronoengine
+	RenderSprites:
+		Image: ra2_allies_upgrade_chronoengine
+
+^RA2AlliedChronoEngine:
+	SpeedMultiplier@ra2_allies_upgrade_chronoengine:
+		RequiresCondition: ra2_allies_upgrade_chronoengine
+		Modifier: 150
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_chronoengine:
+		Condition: ra2_allies_upgrade_chronoengine
+		Prerequisites: ra2_allies_upgrade_chronoengine
+
+####################################################################################################
+#		Promotions Yuri
+####################################################################################################
+
 
 ## Yuri promotions
 ### Biological tree
@@ -12837,6 +13361,11 @@ upyrgat:
 	FirepowerMultiplier@upgrade:
 		Modifier: 120
 		RequiresCondition: upyrgat
+
+####################################################################################################
+#		Upgrades Yuri
+####################################################################################################
+
 
 ##############################################
 #   Red Alert 2 Civilian Vehicles

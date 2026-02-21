@@ -3099,6 +3099,9 @@ pips:
 	pip-hazmat:
 		Filename: pip-hazmat.png
 		Offset: -3, 0
+	pip-reflectivearmor:
+		Filename: pip-reflectivearmor.png
+		Offset: -3, 0
 	tag-primary:
 		Filename: rapips.shp
 		Start: 2

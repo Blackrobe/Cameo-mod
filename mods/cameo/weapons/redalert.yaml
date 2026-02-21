@@ -516,8 +516,8 @@ FireRockets:
 	Inherits: ^MediumMissile
 	Inherits: ^LightFlameWeapon
 	Inherits: ^LightMissile
-	ReloadDelay: 58
-	Range: 6692
+	ReloadDelay: 53
+	Range: 6036
 	Report: missile6.aud
 	Projectile: Missile
 		TrailImage: fb2

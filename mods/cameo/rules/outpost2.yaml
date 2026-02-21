@@ -1,5 +1,6 @@
 World:
 	FactionCA@plymouthl:
+		Selectable: false
 		Name: Plymouth (WIP)
 		InternalName: plymouthl
 		Game: Outpost 2
@@ -28,6 +29,7 @@ World:
 		SupportActors: PLYMOUTH_SCOUT,PLMICROWAVE,PLMICROWAVE,PLMICROWAVE,PLYMOUTH_LYNX_RPG,PLYMOUTH_LYNX_RPG,PLYMOUTH_LYNX_RPG
 
 	FactionCA@edenl:
+		Selectable: false
 		Name: Eden (WIP)
 		InternalName: edenl
 		Game: Outpost 2

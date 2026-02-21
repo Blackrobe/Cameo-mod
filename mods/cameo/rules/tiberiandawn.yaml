@@ -260,21 +260,21 @@ World:
 		Upgrades: up_elementalwarfare
 
 ^EliteCapacitors:
-	RangeMultiplier@up_elitecapacitors:
-		RequiresCondition: up_elitecapacitors
-		Modifier: 110
 	FirepowerMultiplier@up_elitecapacitors:
 		RequiresCondition: up_elitecapacitors
-		Modifier: 110
+		Modifier: 130
 	ReloadDelayMultiplier@up_elitecapacitors:
 		RequiresCondition: up_elitecapacitors
-		Modifier: 90
+		Modifier: 70
+	RangeMultiplier@up_elitecapacitors:
+		RequiresCondition: up_elitecapacitors
+		Modifier: 115
 	RevealsShroudMultiplier@up_elitecapacitors:
 		RequiresCondition: up_elitecapacitors
-		Modifier: 110
+		Modifier: 115
 	DetectCloakedMultiplier@up_elitecapacitors:
 		RequiresCondition: up_elitecapacitors
-		Modifier: 110
+		Modifier: 115
 	GrantConditionOnPrerequisite@up_elitecapacitors:
 		Condition: up_elitecapacitors
 		Prerequisites: up_elitecapacitors
@@ -298,13 +298,13 @@ World:
 		Upgrades: up_improvedartilleries
 
 ^GuerillaTactics:
+	FirepowerMultiplier@up_guerillatactics:
+		RequiresCondition: up_guerillatactics
+		Modifier: 115
 	SpeedMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
 		Modifier: 110
 	RangeMultiplier@up_guerillatactics:
-		RequiresCondition: up_guerillatactics
-		Modifier: 110
-	FirepowerMultiplier@up_guerillatactics:
 		RequiresCondition: up_guerillatactics
 		Modifier: 105
 	RevealsShroudMultiplier@up_guerillatactics:
@@ -320,10 +320,10 @@ World:
 		Upgrades: up_guerillatactics
 
 ^AdvancedGuerillaTactics:
-	SpeedMultiplier@up_advancedguerillatactics:
-		RequiresCondition: up_advancedguerillatactics
-		Modifier: 110
 	FirepowerMultiplier@up_advancedguerillatactics:
+		RequiresCondition: up_advancedguerillatactics
+		Modifier: 115
+	SpeedMultiplier@up_advancedguerillatactics:
 		RequiresCondition: up_advancedguerillatactics
 		Modifier: 110
 	RangeMultiplier@up_advancedguerillatactics:
@@ -1868,6 +1868,7 @@ STNK:
 	Inherits@cloak: ^CloakedVehicle
 	Inherits@GuerillaTactics: ^GuerillaTactics
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
+	Inherits@BlackMarketUpgrades: ^BlackMarketUpgrades
 	Inherits@decoration: ^NodRankDecoration
 	Valued:
 		Cost: 900
@@ -1899,6 +1900,12 @@ STNK:
 		Weapon: StealthTankMissiles
 		LocalOffset: 213,43,128, 213,-43,128
 		MuzzleSequence: muzzle
+		RequiresCondition: !up_blackmarketupgrades
+	Armament@Upgrade:
+		Weapon: StealthTankMissilesBlackMarket
+		LocalOffset: 213,43,128, 213,-43,128
+		MuzzleSequence: muzzle
+		RequiresCondition: up_blackmarketupgrades
 	AttackFrontal:
 	# 	FacingTolerance: 0
 	# AutoTarget:
@@ -1912,9 +1919,9 @@ STNK:
 	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 	-MustBeDestroyed:
-	SpeedMultiplier@up_guerillatactics:
-		Modifier: 120
 	FirepowerMultiplier@up_guerillatactics:
+		Modifier: 130
+	SpeedMultiplier@up_guerillatactics:
 		Modifier: 120
 	RangeMultiplier@up_guerillatactics:
 		Modifier: 110
@@ -1922,9 +1929,9 @@ STNK:
 		Modifier: 110
 	DetectCloakedMultiplier@up_guerillatactics:
 		Modifier: 110
-	SpeedMultiplier@up_advancedguerillatactics:
-		Modifier: 120
 	FirepowerMultiplier@up_advancedguerillatactics:
+		Modifier: 130
+	SpeedMultiplier@up_advancedguerillatactics:
 		Modifier: 120
 	RangeMultiplier@up_advancedguerillatactics:
 		Modifier: 110
@@ -1933,7 +1940,7 @@ STNK:
 	DetectCloakedMultiplier@up_advancedguerillatactics:
 		Modifier: 110
 	ActorStatValues:
-		Upgrades: up_guerillatactics, up_advancedguerillatactics
+		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_blackmarketupgrades
 
 TRAN:
 	Inherits: ^Helicopter
@@ -3323,16 +3330,16 @@ OBLI:
 		RequiresCondition: charging
 		SoundFiles: obelpowr.aud
 		Interval: 30, 40
-	RangeMultiplier@up_elitecapacitors:
-		Modifier: 120
 	FirepowerMultiplier@up_elitecapacitors:
-		Modifier: 120
+		Modifier: 160
 	ReloadDelayMultiplier@up_elitecapacitors:
-		Modifier: 80
+		Modifier: 40
+	RangeMultiplier@up_elitecapacitors:
+		Modifier: 130
 	RevealsShroudMultiplier@up_elitecapacitors:
-		Modifier: 120
+		Modifier: 130
 	DetectCloakedMultiplier@up_elitecapacitors:
-		Modifier: 120
+		Modifier: 130
 	Power:
 		Amount: -90
 	RevealsShroud:

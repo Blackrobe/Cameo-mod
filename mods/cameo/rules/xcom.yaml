@@ -1,5 +1,6 @@
 World:
 	FactionCA@xcom:
+		Selectable: false
 		Name: (WIP)XCOM #faction-xcom.name
 		InternalName: xcom
 		Game: XCOM

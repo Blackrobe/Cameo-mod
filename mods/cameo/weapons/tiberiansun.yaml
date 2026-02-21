@@ -1536,30 +1536,24 @@ TSMammothTusk_elite:
 TSBikeMissile:
 	Inherits: ^LightMissile
 	Inherits: ^MediumMissile
-	Range: 6205
+	Range: 6554
 	Burst: 2
-	BurstDelays: 2
-	ReloadDelay: 64
+	BurstDelays: 5
+	ReloadDelay: 40
 	Report: misl1.aud
 	Projectile: Missile
 		LaunchAngle: 75
 	Warhead@LightMissile: SpreadDamage
-		Damage: 12000
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@LightMissileFriendlyFire: SpreadDamage
 		Damage: 6000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 3
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 12000
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@MediumMissileFriendlyFire: SpreadDamage
 		Damage: 6000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 3
 		ValidTargets: Ground, Water, Trees, Air
 
 TSBikeTibMissile:
@@ -1567,49 +1561,43 @@ TSBikeTibMissile:
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^LightMissile
 	Inherits: ^MediumMissile
-	Range: 6445
+	Range: 6554
 	Burst: 2
-	BurstDelays: 2
-	ReloadDelay: 50
+	BurstDelays: 5
+	ReloadDelay: 40
 	Report: misl1.aud
 	Projectile: Missile
 		LaunchAngle: 75
 		TrailImage: spittrail
 	Warhead@LightChemicalWeapon: SpreadDamage
-		Damage: 8000
+		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 4000
+		Damage: 2000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 2
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumChemicalWeapon: SpreadDamage
-		Damage: 8000
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 2
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissile: SpreadDamage
-		Damage: 8000
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@LightMissileFriendlyFire: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 42
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 8000
-		ValidTargets: Ground, Water, Trees, Air
-	Warhead@MediumMissileFriendlyFire: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 2
 		ValidTargets: Ground, Water, Trees, Air
 
 TSDragon:

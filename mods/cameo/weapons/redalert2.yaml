@@ -642,11 +642,11 @@ RA2GrandCannonWeapon:
 
 RA2105mm:
 	Inherits: ^RA2MediumCannon
-	ReloadDelay: 70
-	Range: 5000
+	ReloadDelay: 46
+	Range: 5052
 	Report: vgriatta.wav, vgriattb.wav, vgriattc.wav
 	Projectile: Bullet
-		Speed: 500
+		Speed: 505
 	Warhead@MediumCannon: SpreadDamage
 		Damage: 8000
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
@@ -655,25 +655,25 @@ RA2105mm:
 RA2105mm_elite:
 	Inherits: RA2105mm
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 6000
+	Range: 6052
 	Burst: 2
 	BurstDelays: 3
 
 RA2sabot:
 	Inherits: ^RA2TankDestroyerCannon
 	ReloadDelay: 90
-	Range: 6187
+	Range: 6200
 	Projectile: Bullet
-		Speed: 618
+		Speed: 620
 	Warhead@TankDestroyerCannon: SpreadDamage
-		Damage: 30000
+		Damage: 60000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 30
 
 RA2sabot_elite:
 	Inherits: RA2sabot
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 7187
+	Range: 7200
 	Burst: 2
 	BurstDelays: 5
 
@@ -681,8 +681,8 @@ RA2MirageGun:
 	Inherits: ^RailgunWeapon
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^RA2TankDestroyerCannon
-	ReloadDelay: 46
-	Range: 5913
+	ReloadDelay: 39
+	Range: 6031
 	Report: vmiratta.wav
 	Projectile: InstantHit
 	Warhead@RailgunWeapon: SpreadDamage
@@ -714,7 +714,7 @@ RA2MirageGun:
 RA2MirageGun_elite:
 	Inherits: RA2MirageGun
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 6913
+	Range: 7031
 	Burst: 2
 	BurstDelays: 3
 
@@ -1676,11 +1676,11 @@ RA2Lashmm:
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^RA2MediumCannon
-	ReloadDelay: 37
-	Range: 5135
+	ReloadDelay: 35
+	Range: 5104
 	Report: vlasatta.wav
 	Projectile: Bullet
-		Speed: 490
+		Speed: 510
 	Warhead@Grenade: SpreadDamage
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
@@ -1733,7 +1733,7 @@ RA2Lashmm:
 RA2Lashmm_elite:
 	Inherits: RA2Lashmm
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 5904
+	Range: 6104
 	Burst: 2
 	BurstDelays: 3
 
@@ -2158,6 +2158,7 @@ RA2TeslaDummy:
 	Inherits: ^TeslaWeapon
 	ValidRelationships: Enemy, Neutral
 	ValidTargets: Ground, Water, Trees, Air
+	ReloadDelay: 125
 	Range: 6666
 	-Report:
 	Warhead@TeslaWeapon: SpreadDamage
@@ -2398,6 +2399,27 @@ RA2Shovel:
 		Damage: 1000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
 		Damage: 1
+
+IonPulseDischarge:
+	Range: 4000
+	ReloadDelay: 40
+	Projectile: InstantExplode
+	Warhead@Effect1: CreateEffect
+		Explosions: ra2_emp_fx
+		ExplosionPalette: ra2effect
+	Warhead@Effect2: CreateEffect
+		Explosions: mobileemp_small
+		ExplosionPalette: ra2unit
+		ImpactSounds: mobemp1.aud
+		ImpactActors: false
+		AffectsParent: true
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@Condition: GrantExternalCondition
+		Range: 4000
+		Duration: 40
+		Condition: lockon
+		ValidTargets: lockable
+		ValidRelationships: Enemy
 
 
 ####################################################################################################
@@ -2843,8 +2865,9 @@ MigMissiles_rad:
 	Warhead@Radiation: CreateTintedCells
 		Level: 80
 	Warhead@Effect: CreateEffect
-		Explosions: ra2_terrorist_explosion
-		ImpactSounds: gexpapoa.wav
+		Explosions: ra2radbang
+		ExplosionPalette: ra2effect
+		ImpactSounds: snukexpl.wav
 
 MigMissiles_fire:
 	Inherits: MigMissiles
@@ -2854,6 +2877,9 @@ MigMissiles_fire:
 		ContrailStartColor: EE0000
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_terrorist_explosion
+		ImpactSounds: gexpapoa.wav
 	Warhead@FireShrapnel: FireShrapnel
 		Weapon: AsianFlameFragment
 		Amount: 8
@@ -2868,6 +2894,10 @@ MigMissiles_tesla:
 		ContrailStartColor: 0000EE
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_kirovtesla
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpapoa.wav
 	Warhead@FireShrapnel: FireShrapnel
 		Weapon: TeslaFragment
 		Amount: 4
@@ -3716,15 +3746,15 @@ RA2DoublePistolsIFV:
 
 RA2AWP:
 	Inherits: ^SniperWeapon
-	ReloadDelay: 55
-	Range: 10038
+	ReloadDelay: 54
+	Range: 10000
 	Report: isniatta.wav
 	Warhead@SniperWeapon: SpreadDamage
-		Damage: 22000
+		Damage: 44000
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
-		Damage: 22000
+		Damage: 44000
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
-		Damage: 11
+		Damage: 22
 
 RA2AWPE:
 	Inherits: RA2AWP
@@ -3732,11 +3762,11 @@ RA2AWPE:
 	Projectile: Bullet
 		ContrailStartColor: FF0000FF
 	Warhead@SniperWeapon: SpreadDamage
-		Damage: 44000
+		Damage: 88000
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
-		Damage: 44000
+		Damage: 88000
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
-		Damage: 22
+		Damage: 44
 
 RA2MP5:
 	Inherits: ^SniperWeapon

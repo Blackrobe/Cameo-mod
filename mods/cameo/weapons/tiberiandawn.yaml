@@ -840,6 +840,66 @@ StealthTankMissiles:
 		Explosions: small_poof
 		ImpactSounds: xplobig4.aud
 
+StealthTankMissilesBlackMarket:
+	Inherits: StealthTankMissiles
+	Projectile: Missile
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+	Warhead@Shrapnel: FireShrapnel
+		ValidTargets: Ground, Water, Trees, Air
+		Weapon: StealthTankMissilesShrapnel
+		Amount: 6
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+
+StealthTankMissilesShrapnel:
+	Inherits: ^LightFlameWeapon
+	Burst: 3
+	Range: 3333
+	ValidTargets: Ground, Water, Air
+	Projectile: Missile
+		Shadow: true
+		HorizontalRateOfTurn: 33
+		CruiseAltitude: 3333
+		MinimumLaunchAngle: 33
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		Speed: 333
+		Acceleration: 3
+		RangeLimit: 33333
+		Inaccuracy: 333
+	Warhead@LightFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@PhysicalStateLightFlameWeapon: ApplyPhysicalState
+		Amount: 2000
+	Warhead@PhysicalStateLightFlameWeaponFriendlyFire: ApplyPhysicalState
+		Amount: 1000
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1, 3
+		Duration: 66
+		Speed: 8, 24
+		TurnRate: 4
+		Image: burn-l
+		Sequences: idle
+		Palette: ra_temperat
+		Weapon: CHFlame
+		InvalidTargets: Water
+
 HeliGun:
 	Inherits: ^Chaingun
 	ValidTargets: Ground, Water, Trees, Air
@@ -1248,8 +1308,8 @@ ChemRockets:
 	Inherits: ^Grenade
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^LightMissile
-	ReloadDelay: 60
-	Range: 6763
+	ReloadDelay: 54
+	Range: 6006
 	Report: bazook1.aud
 	Projectile: Missile
 		TrailImage: spittrail

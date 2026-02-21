@@ -12,12 +12,14 @@ World:
 		Side: Tiberian Sun
 		Description: Nod from Tiberian Sun\nFeatures:\n- Subterranean vehicles\n- Stealth generators\n- Tactical missiles with fast charge and flight time\nSupport powers: Cluster & Chemical Missiles
 	FactionCA@forgotten:
+		Selectable: false
 		Name: Forgotten TS (WIP)
 		InternalName: forgotten
 		Game: Tiberian Sun
 		Side: Tiberian Sun
 		Description: Custom Forgotten from Tiberian Sun\nSupport powers: Mutant Commando, Wildlife Rampage
 	FactionCA@cabal:
+		Selectable: false
 		Name: CABAL TS (WIP)
 		InternalName: cabal
 		Game: Tiberian Sun
@@ -3939,7 +3941,7 @@ TSENFORCER:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Enforcer
+		Name: Falcon Enforcer
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -6966,7 +6968,7 @@ TSBIKE:
 	Inherits@TiberiumCoreMissiles: ^TiberiumCoreMissiles
 	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
-		Cost: 450
+		Cost: 550
 	Tooltip:
 		Name: Attack Cycle
 	Buildable:
