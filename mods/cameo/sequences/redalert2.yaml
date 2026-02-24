@@ -8382,6 +8382,10 @@ ra2_allies_upgrade_advancedaeronautics:
 	icon:
 		Filename: ra2_allies_upgrade_advancedaeronautics_icon.png
 
+ra2_allies_upgrade_thunderboltmissiles:
+	icon:
+		Filename: ra2_allies_upgrade_thunderboltmissiles_icon.png
+
 ra2_allies_upgrade_tanklasertargeting:
 	icon:
 		Filename: ra2_allies_upgrade_tanklasertargeting_icon.png

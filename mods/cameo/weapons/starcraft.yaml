@@ -1371,6 +1371,7 @@ WraithDroneLaser:
 		Damage: 10
 
 BCLaser:
+	Inherits: ^NuclearWarhead
 	Inherits: ^RailgunWeapon
 	Inherits: ^HeavyMissile
 	Inherits: ^HeavyCannon
@@ -1381,13 +1382,19 @@ BCLaser:
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 38
-	Range: 7700
+	Range: 6800
 	Report: TPhFi100.aud
 	Projectile: Bullet
-		Speed: 1540
+		Speed: 1360
 		ContrailLength: 6
 		ContrailStartColor: FFBB88
-		ContrailWidth: 154
+		ContrailWidth: 136
+	Warhead@NuclearWarhead: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
 	Warhead@RailgunWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4000
@@ -1444,23 +1451,60 @@ BCLaser:
 		Damage: 2
 
 BCYamatoCannon:
-	Inherits: ^NuclearWarhead
 	Inherits: BCLaser
 	Report: yamatoshoot.wav
 	SoundVolume: 5
 	Projectile: Bullet
-		Speed: 3080
+		Speed: 2720
 		ContrailLength: 12
-		ContrailStartWidth: 616
-		ContrailEndWidth: 154
+		ContrailStartWidth: 544
+		ContrailEndWidth: 136
 		ContrailStartColor: FF8844
 		ContrailEndColor: 88664422
 	Warhead@NuclearWarhead: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 128000
+		Damage: 16000
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 64
+		Damage: 8
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@HeavyAAWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@HeavyBomb: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 8000
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 8000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@Effect: CreateEffect
+		Explosions: nuke_explosion
+		ImpactSounds: nukexplo.aud
+		ImpactActors: false
 
 PhobosLaser:
 	Inherits: ^RailgunWeapon

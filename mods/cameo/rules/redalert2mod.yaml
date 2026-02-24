@@ -16734,7 +16734,7 @@ nax_sturmtiger:
 
 nax_hetzer:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -16788,7 +16788,7 @@ nax_hetzer:
 
 nax_jagdpanzer:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -19642,7 +19642,7 @@ futu_enforcer:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	ActorStatValues:
-		Upgrades: upra2gi
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_elitegi, ra2_allies_upgrade_thunderboltmissiles
 
 futu_javelinsoldier:
 	Inherits: ^Soldier
@@ -19782,7 +19782,7 @@ futu_javelinsoldier:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	ActorStatValues:
-		Upgrades: upra2gi
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_elitegi, ra2_allies_upgrade_thunderboltmissiles
 
 futu_fedeng:
 	Inherits: RA2ENGINEER

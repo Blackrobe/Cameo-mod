@@ -7934,7 +7934,7 @@ CPQDEBUGDUMMY:
 	Targetable@garrisoned:
 		TargetTypes: GarrisonedNBC
 	ActorStatValues:
-		Stats: Armor, Sight, Cargo, ReloadDelay, MaxRange, Power, Kills
+		Stats: Armor, Sight, Cargo, ReloadDelay, MaxRange, Power, Kills, Experience
 
 ^PointLaserDefenseSystem:
 	#Turreted@pointdefense:

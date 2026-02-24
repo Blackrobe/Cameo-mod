@@ -5283,6 +5283,9 @@ SCBATTLECRUISER:
 		RequiresCondition: upyamatocannon
 		PauseOnCondition: ammo < 100 || tacticaljump
 		AmmoUsage: 100
+	RangeMultiplier@upyamatocannon:
+		RequiresCondition: upyamatocannon
+		Modifier: 115
 	GrantConditionOnPrerequisite@upyamatocannon:
 		Condition: upyamatocannon
 		Prerequisites: upyamatocannon
@@ -10596,7 +10599,7 @@ upyamatocannon:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Allows the use of the Yamato Cannon and Tactical Jump for the Battle Cruiser and Phobos
+		Description: Allows the use of the Yamato Cannon and Tactical Jump for the Battle Cruiser and Phobos. Increases Battlecruiser Range by 15%.
 		Prerequisites: ~scsciencefacility, ~!upyamatocannon
 	RenderSprites:
 		Image: scyamatocannon

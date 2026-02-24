@@ -232,6 +232,82 @@ RA2Patriot:
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 5
 
+RA2PatriotThunderboltMissile:
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^FlakWeapon
+	Inherits: ^ArrowWeapon
+	Inherits: ^RA2LightMissile
+	ReloadDelay: 30
+	Range: 14150
+	Burst: 2
+	BurstDelays: 6
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 800
+		Arm: 2
+		Inaccuracy: 400
+		RangeLimit: 16000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 25
+		MaximumLaunchAngle: 125
+		MaximumLaunchSpeed: 400
+		MinimumLaunchSpeed: 400
+		Acceleration: 10
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+
 HarrierMissiles:
 	Inherits: ^LightFlameWeapon
 	Inherits: ^Grenade
@@ -333,7 +409,7 @@ BlackEagleMissiles:
 	BurstDelays: 2
 	Range: 9000
 	Report: vbleatta.wav, vbleattb.wav
-	ValidTargets: Ground, Water
+	ValidTargets: Ground, Water, Air
 	TargetActorCenter: true
 	Projectile: Missile
 		Speed: 400
@@ -350,28 +426,153 @@ BlackEagleMissiles:
 		Acceleration: 10
 	Warhead@Grenade: SpreadDamage
 		Damage: 16000
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		Damage: 8000
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		Damage: 8
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 	Warhead@HeavyBomb: SpreadDamage
 		Damage: 16000
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		Damage: 8
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 	Warhead@MediumMissile: SpreadDamage
 		Damage: 16000
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 8
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 
 BlackEagleMissiles_elite:
 	Inherits: BlackEagleMissiles
+	Range: 10000
+	Burst: 8
+	Projectile: Missile
+		Image: red_dragon
+		TrailImage: red_smokey
+		ContrailColor: e60000
+		ContrailStartColor: E60000
+		ContrailEndColorUsePlayerColor: true
+		ContrailEndColor: FFFFFF
+
+BlackEagleThunderboltMissiles:
+	Inherits: ^Grenade
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^HeavyBomb
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^FlakWeapon
+	Inherits: ^ArrowWeapon
+	Inherits: ^RA2LightMissile
+	ReloadDelay: 50
+	Burst: 4
+	BurstDelays: 2
+	Range: 9000
+	Report: vbleatta.wav, vbleattb.wav
+	ValidTargets: Ground, Water, Air
+	TargetActorCenter: true
+	Projectile: Missile
+		Speed: 400
+		Arm: 2
+		Inaccuracy: 2000
+		RangeLimit: 20000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 200
+		MaximumLaunchAngle: 200
+		MaximumLaunchSpeed: 200
+		MinimumLaunchSpeed: 200
+		Acceleration: 10
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 3000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 3000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+
+BlackEagleThunderboltMissiles_elite:
+	Inherits: BlackEagleThunderboltMissiles
 	Range: 10000
 	Burst: 8
 	Projectile: Missile
@@ -777,6 +978,7 @@ RA2HoverMissile:
 	Burst: 2
 	BurstDelays: 4
 	Report: vifvatta.wav
+	ValidTargets: Ground, Water, Trees
 	Warhead@ArrowWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 6000
@@ -810,11 +1012,114 @@ RA2HoverMissile_elite:
 		Explosions: ra2_medium_grey_explosion
 		ImpactSounds: gexp15a.wav
 
+RA2HoverMissileAA:
+	Inherits: RA2HoverMissile
+	ValidTargets: Air
+	Range: 8640
+
+RA2HoverMissileAA_elite:
+	Inherits: RA2HoverMissile_elite
+	ValidTargets: Air
+	Range: 9640
+
+RA2ThunderboltMissile:
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^FlakWeapon
+	Inherits: RA2HoverMissile
+	Projectile: Missile
+		Speed: 800
+		Arm: 2
+		Inaccuracy: 400
+		RangeLimit: 16000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 25
+		MaximumLaunchAngle: 125
+		MaximumLaunchSpeed: 400
+		MinimumLaunchSpeed: 400
+		Acceleration: 10
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+
+RA2ThunderboltMissile_elite:
+	Inherits: RA2ThunderboltMissile
+	Range: 6760
+	Burst: 4
+	Projectile: Missile
+		Image: red_dragon
+		Shadow: true
+		TrailImage: red_smokey
+		ContrailStartColor: e60000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+RA2ThunderboltMissileAA:
+	Inherits: RA2ThunderboltMissile
+	ValidTargets: Air
+	Range: 8640
+
+RA2ThunderboltMissileAA_elite:
+	Inherits: RA2ThunderboltMissile_elite
+	ValidTargets: Air
+	Range: 9640
+
 RA2MultiHoverMissile:
-	Inherits: ^RA2MediumCannon
-	Inherits: ^RA2MediumMissile
+	Inherits: ^MediumCannon
+	Inherits: ^MediumChemicalWeapon
 	Inherits@2: RA2HoverMissile
-	Range: 6169
+	Range: 6170
 	ReloadDelay: 20
 	Burst: 4
 	Report: vifvatta.wav
@@ -854,6 +1159,79 @@ RA2MultiHoverMissile:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+
+RA2MultiHoverMissile_elite:
+	Inherits: RA2MultiHoverMissile
+	Range: 7170
+	Burst: 4
+	Projectile: Missile
+		Image: red_dragon
+		Shadow: true
+		TrailImage: red_smokey
+		ContrailStartColor: e60000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+RA2MultiHoverMissileAA:
+	Inherits: RA2MultiHoverMissile
+	ValidTargets: Air
+	Range: 9255
+
+RA2MultiHoverMissileAA_elite:
+	Inherits: RA2MultiHoverMissile_elite
+	ValidTargets: Air
+	Range: 10255
+
+RA2MultiThunderboltMissile:
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^FlakWeapon
+	Inherits: RA2MultiHoverMissile
+	Projectile: Missile
+		Speed: 800
+		Arm: 2
+		Inaccuracy: 400
+		RangeLimit: 16000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 25
+		MaximumLaunchAngle: 125
+		MaximumLaunchSpeed: 200
+		MinimumLaunchSpeed: 200
+		Acceleration: 10
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
@@ -862,6 +1240,38 @@ RA2MultiHoverMissile:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+
+RA2MultiThunderboltMissile_elite:
+	Inherits: RA2MultiThunderboltMissile
+	Range: 7170
+	Burst: 4
+	Projectile: Missile
+		Image: red_dragon
+		Shadow: true
+		TrailImage: red_smokey
+		ContrailStartColor: e60000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+RA2MultiThunderboltMissileAA:
+	Inherits: RA2MultiThunderboltMissile
+	ValidTargets: Air
+	Range: 9255
+
+RA2MultiThunderboltMissileAA_elite:
+	Inherits: RA2MultiThunderboltMissile_elite
+	ValidTargets: Air
+	Range: 10255
+
 
 RA2TURRETFLAKAA:
 	Inherits: ^RA2FlakWeapon
