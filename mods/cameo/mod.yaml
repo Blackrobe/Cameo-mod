@@ -114,6 +114,7 @@ Rules:
 	cameo|ai/ai.yaml
 	cameo|rules/tiberiandawn.yaml
 	cameo|rules/redalert.yaml
+	cameo|rules/tiberiansun.yaml
 	cameo|rules/redalert2.yaml
 	cameo|rules/redalert2mod.yaml
 	cameo|rules/d2k.yaml
@@ -138,7 +139,6 @@ Rules:
 	# cameo|rules/tiberiaalliances.yaml
 	# cameo|rules/iok.yaml
 	# cameo|rules/n64.yaml
-	cameo|rules/tiberiansun.yaml
 	# cameo|rules/warcraft1.yaml
 	# cameo|rules/wz2100.yaml
 	# cameo|rules/worms.yaml

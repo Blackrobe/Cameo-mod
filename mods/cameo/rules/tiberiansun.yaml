@@ -1918,7 +1918,7 @@ tsntmisl:
 			1: multimiss
 			2: chemicalmiss
 		TargetCircleRange: 5c0
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Names:
 			1: power-nuke.raname
 			2: power-nuke.raname
@@ -4032,7 +4032,7 @@ TSRIOTT:
 
 TSJUMPJET:
 	Inherits: ^Soldier
-	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -4060,13 +4060,9 @@ TSJUMPJET:
 	Health:
 		HP: 20000
 	ChangesHealth@SelfHealing:
-		Step: 80
-	Armor:
-		Type: Light
+		Step: 8
 	Passenger:
 		CustomPipType: green
-	RevealsShroud:
-		Range: 6c0
 	Armament@PRIMARY:
 		Weapon: TSJumpCannon
 	# AttackFrontal:

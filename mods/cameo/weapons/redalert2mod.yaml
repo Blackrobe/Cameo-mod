@@ -6831,21 +6831,26 @@ RA2Narco60mmE:
 
 RA2FreedomAK47:
 	Inherits: ^SniperWeapon
-	ReloadDelay: 10
-	Range: 5473
+	ReloadDelay: 40
+	Range: 7130
 	Burst: 6
 	BurstDelays: 2
 	Report: islyat1a.wav, islyat1b.wav
 	ValidTargets: Ground, Water, Trees, Air, Garrisoned
+	Projectile: Bullet
+		Inaccuracy: 100
 	Warhead@SniperWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 10000
+		Damage: 20000
+		Spread: 100
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 10000
+		Damage: 20000
+		Spread: 100
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 5
+		Damage: 10
+		Spread: 100
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_piffs
 	Warhead@Effect1: CreateEffect
@@ -6853,16 +6858,18 @@ RA2FreedomAK47:
 
 RA2FreedomAK47E:
 	Inherits: RA2FreedomAK47
-	Range: 6473
+	Range: 8130
 	Burst: 12
 	BurstDelays: 1
+	Projectile: Bullet
+		Inaccuracy: 200
 
 RA2FreedomRocket:
 	Inherits: ^FlakWeapon
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^RA2MediumMissile
-	ReloadDelay: 40
-	Range: 5473
+	ReloadDelay: 100
+	Range: 7130
 	Report: vaegatta.wav, vaegattb.wav
 	ValidTargets: Ground, Water, Trees, Air, Garrisoned
 	Projectile: Missile
@@ -6871,29 +6878,29 @@ RA2FreedomRocket:
 		ContrailLength: 35
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 30000
+		Damage: 60000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 15
+		Damage: 30
 	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 30000
+		Damage: 60000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 15000
+		Damage: 30000
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 15
+		Damage: 30
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 30000
+		Damage: 60000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
-		Damage: 15
+		Damage: 30
 
 RA2FreedomRocketE:
 	Inherits: RA2FreedomRocket
-	Range: 6473
+	Range: 8130
 	Projectile: Missile
 		Image: red_dragon
 		Shadow: true
@@ -6903,19 +6910,19 @@ RA2FreedomRocketE:
 		ContrailEndColorUsePlayerColor: true
 		ContrailEndColor: FFFFFF
 	Warhead@FlakWeapon: SpreadDamage
-		Damage: 60000
+		Damage: 120000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		Damage: 30
+		Damage: 60
 	Warhead@ShrapnelWeapon: SpreadDamage
-		Damage: 60000
+		Damage: 120000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
-		Damage: 30000
-	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
-		Damage: 30
-	Warhead@MediumMissile: SpreadDamage
 		Damage: 60000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 60
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 120000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 30
+		Damage: 60
 
 SyndicateFireballLauncher:
 	Inherits: ^LightFlameWeapon
@@ -8098,75 +8105,75 @@ RA2TOPOLCuba:
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 1000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
-		Spread: 10000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 5000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
-		Spread: 5000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 7500
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 20000
-		Spread: 7500
+		Damage: 10000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
-		Spread: 7500
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 6000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 20000
-		Spread: 6000
+		Damage: 10000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
-		Spread: 6000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@LightChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 3333
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 20000
-		Spread: 3333
+		Damage: 10000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
-		Spread: 3333
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 20000
-		Spread: 4000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 20000
-		Spread: 4000
+		Damage: 10000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 10
-		Spread: 4000
+		Falloff: 100, 85, 70, 55, 40, 25, 10
 	Warhead@3Eff_impact: CreateEffect
 		Explosions: ra2nuke
 		ExplosionPalette: ra2effect
 		ImpactSounds: snukexpl.wav
 	Warhead@Radiation: CreateTintedCells
 		Spread: 1000
-		Falloff: 100, 80, 60, 40, 20
-		Level: 100
+		Falloff: 100, 85, 70, 55, 40, 25, 10
+		Level: 1000
 		LayerName: ra2radiation
 
 RA2APCFlakCannon:

@@ -4041,10 +4041,9 @@ yak:
 
 yaktesla:
 	Defaults:
-		Filename: yak.shp
-		Scale: 1.25
+		Filename: ra1_soviets_yaktesla.png
 	idle:
-		Facings: 16
+		Facings: 32
 		InterpolatedFacings: 64
 	muzzle:
 		Filename: minigun.shp
@@ -4055,10 +4054,10 @@ yaktesla:
 
 yakarmored:
 	Defaults:
-		Filename: yak.shp
-		Scale: 1.25
+		Filename: ra1_soviets_yakarmored.png
 	idle:
 		Facings: 16
+		Length: 3
 		InterpolatedFacings: 64
 	muzzle:
 		Filename: minigun.shp

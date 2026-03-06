@@ -1901,8 +1901,9 @@ upgrade-latin_up_industrial =
 
 upgrade-uplatin_alliedstolentech =
    .description = Stolen Tech from Allies:
-      Increases Speed of all Vehicles by 25%.
-      Freedom Fighters and Diablos disguise as trees and gain 25% higher range.
+      Increases Speed of all Vehicles by 25% and Range by 5%.
+      Freedom Fighters and Diablos disguise as trees.
+      Freedom Fighters gain 10% higher range and Diablos 25% higher range.
 
 upgrade-latin_up_hotfire =
    .description =  Stolen Tech from Asian Alliance:

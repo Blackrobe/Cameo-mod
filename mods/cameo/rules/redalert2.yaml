@@ -5487,6 +5487,7 @@ RA2FV:
 	Inherits@RA2AlliedThunderboltMissiles: ^RA2AlliedThunderboltMissiles
 	Inherits@RA2AlliedPrismaticBarrier: ^RA2AlliedPrismaticBarrier
 	Inherits@RA2AlliedChronoEngine: ^RA2AlliedChronoEngine
+	Inherits@RA2AlliedTankLaserTargeting: ^RA2AlliedTankLaserTargeting
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -5768,7 +5769,7 @@ RA2FV:
 		PlayerPalette: playerra2
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo, Kills
-		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_thunderboltmissiles
+		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine, ra2_allies_upgrade_thunderboltmissiles, ra2_allies_upgrade_tanklasertargeting
 
 RA2FVBOTMG:
 	Inherits: RA2FV
@@ -6106,6 +6107,9 @@ yrbfrt:
 	Inherits@crush: ^VehicleCrusher
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Inherits@RA2AlliedCompositeArmorPlatings: ^RA2AlliedCompositeArmorPlatings
 	Inherits@RA2AlliedReflectiveArmorPlatings: ^RA2AlliedReflectiveArmorPlatings
 	Inherits@RA2AlliedChromiumIonPulsePlatings: ^RA2AlliedChromiumIonPulsePlatings
@@ -6172,7 +6176,7 @@ yrbfrt:
 		Image: yrbfrt
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_compositearmorplating, ra2_allies_upgrade_reflectivearmorplating, ra2_allies_upgrade_ionpulseplating, ra2_allies_upgrade_prismaticbarrier, ra2_allies_upgrade_chronoengine
 	#RenderVoxels:
 	#	Image: yrbfrt
 
@@ -9234,11 +9238,14 @@ YRDISK:
 
 ra2rock:
 	Inherits: ^JumpjetInfantry
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericAirDetector
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2AlliedAssaultSquadTraining: ^RA2AlliedAssaultSquadTraining
+	Inherits@RA2AlliedEliteVanguardTraining: ^RA2AlliedEliteVanguardTraining
+	Inherits@RA2AlliedInfiltratorsTraining: ^RA2AlliedInfiltratorsTraining
 	Tooltip:
 		Name: Rocketeer
 	Valued:
@@ -9306,7 +9313,7 @@ ra2rock:
 	ProducibleWithLevel@spyinfantry:
 		Prerequisites: infantry.upgraded
 	ActorStatValues:
-		Upgrades: ra2_allies_upgrade_eliterocketeer
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_eliterocketeer
 
 ra2rock.husk:
 	Inherits: ^HelicopterHusk
@@ -9335,7 +9342,7 @@ ra2rock.husk:
 
 yrlunr:
 	Inherits: ^JumpjetInfantry
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericAirDetector
@@ -13122,6 +13129,12 @@ ra2_allies_upgrade_infiltratorstraining:
 		Prerequisite: ra2_allied_doctrine_1
 
 ^RA2AlliedInfiltratorsTraining:
+	SpeedMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 105
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	DamageMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 95
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
 	RangeMultiplier@ra2_allies_upgrade_infiltratorstraining:
 		Modifier: 120
 		RequiresCondition: ra2_allies_upgrade_infiltratorstraining

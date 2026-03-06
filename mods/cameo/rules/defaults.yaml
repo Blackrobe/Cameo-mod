@@ -1501,10 +1501,10 @@
 	FirepowerMultiplier@BomberBuff:
 		Modifier: 110
 	Aircraft:
-		CruiseAltitude: 4000
-		RepulsionSpeed: 40
-		MaximumPitch: 40
-		IdealSeparation: 2000
+		CruiseAltitude: 3500
+		RepulsionSpeed: 35
+		MaximumPitch: 35
+		IdealSeparation: 1750
 	Armor:
 		Type: Bomber
 	RevealsShroud:
@@ -1599,6 +1599,38 @@
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
 		Description: Epic
+
+^FlyingInfantryTemplate:
+	Inherits@EXPERIENCE: ^GainsExperienceAircraft
+	Inherits@EXT: ^ExternalConditions
+	Inherits@detect: ^GenericAllDetector
+	Inherits@AircraftBuffs: ^AircraftBuffs
+	Inherits@InfantryBuffs: ^InfantryBuffs
+	Aircraft:
+		CruiseAltitude: 1000
+		RepulsionSpeed: 20
+		MaximumPitch: 20
+		IdealSeparation: 750
+		AltitudeVelocity: 150
+	Armor:
+		Type: Scout
+	DamageMultiplier@FlyingInfantryBuff:
+		Modifier: 75
+	RevealsShroud:
+		Range: 7000
+		Type: GroundPosition
+	DetectCloaked:
+		Range: 3500
+	AutoTarget:
+		InitialStance: Defend
+		InitialStanceAI: AttackAnything
+		ScanRadius: 10
+	RenderRangeCircle:
+	Buildable:
+		BuildPaletteOrder: 20
+		BuildDurationModifier: 50
+	TooltipExtras@FlyingInfantryTemplate:
+		Description: Flying Infantry
 
 ^UnarmedTransportHelicopterTemplate:
 	Inherits@Template: ^HelicopterTemplate
