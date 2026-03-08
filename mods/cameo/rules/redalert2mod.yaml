@@ -4896,8 +4896,6 @@ latin_cgup:
 		Modifier: 50
 	RevealsShroud:
 		Range: 10000
-	ActorStatValues:
-		Stats: Armor, Sight, Cargo, Kills, Experience
 	GivesBuildableArea:
 
 latin_cgte:
@@ -5934,7 +5932,7 @@ latin_fftr:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
 	RangeMultiplier@uplatin_alliedstolentech:
-		Modifier: 125
+		Modifier: 110
 		RequiresCondition: uplatin_alliedstolentech
 	Mirage:
 		RequiresCondition: !disabled && uplatin_alliedstolentech
@@ -8387,6 +8385,9 @@ team_upgrade.uplatin_cashrecover:
 	SpeedMultiplier@uplatin_alliedstolentech:
 		Modifier: 125
 		RequiresCondition: uplatin_alliedstolentech
+	RangeMultiplier@uplatin_alliedstolentech:
+		Modifier: 105
+		RequiresCondition: uplatin_alliedstolentech
 	GrantConditionOnPrerequisite@latin_up_industrial:
 		Condition: latin_up_industrial
 		Prerequisites: latin_up_industrial
@@ -9068,14 +9069,14 @@ steel_bfg10k:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		ReloadingCondition: reload4
-		PauseOnCondition: empdisable || disabled || reload1 || reload2 || reload3 || reload4
+		PauseOnCondition: disabled || reload1 || reload2 || reload3 || reload4
 	Armament@Weapon:
 		Weapon: bfg10kCannon
 		LocalOffset: 2500,0,1500
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		ReloadingCondition: reload3
-		PauseOnCondition: empdisable || disabled || reload || reload2 || reload3 || reload4
+		PauseOnCondition: disabled || reload1 || reload2 || reload3 || reload4
 		FireDelay: 10
 	Armament@SuperDummy:
 		Name: superweapon
@@ -9084,7 +9085,7 @@ steel_bfg10k:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		ReloadingCondition: reload2
-		PauseOnCondition: empdisable || disabled || reload || reload2 || reload3 || reload4
+		PauseOnCondition: disabled || reload1 || reload2 || reload3 || reload4
 	Armament@SuperWeapon:
 		Name: superweapon
 		Weapon: superbfg10kCannon
@@ -9093,13 +9094,13 @@ steel_bfg10k:
 		MuzzlePalette: ra2effect
 		FireDelay: 10
 		ReloadingCondition: reload1
-		PauseOnCondition: empdisable || disabled || reload || reload2 || reload3 || reload4
+		PauseOnCondition: disabled || reload1 || reload2 || reload3 || reload4
 	ReloadArmamentsBar:
 		Armaments: primary, superweapon
 		ShowMaxReloadTime: true
 	FireArmamentPower:
 		AllowMultiple: true
-		PauseOnCondition: empdisable || disabled || reload1 || reload2 || reload3 || reload4
+		PauseOnCondition: disabled || reload1 || reload2 || reload3 || reload4
 		ArmamentName: superweapon
 		Prerequisites:
 			1: ~techlevel.superweapons
@@ -9184,8 +9185,8 @@ steel_qoil:
 	Inherits@power: ^PowerPlant
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
+	Inherits@IDISABLE: ^DisabledOverlay
 	Inherits@shape: ^4x4Shape
-	Inherits@Bot: ^BotMicromanageable
 	Inherits@water: ^SteelUnderwaterStructure
 	Tooltip:
 		Name: Geothermal Reactor
@@ -9195,7 +9196,7 @@ steel_qoil:
 		BuildPaletteOrder: 999
 		BuildDuration: 1500
 		BuildDurationModifier: 100
-		Prerequisites: ~steel_qatech, ~techlevel.medium, derricklimit
+		Prerequisites: ~steel_qacst, steel_qatech, derricklimit
 		Description: Super Income Building. Produces 3x the income of an oil derrick.
 	Building:
 		Footprint: xxxx xxxx xxxx xxxx
@@ -9214,13 +9215,14 @@ steel_qoil:
 		Image: steel_qoil
 		PlayerPalette: playerra2cons
 	-WithDeathAnimation:
+	-ToggleConditionOnOrder:
 	WithIdleOverlay@idle-water:
 		Sequence: idle-water
-		PauseOnCondition: lowpower
+		#PauseOnCondition: lowpower
 		RequiresCondition: !build-incomplete && in_water
 	WithIdleOverlay@idle-ground:
 		Sequence: idle-ground
-		PauseOnCondition: lowpower
+		#PauseOnCondition: lowpower
 		RequiresCondition: !build-incomplete && !in_water
 	ActorStatValues:
 		Upgrades: upsteel_shielresistance
@@ -11541,7 +11543,7 @@ steel_cruiser:
 	CarrierMaster:
 		Actors: steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f, steel_cruiser_f
 		RearmTicks: 25
-		RespawnTicks: 50
+		RespawnTicks: 75
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
@@ -13930,7 +13932,7 @@ nax_tcons:
 
 nax_litt:
 	Inherits: ^JumpjetInfantry
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@OstfrontExperience: ^OstfrontExperience
@@ -17038,7 +17040,7 @@ nax_sturmtiger:
 
 nax_hetzer:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -17092,7 +17094,7 @@ nax_hetzer:
 
 nax_jagdpanzer:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -19527,12 +19529,13 @@ futu_egshock:
 	Inherits@power: ^PowerPlant
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
+	Inherits@IDISABLE: ^DisabledOverlay
 	Inherits@shape: ^3x3Shape
 	Tooltip:
 		Name: Shock Center
 	Buildable:
 		BuildLimit: 1
-		Prerequisites: ~futu_egcnst, futu_egtech
+		Prerequisites: ~futu_egcnst, futu_egtech, derricklimit
 		BuildPaletteOrder: 999
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -19551,6 +19554,7 @@ futu_egshock:
 		Amount: 750
 	ExperienceTrickler@1:
 		Amount: 750
+	-ToggleConditionOnOrder:
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
 		RequiresCondition: !build-incomplete
@@ -19946,7 +19950,7 @@ futu_enforcer:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	ActorStatValues:
-		Upgrades: upra2gi
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_elitegi, ra2_allies_upgrade_thunderboltmissiles
 
 futu_javelinsoldier:
 	Inherits: ^Soldier
@@ -20086,7 +20090,7 @@ futu_javelinsoldier:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	ActorStatValues:
-		Upgrades: upra2gi
+		Upgrades: ra2_allies_upgrade_assaultsquadtraining, ra2_allies_upgrade_vanguardtraining, ra2_allies_upgrade_infiltratorstraining, ra2_allies_upgrade_elitegi, ra2_allies_upgrade_thunderboltmissiles
 
 futu_fedeng:
 	Inherits: RA2ENGINEER

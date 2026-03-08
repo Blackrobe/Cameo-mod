@@ -168,6 +168,9 @@ World:
 	ReloadDelayMultiplier@ra_upgrade_autoloaders:
 		RequiresCondition: ra_upgrade_autoloaders
 		Modifier: 60
+	ReloadAmmoDelayMultiplier@ra_upgrade_autoloaders:
+		RequiresCondition: ra_upgrade_autoloaders
+		Modifier: 60
 	GrantConditionOnPrerequisite@ra_upgrade_autoloaders:
 		Condition: ra_upgrade_autoloaders
 		Prerequisites: ra_upgrade_autoloaders
@@ -4568,41 +4571,41 @@ yaktesla:
 		PauseOnCondition: ammo < 16
 	Armament@Tesla:
 		Weapon: YakTeslaGun
-		LocalOffset: 400,0,0
+		LocalOffset: 750,0,-100
 		MuzzleSequence: muzzle
 		AmmoUsage: 4
 		PauseOnCondition: ammo < 16
 		RequiresCondition: !ra_upgrade_teslaarcing
 	Armament@Arcing:
 		Weapon: YakTeslaGunArc
-		LocalOffset: 400,0,0
+		LocalOffset: 750,0,-100
 		MuzzleSequence: muzzle
 		AmmoUsage: 4
 		PauseOnCondition: ammo < 16
 		RequiresCondition: ra_upgrade_teslaarcing
 	Armament@PRIMARY:
 		Weapon: YakChainGun
-		LocalOffset: 320,-266,0
+		LocalOffset: 320,-480,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 16
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: YakChainGun
-		LocalOffset: 320,266,0
+		LocalOffset: 320,480,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 16
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@Upgrade1:
 		Weapon: IncendiaryYakChainGun
-		LocalOffset: 320,-266,0
+		LocalOffset: 320,-480,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 16
 		RequiresCondition: ra_upgrade_incendiarybullets
 	Armament@Upgrade2:
 		Name: secondary
 		Weapon: IncendiaryYakChainGun
-		LocalOffset: 320,266,0
+		LocalOffset: 320,480,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: ammo < 16
 		RequiresCondition: ra_upgrade_incendiarybullets
@@ -4616,13 +4619,13 @@ yaktesla:
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
-		Offset: -853,0,0
+		Offset: -900,0,300
 	SpawnActorOnDeath:
 		Actor: YAK.Husk
 	EjectOnDeath:
 		PilotActor: RAE2
 	LeavesTrails:
-		Offsets: -853,0,0
+		Offsets: -900,0,300
 		MovingInterval: 2
 		Image: smokey
 		StationaryInterval: 2
@@ -4647,7 +4650,7 @@ yaktesla:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	RenderSprites:
-		PlayerPalette: raplayer
+		PlayerPalette: player_rgba
 	ActorStatValues:
 		Upgrades: ra_doctrine_teslatech, ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_stalinium
 
@@ -4670,7 +4673,7 @@ yakarmored:
 		Prerequisites: ~ra_upgrade_yakarmored
 		Description: actor-yak.description
 	Valued:
-		Cost: 1400
+		Cost: 1600
 	Tooltip:
 		Name: Armored Yak
 	UpdatesPlayerStatistics:
@@ -4683,27 +4686,27 @@ yakarmored:
 		Step: 80
 	Armament@PRIMARY:
 		Weapon: ArmoredYakChainGun
-		LocalOffset: 320,-266,0
+		LocalOffset: 160,-320,-80
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ArmoredYakChainGun
-		LocalOffset: 320,266,0
+		LocalOffset: 160,320,-80
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@Upgrade1:
 		Weapon: IncendiaryArmoredYakChainGun
-		LocalOffset: 320,-266,0
+		LocalOffset: 160,-320,-80
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: ra_upgrade_incendiarybullets
 	Armament@Upgrade2:
 		Name: secondary
 		Weapon: IncendiaryArmoredYakChainGun
-		LocalOffset: 320,266,0
+		LocalOffset: 160,320,-80
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 		RequiresCondition: ra_upgrade_incendiarybullets
@@ -4715,13 +4718,13 @@ yakarmored:
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
-		Offset: -853,0,0
+		Offset: -900,0,150
 	SpawnActorOnDeath:
 		Actor: YAK.Husk
 	EjectOnDeath:
 		PilotActor: RAE2
 	LeavesTrails:
-		Offsets: -853,0,0
+		Offsets: -900,0,150
 		MovingInterval: 2
 		Image: smokey
 		StationaryInterval: 2
@@ -4746,7 +4749,7 @@ yakarmored:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	RenderSprites:
-		PlayerPalette: raplayer
+		PlayerPalette: player_rgba
 	ActorStatValues:
 		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_autoloaders, ra_upgrade_stalinium
 
@@ -13328,7 +13331,7 @@ MODHOVER:
 
 ROCKETANGEL:
 	Inherits: ^JumpjetInfantry
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -13363,8 +13366,6 @@ ROCKETANGEL:
 		HP: 25000
 	ChangesHealth@SelfHealing:
 		Step: 10
-	Armor:
-		Type: Scout
 	Armament@PRIMARY:
 		Weapon: RocketAngelRockets
 		LocalOffset: 512,-512,512, 512,512,512, 512,-512,512, 512,512,512

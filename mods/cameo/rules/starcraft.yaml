@@ -5283,6 +5283,9 @@ SCBATTLECRUISER:
 		RequiresCondition: upyamatocannon
 		PauseOnCondition: ammo < 100 || tacticaljump
 		AmmoUsage: 100
+	RangeMultiplier@upyamatocannon:
+		RequiresCondition: upyamatocannon
+		Modifier: 115
 	GrantConditionOnPrerequisite@upyamatocannon:
 		Condition: upyamatocannon
 		Prerequisites: upyamatocannon
@@ -7464,7 +7467,7 @@ SCCARRIER:
 		FacingTolerance: 10
 		AttackType: Hover
 	CarrierMaster:
-		Actors: SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR
+		Actors: SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR
 		RearmTicks: 25
 		RespawnTicks: 100
 		InstaRepair: true
@@ -7479,80 +7482,6 @@ SCCARRIER:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
 		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
-	RenderSprites:
-		PlayerPalette: player_rgba
-
-SCSTARSHIPSOVEREIGN:
-	Inherits: ^AirProtoss
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
-	Inherits@Template: ^SpaceshipTemplate
-	Inherits@Epic: ^EpicAirUnitTemplate
-	Inherits@exp: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@explode: ^HeliExplodeProtoss
-	Inherits@announce: ^AnnounceGlobal
-	Inherits@weapon: ^ProtossAirWeaponUpgrades
-	Inherits@armor: ^ProtossAirArmorUpgrades
-	Inherits@speed: ^GraviticUpgrade
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Tooltip:
-		Name: Starship Sovereign
-	Valued:
-		Cost: 10000
-	Power:
-		Amount: -500
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		BuildPaletteOrder: 20
-		BuildLimit: 1
-		Prerequisites: ~scfleetbeacon, ~upstarsovereign
-		Queue: Aircraft, RAAircraft
-		Description: Heavy protoss warship, deploys\n5 interceptor craft.\n Strong vs Vehicles, Aircraft
-	Aircraft:
-		Speed: 40
-		TurnSpeed: 16
-		RepulsionSpeed: 16
-	Health:
-		HP: 750000
-	Repairable:
-		HpPerStep: 37500
-	ChangesHealth@SelfHealing:
-		Step: 300
-	Shielded:
-		RegenAmount: 600
-	Armament:
-		Weapon: StarshipSovereignBeam
-		LocalOffset: 1700,0,25
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	FirepowerMultiplier@Cryo:
-		Modifier: 75
-	AttackAircraft:
-		FacingTolerance: 10
-		AttackType: Hover
-	CarrierMaster:
-		Actors: SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR
-		RearmTicks: 25
-		RespawnTicks: 50
-		InstaRepair: true
-		SlaveDisposalOnKill: KillSlaves
-		SpawnAllAtOnce: false
-	-SpawnActorOnDeath:
-	WithMuzzleOverlay:
-	DeathSounds:
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 2048, 2048
-	Voiced:
-		VoiceSet: SCCarrierVoice
-	ActorStatValues:
-		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
-	ChangesHealth:
-		Step: 32
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7617,6 +7546,80 @@ SCINTERCEPTOR:
 		Type: Rectangle
 			TopLeft: -512, -512
 			BottomRight: 512, 512
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+SCSTARSHIPSOVEREIGN:
+	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^SpaceshipTemplate
+	Inherits@Epic: ^EpicAirUnitTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@explode: ^HeliExplodeProtoss
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
+	Inherits@speed: ^GraviticUpgrade
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Tooltip:
+		Name: Starship Sovereign
+	Valued:
+		Cost: 10000
+	Power:
+		Amount: -500
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 20
+		BuildLimit: 1
+		Prerequisites: ~scfleetbeacon, ~upstarsovereign
+		Queue: Aircraft, RAAircraft
+		Description: Heavy protoss warship, deploys\n5 interceptor craft.\n Strong vs Vehicles, Aircraft
+	Aircraft:
+		Speed: 40
+		TurnSpeed: 16
+		RepulsionSpeed: 16
+	Health:
+		HP: 750000
+	Repairable:
+		HpPerStep: 37500
+	ChangesHealth@SelfHealing:
+		Step: 300
+	Shielded:
+		RegenAmount: 600
+	Armament:
+		Weapon: StarshipSovereignBeam
+		LocalOffset: 1700,0,25
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	FirepowerMultiplier@Cryo:
+		Modifier: 75
+	AttackAircraft:
+		FacingTolerance: 10
+		AttackType: Hover
+	CarrierMaster:
+		Actors: SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR, SCINTERCEPTOR
+		RearmTicks: 25
+		RespawnTicks: 50
+		InstaRepair: true
+		SlaveDisposalOnKill: KillSlaves
+		SpawnAllAtOnce: false
+	-SpawnActorOnDeath:
+	WithMuzzleOverlay:
+	DeathSounds:
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 2048, 2048
+	Voiced:
+		VoiceSet: SCCarrierVoice
+	ActorStatValues:
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
+	ChangesHealth:
+		Step: 32
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -8973,7 +8976,7 @@ SCCORRUPTOR:
 
 SCSWARMLING:
 	Inherits: ^AirZerg
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
@@ -9161,7 +9164,7 @@ SCSWARMLING:
 SCSHRIEK:
 	Inherits: ^AirZerg
 	Inherits@ZergDoubleSpawner: ^ZergDoubleSpawner
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
@@ -10596,7 +10599,7 @@ upyamatocannon:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Allows the use of the Yamato Cannon and Tactical Jump for the Battle Cruiser and Phobos
+		Description: Allows the use of the Yamato Cannon and Tactical Jump for the Battle Cruiser and Phobos. Increases Battlecruiser Range by 15%.
 		Prerequisites: ~scsciencefacility, ~!upyamatocannon
 	RenderSprites:
 		Image: scyamatocannon

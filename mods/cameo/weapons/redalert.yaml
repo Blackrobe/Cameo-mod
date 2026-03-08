@@ -1974,11 +1974,11 @@ RocketAngelRockets:
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^Grenade
 	Inherits: ^ArrowWeapon
-	ReloadDelay: 50
+	ReloadDelay: 28
 	Burst: 4
 	BurstDelays: 2
-	Range: 6060
-	MinRange: 1212
+	Range: 3450
+	MinRange: 690
 	Report: dune2smalllaser.aud
 	Projectile: Missile
 		HorizontalRateOfTurn: 25
@@ -3637,10 +3637,10 @@ YakChainGun:
 
 ArmoredYakChainGun:
 	Inherits: YakChainGun
-	ReloadDelay: 150
+	ReloadDelay: 148
 	Burst: 10
-	Range: 5285
-	MinRange: 1057
+	Range: 6460
+	MinRange: 1292
 
 IncendiaryYakChainGun:
 	Inherits: ^Chaingun
@@ -3671,10 +3671,10 @@ IncendiaryYakChainGun:
 
 IncendiaryArmoredYakChainGun:
 	Inherits: IncendiaryYakChainGun
-	ReloadDelay: 150
+	ReloadDelay: 148
 	Burst: 10
-	Range: 5285
-	MinRange: 1057
+	Range: 6460
+	MinRange: 1292
 
 YakTeslaGun:
 	Inherits: ^LightMissile

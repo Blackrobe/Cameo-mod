@@ -2267,7 +2267,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 600
 		Damage: 1
-		Falloff: 100, 75, 50, 25, 0
+		Falloff: 100, 75, 50, 25
 		Versus:
 			Shield: 25
 			Scout: 20
