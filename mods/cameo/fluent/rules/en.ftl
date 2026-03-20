@@ -1893,6 +1893,7 @@ upgrade-latin_up_chaingun =
    .description = Stolen Tech from Yuri:
       Equips different units and defenses with Chainguns.
       Increases Rate of Fire with each shot!
+      Diablos gain 25% more Range, 25% faster Reload Delay and 50% more Firepower.
 
 upgrade-latin_up_industrial =
    .description = Stolen Tech from Soviets:
@@ -1903,12 +1904,12 @@ upgrade-uplatin_alliedstolentech =
    .description = Stolen Tech from Allies:
       Increases Speed of all Vehicles by 25% and Range by 5%.
       Freedom Fighters and Diablos disguise as trees.
-      Freedom Fighters gain 10% higher range and Diablos 25% higher range.
 
 upgrade-latin_up_hotfire =
    .description =  Stolen Tech from Asian Alliance:
       Increases Firepower and Rate of Fire of all Fire Weapons by 25%.
       Terrorists, Demo Trucks, Flame Troopers and Mortar Bikes have their Firepower increased by 100% instead.
+      Flame Troopers and Mortar Bikes also gain 10% more Range and 20% more Speed.
 
 upgrade-uplatin_cashrecover =
    .description = Recycles lost vehicles for a cashback of 20%.
@@ -2379,7 +2380,7 @@ faction-ra-random =
 faction-ra-allies =
    .name = Allies RA
    .description = Allies from Red Alert
-      Support powers: GPS, Chronosphere, Atomic Bomb
+      Support powers: GPS, Chronosphere, Chrono Vortex
 
 faction-ra-soviets =
    .name = Soviets RA
@@ -2388,8 +2389,33 @@ faction-ra-soviets =
 
 faction-ra-japan =
    .name = Japan RA
-   .description = Japan
-      Support powers: Super Bomber Airstrike
+   .description = Japan custom faction in Red Alert 1 style.
+      Support powers: Super Bomber Airstrike, Magic Orb Hailstorm
+
+faction-ts-random =
+   .name = Any
+   .description = Random faction
+      A random faction from Tiberian Sun will be chosen when the game starts.
+
+faction-ts-gdi =
+   .name = GDI TS
+   .description = GDI from Tiberian Sun
+      Support powers: Drop Pods, Ion Cannon
+
+faction-ts-nod =
+   .name = Nod TS
+   .description = Nod from Tiberian Sun
+      Support powers: Chemical Missile
+
+faction-ts-forgotten =
+   .name = Forgotten
+   .description = Forgotten from Tiberian Sun
+      Support powers: Tiberian Wildlife Rampage
+
+faction-ts-cabal =
+   .name = CABAL
+   .description = CABAL from Tiberian Sun
+      Support powers:
 
 faction-ra2-random =
    .name = Any
@@ -2415,3 +2441,141 @@ faction-ra2-modded-random =
    .name = Any
    .description = Random faction
       A random faction from Red Alert 2 Mods will be chosen when the game starts.
+
+faction-ra2-asianalliance =
+   .name = Asian Alliance
+   .description = Asian Alliance from Eagle Red Mod
+      Asian Alliance is a massive high-tech coalition of China, Japan, and Korea.
+      Acting as a unified East Asian front that has decided to pursue its own
+      technological path, independent of the Allied and Soviet blocs. They focus on
+      pulverizer, fire and high-energy plasma weaponry and Mass Infantry Deployment
+
+      Support powers: Chaos Storm, Ion Cannon
+
+faction-ra2-syndicate =
+   .name = Latin Syndicate
+   .description = Latin American Crime Syndicate with old Soviet Technology
+      The Latin Syndicate is a ruthless, criminal-industrial war machine that weaponizes attrition,
+      area denial, and the enemy's own technology. Operating from fortified bunker networks,
+      they combine "black market" Soviet surplus with ingenious scrap-based engineering to overwhelm
+      opponents through constant pressure and tactical disruption.
+
+      Support powers: Topol Strike
+
+faction-ra2-consortium =
+   .name = Steel Consortium
+   .description = Steel Consortium from Reign of Steel Mod
+      Support powers: Ion Cannon
+
+faction-ra2-naxis =
+   .name = Naxis
+   .description = Naxis custom faction in Red Alert 2 style.
+      A satirical fusion of 1940s aesthetics and over-the-top "secret weapon" tropes,
+      Naxis serves as a parody of World War II-era Germany, incorporating anachronistic
+      units from across the WWII gaming genre. They trade elegance for raw, clanking
+      industrial power and occult experimentation.
+
+      Difficulty: ©©©©
+      Early Game: ©©©©©
+      Mid Game: ©©
+      Late Game: ©©©©
+      Playstyle: Turtle
+      Strength: Bunkers, Heavy Tanks and Artillery
+      Weakness: Aircraft
+      Countered by: Heavy Armor, Map Control
+      Special Units: Ratte, Nokana
+      Special Buildings: Sausage Factory, Beer Factory
+      Team Upgrades: Blitzkrieg
+      Support powers: Revive the Undead Warriors, V1 Rocket
+
+faction-ra2-lnaxis =
+   .name = Schwarzer Mond
+   .description = Schwarzer Mond custom faction in Red Alert 2 style.
+      The Schwarzer Mond (Black Moon) is the elite, space-faring branch of the Naxis,
+      operating from secret bases on the lunar surface. They have abandoned the
+      traditional warfare of Earth for "crazy science" and the manipulation of
+      planetary forces, making them one of the most unpredictable factions in the field.
+
+      Difficulty: ©©©
+      Early Game: ©©
+      Mid Game: ©©©©©
+      Late Game: ©©©©
+      Playstyle: Timing Attack
+      Strength: Mid to Lategame Tanks and Artillery
+      Weakness: Aircraft
+      Countered by: Early Game Rush, Aircraft
+      Special Units: Parzival, Dalek, Die Glocke
+      Special Buildings: Moon Dairy Farm
+      Team Upgrades: WIP
+      Support powers: Gravity Core, Meteor Traction Beam
+
+faction-ra2-futuretech =
+   .name = Future Tech
+   .description = Future Tech custom faction in Red Alert 2 style.
+      The secretive European defense conglomerate FutureTech is known
+      for pushing the boundaries of ethical science to secure Allied dominance.
+      Operating from high-security labs in the Netherlands, they represent
+      the peak of "clean" warfare—specializing in high-end robotics and
+      experimental energy weapons that make standard Allied tech look like relics.
+
+      Difficulty: ©©©©©
+      Early Game: ©©©©
+      Mid Game: ©©©©©
+      Late Game: ©©
+      Playstyle: Timing Attack
+      Strength: Cryocopter
+      Weakness: Aircraft
+      Countered by: Late Game Units, Anti Air
+      Special Units: Future Tank, Tanya II
+      Special Buildings: Shock Center
+      Team Upgrades: WIP
+      Support powers: WIP (Planned: Sigma Harmonizer, Robot Energize)
+
+faction-d2k-random =
+   .name = Any
+   .description = Random faction
+      A random faction from the Dune Universe will be chosen when the game starts.
+
+faction-d2k-ixian =
+   .name = Ixians
+   .description = Ixians from the Dune Universe
+      The enigmatic Ixians of the industrial world Ix
+      are known for their innovation, cold logic, and mastery
+      of the machine. Bending the rules of the Great Convention,
+      they often deploy experimental weaponry and mechanical
+      monstrosities that others fear to touch.
+
+      Difficulty: ©©©©
+      Early Game: ©©©
+      Mid Game: ©©©©
+      Late Game: ©©©©©
+      Playstyle: Turtle
+      Strength: Late Game Units
+      Weakness: Mobility
+      Countered by: Early Game Pressure
+      Special Units: Ixian Projector, Farasha
+      Special Buildings: Starport, Spice Sifter
+      Team Upgrades: Advanced Ixian Technology
+      Support powers: Pulse Missile
+
+faction-d2k-ordos =
+   .name = House Ordos
+   .description = House Ordos from the Dune Universe
+      The insidious Ordos of the icy planet Sigma Draconis IV
+      are known for their wealth, greed and treachery.
+      Relying heavily on mercenaries they often resort
+      to sabotage and forbidden Ixian technologies.
+      Their Strength lies in Stealth and quick hit and run tactics
+
+      Difficulty: ©©©
+      Early Game: ©©
+      Mid Game: ©©©
+      Late Game: ©©©©©
+      Playstyle: Mobility / Steamrolling
+      Strength: Late Game Units
+      Weakness: Early Game Tanks
+      Countered by: Artillery
+      Special Units: Wraith, Face Dancer
+      Special Buildings: Starport, Spice Sifter
+      Team Upgrades: WIP
+      Support powers: Saboteur, Chaos Lightning

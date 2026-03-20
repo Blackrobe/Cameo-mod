@@ -16,7 +16,7 @@ World:
 		InternalName: ordos
 		Game: Dune Universe
 		Side: Dune
-		Description: House Ordos\nThe insidious Ordos of the icy planet Sigma Draconis IV\nare known for their wealth, greed and treachery.\nRelying heavily on mercenaries they often resort\nto sabotage and forbidden Ixian technologies.\nTheir Strength lies in Stealth and quick hit and run tactics\nBonus: Stealthed units moves faster\nSupport Power: Saboteur, Chaos Lightning
+		Description: faction-d2k-ordos.description
 	# FactionCA@Corrino:
 	# 	Name: Corrino DU
 	# 	Game: Dune Universe
@@ -28,14 +28,14 @@ World:
 		InternalName: ixian
 		Game: Dune Universe
 		Side: Dune
-		Description: Ixians
+		Description: faction-d2k-ixian.description
 	FactionCA@RandomDU:
-		Name: Any Dune
+		Name: Random Dune
 		InternalName: RandomDU
 		RandomFactionMembers: ordos, ixian #atreides, ordos, harkonnen, corrino, ixian
 		Game: Dune Universe
 		Side: Random
-		Description: Random Faction\nA random faction from Dune Universe will be chosen when the game starts.
+		Description: faction-d2k-random.description
 
 	#########################################
 	#   DUNE UNIVERSE

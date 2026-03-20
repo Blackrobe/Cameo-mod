@@ -2,7 +2,6 @@
 	DuplicateUnitCrateAction:
 		ExcludedActorTypes: yrslav, angrymob1, angrymob2, angrymob3, sow_advancer, wc_o_skeleton, CITYSWAT1, CITYSWAT2, awangrymob1, awangrymob2, awangrymob3, CHITZKOI, schofficer, SCHE2, SCHE3,svsmalien1, svsmalien2, svsmalien3, svsmalien4, svsmalien5, sglaangrymob1, sglaangrymob2, dunee1mobslave, dunee3mobslave, dunee4mobslave, dunee5mobslave, sglfundamentalist1, sglfundamentalist2
 
-
 CRATE.plain:
 	Inherits: ^Crate
 	ScriptTriggers:
@@ -346,11 +345,24 @@ waypoint:
 		Categories: System
 
 fact.colorpicker:
-	Inherits: FACT.GDI
-	-Buildable:
+	Inherits: ^BaseBuilding
 	-MapEditorData:
 	RenderSprites:
 		Image: fact
+		Palette: colorpicker
+
+rafact.colorpicker:
+	Inherits: ^BaseBuilding
+	-MapEditorData:
+	RenderSprites:
+		Image: rafactcolor
+		Palette: colorpicker
+
+rafactj.colorpicker:
+	Inherits: ^BaseBuilding
+	-MapEditorData:
+	RenderSprites:
+		Image: rafactj
 		Palette: colorpicker
 
 CAMERA:
@@ -408,6 +420,12 @@ BLASTRADIUS.ioncannon:
 	WithRangeCircle:
 		Type: blast-radius
 		Range: 6000
+
+BLASTRADIUS.super:
+	Inherits: ^BlastRadiusIndicator
+	WithRangeCircle:
+		Type: blast-radius
+		Range: 12345
 
 FLARE:
 	Immobile:

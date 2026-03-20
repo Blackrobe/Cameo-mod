@@ -2032,7 +2032,7 @@ tran.nod:
 	Inherits@GuerillaTactics: ^GuerillaTactics
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Valued:
-		Cost: 3200
+		Cost: 3100
 	Tooltip:
 		Name: Nod Chinook Transport
 	Buildable:
@@ -2331,7 +2331,7 @@ ORCA.Husk:
 	RenderSprites:
 		Image: orca
 
-FACT:
+^FACT:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@conyard: ^Conyard
@@ -2350,9 +2350,11 @@ FACT:
 		Prerequisite: concretebarrier
 	ProvidesPrerequisite@oilderrick:
 		Prerequisite: oilderrick
+	RenderSprites:
+		Image: fact
 
 FACT.GDI:
-	Inherits: FACT
+	Inherits: ^FACT
 	Tooltip:
 		Name: GDI Construction Yard
 	Transforms:
@@ -2367,7 +2369,7 @@ FACT.GDI:
 		Image: gdifact
 
 FACT.NOD:
-	Inherits: FACT
+	Inherits: ^FACT
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Tooltip:
 		Name: Nod Construction Yard
@@ -4945,7 +4947,7 @@ tsblackhandlaser:
 		Prerequisites: tmpl, ~upblackhandlaser
 		Description: actor-blackhandlaser.description
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Laser Trooper
 	Health:
@@ -5221,7 +5223,7 @@ nodvenom:
 		PersistentTargeting: false
 		AttackType: Hover
 	AmmoPool:
-		Ammo: 4
+		Ammo: 7
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: nodvenom.husk
@@ -5229,10 +5231,10 @@ nodvenom:
 		PilotActor: tsstealthsoldier
 	SelectionDecorations:
 	ReloadAmmoPool:
-		Delay: 32
+		Delay: 36
 		Count: 1
 	ReloadAmmoDelayMultiplier@up_elitecapacitors:
-		Modifier: 70
+		Modifier: 85
 		RequiresCondition: up_elitecapacitors
 	Selectable:
 		DecorationBounds: 1280, 1024
@@ -5241,7 +5243,7 @@ nodvenom:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 4
+		PipCount: 7
 	Cloak:
 		UncloakOn: Attack, Damage
 	ActorStatValues:
@@ -5350,7 +5352,7 @@ nodlasercommando:
 		FullSequence: pip-red
 		PipCount: 5
 	ReloadAmmoDelayMultiplier@up_elitecapacitors:
-		Modifier: 80
+		Modifier: 70
 		RequiresCondition: up_elitecapacitors
 	ActorStatValues:
 		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elitecapacitors, up_tiberiuminfusion, up_cyberneticmodifications

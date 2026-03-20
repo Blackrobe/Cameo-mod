@@ -2130,7 +2130,7 @@ Hakureiring:
 		Damage: 5
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 40000
+		Damage: 20000
 	Warhead@Effect: CreateEffect
 		Explosions: tsring
 		ExplosionPalette: tseffect
@@ -2152,7 +2152,7 @@ Hakureiring2:
 	Warhead@MagicWeaponPercentage: HealthPercentageDamage
 		Damage: 10
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 80000
+		Damage: 40000
 
 ## Unused
 ReimuYinYangOrb:
@@ -2241,53 +2241,56 @@ ReimuOrbLauncher:
 
 ReimuDreamSeal:
 	Inherits: Hakureiring2
-	ReloadDelay: 999999
+	ReloadDelay: 9999
 	Burst: 2
 	BurstDelays: 35
 	Range: 6400
 	Report: thbomb.wav
 	Warhead@TeslaWeapon: SpreadDamage
-		Spread: 1280
-		Falloff: 100, 80, 60, 40, 20, 0
-		Damage: 32000
+		Spread: 640
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Damage: 16000
 		ValidTargets: Infantry, Vehicle, Building, Aircraft
 		InvalidTargets: Epic
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: PsychicDeath
 		Delay: 6
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Spread: 640
-		Falloff: 100, 80, 60, 40, 20, 0
-		Damage: 16
+		Spread: 320
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Damage: 8
 		ValidTargets: Infantry, Vehicle, Building, Aircraft
 		InvalidTargets: Epic
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: PsychicDeath
 		Delay: 6
 	Warhead@MagicWeapon: SpreadDamage
-		Spread: 1280
-		Falloff: 100, 80, 60, 40, 20, 0
-		Damage: 32000
+		Spread: 640
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Damage: 16000
 		ValidTargets: Infantry, Vehicle, Building, Aircraft
 		InvalidTargets: Epic
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: PsychicDeath
 		Delay: 6
 	Warhead@MagicWeaponPercentage: HealthPercentageDamage
-		Spread: 640
-		Falloff: 100, 80, 60, 40, 20, 0
-		Damage: 16
+		Spread: 320
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Damage: 8
 		ValidTargets: Infantry, Vehicle, Building, Aircraft
 		InvalidTargets: Epic
 		ValidRelationships: Enemy, Neutral
 		DamageTypes: PsychicDeath
 		Delay: 6
+	Warhead@EMPUnit: AffectsIntegrity
+		Spread: 1280
+		Damage: 32000
 	Warhead@4BeamEff: FireRadius
 		ValidTargets: Ground, Water, Air
 		Weapon: ReimuYinYangDrone
 		ImpactActors: false
 		Amount: 4
-		AirThreshold: 8c0
+		AirThreshold: 6400
 		Delay: 12
 	Warhead@Cloud: SpawnSmokeParticle
 		Duration: 35
@@ -2295,15 +2298,11 @@ ReimuDreamSeal:
 		Image: hakurei_dream
 		Sequences: idle
 		Palette: tseffect
-		AirThreshold: 8c0
-
-Hakureiring3:
-	Inherits: Hakureiring
-	InvalidTargets: Trees
+		AirThreshold: 6400
 
 ReimuYinYangDrone:
 	ReloadDelay: 9999
-	AirThreshold: 8c0
+	AirThreshold: 6400
 	Range: 5c0 ## roatation radius
 	ValidTargets: Ground, Water, Air
 	Projectile: SpriteAthenaLaser
@@ -2312,8 +2311,8 @@ ReimuYinYangDrone:
 		Palette: player
 		IsPlayerPalette: true
 		SpriteNumber: 1
-		PierceTicks: 67
-		Speed: 75
+		PierceTicks: 64
+		Speed: 64
 		RotSpeed: 12
 		ExplosionInterval: 5
 	Warhead@Shrapnel1: FireShrapnel
@@ -2329,7 +2328,23 @@ ReimuYinYangDrone:
 		Explosions: fades
 		ExplosionPalette: player
 		UsePlayerPalette: true
-		AirThreshold: 8c0
+		AirThreshold: 6400
+
+Hakureiring3:
+	Inherits: Hakureiring
+	InvalidTargets: Trees
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@MagicWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@MagicWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 16000
 
 THMiss:
 	Warhead@Effect: CreateEffect

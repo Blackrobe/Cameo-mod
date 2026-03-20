@@ -170,7 +170,7 @@ World:
 		Modifier: 60
 	ReloadAmmoDelayMultiplier@ra_upgrade_autoloaders:
 		RequiresCondition: ra_upgrade_autoloaders
-		Modifier: 60
+		Modifier: 80
 	GrantConditionOnPrerequisite@ra_upgrade_autoloaders:
 		Condition: ra_upgrade_autoloaders
 		Prerequisites: ra_upgrade_autoloaders
@@ -4621,7 +4621,7 @@ yaktesla:
 	Contrail:
 		Offset: -900,0,300
 	SpawnActorOnDeath:
-		Actor: YAK.Husk
+		Actor: yaktesla.Husk
 	EjectOnDeath:
 		PilotActor: RAE2
 	LeavesTrails:
@@ -4720,7 +4720,7 @@ yakarmored:
 	Contrail:
 		Offset: -900,0,150
 	SpawnActorOnDeath:
-		Actor: YAK.Husk
+		Actor: yakarmored.Husk
 	EjectOnDeath:
 		PilotActor: RAE2
 	LeavesTrails:
@@ -9124,7 +9124,7 @@ PDOX:
 		TargetCircleRanges:
 			1: 12345
 		TargetCircleColors: ff000080
-		BeaconActor: BLASTRADIUS.atomic
+		BeaconActor: BLASTRADIUS.super
 		CameraRange: 12345
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
@@ -13359,7 +13359,6 @@ ROCKETANGEL:
 	Aircraft:
 		TurnSpeed: 32
 		Speed: 160
-		IdealSeparation: 900
 		VTOL: true
 		Voice: Move
 	Health:
@@ -13493,7 +13492,7 @@ hakurei:
 		RequiresCondition: spellcard && !disabled
 	GrantTimedConditionOnDeploy:
 		StartsFullyCharged: true
-		DeployedTicks: 125
+		DeployedTicks: 200
 		CooldownTicks: 1500
 		DeployedCondition: spellcard
 		DeployingCondition: deploying
@@ -13509,7 +13508,7 @@ hakurei:
 		Modifier: 50
 		RequiresCondition: spellcard
 	FirepowerMultiplier@SpellCard:
-		Modifier: 125
+		Modifier: 50
 		RequiresCondition: spellcard
 	SpeedMultiplier@SpellCard:
 		Modifier: 0

@@ -6838,7 +6838,8 @@ RA2FreedomAK47:
 	Report: islyat1a.wav, islyat1b.wav
 	ValidTargets: Ground, Water, Trees, Air, Garrisoned
 	Projectile: Bullet
-		Inaccuracy: 100
+		Inaccuracy: 25
+		InaccuracyType: PerCellIncrement
 	Warhead@SniperWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air, Garrisoned
 		Damage: 20000
@@ -6862,7 +6863,7 @@ RA2FreedomAK47E:
 	Burst: 12
 	BurstDelays: 1
 	Projectile: Bullet
-		Inaccuracy: 200
+		Inaccuracy: 100
 
 RA2FreedomRocket:
 	Inherits: ^FlakWeapon

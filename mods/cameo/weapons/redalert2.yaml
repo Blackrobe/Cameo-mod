@@ -177,8 +177,9 @@
 		ExplosionPalette: ra2effect
 	Warhead@Radiation: CreateTintedCells
 		InvalidTargets: RadiationImmmune
-		Spread: 1000
-		Falloff: 100, 75, 50, 25
+		#Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Falloff: 100, 85, 70, 55, 40, 25, 10
+		Spread: 500
 		Level: 25
 		MaxLevel: 1000
 		LayerName: ra2radiation
@@ -260,51 +261,51 @@ RA2PatriotThunderboltMissile:
 		ContrailStartColor: EEEE00
 		ContrailEndColor: FFFFFF
 	Warhead@HeavyMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 
@@ -527,47 +528,47 @@ BlackEagleThunderboltMissiles:
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 
@@ -980,19 +981,19 @@ RA2HoverMissile:
 	Report: vifvatta.wav
 	ValidTargets: Ground, Water, Trees
 	Warhead@ArrowWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 6000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 3
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@Effect: CreateEffect
@@ -1044,51 +1045,51 @@ RA2ThunderboltMissile:
 		ContrailStartColor: EEEE00
 		ContrailEndColor: FFFFFF
 	Warhead@HeavyMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 
@@ -1136,39 +1137,39 @@ RA2MultiHoverMissile:
 		MinimumLaunchSpeed: 128
 		Acceleration: 16
 	Warhead@ArrowWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumChemicalWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 
@@ -1217,35 +1218,35 @@ RA2MultiThunderboltMissile:
 		ContrailStartColor: EEEE00
 		ContrailEndColor: FFFFFF
 	Warhead@HeavyMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 
@@ -1389,7 +1390,8 @@ RA2KirovBomb_rad:
 		Damage: 24
 		DamageTypes: Prone75Percent, TriggerProne, RadiationDeath
 	Warhead@Radiation: CreateTintedCells
-		Falloff: 100, 75, 66, 50, 33, 25, 20
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 480
 		Level: 480
 
 RA2KirovBomb_fire:
@@ -1475,7 +1477,8 @@ RA2KirovBomb_nuclear:
 		ValidTargets: Ground, Ship, Trees
 		Volume: 0.5
 	Warhead@Radiation: CreateTintedCells
-		Falloff: 100, 75, 66, 50, 33, 25, 20
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 800
 		Level: 800
 		LayerName: ra2radiation
 
@@ -1509,7 +1512,8 @@ RA2KirovBomb_nuclear_Elite:
 		ImpactSounds: snukexpl.wav
 		ValidTargets: Ground, Ship, Trees
 	Warhead@Radiation: CreateTintedCells
-		Falloff: 100, 75, 66, 50, 33, 25, 20
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 1000
 		Level: 1000
 		LayerName: ra2radiation
 
@@ -1689,7 +1693,7 @@ RA2MUTA:
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 0c384
 		Damage: 8000
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Versus:
 			None: 90
 			Wood: 75
@@ -2564,30 +2568,113 @@ RA2TeslaCoilCharge_cosmetic:
 	ValidTargets: TeslaCoil
 	Projectile: TeslaZap
 
-RA2TeslaDummy:
+TeslaArmorDischargeDummy:
+	Inherits: ^LightMissile
 	Inherits: ^TeslaWeapon
-	ValidRelationships: Enemy, Neutral
-	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 125
+	ValidTargets: Ground, Water, Air
+	ReloadDelay: 1
 	Range: 6666
 	-Report:
+	Projectile: TeslaZap
+		-Image: DRAGON
+		-TrailImage: smokey
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 0
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 0
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
 		Damage: 0
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Air
 		Damage: 0
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 0
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
 		Damage: 0
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: RA2TeslaDummy2
+		Weapon: TeslaArmorDischargeArc
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
+		ValidTargets: Ground, Water, Air
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
 
-RA2TeslaDummy2:
-	Inherits: RA2TeslaDummy
+TeslaArmorDischargeArc:
+	Inherits: TeslaArmorDischargeDummy
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 24000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 12
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 24000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 12000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 12
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 24000
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: MammothTuskTeslaFragment1
+		Weapon: TeslaArmorDischargeFragment1
+
+TeslaArmorDischargeFragment1:
+	Inherits: TeslaArmorDischargeArc
+	Range: 3333
+	Warhead@LightMissile: SpreadDamage
+		Damage: 12000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 6
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 12000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 6000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 6
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 12000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaArmorDischargeFragment2
+
+TeslaArmorDischargeFragment2:
+	Inherits: TeslaArmorDischargeFragment1
+	Range: 2222
+	Warhead@LightMissile: SpreadDamage
+		Damage: 8000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
+	-Warhead@TeslaArc: FireShrapnel
 
 RA2PortaTesla:
 	Inherits: ^TeslaWeapon
@@ -2823,7 +2910,7 @@ IonPulseDischarge:
 		ImpactSounds: mobemp1.aud
 		ImpactActors: false
 		AffectsParent: true
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@Condition: GrantExternalCondition
 		Range: 4000
 		Duration: 40
@@ -2853,39 +2940,39 @@ RA2PsychicJab:
 		Speed: 4000
 		Width: 40
 	Warhead@TankDestroyerCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@MediumCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@Effect: CreateEffect
@@ -3138,26 +3225,26 @@ RA2HornetMissile:
 		ContrailStartWidth: 25
 		ContrailEndWidth: 1
 	Warhead@Grenade: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 	Warhead@GrenadeFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1000
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 	Warhead@HeavyBomb: SpreadDamage
 		Damage: 2000
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		Damage: 1
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@MediumMissile: SpreadDamage
 		Damage: 2000
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 1
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	-Warhead@Effect1:
 	-Warhead@Effect2:
 
@@ -3273,7 +3360,9 @@ MigMissiles_rad:
 	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
 		Damage: 2
 	Warhead@Radiation: CreateTintedCells
-		Level: 80
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 200
+		Level: 50
 	Warhead@Effect: CreateEffect
 		Explosions: ra2radbang
 		ExplosionPalette: ra2effect
@@ -3531,7 +3620,9 @@ RA2SCUD_rad:
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		Damage: 9
 	Warhead@Radiation: CreateTintedCells
-		Level: 180
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 540
+		Level: 540
 
 RA2SCUD_fire:
 	Inherits: RA2SCUD
@@ -3567,8 +3658,9 @@ RA2SCUDELITE:
 		ImpactSounds: gexpapoa.wav
 		ValidTargets: Ground, Ship, Trees
 	Warhead@Radiation: CreateTintedCells
-		Falloff: 100, 75, 66, 50, 33, 25, 20
-		Level: 300
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 600
+		Level: 600
 		LayerName: ra2radiation
 
 V3Explode:
@@ -3953,7 +4045,7 @@ RA2CRM60H:
 	Inherits: ^HeavyCannon
 	Inherits: ^RA2Chaingun
 	Inherits: ^SniperWeapon
-	ValidTargets: Ground, Water, Trees, Air
+	ValidTargets: Ground, Water, Air
 	Report: iseaatta.wav, iseaattb.wav
 	ReloadDelay: 10
 	Range: 4692
@@ -3967,25 +4059,25 @@ RA2CRM60H:
 		ContrailLength: 7
 		ContrailEndColorUsePlayerColor: false
 	Warhead@HeavyCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 	Warhead@SniperWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 2000
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 		Damage: 1
 
 RA2FLAKAG:
@@ -4146,13 +4238,13 @@ RA2DoublePistolsE:
 
 RA2DoublePistolsIFV:
 	Inherits: RA2DoublePistols
-	ValidTargets: Ground, Water, Trees, Air
+	ValidTargets: Ground, Water, Air
 	Warhead@SniperWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
+		ValidTargets: Ground, Water, Air
 
 RA2AWP:
 	Inherits: ^SniperWeapon
@@ -4595,9 +4687,9 @@ ReactorNuke:
 		ExplosionPalette: ra2effect
 		ImpactSounds: snukexpl.wav
 	Warhead@Radiation: CreateTintedCells
-		Spread: 1500
-		Falloff: 100, 66, 33
-		Level: 300
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 750
+		Level: 375
 		LayerName: ra2radiation
 
 ReactorNukeWeak:
@@ -4605,8 +4697,8 @@ ReactorNukeWeak:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2radbang
 	Warhead@Radiation: CreateTintedCells
-		Spread: 1000
-		Level: 200
+		Spread: 500
+		Level: 250
 
 RA2DemoBomb:
 	Inherits: MiniNuke
@@ -4620,8 +4712,8 @@ RA2DemoBomb:
 		ExplosionPalette: ra2effect
 		ImpactSounds: vdemdiea.wav
 	Warhead@Radiation: CreateTintedCells
-		Spread: 1500
-		Falloff: 100, 75, 50, 25, 0
+		Falloff: 100, 75, 66, 50, 33, 25, 20, 10
+		Spread: 1000
 		Level: 500
 		LayerName: ra2radiation
 
