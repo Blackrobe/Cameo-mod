@@ -3604,6 +3604,15 @@ d2k_munitions.atreides:
 		Length: 7
 		Offset: -16,16
 		Tick: 100
+	crumble-overlay:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 4584
+		Length: 7
+		Offset: -16,16
+		Tick: 200
+		ZOffset: 1024
 	icon:
 		Filename: d2k_munitions_icon.shp
 		Start: 2
