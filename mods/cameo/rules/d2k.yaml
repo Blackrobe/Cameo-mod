@@ -784,6 +784,8 @@ OILB.d2k:
 		Prerequisites: ~construction_yard, research_centre, derricklimit
 		Description: actor-oilb.description
 		IconPalette: d2kunit
+	Building:
+		BuildSounds: BUILD1.WAV
 	Tooltip:
 		Name: Spice Sifter
 	RenderSprites:
@@ -808,10 +810,14 @@ OILB.d2k:
 		Condition: damaged
 		ValidDamageStates: Heavy, Critical
 	WithIdleOverlay:
-		RequiresCondition: !damaged
+		RequiresCondition: !damaged && !build-incomplete
+	WithSpriteBody:
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	-ActorPreviewPlaceBuildingPreview:
-	-WithCrumbleOverlay:
 
 construction_yard.ixian:
 	Inherits@D2kBLD: ^D2KBuilding
