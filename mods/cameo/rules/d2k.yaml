@@ -1449,7 +1449,6 @@ d2k_munitions.ixian:
 	RenderSprites:
 		Image: d2k_munitions.atreides
 	WithSpriteBody:
-	WithMakeAnimation:
 	Power:
 		Amount: -10
 	MustBeDestroyed:
@@ -1944,6 +1943,7 @@ ixian_launchpad:
 	Buildable:
 		Prerequisites: ~construction_yard.ixian, outpost.ixian
 	Building:
+		BuildSounds: BUILD1.WAV
 		Footprint: xx xx
 		Dimensions: 2,2
 	Exit@1:
@@ -1965,6 +1965,10 @@ ixian_launchpad:
 		Modifier: 75
 	ActorStatValues:
 		Upgrades: upgrade_hightech
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	FireProjectilesOnDeath:
 		Weapons: Debris2, Debris3
@@ -2441,7 +2445,6 @@ machine_gun_turret:
 		Cost: 600
 	Tooltip:
 		Name: Machine Gun Turret
-	WithMakeAnimation:
 	Health:
 		HP: 75000
 	BodyOrientation:
@@ -2479,7 +2482,6 @@ machine_gun_turret:
 		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	-WithSpriteTurret:
-	-WithMakeAnimation:
 	FireProjectilesOnDeath:
 		Weapons: Debris2, Debris3
 		Pieces: 2, 4
@@ -12359,6 +12361,7 @@ sietch_creep:
 		-Condition:
 	ProvidesPrerequisite@buildingname:
 	-WithMakeAnimation:
+	-WithCrumbleOverlay:
 	-WithBuildingRepairDecoration:
 	-WithDeathAnimation:
 	FireProjectilesOnDeath:
@@ -12975,7 +12978,6 @@ storm_lasher:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	WithMakeAnimation:
 	Health:
 		HP: 200000
 	Shielded:
@@ -13008,7 +13010,6 @@ storm_lasher:
 	WithSpriteBody:
 		Sequence: idle
 	WithMuzzleOverlay:
-	WithMakeAnimation:
 	-WithDeathAnimation:
 	-WithWallSpriteBody:
 	-WithSpriteTurret:
@@ -13033,6 +13034,7 @@ storm_lasher:
 		Range: 5692
 	ActorStatValues:
 		Upgrades: d2k_general_purpose_armor, d2k_advanced_ixian_technology
+
 
 	### Armor Tree
 
