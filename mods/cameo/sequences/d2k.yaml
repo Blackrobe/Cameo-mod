@@ -3599,14 +3599,14 @@ d2k_munitions.atreides:
 	idle:
 		Filename: d2k_munitions.shp
 		Start: 2
-		Scale: 1.875
+		Scale: 1.5
 	damaged-idle:
 		Filename: d2k_munitions.shp
 		Start: 3
-		Scale: 1.875
+		Scale: 1.5
 	make:
 		Filename: DATA.R16
-		Scale: 1.875
+		Scale: 1.5
 		Remap: 54F94B
 		Start: 4577
 		Length: 7
