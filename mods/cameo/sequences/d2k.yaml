@@ -158,7 +158,7 @@ storm_lasher:
 		Remap: 54F94B
 		Start: 4440
 		Length: 8
-		Offset: -48,64
+		Offset: -32,64
 		Tick: 100
 		AddExtension: false
 	crumble-overlay:
