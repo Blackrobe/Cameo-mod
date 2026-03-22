@@ -662,6 +662,51 @@ tscyborg:
 		Facings: 8
 		ShadowStart: 582
 	icon:
+		Filename: tscyborbgicon.png
+		AddExtension: False
+tscyborgb:
+	Inherits: ^TSBasicInfantry
+	Defaults:
+		Tick: 80
+		Offset: 0, 0, 16
+		Filename: tscyborg.shp
+	stand:
+		Facings: 8
+		ShadowStart: 370
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 426
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 441
+	crippled-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	crippled-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 456
+	attack:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 534
+	crippled-attack:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 582
+	icon:
 		Filename: tscyborgicon.shp
 		AddExtension: False
 
@@ -1739,6 +1784,64 @@ tslasspid:
 		Facings: 8
 		Tick: 60
 		Scale: 0.6
+tscabalcobra:
+	idle:
+		Filename: tscabalcobra.shp
+		Facings: 8
+		Start: 120
+		Scale: 1
+	icon:
+		Filename: tscabalcobra.png
+		AddExtension: False
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	stand:
+		Filename: tscabalcobra.shp
+		Facings: 8
+		Start: 120
+		Scale: 1
+	walk:
+		Filename: tscabalcobra.shp
+		Length: 15
+		Facings: 8
+		Tick: 60
+		Scale: 1
+	shoot:
+		Filename: tscabalcobra.shp
+		Facings: 8
+		Start: 128
+		Length: 20
+		Scale: 1
+
+tsspddrone:
+	idle:
+		Filename: tsspddrone.shp
+		Facings: 8
+		Scale: 1
+	icon:
+		Filename: tscabalcobra.png
+		AddExtension: False
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	stand:
+		Filename: tsspddrone.shp
+		Facings: 8
+		Scale: 1
+	walk:
+		Filename: tsspddrone.shp
+		Length: 10
+		Facings: 8
+		Start: 128
+		Tick: 60
+		Scale: 1
+	shoot:
+		Filename: tscabalcobra.shp
+		Facings: 8
+		Start: 168
+		Length: 12
+		Scale: 1
 
 tsartspid:
 	idle:
@@ -2209,6 +2312,59 @@ tsnthand:
 		Filename: tshandofcabalicon.png
 		Offset: 0, 0
 
+tsnthand2:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+		Offset: -12, -15, 30
+	idle:
+		Filename: tscybbar.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: tscybbar.shp
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Filename: tscybbar.shp
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-produce:
+		Filename: tscybbar_c.shp
+		Length: 71
+		Tick: 100
+	damaged-idle-produce:
+		Filename: tscybbar_c.shp
+		Length: 71
+		Tick: 100
+	idle-light:
+		Filename: tscybbar_a.shp
+		Length: 36
+		Tick: 100
+		ZOffset: 1023
+	damaged-idle-light:
+		Filename: tscybbar_ad.shp
+		Length: 36
+		Tick: 100
+		ZOffset: 1023
+	idle-lights:
+		Filename: tscybbar_b.shp
+		Length: 51
+		Tick: 100
+	damaged-idle-lights:
+		Filename: tscybbar_b.shp
+		Length: 51
+		Tick: 100
+	make:
+		Filename: tscybbarmk.shp
+		Length: 25
+	icon:
+		Filename: tshandofcabalicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+	iconcabal:
+		Filename: tshandofcabalicon.png
+		Offset: 0, 0
+
 tsgtpile2:
 	Inherits: ^WithBuildingBib3
 	Defaults:
@@ -2319,6 +2475,86 @@ tsntweap:
 		Offset: -12, -21, 1
 	icon:
 		Filename: tsnwepicon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+tsntweapcabal:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+		Offset: -12, -21, 30
+		Scale: 1.3
+	idle:
+		Filename: tsmechfact_1.shp
+		ShadowStart: 2
+		ZOffset: -1024
+		Offset: -12, -21, 1
+	damaged-idle:
+		Filename: tsmechfact_1.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: -1024
+		Offset: -12, -21, 1
+	idle-roof:
+		Filename: tsmechfact_2.shp
+		ShadowStart: 2
+		ZOffset: 512
+	damaged-idle-roof:
+		Filename: tsmechfact_2.shp
+		Start: 1
+		ShadowStart: 3
+		ZOffset: 512
+	dead:
+		Filename: tsmechfact.shp
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-lights:
+		Filename: tsmechfact_b.shp
+		Length: 20
+		Tick: 100
+		ZOffset: 2048
+	damaged-idle-lights:
+		Filename: tsmechfact_b.shp
+		Length: 20
+		Tick: 100
+		ZOffset: 2048
+	idle-fan:
+		Filename: tsmechfact_a.shp
+		Length: 9
+		Tick: 100
+		ZOffset: 2048
+	damaged-idle-fan:
+		Filename: tsmechfact_a.shp
+		Length: 9
+		Tick: 100
+		ZOffset: 2048
+	build-door:
+		Filename: tsmechfact_d.shp
+		Length: 17
+		ZOffset: 512
+	damaged-build-door:
+		Filename: tsmechfact_d.shp
+		Start: 17
+		Length: 17
+		ZOffset: 512
+	make:
+		Filename: tsmechfactmk.shp
+		Length: 25
+	bib2:
+		Filename: tsmechfact_bb.shp
+		ZOffset: -1024
+		Offset: -12, -21, 1
+	damaged-bib2:
+		Filename: tsmechfact_bb.shp
+		Start: 1
+		ZOffset: -1024
+		Offset: -12, -21, 1
+	dead-bib2:
+		Filename: tsmechfact_bb.shp
+		Start: 2
+		ZOffset: -1024
+		Offset: -12, -21, 1
+	icon:
+		Filename: tsmechfacticon.png
 		Offset: 0, 0
 		UseTilesetCode: false
 
@@ -2644,6 +2880,47 @@ tsfgttech:
 	icon:
 		Filename:  tstechicon.png
 		Offset: 0, 0
+
+tscrys:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+		Scale: 1.3
+		Offset: 0, -12, 24
+	idle:
+		Filename: tscrys.shp
+		ShadowStart: 3
+	damaged-idle:
+		Filename: tscrys.shp
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Filename: tscrys.shp
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-lights:
+		Filename: tscrys_a.shp
+		Length: 16
+		Tick: 100
+	damaged-idle-lights:
+		Filename: tscrys_ad.shp
+		Length: 16
+		Tick: 100
+	idle-electro:
+		Filename: tscrys_b.shp
+		Length: 40
+		Tick: 100
+	damaged-idle-electro:
+		Filename: tscrys_bd.shp
+		Length: 40
+		Tick: 100
+	make:
+		Filename: tscrysmk.shp
+		Length: 25
+	icon:
+		Filename: tsnpwricon.png
+		Offset: 0, 0, 25
+		UseTilesetCode: false
 
 # gtsand:
 # 	Defaults:

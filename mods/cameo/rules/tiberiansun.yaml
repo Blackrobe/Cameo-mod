@@ -12,14 +12,14 @@ World:
 		Side: Tiberian Sun
 		Description: Nod from Tiberian Sun\nFeatures:\n- Subterranean vehicles\n- Stealth generators\n- Tactical missiles with fast charge and flight time\nSupport powers: Cluster & Chemical Missiles
 	FactionCA@forgotten:
-		Selectable: false
+		Selectable: true
 		Name: Forgotten TS (WIP)
 		InternalName: forgotten
 		Game: Tiberian Sun
 		Side: Tiberian Sun
 		Description: Custom Forgotten from Tiberian Sun\nSupport powers: Mutant Commando, Wildlife Rampage
 	FactionCA@cabal:
-		Selectable: false
+		Selectable: true
 		Name: CABAL TS (WIP)
 		InternalName: cabal
 		Game: Tiberian Sun
@@ -965,9 +965,12 @@ TSNTPOWRCABAL:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !build-incomplete && !disabled
 		Sequence: idle-lights
+	WithIdleOverlay@RAY:
+		RequiresCondition: !build-incomplete && !disabled
+		Sequence: idle-electro
 	RenderSprites:
 		PlayerPalette: playerra2
-		Image: tsntpowr
+		Image: tscrys
 
 TSNTAPWR:
 	Inherits: ^BaseBuilding
@@ -1186,20 +1189,59 @@ TSNTHAND:
 		PlayerPalette: playerra2
 
 TSNTHAND2:
-	Inherits: TSNTHAND
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@shape: ^2x2Shape
+	Inherits@barr: ^IsBarrack
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+	Valued:
+		Cost: 500
 	Tooltip:
-		Name: Hand of CABAL
+		Name: Cyborg Factory
+	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~tsgtcnstcabal, tsntpowrcabal
 		Queue: Building, RABuilding
 		Description: Trains infantry
-		Icon: iconcabal
 		IconPalette: windows256
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+		Path: 1,2
+	Exit@1:
+		SpawnOffset: -426,85,0
+		ExitCell: 0,1
+	Exit@2:
+		SpawnOffset: 298,298,0
+		ExitCell: 1,1
 	ProductionQueue@INFANTRY:
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 1280, 1280
+		DecorationBounds: 1280, 1024
+	SelectionDecorations:
+	WithProductionOverlay:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-produce
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	WithIdleOverlay@LIGHT:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-light
 	RenderSprites:
-		Image: tsnthand
 		PlayerPalette: playerra2
+
+
 tsgtweap:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -1328,21 +1370,65 @@ TSNTWEAP:
 		PlayerPalette: playerra2
 
 TSNTWEAPCABAL:
-	Inherits: TSNTWEAP
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@shape: ^3x2Shape
+	Inherits@weap: ^IsWeaponFactory
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 512
+	Valued:
+		Cost: 2000
 	Tooltip:
-		Name: Cabal War Factory
+		Name: CABAL Mech Factory
+	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgtcnstcabal, tsproccabal
 		Queue: Building, RABuilding
 		Description: Produces vehicles
+	Building:
+		Footprint: xx= x== ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2048
+	SelectionDecorations:
+	RevealsShroud:
+		Range: 4c0
+	RallyPoint:
+		Path: 0,2
+	Exit@1:
+		SpawnOffset: -512,-512,0
+		ExitCell: 2,1
+		ExitDelay: 3
 	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
 		ProductionType: Vehicle
+		RequiresCondition: !classicproductionqueues
 	ProductionBar@RAVEHICLEGDI:
 		ProductionType: RAVehicle
+		RequiresCondition: classicproductionqueues
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@ROOF:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-lights
+	WithIdleOverlay@BIB:
+		RequiresCondition: !build-incomplete
+		Sequence: bib2
 	RenderSprites:
-		Image: tsntweap
+		PlayerPalette: playerra2
+
 
 tsgtdeptgdi:
 	Inherits: ^BaseBuilding
@@ -4547,6 +4633,93 @@ TSCYBORG:
 		Weapon: TSVulcanTower
 	Selectable:
 		Class: tscyborg
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+tscyborgb:
+	Inherits: ^Soldier
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@MC: ^MCImmune
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMPfrontal: ^FrontalEMP
+	Inherits@EMP: ^UnitDisable
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Plated Armor Cyborg
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~tsnthand2
+		BuildDurationModifier: 100
+		BuildDuration: 250
+		Queue: Infantry, RAInfantry
+		Description: Cybernetic infantry unit.\n  Strong vs Infantry, Medium armor\n  Weak vs Vehicles, Aircraft
+	Mobile:
+		Speed: 46
+		PauseOnCondition: disabled
+	Armor:
+		Type: Light
+	Health:
+		HP: 50000
+	ChangesHealth@SelfHealing:
+		Step: 25
+	Armament@PRIMARY:
+		Weapon: TSVulcan3
+	WithInfantryBody:
+		RequiresCondition: !cydamaged
+		DefaultAttackSequence: attack
+	WithInfantryBody@damaged:
+		MoveSequence: crippled-run
+		DefaultAttackSequence: crippled-attack
+		StandSequences: crippled-stand
+		RequiresCondition: cydamaged
+	GrantConditionOnDamageState@damaged:
+		Condition: cydamaged
+		ValidDamageStates: Critical
+	SpeedMultiplier@damaged:
+		Modifier: 50
+		RequiresCondition: cydamaged
+	-DamagedByTerrain:
+	-SpawnActorOnDeath:
+	ExternalCondition@EMP:
+		TotalCap: 1
+		Condition: empdisable
+	TimedConditionBar@EMP:
+		Condition: empdisable
+		Color: FFFFFF
+	GrantCondition@disable:
+		RequiresCondition: ReaperTrap || chronobeamed || leaflet || empdisable
+	WithColoredOverlay@leaflet:
+		RequiresCondition: leaflet || empdisable
+	Targetable@HEAL:
+		TargetTypes: Heal, Repair, Healing
+	Targetable:
+		TargetTypes: Ground, Infantry, Cyborg
+	GrantConditionOnPrerequisite@MACHINESHOP:
+		Condition: hospital
+		Prerequisites: machshop
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
+	Voiced:
+		VoiceSet: TSCyborg
+	-TakeCover:
+	Crushable:
+		CrushClasses: vehicle
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSVulcanTower
+	Selectable:
+		Class: tscyborgb
 	RenderSprites:
 		PlayerPalette: playerra2
 	WithDeathAnimation:
@@ -8649,6 +8822,114 @@ TSLASSPID:
 		MoveSequence: walk
 		ValidMovementTypes: Horizontal, Turn
 
+tscabalcobra:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Mantis
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsntweapcabal
+		Queue: Vehicle, RAVehicle
+		Description: Fast scout and anti-infantry vehicle.\n  Strong vs Infantry, Light armor\n  Weak vs Vehicles, Aircraft
+	Mobile:
+		Locomotor: wheeled
+		TurnSpeed: 64
+		Speed: 160
+	Health:
+		HP: 40000
+	Repairable:
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
+	Armament@PRIMARY:
+		Weapon: TSLaserRaiderCannon
+		LocalOffset: 350,-30,250, 350,30,250
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFollowFrontal:
+		FacingTolerance: 512
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 250
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: walk
+		ValidMovementTypes: Horizontal, Turn
+
+
+tsspddrone:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Spider Drone
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsntweapcabal
+		Queue: Vehicle, RAVehicle
+		Description: Fast scout and anti-infantry vehicle.\n  Strong vs Infantry, Light armor\n  Weak vs Vehicles, Aircraft
+	Mobile:
+		Locomotor: wheeled
+		TurnSpeed: 64
+		Speed: 160
+	Health:
+		HP: 40000
+	Repairable:
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
+	Armament@PRIMARY:
+		Weapon: TSLaserRaiderCannon
+		LocalOffset: 350,-30,250, 350,30,250
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFollowFrontal:
+		FacingTolerance: 512
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 250
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: walk
+		ValidMovementTypes: Horizontal, Turn
 
 TSART2CABAL:
 	Inherits: ^Vehicle
