@@ -416,6 +416,11 @@ Player:
 	-ActorPreviewPlaceBuildingPreview:
 	D2kActorPreviewPlaceBuildingPreview:
 	Cloak@TScloak:
+	WithSpriteBody:
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 
 ^D2kUpgradeable:
 	GrantConditionOnPrerequisite@UPGRADEABLE:
@@ -806,6 +811,7 @@ OILB.d2k:
 		RequiresCondition: !damaged
 	-WithDeathAnimation:
 	-ActorPreviewPlaceBuildingPreview:
+	-WithCrumbleOverlay:
 
 construction_yard.ixian:
 	Inherits@D2kBLD: ^D2KBuilding
@@ -2297,6 +2303,7 @@ storm_lasher_big:
 	RenderSprites:
 		Image: storm_lasher_big
 		Palette: td_temperat
+	-WithCrumbleOverlay:
 
 # starport_smuggler:
 # 	Inherits: starport
