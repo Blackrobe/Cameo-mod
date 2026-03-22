@@ -7804,15 +7804,14 @@ ordos_harv:
 	dock:
 		Filename: ordos_harv.png
 		Scale: 0.8
-		Start: 128
-		Facings: 8
-		Length: 8
+		Start: 168
+		Facings: 1
+		Length: 6
 	dock-loop:
 		Filename: ordos_harv.png
 		Scale: 0.8
-		Start: 128
-		Facings: 8
-		Length: 8
+		Start: 170
+		Facings: 1
 	icon:
 		Filename: ordos_harv_icon.png
 
