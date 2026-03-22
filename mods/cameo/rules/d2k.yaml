@@ -416,6 +416,11 @@ Player:
 	-ActorPreviewPlaceBuildingPreview:
 	D2kActorPreviewPlaceBuildingPreview:
 	Cloak@TScloak:
+	WithSpriteBody:
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 
 ^D2kUpgradeable:
 	GrantConditionOnPrerequisite@UPGRADEABLE:
