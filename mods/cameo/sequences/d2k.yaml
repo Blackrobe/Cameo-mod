@@ -156,11 +156,19 @@ storm_lasher:
 		Filename: DATA.R16
 		Scale: 1.5
 		Remap: 54F94B
-		Start: 4518
-		Length: 9
+		Start: 4440
+		Length: 8
 		Offset: -48,64
 		Tick: 100
 		AddExtension: false
+	crumble-overlay:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 4448
+		Length: 9
+		Offset: -32,64
+		Tick: 100
 	idle-overlay:
 		Filename: d2k_storm_lasher.shp
 		Scale: 1.5
