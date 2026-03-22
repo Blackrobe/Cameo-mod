@@ -7690,11 +7690,14 @@ sandworm:
 d2k_spice_sifter:
 	idle:
 		Filename: d2k_spice_sifter.shp
+		Scale: 1.5
 	damaged-idle:
 		Filename: d2k_spice_sifter.shp
+		Scale: 1.5
 		Start: 1
 	idle-overlay:
 		Filename: d2k_spice_sifter.shp
+		Scale: 1.5
 		Start: 2
 		Length: 5
 		Tick: 80
