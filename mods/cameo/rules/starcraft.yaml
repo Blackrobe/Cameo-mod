@@ -18,7 +18,7 @@ World:
 		Side: StarCraft
 		Description: Zerg\nFeatures:\n- Units consume power (supply)\n- Unit production pauses on low power\n- Buildings and defenses do not require power to operate\n- Relatively powerful units\nSupport powers: Nuclear Strike
 	FactionCA@RandomSC:
-		Name: Any StarCraft
+		Name: Random StarCraft
 		InternalName: RandomSC
 		RandomFactionMembers: terran, protoss, zerg
 		Game: StarCraft
@@ -5151,13 +5151,25 @@ SCPYTHEAN.Husk:
 	Tooltip:
 		Name: Pythean
 	Aircraft:
-		TurnSpeed: 15
-		Speed: 30
+		TurnSpeed: 20
+		Speed: 40
+	LeavesTrails:
+		Offsets: -800,0,200
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	ShakeOnDeath:
+	FallsToEarth:
+		Moves: false
+		Velocity: 40
+		Explosion: SiegeTankSiegeCannon
+	WithShadow:
 	RenderSprites:
 		Image: SCPYTHEAN
 		PlayerPalette: player_rgba
-	FallsToEarth:
-		Explosion: KirovExplode
 
 SCMEDIVAC:
 	Inherits: ^Helicopter
@@ -5313,8 +5325,6 @@ SCBATTLECRUISER:
 		DecorationBounds: 2048, 2048
 	Voiced:
 		VoiceSet: SCBattleCruiserVoice
-	SpawnActorOnDeath:
-		Actor: SCBATTLECRUISER.Husk
 	WithAttackAnimation@1:
 		Armament: primary
 		Sequence: shoot
@@ -5356,6 +5366,8 @@ SCBATTLECRUISER:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 10
+	SpawnActorOnDeath:
+		Actor: SCBATTLECRUISER.Husk
 	-ReloadAmmoDelayMultiplier@RANK-1:
 	-ReloadAmmoDelayMultiplier@RANK-2:
 	-ReloadAmmoDelayMultiplier@RANK-3:
@@ -5364,6 +5376,31 @@ SCBATTLECRUISER:
 		PlayerPalette: player_rgba
 	ActorStatValues:
 		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upyamatocannon
+
+SCBATTLECRUISER.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Battlecruiser
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 40
+	LeavesTrails:
+		Offsets: -800,0,200
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	ShakeOnDeath:
+	FallsToEarth:
+		Moves: false
+		Velocity: 40
+		Explosion: BCLaser
+	WithShadow:
+	RenderSprites:
+		Image: SCBATTLECRUISER
+		PlayerPalette: player_rgba
 
 SCPHOBOS:
 	Inherits: ^Helicopter
@@ -5422,8 +5459,6 @@ SCPHOBOS:
 		DecorationBounds: 2048, 2048
 	Voiced:
 		VoiceSet: SCBattleCruiserVoice
-	SpawnActorOnDeath:
-		Actor: scphobos.Husk
 	DeathSounds:
 	Armament:
 		Name: primary
@@ -5491,6 +5526,8 @@ SCPHOBOS:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 10
+	SpawnActorOnDeath:
+		Actor: SCPHOBOS.Husk
 	-ReloadAmmoDelayMultiplier@RANK-1:
 	-ReloadAmmoDelayMultiplier@RANK-2:
 	-ReloadAmmoDelayMultiplier@RANK-3:
@@ -5499,6 +5536,31 @@ SCPHOBOS:
 		PlayerPalette: player_rgba
 	ActorStatValues:
 		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upyamatocannon
+
+SCPHOBOS.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Phobos
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 40
+	LeavesTrails:
+		Offsets: -800,0,200
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	ShakeOnDeath:
+	FallsToEarth:
+		Moves: false
+		Velocity: 40
+		Explosion: BCYamatoCannon
+	WithShadow:
+	RenderSprites:
+		Image: SCPHOBOS
+		PlayerPalette: player_rgba
 
 SCWRAITHDRONE:
 	Inherits: ^RANeutralPlane
@@ -5559,32 +5621,6 @@ SCWRAITHDRONE:
 		PlayerPalette: player_rgba
 	ActorStatValues:
 		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
-
-SCBATTLECRUISER.Husk:
-	Inherits: ^PlaneHusk
-	Tooltip:
-		Name: Battlecruiser
-	Aircraft:
-		TurnSpeed: 15
-		Speed: 30
-	RenderSprites:
-		Image: SCBATTLECRUISER
-		PlayerPalette: player_rgba
-	FallsToEarth:
-		Explosion: KirovExplode
-
-scphobos.Husk:
-	Inherits: ^PlaneHusk
-	Tooltip:
-		Name: Phobos
-	Aircraft:
-		TurnSpeed: 15
-		Speed: 30
-	RenderSprites:
-		Image: scphobos
-		PlayerPalette: player_rgba
-	FallsToEarth:
-		Explosion: KirovExplode
 
 SCSCIENCEVESSEL:
 	Inherits: ^Helicopter
@@ -7473,7 +7509,8 @@ SCCARRIER:
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
-	-SpawnActorOnDeath:
+	SpawnActorOnDeath:
+		Actor: SCCARRIER.Husk
 	DeathSounds:
 	SelectionDecorations:
 	Selectable:
@@ -7483,6 +7520,31 @@ SCCARRIER:
 	ActorStatValues:
 		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	RenderSprites:
+		PlayerPalette: player_rgba
+
+SCCARRIER.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Carrier
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 40
+	LeavesTrails:
+		Offsets: -800,0,200
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	ShakeOnDeath:
+	FallsToEarth:
+		Moves: false
+		Velocity: 40
+		Explosion: GladiusCannon
+	WithShadow:
+	RenderSprites:
+		Image: SCCARRIER
 		PlayerPalette: player_rgba
 
 SCINTERCEPTOR:
@@ -7605,7 +7667,8 @@ SCSTARSHIPSOVEREIGN:
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
-	-SpawnActorOnDeath:
+	SpawnActorOnDeath:
+		Actor: SCSTARSHIPSOVEREIGN.Husk
 	WithMuzzleOverlay:
 	DeathSounds:
 	SelectionDecorations:
@@ -7621,6 +7684,31 @@ SCSTARSHIPSOVEREIGN:
 		StartIfBelow: 100
 		DamageCooldown: 1
 	RenderSprites:
+		PlayerPalette: player_rgba
+
+SCSTARSHIPSOVEREIGN.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Starship Sovereign
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 40
+	LeavesTrails:
+		Offsets: -800,0,200
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	ShakeOnDeath:
+	FallsToEarth:
+		Moves: false
+		Velocity: 40
+		Explosion: GladiusCannon
+	WithShadow:
+	RenderSprites:
+		Image: SCSTARSHIPSOVEREIGN
 		PlayerPalette: player_rgba
 
 SCARBITER:
@@ -9015,7 +9103,7 @@ SCSWARMLING:
 		FacingTolerance: 10
 		AttackType: Hover
 	# -RenderRangeCircle:
-	-RenderDetectionCircle:
+	#-RenderDetectionCircle:
 	SelectionDecorations:
 	Selectable:
 		Bounds: 1024, 1024
@@ -9667,6 +9755,8 @@ SCHERMIT:
 	Selectable:
 		Bounds: 1024, 1024
 		DecorationBounds: 1536, 1536
+	FireWarheadsOnDeath:
+		Weapon: HermitExplode
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
@@ -10233,6 +10323,31 @@ SCBEHEMOTH:
 	ActorStatValues:
 		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
+SCBEHEMOTH.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Behemoth
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 40
+	LeavesTrails:
+		Offsets: -800,0,200
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	ShakeOnDeath:
+	FallsToEarth:
+		Moves: false
+		Velocity: 40
+		Explosion: HermitExplode
+	WithShadow:
+	RenderSprites:
+		Image: SCBEHEMOTH
+		PlayerPalette: player_rgba
+
 SCSCOURGEDRONE:
 	Inherits: SCSCOURGE
 	SelectionDecorations:
@@ -10256,19 +10371,6 @@ SCSCOURGEDRONE:
 		Weapon: ScourgeDroneExplosion
 	FireWarheadsOnDeath:
 		Weapon: SCScourgeDroneExplosion
-
-SCBEHEMOTH.Husk:
-	Inherits: ^PlaneHusk
-	Tooltip:
-		Name: Behemoth
-	Aircraft:
-		TurnSpeed: 15
-		Speed: 30
-	RenderSprites:
-		Image: scbehemoth
-		PlayerPalette: player_rgba
-	FallsToEarth:
-		Explosion: KirovExplode
 
 	####################################################################################################
 	#		Upgrades Protoss

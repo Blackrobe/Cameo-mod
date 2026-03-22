@@ -1,10 +1,10 @@
 World:
 	FactionCA@asianalliance:
-		Name: Asian Alliance #faction-ra2-yuri.name
+		Name: Asian Alliance
 		InternalName: asianalliance
 		Game: Red Alert 2
 		Side: RA2 Mod
-		Description: Asian Alliance from Eagle Red Mod #faction-ra2-yuri.description
+		Description: faction-ra2-asianalliance.description
 	StartingUnits@mcvasianalliance:
 		Class: none
 		ClassName: MCV Only
@@ -28,7 +28,7 @@ World:
 		InternalName: syndicate
 		Game: Red Alert 2
 		Side: RA2 Mod
-		Description: Latin American Crime Syndicate with old Soviet Technology #faction-ra2-yuri.description
+		Description: faction-ra2-syndicate.description
 	StartingUnits@mcvsyndicate:
 		Class: none
 		ClassName: MCV Only
@@ -48,11 +48,11 @@ World:
 		SupportActors: latin_mili,latin_mili,latin_mili,latin_fftr,latin_fftr,nax_wirbelwind,nax_tiger,nax_tiger,nax_tiger,aa_ptnk,nax_wirbelwind
 
 	FactionCA@consortium:
-		Name: Steel Consortium #faction-ra2-yuri.name
+		Name: Steel Consortium
 		InternalName: consortium
 		Game: Red Alert 2
 		Side: RA2 Mod
-		Description: Steel Consortium from Reign of Steel Mod #faction-ra2-yuri.description
+		Description: faction-ra2-consortium.description
 	StartingUnits@mcvconsortium:
 		Class: none
 		ClassName: MCV Only
@@ -72,11 +72,11 @@ World:
 		SupportActors: steel_fedinf,steel_fedinf,steel_fedinf,steel_qinf,steel_qinf,steel_manta,steel_qtank,steel_qtank,steel_qtank,steel_qutnk,steel_manta
 
 	FactionCA@naxis:
-		Name: Naxis #faction-ra2-yuri.name
+		Name: Naxis
 		InternalName: naxis
 		Game: Red Alert 2
 		Side: RA2 Mod
-		Description: Parody faction for WW2 Germany with added units from other WW2 related games. #faction-ra2-yuri.description
+		Description: faction-ra2-naxis.description
 	StartingUnits@mcvnaxis:
 		Class: none
 		ClassName: MCV Only
@@ -96,11 +96,11 @@ World:
 		SupportActors: nax_rifle,nax_rifle,nax_rifle,nax_mp40,nax_mp40,nax_wirbelwind,nax_tiger,nax_tiger,nax_tiger,nax_wirbelwind,nax_wirbelwind
 
 	FactionCA@lnaxis:
-		Name: Schwarzer Mond #faction-ra2-yuri.name
+		Name: Schwarzer Mond
 		InternalName: lnaxis
 		Game: Red Alert 2
 		Side: RA2 Mod
-		Description: Lunar based branch of Naxis with crazy science #faction-ra2-yuri.description
+		Description: faction-ra2-lnaxis.description
 	StartingUnits@mcvlnaxis:
 		Class: none
 		ClassName: MCV Only
@@ -124,7 +124,7 @@ World:
 		InternalName: futuretech
 		Game: Red Alert 2
 		Side: RA2 Mod
-		Description: Private corporation of Allies specialized in robotics
+		Description: faction-ra2-futuretech.description
 	StartingUnits@mcvfuturetech:
 		Class: none
 		ClassName: MCV Only
@@ -5931,9 +5931,6 @@ latin_fftr:
 	GrantConditionOnPrerequisite@uplatin_alliedstolentech:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
-	RangeMultiplier@uplatin_alliedstolentech:
-		Modifier: 110
-		RequiresCondition: uplatin_alliedstolentech
 	Mirage:
 		RequiresCondition: !disabled && uplatin_alliedstolentech
 		InitialDelay: 25
@@ -6386,6 +6383,15 @@ latin_diablo:
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
+	RangeMultiplier@latin_up_chaingun:
+		Modifier: 125
+		RequiresCondition: latin_up_chaingun
+	ReloadDelayMultiplier@latin_up_chaingun:
+		Modifier: 75
+		RequiresCondition: latin_up_chaingun
+	FirepowerMultiplier@latin_up_chaingun:
+		Modifier: 150
+		RequiresCondition: latin_up_chaingun
 	AttackTurreted:
 	# RenderRangeCircleCA:
 	# 	Armaments: primary
@@ -6403,9 +6409,6 @@ latin_diablo:
 	GrantConditionOnPrerequisite@uplatin_alliedstolentech:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
-	RangeMultiplier@uplatin_alliedstolentech:
-		Modifier: 125
-		RequiresCondition: uplatin_alliedstolentech
 	Mirage:
 		RequiresCondition: !disabled && uplatin_alliedstolentech
 		InitialDelay: 25
@@ -12426,7 +12429,7 @@ nax_tech:
 		Cursor: ability
 		ChargeInterval: 9000
 		Names:
-			1: Revive the Dead warriors
+			1: Revive the Undead Warriors
 		ActivationDelay: 25
 		ActivationSequence:
 		Descriptions:
@@ -13381,9 +13384,6 @@ nax2_gcore:
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^SpaceNaxisSpawnActorsOnSell
 	Inherits@SW: ^PrimarySuperweapon
-	Buildable:
-		Prerequisites: ~nax2_tech
-		Queue: Defence, RADefence
 	Tooltip:
 		Name: Gravity Core
 	Building:
@@ -13391,9 +13391,13 @@ nax2_gcore:
 		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Valued:
-		Cost: 1500
+		Cost: 2500
 	Power:
-		Amount: -75
+		Amount: -125
+	Buildable:
+		Description: Reduces movement speed and range of nearby vehicles.
+		Prerequisites: ~nax2_tech
+		Queue: Defence, RADefence
 	ProximityExternalCondition@gravity_1:
 		Range: 15000
 		Condition: GravityGenerator
@@ -13950,7 +13954,6 @@ nax_litt:
 	Aircraft:
 		TurnSpeed: 36
 		Speed: 180
-		IdealSeparation: 900
 		Voice: Move
 	Health:
 		HP: 47500

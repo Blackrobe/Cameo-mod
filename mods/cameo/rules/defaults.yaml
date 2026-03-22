@@ -1608,9 +1608,9 @@
 	Inherits@InfantryBuffs: ^InfantryBuffs
 	Aircraft:
 		CruiseAltitude: 1000
-		RepulsionSpeed: 20
-		MaximumPitch: 20
-		IdealSeparation: 750
+		RepulsionSpeed: 50
+		MaximumPitch: 50
+		IdealSeparation: 1000
 		AltitudeVelocity: 150
 	Armor:
 		Type: Scout
@@ -1625,7 +1625,8 @@
 		InitialStance: Defend
 		InitialStanceAI: AttackAnything
 		ScanRadius: 10
-	RenderRangeCircle:
+	#RenderRangeCircle:
+	-RenderDetectionCircle:
 	Buildable:
 		BuildPaletteOrder: 20
 		BuildDurationModifier: 50
@@ -4699,9 +4700,14 @@
 		RelaxationInterval: 1
 		RelaxationDelay: 10
 		InitialValue: 0
-	GrantConditionOnPhysicalState@EnemyProximity:
+	GrantConditionOnPhysicalState@EnemyInProximity:
 		PhysicalStateName: EnemyProximity
-		Condition: EnemyProximity
+		Condition: EnemyInProximity
+		UpperValue: 10000
+		LowerValue: 1
+	GrantConditionOnPhysicalState@EnemyInMaxProximity:
+		PhysicalStateName: EnemyProximity
+		Condition: EnemyInMaxProximity
 		UpperValue: 10000
 		LowerValue: 10000
 	PhysicalStateBar@EnemyProximity:

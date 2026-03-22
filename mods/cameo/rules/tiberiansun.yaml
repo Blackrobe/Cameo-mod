@@ -4,34 +4,34 @@ World:
 		InternalName: tsgdi
 		Game: Tiberian Sun
 		Side: Tiberian Sun
-		Description: GDI from Tiberian Sun\nFeatures:\n- Hero unit: Mammoth Mk. II\nSupport powers: Drop Pods, Ion Cannon
+		Description: faction-ts-gdi.description
 	FactionCA@tsnod:
 		Name: Nod TS
 		InternalName: tsnod
 		Game: Tiberian Sun
 		Side: Tiberian Sun
-		Description: Nod from Tiberian Sun\nFeatures:\n- Subterranean vehicles\n- Stealth generators\n- Tactical missiles with fast charge and flight time\nSupport powers: Cluster & Chemical Missiles
+		Description: faction-ts-nod.description
 	FactionCA@forgotten:
 		Selectable: true
 		Name: Forgotten TS (WIP)
 		InternalName: forgotten
 		Game: Tiberian Sun
 		Side: Tiberian Sun
-		Description: Custom Forgotten from Tiberian Sun\nSupport powers: Mutant Commando, Wildlife Rampage
+		Description: faction-ts-forgotten.description
 	FactionCA@cabal:
 		Selectable: true
 		Name: CABAL TS (WIP)
 		InternalName: cabal
 		Game: Tiberian Sun
 		Side: Tiberian Sun
-		Description: CABAL from Tiberian Sun Firestorm\nFeatures:\n- Subterranean vehicles\n- Stealth generators\n- Cluster & Chemical Missiles with fast charge and flight time\n- Most units immune to mind control\n- Epic unit: Core Defender\nSupport powers: Cluster & Chemical Missiles
+		Description: faction-ts-cabal.description
 	FactionCA@RandomTS:
-		Name: Any TS
+		Name: Random TS
 		InternalName: RandomTS
 		RandomFactionMembers: tsnod, tsgdi, forgotten, cabal
 		Game: Tiberian Sun
 		Side: Random
-		Description: Random Faction\nA random faction from Tiberian Sun will be chosen when the game starts.
+		Description: faction-ts-random.description
 
 	####################################################################################################
 	#		MPSTARTUNITS
@@ -4116,97 +4116,9 @@ TSRIOTT:
 	ActorStatValues:
 		Upgrades: up_seretraining
 
-TSJUMPJET:
-	Inherits: ^Soldier
-	Inherits@Template: ^FlyingInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@anim: ^TSInfantry
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@detect: ^GenericGroundDetector
-	Inherits@EXT: ^ExternalConditions
-	Inherits@SERETraining: ^SERETraining
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Jumpjet Infantry
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		BuildPaletteOrder: 40
-		Prerequisites: ~unbuildable
-		Queue: Infantry, RAInfantry
-		Description: Airborne soldier.\nCan attack aircraft.\n  Strong vs Infantry, Light armor\n  Weak vs AA
-	Voiced:
-		VoiceSet: TSJumpJet
-	Mobile:
-		Speed: 80
-		Locomotor: swimsuit
-	Health:
-		HP: 20000
-	ChangesHealth@SelfHealing:
-		Step: 8
-	Passenger:
-		CustomPipType: green
-	Armament@PRIMARY:
-		Weapon: TSJumpCannon
-	# AttackFrontal:
-	# 	FacingTolerance: 0
-	# 	Voice: Attack
-	WithInfantryBody:
-		RequiresCondition: !airborne && !swimming
-		DefaultAttackSequence: attack
-	# Hovers:
-	# 	RequiresCondition: (airborne || swimming) && !disabled
-	ProducibleWithLevel:
-		Prerequisites: barracks.upgraded
-	#SpawnActorOnDeath@airborne:
-	#	Actor: TSJUMPJET.Husk
-	#	RequiresCondition: airborne
-	DeathSounds@airborne:
-		RequiresCondition: airborne
-	WithDeathAnimation:
-		RequiresCondition: !airborne
-	# Explodes@airborne:
-	# 	Weapon: HeliExplode
-	# 	EmptyWeapon: HeliExplode
-	# 	RequiresCondition: airborne
-	DeathSounds@NORMAL:
-		RequiresCondition: !airborne
-	DeathSounds@EXPLOSION:
-		RequiresCondition: !airborne
-	DeathSounds@BURNED:
-		RequiresCondition: !airborne
-	DeathSounds@ZAPPED:
-		RequiresCondition: !airborne
-	WithShadow@airborne:
-		Offset: 0, 128, 0
-		ZOffset: -128
-		RequiresCondition: airborne || swimming
-	# GrantConditionOnTerrain@Water:
-	# 	TerrainTypes: Water, River
-	# 	Condition: swimming
-	Transforms:
-		IntoActor: tsjumpjet2
-		Offset: 0,0
-		Facing: 2
-		TransformSounds:
-		NoTransformNotification: BuildingCannotPlaceAudio
-	WithDeathAnimation:
-		DeathSequencePalette: ra2player
-		CrushedSequencePalette: ra2effect
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: TSJumpCannon
-	RenderSprites:
-		PlayerPalette: playerra2
-	ActorStatValues:
-		Upgrades: up_seretraining
-
 tsjumpjet2:
 	Inherits: ^JumpjetInfantry
-	Inherits@Template: ^HelicopterTemplate
+	Inherits@Template: ^FlyingInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -4226,7 +4138,6 @@ tsjumpjet2:
 	Aircraft:
 		TurnSpeed: 16
 		Speed: 80
-		IdealSeparation: 900
 		Voice: Move
 	Health:
 		HP: 20000
@@ -4264,12 +4175,6 @@ tsjumpjet2:
 		Modifier: 40
 	RenderSprites:
 		PlayerPalette: playerra2
-	Transforms:
-		IntoActor: tsjumpjet
-		Offset: 0,0
-		Facing: 2
-		TransformSounds:
-		NoTransformNotification: BuildingCannotPlaceAudio
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect

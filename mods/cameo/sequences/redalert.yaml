@@ -2573,6 +2573,7 @@ rafact:
 			INTERIOR: TEMPERAT
 	icon:
 		Filename: rafacticon.png
+
 rafactj:
 	Inherits: ^WithBuildingBib2
 	Defaults:
@@ -2600,6 +2601,13 @@ rafactj:
 			INTERIOR: TEMPERAT
 	icon:
 		Filename: rafactjicon.shp
+
+rafactcolor:
+	Defaults:
+		Filename: rafactcolor.shp
+	idle:
+	icon:
+		Filename: rafacticon.png
 
 raproc:
 	Inherits: ^WithBuildingBib2

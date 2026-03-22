@@ -16,7 +16,7 @@ World:
 		InternalName: ordos
 		Game: Dune Universe
 		Side: Dune
-		Description: House Ordos\nThe insidious Ordos of the icy planet Sigma Draconis IV\nare known for their wealth, greed and treachery.\nRelying heavily on mercenaries they often resort\nto sabotage and forbidden Ixian technologies.\nTheir Strength lies in Stealth and quick hit and run tactics\nBonus: Stealthed units moves faster\nSupport Power: Saboteur, Chaos Lightning
+		Description: faction-d2k-ordos.description
 	# FactionCA@Corrino:
 	# 	Name: Corrino DU
 	# 	Game: Dune Universe
@@ -28,14 +28,14 @@ World:
 		InternalName: ixian
 		Game: Dune Universe
 		Side: Dune
-		Description: Ixians
+		Description: faction-d2k-ixian.description
 	FactionCA@RandomDU:
-		Name: Any Dune
+		Name: Random Dune
 		InternalName: RandomDU
 		RandomFactionMembers: ordos, ixian #atreides, ordos, harkonnen, corrino, ixian
 		Game: Dune Universe
 		Side: Random
-		Description: Random Faction\nA random faction from Dune Universe will be chosen when the game starts.
+		Description: faction-d2k-random.description
 
 	#########################################
 	#   DUNE UNIVERSE
@@ -416,6 +416,11 @@ Player:
 	-ActorPreviewPlaceBuildingPreview:
 	D2kActorPreviewPlaceBuildingPreview:
 	Cloak@TScloak:
+	WithSpriteBody:
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 
 ^D2kUpgradeable:
 	GrantConditionOnPrerequisite@UPGRADEABLE:
@@ -779,6 +784,8 @@ OILB.d2k:
 		Prerequisites: ~construction_yard, research_centre, derricklimit
 		Description: actor-oilb.description
 		IconPalette: d2kunit
+	Building:
+		BuildSounds: BUILD1.WAV
 	Tooltip:
 		Name: Spice Sifter
 	RenderSprites:
@@ -803,7 +810,12 @@ OILB.d2k:
 		Condition: damaged
 		ValidDamageStates: Heavy, Critical
 	WithIdleOverlay:
-		RequiresCondition: !damaged
+		RequiresCondition: !damaged && !build-incomplete
+	WithSpriteBody:
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	-ActorPreviewPlaceBuildingPreview:
 
@@ -1437,7 +1449,6 @@ d2k_munitions.ixian:
 	RenderSprites:
 		Image: d2k_munitions.atreides
 	WithSpriteBody:
-	WithMakeAnimation:
 	Power:
 		Amount: -10
 	MustBeDestroyed:
@@ -1932,6 +1943,7 @@ ixian_launchpad:
 	Buildable:
 		Prerequisites: ~construction_yard.ixian, outpost.ixian
 	Building:
+		BuildSounds: BUILD1.WAV
 		Footprint: xx xx
 		Dimensions: 2,2
 	Exit@1:
@@ -1953,6 +1965,10 @@ ixian_launchpad:
 		Modifier: 75
 	ActorStatValues:
 		Upgrades: upgrade_hightech
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	FireProjectilesOnDeath:
 		Weapons: Debris2, Debris3
@@ -2297,6 +2313,7 @@ storm_lasher_big:
 	RenderSprites:
 		Image: storm_lasher_big
 		Palette: td_temperat
+	-WithCrumbleOverlay:
 
 # starport_smuggler:
 # 	Inherits: starport
@@ -2428,7 +2445,6 @@ machine_gun_turret:
 		Cost: 600
 	Tooltip:
 		Name: Machine Gun Turret
-	WithMakeAnimation:
 	Health:
 		HP: 75000
 	BodyOrientation:
@@ -2466,7 +2482,6 @@ machine_gun_turret:
 		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	-WithSpriteTurret:
-	-WithMakeAnimation:
 	FireProjectilesOnDeath:
 		Weapons: Debris2, Debris3
 		Pieces: 2, 4
@@ -12346,6 +12361,7 @@ sietch_creep:
 		-Condition:
 	ProvidesPrerequisite@buildingname:
 	-WithMakeAnimation:
+	-WithCrumbleOverlay:
 	-WithBuildingRepairDecoration:
 	-WithDeathAnimation:
 	FireProjectilesOnDeath:
@@ -12962,7 +12978,6 @@ storm_lasher:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	WithMakeAnimation:
 	Health:
 		HP: 200000
 	Shielded:
@@ -12995,7 +13010,6 @@ storm_lasher:
 	WithSpriteBody:
 		Sequence: idle
 	WithMuzzleOverlay:
-	WithMakeAnimation:
 	-WithDeathAnimation:
 	-WithWallSpriteBody:
 	-WithSpriteTurret:
@@ -13020,6 +13034,7 @@ storm_lasher:
 		Range: 5692
 	ActorStatValues:
 		Upgrades: d2k_general_purpose_armor, d2k_advanced_ixian_technology
+
 
 	### Armor Tree
 

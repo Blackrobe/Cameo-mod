@@ -1779,7 +1779,7 @@ FlametankExplode2:
 BlackHandLaser:
 	Inherits: ^LaserWeapon
 	ReloadDelay: 60
-	Range: 6364
+	Range: 5300
 	#Report: vpalwe2d.aud
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: LaserZap
@@ -2019,9 +2019,10 @@ SpecterArtilleryShellUpgrade:
 VenomLaser:
 	Inherits: ^LightFlameWeapon
 	Inherits: ^FlakWeapon
+	Inherits: ^Chaingun
 	Inherits: ^LaserWeapon
-	ReloadDelay: 16
-	Range: 5746
+	ReloadDelay: 18
+	Range: 4800
 	Report: vpalwe2d.aud
 	Projectile: LaserZap
 		Width: 128
@@ -2045,6 +2046,12 @@ VenomLaser:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@LaserWeapon: SpreadDamage

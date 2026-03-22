@@ -170,6 +170,7 @@ MatadorFlamer:
 	BurstDelays: 2
 	Range: 5938
 	StartBurstReport: TFBFir00.aud,TFBFir01.aud
+	TargetActorCenter: true
 	Projectile: Bullet
 		Speed: 296
 		Image: tsflameall
@@ -2459,6 +2460,18 @@ SporemawShoot:
 		ImpactSounds: zguhit00.aud
 		ExplosionPalette: ra_temperat
 		ValidTargets: Ground, Water, Trees, Air
+
+HermitExplode:
+	Inherits: ReactorNuke
+	Warhead@Effect: CreateEffect
+		Explosions: ra2radbang
+	Warhead@shrapnel: FireShrapnel
+		Weapon: HermitShoot
+		Amount: 1
+		AimChance: 0
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Ground, Water, Air
 
 HermitShoot:
 	Inherits: ^Grenade

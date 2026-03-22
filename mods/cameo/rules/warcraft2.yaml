@@ -38,7 +38,7 @@ World:
 		Description: Orc\nLeaders of the Horde\nBrutish and crafty.\nSupport Powers: Eye of Kilrogg, Death and Decay
 		Selectable: True
 	FactionCA@RandomWC2:
-		Name: Any WC2
+		Name: Random WC2
 		InternalName: RandomWC2
 		RandomFactionMembers: human2, orc2
 		Game: Warcraft 2
