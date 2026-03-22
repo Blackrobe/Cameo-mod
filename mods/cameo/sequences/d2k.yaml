@@ -1391,6 +1391,7 @@ research.gold:
 		Filename: d2k_research_center_gold_icon.shp
 		Start: 0
 		Offset: 0,0
+
 palace.atreides:
 	Defaults:
 		AddExtension: false
@@ -7689,11 +7690,14 @@ sandworm:
 d2k_spice_sifter:
 	idle:
 		Filename: d2k_spice_sifter.shp
+		Scale: 1.5
 	damaged-idle:
 		Filename: d2k_spice_sifter.shp
+		Scale: 1.5
 		Start: 1
 	idle-overlay:
 		Filename: d2k_spice_sifter.shp
+		Scale: 1.5
 		Start: 2
 		Length: 5
 		Tick: 80
@@ -7713,8 +7717,18 @@ d2k_spice_sifter:
 		AddExtension: false
 		ZOffset: 50
 		Tick: 100
+	crumble-overlay:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 4427
+		Length: 12
+		Offset: -32,64
+		ZOffset: 100
+		Tick: 100
 	icon:
 		Filename: d2k_spice_sifter_icon.shp
+
 d2k_mcv:
 	Defaults:
 		AddExtension: false
