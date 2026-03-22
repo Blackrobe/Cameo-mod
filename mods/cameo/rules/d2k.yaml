@@ -1943,6 +1943,7 @@ ixian_launchpad:
 	Buildable:
 		Prerequisites: ~construction_yard.ixian, outpost.ixian
 	Building:
+		BuildSounds: BUILD1.WAV
 		Footprint: xx xx
 		Dimensions: 2,2
 	Exit@1:
@@ -1964,6 +1965,10 @@ ixian_launchpad:
 		Modifier: 75
 	ActorStatValues:
 		Upgrades: upgrade_hightech
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithCrumbleOverlay:
+		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	FireProjectilesOnDeath:
 		Weapons: Debris2, Debris3

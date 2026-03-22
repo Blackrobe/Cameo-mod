@@ -1150,22 +1150,22 @@ ixian_launchpad:
 	idle:
 		Length: 10
 		ZOffset: -1023
-		Tick: 50
+		Tick: 100
 	damaged-idle:
 		Filename: IxHoverpadDamaged.png
 		Length: 10
 		ZOffset: -1023
-		Tick: 50
+		Tick: 100
 	active:
 		Start: 10
 		Length: 6
-		Tick: 60
+		Tick: 100
 		ZOffset: -1023
 	damaged-active:
 		Filename: IxHoverpadDamaged.png
 		Start: 10
 		Length: 6
-		Tick: 60
+		Tick: 100
 		ZOffset: -1023
 	dead:
 		Start: 9
@@ -1177,6 +1177,14 @@ ixian_launchpad:
 		Remap: 54F94B
 		Start: 4477
 		Length: 8
+		Offset: -32,64
+		Tick: 100
+	crumble-overlay:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 4485
+		Length: 9
 		Offset: -32,64
 		Tick: 100
 	icon:
