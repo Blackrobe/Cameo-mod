@@ -448,7 +448,7 @@ TSGTCNSTGDI:
 
 TSGTCNSTNOD:
 	Inherits: ^BaseBuilding
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^3x3Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@conyard: ^Conyard
 	Selectable:
@@ -458,8 +458,8 @@ TSGTCNSTNOD:
 	Tooltip:
 		Name: Construction Yard (Nod)
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: _xx_ xxxx _xx_
+		Dimensions: 4,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 1000000
@@ -661,25 +661,26 @@ TSMCVCABAL:
 tsprocgdi:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@shape: ^4x3Shape
 	Inherits@ref: ^Refinery
-	HitShape:
-		Type: Rectangle
-			TopLeft: -1536, -512
-			BottomRight: 1536, 853
-	HitShape@TOP:
-		Type: Rectangle
-			TopLeft: -512, -1450
-			BottomRight: 896, -512
+	# HitShape:
+	# 	Type: Rectangle
+	# 		TopLeft: -1536, -512
+	# 		BottomRight: 1536, 853
+	# HitShape@TOP:
+	# 	Type: Rectangle
+	# 		TopLeft: -512, -1450
+	# 		BottomRight: 896, -512
 	Tooltip:
 		Name: Tiberium Refinery
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstgdi, tsgtpowr
 		Queue: Building, RABuilding
-		Description: Processes raw Tiberium\ninto useable resources
+		Description: Processes raw Tiberium into useable resources
 	Building:
-		Footprint: _x_ xxx === ===
-		Dimensions: 3,4
+		Footprint: xxx_ xxx= _===
+		Dimensions: 4,3
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
 		Range: 6c0
@@ -689,14 +690,14 @@ tsprocgdi:
 		DockOffset: 1c0, 1c0, 0
 	StoresResources:
 		Capacity: 1000
-	Selectable:
-		Bounds: 3072, 2560, 0, 0
-		DecorationBounds: 3072, 2560, 0, 0
+	# Selectable:
+	# 	Bounds: 3072, 2560, 0, 0
+	# 	DecorationBounds: 3072, 2560, 0, 0
 	CustomSellValue:
 		Value: 500
 	FreeActor:
 		Actor: TSHARV
-		SpawnOffset: 1,2
+		SpawnOffset: 2,2
 		Facing: 256
 	WithIdleOverlay@REDLIGHTS:
 		RequiresCondition: !build-incomplete
@@ -729,7 +730,7 @@ tsprocnod:
 		Description: Processes raw Tiberium\ninto useable resources
 	FreeActor:
 		Actor: TSHARVNOD
-		SpawnOffset: 1,2
+		SpawnOffset: 2,2
 		Facing: 256
 	Tooltip:
 		Name: Tiberium Refinery
@@ -745,7 +746,7 @@ tsproccabal:
 		Description: Processes raw Tiberium\ninto useable resources
 	FreeActor:
 		Actor: TSHARVCABAL
-		SpawnOffset: 1,2
+		SpawnOffset: 2,2
 		Facing: 256
 	Tooltip:
 		Name: Tiberium Refinery
@@ -913,11 +914,11 @@ TSNTPOWR:
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
 		Range: 4c0
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	# Selectable:
+	# 	Bounds: 2048, 2048
+	# HitShape:
+	# 	UseTargetableCellsOffsets: false
+	# 	TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1312,13 +1313,13 @@ tsgtweap:
 TSNTWEAP:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^4x3Shape
 	Inherits@weap: ^IsWeaponFactory
-	HitShape:
-		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
-		Type: Rectangle
-			TopLeft: -1536, -1024
-			BottomRight: 1536, 512
+	# HitShape:
+	# 	TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+	# 	Type: Rectangle
+	# 		TopLeft: -1536, -1024
+	# 		BottomRight: 1536, 512
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1330,20 +1331,20 @@ TSNTWEAP:
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
-		Footprint: xx= x== ===
-		Dimensions: 3,3
+		Footprint: xxx_ xxx= _===
+		Dimensions: 4,3
 		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 3072, 2048
-		DecorationBounds: 3072, 2048
+	# Selectable:
+	# 	Bounds: 3072, 2048
+	# 	DecorationBounds: 3072, 2048
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
 	RallyPoint:
-		Path: 0,2
+		Path: 5,3
 	Exit@1:
 		SpawnOffset: -512,-512,0
-		ExitCell: 2,1
+		ExitCell: 2,2
 		ExitDelay: 3
 	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
@@ -1432,14 +1433,14 @@ TSNTWEAPCABAL:
 
 tsgtdeptgdi:
 	Inherits: ^BaseBuilding
-	Inherits@shape: ^3x3Shape
+	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@repair: ^RepairsUnits
 	Inherits@repair: ^RepairFacility
-	HitShape:
-		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
-		Type: Polygon
-			Points: -1536,-256, -341,-940, 341,-940, 1536,-256, 1536,341, 341,1110, -341,1110, -1536,341
+	# HitShape:
+	# 	TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
+	# 	Type: Polygon
+	# 		Points: -1536,-256, -341,-940, 341,-940, 1536,-256, 1536,341, 341,1110, -341,1110, -1536,341
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1450,11 +1451,11 @@ tsgtdeptgdi:
 		Queue: Building, RABuilding
 		Description: Repairs vehicles
 	Building:
-		Footprint: _+_ +++ _+_
-		Dimensions: 3,3
-	Selectable:
-		Bounds: 1280, 1280
-		DecorationBounds: 1280, 1024
+		Footprint: x++ +++
+		Dimensions: 3,2
+	# Selectable:
+	# 	Bounds: 1280, 1280
+	# 	DecorationBounds: 1280, 1024
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 5c0
@@ -1657,7 +1658,7 @@ tsntradr:
 		Queue: Building, RABuilding
 		Description: Provides radar.\nUnlocks higher-tech units and buildings.\nProvides Support power\nRequires power to operate.
 	Building:
-		Footprint: X_ xx
+		Footprint: xx xx
 		Dimensions: 2,2
 	Selectable:
 		Bounds: 2048, 2048
