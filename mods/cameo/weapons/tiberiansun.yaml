@@ -1125,6 +1125,8 @@ TSObeliskLaserFire:
 	Range: 10199
 	Report: obelray1.aud
 	ValidTargets: Ground, Water
+	Projectile:
+		Duration: 38
 	Warhead@TankDestroyerCannon: SpreadDamage
 		Damage: 52000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
@@ -1144,6 +1146,7 @@ TSLaserObeliskLaserFire:
 	ReloadDelay: 32
 	Projectile: LaserZap
 		Color: FFFF0080
+		Duration: 38
 		SecondaryBeamWidth: 48
 		SecondaryBeamColor: FF000080
 	Range: 10435
@@ -1175,6 +1178,7 @@ ObeliskLaserFragment:
 	Projectile: LaserZap
 		Width: 48
 		Color: FFFF0080
+		Duration: 38
 		SecondaryBeamWidth: 24
 		SecondaryBeamColor: FF000080
 		-HitAnim:
@@ -1196,6 +1200,7 @@ DarkObeliskLaser:
 	Projectile: LaserZap
 		Width: 125
 		Color: 445577
+		Duration: 38
 	Warhead@1Dam: SpreadDamage
 		Damage: 25000
 		Spread: 250
