@@ -602,7 +602,7 @@ TSMCVGDI:
 	Buildable:
 		Prerequisites: ~tsgtweap, tsgtdeptgdi
 		Queue: Vehicle, RAVehicle
-		Description: Deploys into another Construction Yard.\n  Unarmed
+		Description: template-mcv.description
 	Tooltip:
 		Name: Mobile Construction Vehicle
 	Transforms:
@@ -627,6 +627,8 @@ TSMCVNOD:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~tsntweap, tsgtdeptnod
+	Tooltip:
+		Name: Nod Mobile Construction Vehicle
 	Transforms:
 		IntoActor: tsgtcnstnod
 	RenderVoxels:
@@ -647,6 +649,8 @@ TSMCVCABAL:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~tsntweapcabal, tsgtdeptcabal
+	Tooltip:
+		Name: CABAL Mobile Construction Vehicle
 	Transforms:
 		IntoActor: tsgtcnstcabal
 	Voiced:
@@ -677,7 +681,7 @@ tsprocgdi:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstgdi, tsgtpowr
 		Queue: Building, RABuilding
-		Description: Processes raw Tiberium into useable resources
+		Description: template-refinery.description
 	Building:
 		Footprint: xxx_ xxx= _===
 		Dimensions: 4,3
@@ -727,13 +731,10 @@ tsprocnod:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstnod, tsntpowr
 		Queue: Building, RABuilding
-		Description: Processes raw Tiberium\ninto useable resources
 	FreeActor:
 		Actor: TSHARVNOD
 		SpawnOffset: 2,2
 		Facing: 256
-	Tooltip:
-		Name: Tiberium Refinery
 	RenderSprites:
 		Image: tsprocnod
 
@@ -743,13 +744,10 @@ tsproccabal:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstcabal, tsntpowrcabal
 		Queue: Building, RABuilding
-		Description: Processes raw Tiberium\ninto useable resources
 	FreeActor:
 		Actor: TSHARVCABAL
 		SpawnOffset: 2,2
 		Facing: 256
-	Tooltip:
-		Name: Tiberium Refinery
 	RenderSprites:
 		Image: tsprocnod
 
@@ -768,13 +766,13 @@ tsntwast:
 	Valued:
 		Cost: 1600
 	Tooltip:
-		Name: Waste Facility
+		Name: Tiberium Waste Facility
 	Buildable:
 		BuildPaletteOrder: 200
 		BuildLimit: 1
 		Prerequisites: ~tsgtcnstnod, tsnttech, up_advancedtiberiumrefinement
 		Queue: Building, RABuilding
-		Description: Increases income from minerals by 25%.\nUnlocks Chemical Missile
+		Description: actor-tsntwast.description
 	Building:
 		Footprint: xx= xx=
 		Dimensions: 3,2
@@ -827,7 +825,7 @@ TSGTPOWR:
 	Buildable:
 		BuildPaletteOrder: 10
 		Queue: Building, RABuilding
-		Description: Generates power
+		Description: template-power.description
 		Prerequisites: ~tsgtcnstgdi
 	Building:
 		Footprint: xx xx
@@ -883,7 +881,7 @@ tsgtpowrup:
 		BuildPaletteOrder: 80
 		Queue: BuildingAddons
 		Prerequisites: ~tsgtcnstgdi, gdipowerupgradeavailable
-		Description: Increase power output by 100%
+		Description: Power plant addon that increases output by 100%
 	Plug:
 		Type: tsgtpowr
 	RenderSprites:
@@ -908,7 +906,7 @@ TSNTPOWR:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 10
 		Prerequisites: ~tsgtcnstnod
-		Description: Provides power for other structures.
+		Description: template-power.description
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -948,7 +946,7 @@ TSNTPOWRCABAL:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 10
 		Prerequisites: ~tsgtcnstcabal
-		Description: Provides power for other structures.
+		Description: template-power.description
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -993,7 +991,7 @@ TSNTAPWR:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 110
 		Prerequisites: ~tsgtcnstnod, tsntradr
-		Description: Provides double the power of\na standard Power Plant.
+		Description: template-advpower.description
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -1028,7 +1026,7 @@ TSGTSILO:
 	Buildable:
 		BuildPaletteOrder: 100
 		Queue: Defence, RADefence
-		Description: Stores excess Tiberium.
+		Description: template-silo.description
 		Prerequisites: ~tsgtcnstgdi, tsproc
 	Building:
 		Footprint: xx xx
@@ -1067,11 +1065,7 @@ TSGTSILONOD:
 	Tooltip:
 		Name: Silo
 	Buildable:
-		BuildPaletteOrder: 100
-		Queue: Defence, RADefence
-		Description: Stores excess Tiberium.
 		Prerequisites: ~tsgtcnstnod, tsprocnod
-	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		Image: tsgtsilo.nod
 
@@ -1080,11 +1074,7 @@ TSGTSILOCABAL:
 	Tooltip:
 		Name: Silo
 	Buildable:
-		BuildPaletteOrder: 100
-		Queue: Defence, RADefence
-		Description: Stores excess Tiberium.
 		Prerequisites: ~tsgtcnstcabal, tsproccabal
-	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		Image: tsgtsilo.nod
 
@@ -1107,7 +1097,7 @@ TSGTPILE:
 		BuildPaletteOrder: 30
 		Prerequisites:  ~tsgtcnstgdi, tsgtpowr
 		Queue: Building, RABuilding
-		Description: Trains infantry
+		Description: template-barracks.description
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
@@ -1162,7 +1152,7 @@ TSNTHAND:
 		BuildPaletteOrder: 30
 		Prerequisites: ~tsgtcnstnod, tsntpowr
 		Queue: Building, RABuilding
-		Description: Trains infantry
+		Description: template-barracks.description
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -1210,7 +1200,7 @@ TSNTHAND2:
 		BuildPaletteOrder: 30
 		Prerequisites: ~tsgtcnstcabal, tsntpowrcabal
 		Queue: Building, RABuilding
-		Description: Trains infantry
+		Description: template-barracks.description
 		IconPalette: windows256
 	Building:
 		Footprint: xx xx ==
@@ -1266,7 +1256,7 @@ tsgtweap:
 		BuildPaletteOrder: 40
 		Prerequisites:  ~tsgtcnstgdi, tsprocgdi
 		Queue: Building, RABuilding
-		Description: Produces vehicles
+		Description: template-factory.description
 	Building:
 		Footprint: xx= x== ===
 		Dimensions: 3,3
@@ -1333,7 +1323,7 @@ TSNTWEAP:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgtcnstnod, tsprocnod
 		Queue: Building, RABuilding
-		Description: Produces vehicles
+		Description: template-factory.description
 	Building:
 		Footprint: xxx_ xxx= _===
 		Dimensions: 4,3
@@ -1394,7 +1384,7 @@ TSNTWEAPCABAL:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgtcnstcabal, tsproccabal
 		Queue: Building, RABuilding
-		Description: Produces vehicles
+		Description: template-factory.description
 	Building:
 		Footprint: xx= x== ===
 		Dimensions: 3,3
@@ -1454,7 +1444,7 @@ tsgtdeptgdi:
 		BuildPaletteOrder: 60
 		Prerequisites:  ~tsgtcnstgdi, tsgtweap
 		Queue: Building, RABuilding
-		Description: Repairs vehicles
+		Description: template-service-depot.description
 	Building:
 		Footprint: x++ +++
 		Dimensions: 3,2
@@ -1540,7 +1530,7 @@ tsgthpad:
 		BuildPaletteOrder: 50
 		Prerequisites: ~tsgtcnstgdi, tsgtradr
 		Queue: Building, RABuilding
-		Description: Produces, rearms and\nrepairs helicopters
+		Description: Produces, rearms and repairs aircraft.
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1589,12 +1579,12 @@ tsnthpad:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Helipad (Nod)
+		Name: Nod Helipad
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~tsgtcnstnod, tsntradr
 		Queue: Building, RABuilding
-		Description: Produces, rearms and repairs helicopters
+		Description: Produces, rearms and repairs aircraft.
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1630,7 +1620,7 @@ tsnthpad:
 TSNTHPAD2:
 	Inherits: tsnthpad
 	Tooltip:
-		Name: Helipad (CABAL)
+		Name: CABAL Helipad
 	Buildable:
 		Queue: Building, RABuilding
 		Prerequisites: ~tsgtcnstcabal, tsntradrcabal
@@ -1661,7 +1651,7 @@ tsntradr:
 		BuildPaletteOrder: 70
 		Prerequisites: ~tsgtcnstnod, tsprocnod
 		Queue: Building, RABuilding
-		Description: Provides radar.\nUnlocks higher-tech units and buildings.\nProvides Support power\nRequires power to operate.
+		Description: actor-tsntradr.description
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1743,7 +1733,7 @@ tsgtradr:
 		BuildPaletteOrder: 70
 		Prerequisites:  ~tsgtcnstgdi, tsprocgdi
 		Queue: Building, RABuilding
-		Description: Provides radar.\nUnlocks higher-tech units and buildings.\nRequires power to operate.\nCan be only built once.
+		Description: actor-tsgtradr.description
 	Building:
 		Footprint: X_ xx ==
 		Dimensions: 2,3
@@ -1789,6 +1779,7 @@ tsgtradr:
 	# SupportPowerChargeBar:
 	RenderSprites:
 		PlayerPalette: playerra2
+
 tsnttech:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -1873,7 +1864,7 @@ tscabaltech:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 150
 		Prerequisites: ~tsgtcnstcabal, tsntradrcabal
-		Description: Provides Cabal advanced technologies.\nCan be only built once
+		Description: actor-tscabaltech.description
 		BuildLimit: 1
 	RenderSprites:
 		Image: tsnttech
@@ -1930,7 +1921,7 @@ tscore:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 150
 		Prerequisites: ~tsgtcnstcabal, tscabaltech
-		Description: Provides CABAL advanced technologies.\nProvides Hunter-Seeker support power.
+		Description: actor-tscore.description
 	Tooltip:
 		Name: CABAL Core
 	Building:
@@ -1971,7 +1962,7 @@ tsntmisl:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 140
 		Prerequisites: ~tsgtcnstnod, tsnttech
-		Description: Provides Multi Missile and Chemical Missile\nsupport powers.
+		Description: actor-tsntmisl.description
 	Tooltip:
 		Name: Missile Silo
 	Building:
@@ -2110,6 +2101,7 @@ tsntmislcabal:
 	Inherits: tsntmisl
 	Buildable:
 		Prerequisites: ~tsgtcnstcabal, tscore
+		Description: actor-tsntmisl.description
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tsntmisl
@@ -2165,7 +2157,7 @@ tsgtplug:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 140
 		Prerequisites: ~tsgtcnstgdi, tsgttech
-		Description: Provides Hunter-Seeker and Ion Cannon\nsupport powers.
+		Description: actor-tsgtplug.description
 	Tooltip:
 		Name: Upgrade Center
 	Building:
@@ -2895,7 +2887,7 @@ tsntlasr:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstnod, tsnthand
-		Description: Basic base defense.\n  Strong vs Ground units\n  Weak vs Aircraft
+		Description: actor-tsntlasr.description
 	Valued:
 		Cost: 800
 	Power:
@@ -3118,7 +3110,7 @@ forgot_tower:
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Machingun Tower
+		Name: Machinegun Tower
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~tsgtcnstmutant, tsgtpile2
@@ -3369,7 +3361,7 @@ tsntsam:
 		Prerequisites: ~tsgtcnstnod, tsnthand
 		Queue: Defence, RADefence
 		BuildDurationModifier: 40
-		Description: Nod anti-air base defense.\nRequires power to operate.\n  Strong vs Aircraft
+		Description: actor-tsntsam.description
 	RequiresBuildableArea:
 		AreaTypes: building
 	Selectable:
@@ -3427,7 +3419,7 @@ tsntstlh:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 170
 		Prerequisites: ~tsgtcnstnod, tsnttech
-		Description: Generates a cloaking field to hide your forces from the enemy. Only one can be built at any given time.
+		Description: actor-tsntstlh.description
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -3488,7 +3480,7 @@ tsntpulsgdi:
 		Prerequisites: ~tsgtcnstgdi, tsgtradr
 		Queue: Defence, RADefence
 		BuildDurationModifier: 40
-		Description: Disables mechanical units in an area.\nRequires power to operate.
+		Description: actor-tsntpulsgdi.description
 		BuildLimit: 1
 	Valued:
 		Cost: 2000

@@ -1262,6 +1262,74 @@ actor-yagntc =
    .description = Provides Genetic Mutator power.
       Requires power to operate.
 
+actor-tsntwast =
+   .name = Tiberium Waste Facility
+   .description = Increases income from minerals by 25%.
+   Unlocks Chemical Missile.
+
+actor-tsntpowr =
+   .name = Power Plant
+   .description = Provides power for other structures.
+
+actor-tsntradr =
+   .name = Radar
+   .description = Provides radar.
+   Unlocks higher-tech units and buildings.
+   nRequires power to operate.
+
+actor-tsgtradr =
+   .name = Radar
+   .description = Provides radar.
+   Unlocks higher-tech units and buildings.
+   Requires power to operate.
+
+actor-tscabaltech =
+   .name = Radar
+   .description = Provides CABAL advanced technologies.
+   Only one may be built at a time.
+
+actor-tscore =
+   .name = Radar
+   .description = Provides CABAL advanced technologies.
+   Provides Hunter-Seeker support power.
+
+actor-tsntmisl =
+   .name = Missile Silo
+   .description = Constructs and launches long-range missiles as support power.
+
+actor-tsgtplug =
+   .name = Upgrade Center
+   .description = Provides Hunter-Seeker and Ion Cannon support powers.
+
+actor-tsntlasr =
+   .name = Laser Turret
+   .description = Basic base defense.
+   Strong vs Ground units.
+   Cannot attack Aircraft.
+
+actor-tsntsam =
+   .name = SAM Site
+   .description = Anti-aircraft missile battery.
+   Requires power to operate.
+   Strong vs Aircraft.
+   Cannot attack Ground units.
+
+actor-tsntstlh =
+   .name = Stealth Generator
+   .description = Generates a cloaking field to hide your forces from the enemy.
+   Only one can be built at a time.
+
+actor-tsntpulsgdi =
+   .name = E.M. Pulse Cannon
+   .description = Launches electro-magnetic pulse that disables mechanical units in an area.
+   Requires power to operate.
+
+actor-tsntobel =
+   .description = Advanced base defense.
+   Requires power to operate.
+   Strong vs Ground units.
+   Cannot attack Aircraft.
+
 power-ra2spysat =
    .name = Spy Satellite
    .description = Periodically reveals the entire map.
@@ -2225,6 +2293,9 @@ template-silo =
 
 template-power =
    .description = Generates power.
+
+template-advpower =
+   .description = Generates more power compared to the standard power generator.
 
 template-barracks =
    .description = Trains infantry.
