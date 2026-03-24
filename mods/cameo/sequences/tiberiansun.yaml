@@ -3447,6 +3447,8 @@ tsntobel:
 tsntstlh:
 	Defaults:
 		Filename: tsntstlh.shp
+		Scale: 1.4
+		Offset: -16, -16, 1
 	idle:
 		Filename: tsntstlh.shp
 		ShadowStart: 3
@@ -3777,7 +3779,8 @@ tsgtsilo.gdi:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Filename: tsgtsilo.shp
-		Offset: 0, -12, 24
+		Scale: 1.4
+		Offset: 4, -24, 24
 	idle:
 		Filename: tsgtsilo_a.shp
 	damaged-idle:
@@ -3929,7 +3932,8 @@ tsntmisl:
 	Inherits: ^WithBuildingBib3
 	Defaults:
 		Filename: tsntmisl.shp
-		Offset: 0, -24, 24
+		Scale: 1.4
+		Offset: -4, -8, 24
 	idle:
 		Filename: tsntmisl.shp
 	damaged-idle:
