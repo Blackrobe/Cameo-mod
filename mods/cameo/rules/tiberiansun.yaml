@@ -1030,7 +1030,7 @@ TSGTSILO:
 		Description: Stores excess Tiberium.
 		Prerequisites: ~tsgtcnstgdi, tsproc
 	Building:
-		Footprint: __ xx
+		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
 		HP: 100000
@@ -1044,7 +1044,7 @@ TSGTSILO:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-lights
 	StoresResources:
-		Capacity: 1500
+		Capacity: 8000
 	WithResourceLevelOverlay@FILLSTAGE:
 		RequiresCondition: !build-incomplete
 		Sequence: stages
@@ -1073,6 +1073,7 @@ TSGTSILONOD:
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		Image: tsgtsilo.nod
+
 TSGTSILOCABAL:
 	Inherits: TSGTSILO
 	Tooltip:
@@ -3425,7 +3426,7 @@ tsntstlh:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 170
 		Prerequisites: ~tsgtcnstnod, tsnttech
-		Description: Generates a cloaking field\nto hide your forces from the enemy.
+		Description: Generates a cloaking field to hide your forces from the enemy. Only one can be built at any given time.
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
