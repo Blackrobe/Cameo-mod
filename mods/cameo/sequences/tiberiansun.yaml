@@ -2237,7 +2237,7 @@ tsntpowrmutant:
 tsntapwr:
 	Defaults:
 		Scale: 1.4
-		Offset: 12, -12, 30
+		Offset: 12, -20, 30
 	idle:
 		Filename: tsntapwr.shp
 		ShadowStart: 3
