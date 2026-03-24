@@ -177,7 +177,8 @@ power-clustermissile =
 
 power-chemicalmissile =
    .name = Chemical Missile
-   .description = Tactical cluster missile with additional Tiberium-based warheads. Deals heavy damage in an area and leaves harmful corrosive clouds.
+   .description = Tactical cluster missile with additional Tiberium-based warheads.
+   Deals heavy damage in an area and leaves harmful corrosive clouds.
 
 actor-tmpl =
    .description = Provides advanced Nod technologies.
@@ -1265,7 +1266,7 @@ actor-yagntc =
 actor-tsntwast =
    .name = Tiberium Waste Facility
    .description = Increases income from minerals by 25%.
-   Unlocks Chemical Missile.
+   Unlocks Chemical Missile for the Missile Silo.
 
 actor-tsntpowr =
    .name = Power Plant
@@ -1275,7 +1276,7 @@ actor-tsntradr =
    .name = Radar
    .description = Provides radar.
    Unlocks higher-tech units and buildings.
-   nRequires power to operate.
+   Requires power to operate.
 
 actor-tsgtradr =
    .name = Radar
