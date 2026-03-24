@@ -4570,6 +4570,7 @@ tsveinsmoke:
 tsntlasr:
 	Defaults:
 		Filename: tsntlasr.shp
+		Scale: 1.4
 	idle:
 		Filename: tsntlasr.shp
 	damaged-idle:
@@ -4721,6 +4722,7 @@ tsntpuls:
 tsntsam:
 	Defaults:
 		Filename: tsntsam.shp
+		Scale: 1.4
 	idle:
 		Filename: tsntsam.shp
 	damaged-idle:
