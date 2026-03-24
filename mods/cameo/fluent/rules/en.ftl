@@ -170,6 +170,15 @@ power-ioncannon =
    .description = Initiate an Ion Cannon strike.
       Applies instant damage to a small area.
 
+power-clustermissile =
+   .name = Cluster Missile
+   .description = Tactical cluster missile.
+   Deals heavy damage in an area.
+
+power-chemicalmissile =
+   .name = Chemical Missile
+   .description = Tactical cluster missile with additional Tiberium-based warheads. Deals heavy damage in an area and leaves harmful corrosive clouds.
+
 actor-tmpl =
    .description = Provides advanced Nod technologies.
       Can be upgraded with a missile silo.

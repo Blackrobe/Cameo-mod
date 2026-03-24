@@ -2012,20 +2012,20 @@ tsntmisl:
 		TargetCircleRange: 5c0
 		ChargeInterval: 7500
 		Names:
-			1: Multi Missile
-			2: Chemical Missile
+			1: power-clustermissile.name
+			2: power-chemicalmissile.name
 		Descriptions:
-			1: Tactical cluster missile. Deals heavy damage in an area.
-			2: Tactical cluster missile with additional Tiberium-based warheads. Deals heavy damage in an area and leaves harmful corrosive clouds.
+			1: power-clustermissile.description
+			2: power-chemicalmissile.description
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
 		EndChargeSpeechNotification: NuclearWeaponAvailable
-		EndChargeTextNotification: Nuclear Missile ready.
+		EndChargeTextNotification: Cluster Missile ready.
 		LaunchSpeechNotification: NuclearWeaponLaunched
-		LaunchTextNotification: Warning: Nuclear Missile launched.
+		LaunchTextNotification: Cluster Missile launched.
 		IncomingSpeechNotification: NuclearWarheadApproaching
-		IncomingTextNotification: Warning: Nuclear Missile launched.
+		IncomingTextNotification: Warning: Cluster Missile launched.
 		OrderName: NukePowerInfoOrder
 		DisplayTimerRelationships: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
