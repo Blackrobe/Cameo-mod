@@ -1143,7 +1143,7 @@ TSGTPILE:
 TSNTHAND:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@shape: ^2x2Shape
+	Inherits@shape: ^3x2Shape
 	Inherits@barr: ^IsBarrack
 	HitShape:
 		UseTargetableCellsOffsets: false
@@ -1159,8 +1159,8 @@ TSNTHAND:
 		Queue: Building, RABuilding
 		Description: Trains infantry
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx_ _xx
+		Dimensions: 3,2
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
 		Range: 5c0
@@ -1520,13 +1520,13 @@ tsgtdeptcabal:
 tsgthpad:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@shape: ^2x1Shape
+	Inherits@shape: ^2x2Shape
 	Inherits@hpad: ^IsAircraftFactory
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 768,-512,0, 768,512,0, -281,-512,0, -630,512,0
+	# Selectable:
+	# 	Bounds: 2048, 2048
+	# HitShape:
+	# 	UseTargetableCellsOffsets: false
+	# 	TargetableOffsets: 0,0,0, 768,-512,0, 768,512,0, -281,-512,0, -630,512,0
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1537,8 +1537,8 @@ tsgthpad:
 		Queue: Building, RABuilding
 		Description: Produces, rearms and\nrepairs helicopters
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	RevealsShroud:
 		Range: 5c0
 	Exit@1:
@@ -1573,14 +1573,14 @@ tsgthpad:
 
 tsnthpad:
 	Inherits: ^BaseBuilding
-	Inherits@shape: ^2x1Shape
+	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 768,-512,0, 768,512,0, -281,-512,0, -630,512,0
+	# Selectable:
+	# 	Bounds: 2048, 2048
+	# HitShape:
+	# 	UseTargetableCellsOffsets: false
+	# 	TargetableOffsets: 0,0,0, 768,-512,0, 768,512,0, -281,-512,0, -630,512,0
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1589,10 +1589,10 @@ tsnthpad:
 		BuildPaletteOrder: 50
 		Prerequisites: ~tsgtcnstnod, tsntradr
 		Queue: Building, RABuilding
-		Description: Produces, rearms and\nrepairs helicopters
+		Description: Produces, rearms and repairs helicopters
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	RevealsShroud:
 		Range: 5c0
 	Exit@1:
@@ -11114,7 +11114,7 @@ team_upgrade.up_willofkane:
 	Tooltip:
 		Name: Will of Kane
 	Buildable:
-		Description: All infantry get Firepower bonus based on missing health.
+		Description: One vision. One purpose. Peace through power. Kane's will be done. All infantry get firepower bonus based on missing health.
 	PlayerDisplayUpgrade:
 
 up_willofkane:
@@ -11126,7 +11126,7 @@ up_willofkane:
 	Buildable:
 		BuildPaletteOrder: 120
 		Queue: Upgrades
-		Description: All infantry get Firepower bonus based on missing health.
+		Description: One vision. One purpose. Peace through power. Kane's will be done. All infantry get firepower bonus based on missing health.
 		Prerequisites: ~tsnttech, !up_willofkane
 	RenderSprites:
 		Image: willofkaneicon
