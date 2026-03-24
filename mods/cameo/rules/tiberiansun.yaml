@@ -618,7 +618,7 @@ TSMCVGDI:
 		Image: tsmcv
 	RenderVoxels:
 		Image: tsmcv
-		Scale: 10
+		Scale: 18
 	ActorStatValues:
 		Upgrades: up_mechanicalreliability
 
