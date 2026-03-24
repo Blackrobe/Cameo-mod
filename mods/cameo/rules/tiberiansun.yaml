@@ -755,15 +755,16 @@ tsproccabal:
 
 tsntwast:
 	Inherits: ^BaseBuilding
+	Inherits@shape: ^3x3Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
-	HitShape:
-		Type: Rectangle
-			TopLeft: -1536, -512
-			BottomRight: 1536, 853
-	HitShape@TOP:
-		Type: Rectangle
-			TopLeft: -512, -1450
-			BottomRight: 896, -512
+	# HitShape:
+	# 	Type: Rectangle
+	# 		TopLeft: -1536, -512
+	# 		BottomRight: 1536, 853
+	# HitShape@TOP:
+	# 	Type: Rectangle
+	# 		TopLeft: -512, -1450
+	# 		BottomRight: 896, -512
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -775,7 +776,7 @@ tsntwast:
 		Queue: Building, RABuilding
 		Description: Increases income from minerals by 25%.\nUnlocks Chemical Missile
 	Building:
-		Footprint: _x_ x== ___
+		Footprint: xx= xx= ===
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Health:
@@ -785,8 +786,8 @@ tsntwast:
 	Selectable:
 		Bounds: 1280, 1280
 		DecorationBounds: 1280, 1024
-	CustomSellValue:
-		Value: 500
+	# CustomSellValue:
+	# 	Value: 500
 	WithIdleOverlay@GLOW:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-glow

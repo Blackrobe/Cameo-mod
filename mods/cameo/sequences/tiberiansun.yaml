@@ -3723,7 +3723,8 @@ tsntwast:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Filename: tsntwast.shp
-		Offset: 0, -36, 24
+		Scale: 1.4
+		Offset: 0, 0, 24
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -3757,17 +3758,17 @@ tsntwast:
 	bibb:
 		Filename: tsntwastbb.shp
 		ZOffset: -1024
-		Offset: 0, -36, 3
+		# Offset: 0, -36, 3
 	damaged-bibb:
 		Filename: tsntwastbb.shp
 		Start: 1
 		ZOffset: -1024
-		Offset: 0, -36, 3
+		# Offset: 0, -36, 3
 	dead-bibb:
 		Filename: tsntwastbb.shp
 		Start: 2
 		ZOffset: -1024
-		Offset: 0, -36, 3
+		# Offset: 0, -36, 3
 	unload-overlay:
 		Filename: invisibleitem.shp
 	icon:
