@@ -10900,7 +10900,7 @@ up_infiltrationkit:
 	Buildable:
 		BuildPaletteOrder: 90
 		Queue: Addons
-		Description: Adds portable stealth suits to Light Infantry and Shotgun Commando, making them invisible. Allows Chameleon Spies to infiltrate buildings.
+		Description: Procure personal stealth suit to Light Infantry and Shotgun Commando. Allows Chameleon Spies to infiltrate buildings.
 		Prerequisites: ~tsntradr, !up_infiltrationkit
 	RenderSprites:
 		Image: infiltrationkiticon
@@ -10925,7 +10925,7 @@ up_mobilityspecialization:
 	Buildable:
 		BuildPaletteOrder: 100
 		Queue: Addons
-		Description: Increaces light vehicles and aircraft armor, accuracy, speed, vision, detection and attack range by 10%.
+		Description: Increases armor, accuracy, speed, vision, detection and attack range for the Brotherhood's light vehicles and aircraft.
 		Prerequisites: ~tsntradr, !up_mobilityspecialization
 	RenderSprites:
 		Image: mobilityspecializationicon
