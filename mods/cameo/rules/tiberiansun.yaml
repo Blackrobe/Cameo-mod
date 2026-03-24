@@ -1145,9 +1145,9 @@ TSNTHAND:
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@shape: ^3x2Shape
 	Inherits@barr: ^IsBarrack
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+	# HitShape:
+	# 	UseTargetableCellsOffsets: false
+	# 	TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1159,7 +1159,7 @@ TSNTHAND:
 		Queue: Building, RABuilding
 		Description: Trains infantry
 	Building:
-		Footprint: xx_ _xx
+		Footprint: xxx xxx
 		Dimensions: 3,2
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
@@ -1167,11 +1167,13 @@ TSNTHAND:
 	RallyPoint:
 		Path: 1,2
 	Exit@1:
-		SpawnOffset: -426,85,0
-		ExitCell: 0,1
+		# SpawnOffset: -426,85,0
+		SpawnOffset: 0,0,0
+		ExitCell: 2,1
 	Exit@2:
-		SpawnOffset: 298,298,0
-		ExitCell: 1,1
+		# SpawnOffset: 298,298,0
+		SpawnOffset: 0,0,0
+		ExitCell: 2,0
 	ProductionQueue@INFANTRY:
 	Power:
 		Amount: -20
@@ -1343,7 +1345,8 @@ TSNTWEAP:
 	RallyPoint:
 		Path: 5,3
 	Exit@1:
-		SpawnOffset: -512,-512,0
+		# SpawnOffset: -512,-512,0
+		SpawnOffset: 0,0,0
 		ExitCell: 2,2
 		ExitDelay: 3
 	ProductionQueue@VEHICLE:

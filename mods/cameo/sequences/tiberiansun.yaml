@@ -2173,7 +2173,7 @@ tsntpowr:
 	Inherits: ^WithBuildingBib3
 	Defaults:
 		Scale: 1.4
-		Offset: 0, 8, 24
+		Offset: -8, 8, 24
 	idle:
 		Filename: tsntpowr.shp
 		ShadowStart: 3
@@ -3521,7 +3521,7 @@ tsnthpad:
 	Defaults:
 		Filename: tsnthpad.shp
 		Scale: 1.4
-		Offset: 0, 0, 0
+		Offset: 0, -24, 0
 	idle:
 		Filename: tsnthpad.shp
 		ShadowStart: 3
