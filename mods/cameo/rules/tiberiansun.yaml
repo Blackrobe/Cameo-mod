@@ -1148,6 +1148,9 @@ TSNTHAND:
 	# HitShape:
 	# 	UseTargetableCellsOffsets: false
 	# 	TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+	# Selectable:
+	# 	Bounds: 1280, 1280
+	# 	DecorationBounds: 1280, 1024
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1170,17 +1173,14 @@ TSNTHAND:
 		# SpawnOffset: -426,85,0
 		SpawnOffset: 0,0,0
 		ExitCell: 2,1
-	Exit@2:
-		# SpawnOffset: 298,298,0
-		SpawnOffset: 0,0,0
-		ExitCell: 2,0
+	# Exit@2:
+	# 	# SpawnOffset: 298,298,0
+	# 	SpawnOffset: 0,0,0
+	# 	ExitCell: 2,0
 	ProductionQueue@INFANTRY:
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
-	Selectable:
-		Bounds: 1280, 1280
-		DecorationBounds: 1280, 1024
 	SelectionDecorations:
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !build-incomplete
@@ -1791,7 +1791,7 @@ tsnttech:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@tech: ^IsTechnoBuilding
-	Inherits@shape: ^2x2Shape
+	Inherits@shape: ^3x2Shape
 	Selectable:
 		Bounds: 2048, 2048
 	Buildable:
@@ -1801,11 +1801,11 @@ tsnttech:
 		Description: Provides Nod advanced technologies.
 	Tooltip:
 		Name: Nod Tech Center
-	Selectable:
-		Bounds: 2048, 2048
+	# Selectable:
+	# 	Bounds: 2048, 2048
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx
+		Dimensions: 3,2
 		LocalCenterOffset: 0,0,0
 	Armor:
 		Type: Wood
@@ -2912,7 +2912,7 @@ tsntlasr:
 	Turreted:
 		TurnSpeed: 40
 		InitialFacing: 896
-		Offset: 160,5,3
+		Offset: 160,20,3
 	AttackTurreted:
 	Armament@PRIMARY:
 		Weapon: TSTurretLaser
@@ -3582,7 +3582,7 @@ tsntpulsgdi:
 
 tsntobel:
 	Inherits: ^Defense
-	Inherits@shape: ^2x2Shape
+	Inherits@shape: ^3x2Shape
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -3593,16 +3593,17 @@ tsntobel:
 		Name: Obelisk of Light
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~tsgtcnstnod, tsnttech
+		# Prerequisites: ~tsgtcnstnod, tsnttech
+		Prerequisites: ~tsgtcnstnod # DEBUG TODO: REMOVE
 		Queue: Defence, RADefence
 		# BuildDurationModifier: 63
 		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Selectable:
-		Bounds: 1024, 1024
-		DecorationBounds: 2048, 2048, 0, -512
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	# Selectable:
+	# 	Bounds: 1024, 1024
+	# 	DecorationBounds: 2048, 2048, 0, -512
 	SelectionDecorations:
 	Health:
 		HP: 250000
@@ -3613,11 +3614,13 @@ tsntobel:
 		Sequence: idle
 	Armament@PRIMARY:
 		Weapon: TSObeliskLaserFire
-		LocalOffset: 0,180,1600
+		# LocalOffset: 0,180,1600
+		LocalOffset: 0,320,1480
 		RequiresCondition: !up_tiberiumlenses
 	Armament@UPGRADE:
 		Weapon: TSLaserObeliskLaserFire
-		LocalOffset: 0,180,1600
+		# LocalOffset: 0,180,1600
+		LocalOffset: 0,320,1480
 		RequiresCondition: up_tiberiumlenses
 	AttackCharges:
 		RequiresCondition: !build-incomplete
@@ -10962,7 +10965,7 @@ up_auxiliaryweapon:
 	Buildable:
 		BuildPaletteOrder: 110
 		Queue: Addons
-		Description: Adds Secondary Weapons or improves existing ones for a lot of units.
+		Description: Adds secondary weapons or improves existing ones in most of Brotherhood's arsenal.
 		Prerequisites: ~tsntradr, !up_auxiliaryweapon
 	RenderSprites:
 		Image: tsauxiliaryweaponicon
@@ -10992,7 +10995,7 @@ up_stealthfieldsimprovements:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Upgrades
-		Description: Adds portable stealth generators to harvesters. Increases effectiveness of Stealth Generators and Stealth Tanks.
+		Description: Increases effectiveness of Stealth Generators and Stealth Tanks, and upgrades Harvesters with portable stealth generator.
 		Prerequisites: ~tsnttech, !up_stealthfieldsimprovements
 	RenderSprites:
 		Image: stealthfieldsimprovementsicon
@@ -11017,7 +11020,7 @@ up_tiberiumlenses:
 	Buildable:
 		BuildPaletteOrder: 90
 		Queue: Upgrades
-		Description: Many units recieve laser weapons. Increases effectivenes of already existing laser=based weapons.
+		Description: Procure laser weaponries for the Brotherhood's combatants. Improve effectiveness of existing laser-based weapons.
 		Prerequisites: ~tsnttech, !up_tiberiumlenses
 	RenderSprites:
 		Image: tstiberiumlensesicon
@@ -11039,7 +11042,7 @@ up_tiberiumcoremissiles:
 	Buildable:
 		BuildPaletteOrder: 100
 		Queue: Upgrades
-		Description: Adds Tiberium Missiles to Rocket Soldier, SAM site, Attack Cycle and Stealth tank, increasing their firepower.
+		Description: Procure tiberium core missile technology to Rocket Soldier, SAM Site, Attack Cycle and Stealth Tank, increasing their firepower.
 		Prerequisites: ~tsnttech, !up_tiberiumcoremissiles
 	RenderSprites:
 		Image: tstiberiumcoremissilesicon
@@ -11061,7 +11064,7 @@ up_advancedtiberiumrefinement:
 	Buildable:
 		BuildPaletteOrder: 110
 		Queue: Upgrades
-		Description: Unlocks Waste Facility. Increases all vehicles speed by 25%. Harvesters gets twice the bonus.
+		Description: Allows construction of the Waste Facility. Increases all vehicles speed by 25%, and twice the improvement for Harvesters.
 		Prerequisites: ~tsnttech, !up_advancedtiberiumrefinement
 	RenderSprites:
 		Image: advancedtiberiumrefinementicon
@@ -11115,9 +11118,9 @@ team_upgrade.up_willofkane:
 	RenderSprites:
 		Image: willofkaneicon
 	Tooltip:
-		Name: Will of Kane
+		Name: Will of Kane (Team Upgrade)
 	Buildable:
-		Description: One vision. One purpose. Peace through power. Kane's will be done. All infantry get firepower bonus based on missing health.
+		Description: One vision. One purpose. Peace through power. The Brotherhood's allies get infantry firepower bonus based on missing health.
 	PlayerDisplayUpgrade:
 
 up_willofkane:
@@ -11129,7 +11132,7 @@ up_willofkane:
 	Buildable:
 		BuildPaletteOrder: 120
 		Queue: Upgrades
-		Description: One vision. One purpose. Peace through power. Kane's will be done. All infantry get firepower bonus based on missing health.
+		Description: One vision. One purpose. Peace through power. All infantry get firepower bonus based on missing health.
 		Prerequisites: ~tsnttech, !up_willofkane
 	RenderSprites:
 		Image: willofkaneicon
