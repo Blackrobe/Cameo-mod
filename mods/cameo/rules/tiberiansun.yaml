@@ -1976,7 +1976,7 @@ tsntmisl:
 	Building:
 		Footprint: xx ==
 		Dimensions: 2,2
-		LocalCenterOffset: 0,-512,0
+		# LocalCenterOffset: 0,-512,0
 	Armor:
 		Type: Wood
 	RevealsShroud:
@@ -2011,11 +2011,11 @@ tsntmisl:
 		TargetCircleRange: 5c0
 		ChargeInterval: 7500
 		Names:
-			1: power-nuke.raname
-			2: power-nuke.raname
+			1: Multi Missile
+			2: Chemical Missile
 		Descriptions:
-			1: power-nuke.description
-			2: power-nuke.description
+			1: Tactical cluster missile. Deals heavy damage in an area.
+			2: Tactical cluster missile with additional Tiberium-based warheads. Deals heavy damage in an area and leaves harmful corrosive clouds.
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -3594,8 +3594,7 @@ tsntobel:
 		Name: Obelisk of Light
 	Buildable:
 		BuildPaletteOrder: 60
-		# Prerequisites: ~tsgtcnstnod, tsnttech
-		Prerequisites: ~tsgtcnstnod # DEBUG TODO: REMOVE
+		Prerequisites: ~tsgtcnstnod, tsnttech
 		Queue: Defence, RADefence
 		# BuildDurationModifier: 63
 		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs Ground units\n  Weak vs Aircraft
