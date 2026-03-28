@@ -6042,6 +6042,81 @@ latin_buggy:
 	ActorStatValues:
 		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 
+latin_tortuga:
+	Inherits: ^Tank
+	Inherits@anim: ^RA2Vehicle
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackTurretedVoice
+	Inherits@EMP: ^TurretEMP
+	Inherits@uprecover: ^LatinCashrecover
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Tooltip:
+		Name: Tortuga Tank
+	Valued:
+		Cost: 3000
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~latin_cgte
+		Queue: Vehicle, RAVehicle
+		Description: actor-latin_buggy.description
+	Mobile:
+		Speed: 45
+		TurnSpeed: 9
+	Health:
+		HP: 875000
+	Repairable:
+		HpPerStep: 43750
+	ChangesHealth@SelfHealing:
+		Step: 350
+	Armor:
+		Type: Heavy
+	Turreted:
+		TurnSpeed: 9
+	Armament:
+		Weapon: LatinBuggyMG
+		LocalOffset: 500,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite && !latin_up_chaingun
+	Armament@Elite:
+		Weapon: LatinBuggyMGE
+		LocalOffset: 500,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite && !latin_up_chaingun
+	Armament@Gatling:
+		Weapon: LatinBuggyChaingun
+		LocalOffset: 500,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	Armament@GatlingElite:
+		Weapon: LatinBuggyChaingunE
+		LocalOffset: 500,0,300
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite && latin_up_chaingun
+	AttackTurreted:
+	WithMuzzleOverlay:
+	SelectionDecorations:
+	Selectable:
+	Voiced:
+		VoiceSet: LatinSoldierVoice
+	RenderSprites:
+		PlayerPalette: player_rgba
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
+	WithSpriteTurret:
+
 latin_mortarbike:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
@@ -7325,254 +7400,6 @@ ra2engineer.syndicate:
 		Voice: Attack
 	Captures@REUSABLE:
 		Voice: Attack
-
-latin_tortuga:
-	Inherits: ^Tank
-	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^SupportVehicleTemplate
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@vo: ^AttackTurretedVoice
-	Inherits@EMP: ^TurretEMP
-	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
-	Tooltip:
-		Name: Tortuga Tank
-	Valued:
-		Cost: 3000
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~uplatin_buggy
-		Queue: Vehicle, RAVehicle
-		Description: actor-latin_buggy.description
-	Mobile:
-		Speed: 45
-		TurnSpeed: 23
-	Health:
-		HP: 6750000
-	Repairable:
-		HpPerStep: 1875
-	ChangesHealth@SelfHealing:
-		Step: 15
-	Armor:
-		Type: Heavy
-	Turreted:
-		TurnSpeed: 23
-	Armament:
-		Weapon: LatinBuggyMG
-		LocalOffset: 500,0,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite && !latin_up_chaingun
-	Armament@Elite:
-		Weapon: LatinBuggyMGE
-		LocalOffset: 500,0,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite && !latin_up_chaingun
-	Armament@Gatling:
-		Weapon: LatinBuggyChaingun
-		LocalOffset: 500,0,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	Armament@GatlingElite:
-		Weapon: LatinBuggyChaingunE
-		LocalOffset: 500,0,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite && latin_up_chaingun
-	Armament@Rocket:
-		Weapon: LatinBuggyRocket
-		LocalOffset: 500,-100,300, 500,100,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite
-	Armament@RocketElite:
-		Weapon: LatinBuggyRocketE
-		LocalOffset: 500,100,300, 500,-100,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite
-	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
-	AttackTurreted:
-	WithMuzzleOverlay:
-	SelectionDecorations:
-	Selectable:
-	Voiced:
-		VoiceSet: LatinSoldierVoice
-	RenderSprites:
-		PlayerPalette: playerra2
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 16
-		MaximumInstances: 10
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 8
-		MaximumInstances: 10
-		RequiresCondition: rank-elite && latin_up_chaingun
-	GrantConditionOnPrerequisite@latin_up_chaingun:
-		Condition: latin_up_chaingun
-		Prerequisites: latin_up_chaingun
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_chaingun
-	WithSpriteTurret:
     
 latin_triton:
 	Inherits: ^BoatUnit

@@ -8280,6 +8280,8 @@ ra2mig:
 	icon:
 		Filename: tkmvipericon.png
 
+### Soviets Upgrades
+
 ra2_soviets_upgrade_conscription:
 	icon:
 		Filename: ra2_soviets_upgrade_conscription_icon.png
@@ -8340,7 +8342,7 @@ ra2_soviets_upgrade_kirovnuclearshells:
 	icon:
 		Filename: ra2_soviets_upgrade_kirovnuclearshells_icon.png
 
-### Allies
+### Allies Upgrades
 
 ra2_allies_upgrade_assaultsquadtraining:
 	icon:
@@ -8401,3 +8403,125 @@ ra2_allies_upgrade_prismaticbarrier:
 ra2_allies_upgrade_chronoengine:
 	icon:
 		Filename: ra2_allies_upgrade_chronoengine_icon.png
+
+### Yuri Upgrades
+
+ra2_yuri_upgrade_psioniclegion:
+	icon:
+		Filename: ra2_yuri_upgrade_psioniclegion_icon.png
+
+ra2_yuri_upgrade_psionicfanatics:
+	icon:
+		Filename: ra2_yuri_upgrade_psionicfanatics_icon.png
+
+ra2_yuri_upgrade_psionicelite:
+	icon:
+		Filename: ra2_yuri_upgrade_psionicelite_icon.png
+
+ra2_yuri_upgrade_lashercannon:
+	icon:
+		Filename: ra2_yuri_upgrade_lashercannon_icon.png
+
+ra2_yuri_upgrade_lashertoxic:
+	icon:
+		Filename: ra2_yuri_upgrade_lashertoxic_icon.png
+
+ra2_yuri_upgrade_lasherlaser:
+	icon:
+		Filename: ra2_yuri_upgrade_lasherlaser_icon.png
+
+ra2_yuri_upgrade_scraparmor:
+	icon:
+		Filename: ra2_yuri_upgrade_scraparmor_icon.png
+
+ra2_yuri_upgrade_chaosgasemitters:
+	icon:
+		Filename: ra2_yuri_upgrade_chaosgasemitters_icon.png
+
+ra2_yuri_upgrade_psionicshields:
+	icon:
+		Filename: ra2_yuri_upgrade_psionicshields_icon.png
+
+ra2_yuri_upgrade_initiatepower:
+	icon:
+		Filename: ra2_yuri_upgrade_initiatepower_icon.png
+
+ra2_yuri_upgrade_brutestrength:
+	icon:
+		Filename: ra2_yuri_upgrade_brutestrength_icon.png
+
+ra2_yuri_upgrade_lasherarmor:
+	icon:
+		Filename: ra2_yuri_upgrade_lasherarmor_icon.png
+
+ra2_yuri_upgrade_gatlingpower:
+	icon:
+		Filename: ra2_yuri_upgrade_gatlingpower_icon.png
+
+ra2_yuri_upgrade_meltingvirus:
+	icon:
+		Filename: ra2_yuri_upgrade_meltingvirus_icon.png
+
+ra2_yuri_upgrade_domination:
+	icon:
+		Filename: ra2_yuri_upgrade_domination_icon.png
+
+ra2_yuri_upgrade_gatlingspeed:
+	icon:
+		Filename: ra2_yuri_upgrade_gatlingspeed_icon.png
+
+ra2_yuri_upgrade_corrosiveammo:
+	icon:
+		Filename: ra2_yuri_upgrade_corrosiveammo_icon.png
+
+ra2_yuri_upgrade_supermagnets:
+	icon:
+		Filename: ra2_yuri_upgrade_supermagnets_icon.png
+
+ra2_yuri_upgrade_bioreactorefficiency:
+	icon:
+		Filename: ra2_yuri_upgrade_bioreactorefficiency_icon.png
+
+ra2_yuri_upgrade_bioengineering:
+	icon:
+		Filename: ra2_yuri_upgrade_bioengineering_icon.png
+
+ra2_yuri_upgrade_psychicrange:
+	icon:
+		Filename: ra2_yuri_upgrade_psychicrange_icon.png
+
+ra2_yuri_upgrade_psionicarmor:
+	icon:
+		Filename: ra2_yuri_upgrade_psionicarmor_icon.png
+
+ra2_yuri_upgrade_toxicengines:
+	icon:
+		Filename: ra2_yuri_upgrade_toxicengines_icon.png
+
+ra2_yuri_upgrade_psionicplasmabeams:
+	icon:
+		Filename: ra2_yuri_upgrade_psionicplasmabeams_icon.png
+
+ra2_yuri_upgrade_gravitondrive:
+	icon:
+		Filename: ra2_yuri_upgrade_gravitondrive_icon.png
+
+ra2_yuri_upgrade_siphonattack:
+	icon:
+		Filename: ra2_yuri_upgrade_siphonattack_icon.png
+
+ra2_yuri_upgrade_disklasers:
+	icon:
+		Filename: ra2_yuri_upgrade_disklasers_icon.png
+
+ra2_yuri_upgrade_stealthsuits:
+	icon:
+		Filename: ra2_yuri_upgrade_stealthsuits_icon.png
+
+ra2_yuri_upgrade_geneticboost:
+	icon:
+		Filename: ra2_yuri_upgrade_geneticboost_icon.png
+
+ra2_yuri_upgrade_psychicvision:
+	icon:
+		Filename: ra2_yuri_upgrade_psychicvision_icon.png

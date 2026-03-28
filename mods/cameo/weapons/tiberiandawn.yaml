@@ -1780,7 +1780,7 @@ BlackHandLaser:
 	Inherits: ^LaserWeapon
 	ReloadDelay: 60
 	Range: 5300
-	#Report: vpalwe2d.aud
+	Report: vfloatta.wav
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: LaserZap
 		Width: 128

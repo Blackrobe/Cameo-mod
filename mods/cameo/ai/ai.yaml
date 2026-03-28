@@ -5404,19 +5404,36 @@ Player:
 			yrlunr: 5
 			yrgtrp: 5
 			yrbiot: 5
-			upyrvirus: 1
-			upyrbrute: 1
-			upyryaclon: 1
-			upchaossurprise: 1
-			upyurigenemod: 1
-			upyrinit: 1
-			upyryuri: 1
-			upyrnapsis: 1
-			upmindcontrolcap: 1
-			upyrtele: 1
-			upyrdisk: 1
-			upyrlunr: 1
-			upyrgat: 1
+			ra2_yuri_upgrade_psioniclegion: 1
+			ra2_yuri_upgrade_psionicfanatics: 1
+			ra2_yuri_upgrade_psionicelite: 1
+			ra2_yuri_upgrade_lashercannon: 1
+			ra2_yuri_upgrade_lashertoxic: 1
+			ra2_yuri_upgrade_lasherlaser: 1
+			ra2_yuri_upgrade_scraparmor: 1
+			ra2_yuri_upgrade_chaosgasemitters: 1
+			ra2_yuri_upgrade_psionicshields: 1
+			ra2_yuri_upgrade_initiatepower: 1
+			ra2_yuri_upgrade_brutestrength: 1
+			ra2_yuri_upgrade_lasherarmor: 1
+			ra2_yuri_upgrade_gatlingpower: 1
+			ra2_yuri_upgrade_meltingvirus: 1
+			ra2_yuri_upgrade_domination: 1
+			ra2_yuri_upgrade_gatlingspeed: 1
+			ra2_yuri_upgrade_corrosiveammo: 1
+			ra2_yuri_upgrade_supermagnets: 1
+			ra2_yuri_upgrade_bioreactorefficiency: 1
+			ra2_yuri_upgrade_bioengineering: 1
+			ra2_yuri_upgrade_psychicrange: 1
+			ra2_yuri_upgrade_psionicarmor: 1
+			ra2_yuri_upgrade_toxicengines: 1
+			ra2_yuri_upgrade_psionicplasmabeams: 1
+			ra2_yuri_upgrade_gravitondrive: 1
+			ra2_yuri_upgrade_siphonattack: 1
+			ra2_yuri_upgrade_disklasers: 1
+			ra2_yuri_upgrade_stealthsuits: 1
+			ra2_yuri_upgrade_geneticboost: 1
+			ra2_yuri_upgrade_psychicvision: 1
 			########### Units Asian Alliance
 			aa_drmn: 10
 			aa_alligator: 1

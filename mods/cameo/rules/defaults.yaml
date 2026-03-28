@@ -877,7 +877,9 @@
 	Inherits@ConscriptionBuff: ^ConscriptionBuff
 	Inherits@MenOfSteelTeamUpgradeRA1: ^MenOfSteelTeamUpgradeRA1
 	Inherits@WillOfKane: ^WillOfKane
-	Inherits@upgrade: ^AdvancedGuerillaTactics
+	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
+	Inherits@RA2YuriGeneMod: ^RA2YuriGeneMod
+	Inherits@RA2YuriPsychicVision: ^RA2YuriPsychicVision
 	ChangesHealth@SelfHealing:
 		Step: 10
 		Delay: 2
@@ -1043,6 +1045,7 @@
 	Inherits@EXT: ^ExternalConditions
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@InfantryBuffs: ^InfantryBuffs
+	Inherits@RA2YuriStealthSuits: ^RA2YuriStealthSuits
 	Armor:
 		Type: None
 	DamageMultiplier@ScoutInfantryBuff:
@@ -1100,6 +1103,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
+	Inherits@RA2YuriStealthSuits: ^RA2YuriStealthSuits
 	Armor:
 		Type: Flak
 	RevealsShroud:
@@ -2745,6 +2749,12 @@
 	ProductionTimeMultiplier@DuneBarracksUpgrade:
 		Multiplier: 90
 		Prerequisites: upgrade_barracks
+	ProductionCostMultiplier@ra2_yuri_upgrade_bioengineering:
+		Multiplier: 80
+		Prerequisites: ra2_yuri_upgrade_bioengineering
+	ProductionTimeMultiplier@ra2_yuri_upgrade_bioengineering:
+		Multiplier: 80
+		Prerequisites: ra2_yuri_upgrade_bioengineering
 	Crushable:
 		WarnProbability: 75
 		CrushSound: squish2.aud
@@ -4758,8 +4768,8 @@
 ^CryoFreezable:
 	PhysicalState@Temperature:
 		Name: Temperature
-		MinValue: -10000
 		MaxValue: 10000
+		MinValue: -10000
 		RelaxedValue: 0
 		RelativeToHealth: true
 		RelaxationLinear: 5
@@ -4767,6 +4777,7 @@
 		RelaxationInterval: 1
 		RelaxationDelay: 10
 		InitialValue: 0
+		ApplyDamageModifiers: true
 	PhysicalStateBar@TemperatureBar:
 		PhysicalStateName: Temperature
 		PositiveColor: FF0000
@@ -4774,7 +4785,7 @@
 		NeutralColor: 808080
 		DisplayWhenRelaxed: false
 		ShowAbsoluteValues: false
-		RequiresCondition: !Deadzone
+		RequiresCondition: !TemperatureDeadzone
 	SlowsProportionalToPhysicalState@FrostSlowdown:
 		PhysicalStateName: Temperature
 		UseDeviationFromRelaxed: true
@@ -4787,7 +4798,7 @@
 		TurretTurnSpeedModifierAtMaximum: 0
 		ReloadDelayModifierAtMinimum: 100
 		ReloadDelayModifierAtMaximum: 1
-		RequiresCondition: !Deadzone
+		RequiresCondition: !TemperatureDeadzone
 	DamageMultiplierProportionalToPhysicalState@CryoFreeze:
 		PhysicalStateName: Temperature
 		DamageMultiplierAtMinimum: 100
@@ -4813,11 +4824,11 @@
 		DamageTypes: FireDeath
 		RequiresCondition: superhot
 	# Conditions for demonstration
-	GrantConditionOnPhysicalState@Deadzone:
+	GrantConditionOnPhysicalState@TemperatureDeadzone:
 		PhysicalStateName: Temperature
-		Condition: Deadzone
-		UpperValue: 10
-		LowerValue: -10
+		Condition: TemperatureDeadzone
+		UpperValue: 100
+		LowerValue: -100
 	GrantConditionOnPhysicalState@Overheating:
 		PhysicalStateName: Temperature
 		Condition: Overheating
@@ -4831,7 +4842,7 @@
 	GrantConditionOnPhysicalState@CryoFreeze:
 		PhysicalStateName: Temperature
 		Condition: CryoFreeze
-		UpperValue: -5000
+		UpperValue: -100
 		LowerValue: -10000
 	GrantConditionOnPhysicalState@superfreeze:
 		PhysicalStateName: Temperature
@@ -5290,15 +5301,18 @@
 	GrantConditionOnPrerequisite@global_conscription_buff:
 		Condition: global_conscription_buff
 		Prerequisites: global_conscription_buff
-	ProvidesPrerequisite@global_conscription_buff:
-		Prerequisite: global_conscription_buff
-		RequiresCondition: ra_doctrine_conscription || ra2_soviets_upgrade_conscription
-	GrantConditionOnPrerequisite@ra_doctrine_conscription:
-		Condition: ra_doctrine_conscription
-		Prerequisites: ra_doctrine_conscription
-	GrantConditionOnPrerequisite@ra2_soviets_upgrade_conscription:
-		Condition: ra2_soviets_upgrade_conscription
-		Prerequisites: ra2_soviets_upgrade_conscription
+	# ProvidesPrerequisite@global_conscription_buff:
+	# 	Prerequisite: global_conscription_buff
+	# 	RequiresCondition: ra_doctrine_conscription || ra2_soviets_upgrade_conscription || ra2_yuri_upgrade_psioniclegion
+	# GrantConditionOnPrerequisite@ra_doctrine_conscription:
+	# 	Condition: ra_doctrine_conscription
+	# 	Prerequisites: ra_doctrine_conscription
+	# GrantConditionOnPrerequisite@ra2_soviets_upgrade_conscription:
+	# 	Condition: ra2_soviets_upgrade_conscription
+	# 	Prerequisites: ra2_soviets_upgrade_conscription
+	# GrantConditionOnPrerequisite@ra2_yuri_upgrade_psioniclegion:
+	# 	Condition: ra2_yuri_upgrade_psioniclegion
+	# 	Prerequisites: ra2_yuri_upgrade_psioniclegion
 
 ^Mine:
 	Inherits: ^SpriteActor
@@ -6797,7 +6811,7 @@ CPQDEBUGDUMMY:
 		Condition: shieldpermanent
 	ExternalCondition@shieldgen:
 		Condition: shieldgen
-		TotalCap: 5
+		TotalCap: 10
 	Armor:
 		RequiresCondition: !shielded
 	Armor@shielded:
@@ -6830,6 +6844,73 @@ CPQDEBUGDUMMY:
 	Targetable@Shielded:
 		TargetTypes: Shielded
 		RequiresCondition: shielded
+	PhysicalState@AlliedShield:
+		Name: AlliedShield
+		MaxValue: 10000
+		MinValue: 0
+		RelaxedValue: 0
+		RelativeToHealth: true
+		RelaxationLinear: 5
+		RelaxationScaled: 50
+		RelaxationInterval: 1
+		RelaxationDelay: 10
+		InitialValue: 0
+		ApplyDamageModifiers: true
+	PhysicalStateBar@AlliedShield:
+		PhysicalStateName: AlliedShield
+		PositiveColor: 8888FFFF
+		NeutralColor: 808080
+		DisplayWhenRelaxed: false
+		ShowAbsoluteValues: false
+		RequiresCondition: !ShieldDeadzone
+	DamageMultiplierProportionalToPhysicalState@AlliedShield:
+		PhysicalStateName: AlliedShield
+		DamageMultiplierAtMinimum: 100
+		DamageMultiplierAtMaximum: 200
+		UseDeviationFromRelaxed: false
+		RequiresCondition: alliedshielded && !ShieldDeadzone
+	ProvidesShieldFromPhysicalState@AlliedShield:
+		PhysicalStateName: AlliedShield
+		ShareRange: 5000
+		ProtectSelf: True
+		RequiresCondition: alliedshielded
+	ReceivesShieldFromProvider:
+		PhysicalStateName: AlliedShield
+		ShieldedCondition: alliedshielded
+		StatusCheckInterval: 1
+	GrantCondition@alliedshielded:
+		Condition: shielded
+		RequiresCondition: alliedshielded
+	GrantConditionOnPhysicalState@ShieldDeadzone:
+		PhysicalStateName: AlliedShield
+		Condition: ShieldDeadzone
+		UpperValue: 100
+		LowerValue: 0
+	GrantConditionOnPhysicalState@AlliedShield1:
+		PhysicalStateName: AlliedShield
+		Condition: shieldgen
+		UpperValue: 10000
+		LowerValue: 8000
+	GrantConditionOnPhysicalState@AlliedShield2:
+		PhysicalStateName: AlliedShield
+		Condition: shieldgen
+		UpperValue: 10000
+		LowerValue: 6000
+	GrantConditionOnPhysicalState@AlliedShield3:
+		PhysicalStateName: AlliedShield
+		Condition: shieldgen
+		UpperValue: 10000
+		LowerValue: 4000
+	GrantConditionOnPhysicalState@AlliedShield4:
+		PhysicalStateName: AlliedShield
+		Condition: shieldgen
+		UpperValue: 10000
+		LowerValue: 2000
+	GrantConditionOnPhysicalState@AlliedShield5:
+		PhysicalStateName: AlliedShield
+		Condition: shieldgen
+		UpperValue: 10000
+		LowerValue: 100
 
 ^HasShieldGenerator:
 	Shielded:

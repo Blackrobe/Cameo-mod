@@ -4058,6 +4058,18 @@ hakureiring:
 	idle2:
 		Filename: hakureiring2.shp
 
+hakureiringspecial:
+	Defaults:
+		ZOffset: 1023
+		Length: *
+		IgnoreWorldTint: True
+		Filename: ra_japan_exorcistspecialattack.png
+	bullet:
+		Frames: 0, 1
+	trail:
+		Frames: 2, 3, 4, 5, 6
+		Alpha: 1, 0.85, 0.7, 0.55, 0.4
+
 hakurei_tailsman:
 	Defaults:
 		ZOffset: 1023

@@ -11314,6 +11314,8 @@ ra_doctrine_conscription:
 		Image: ra_doctrine_conscription
 	ProvidesPrerequisite@ra_soviet_doctrine_1:
 		Prerequisite: ra_soviet_doctrine_1
+	ProvidesPrerequisite@global_conscription_buff:
+		Prerequisite: global_conscription_buff
 
 ra_doctrine_industrialefficiency:
 	Inherits: ^doctrine_template
@@ -13478,7 +13480,7 @@ hakurei:
 		LocalOffset: 256,43,341
 		FireDelay: 5
 		PauseOnCondition: spellcard
-	Armament@Monsters: ##########
+	Armament@Special: ##########
 		Weapon: Hakureiring2
 		LocalOffset: 256,43,341
 		FireDelay: 5
@@ -13486,6 +13488,10 @@ hakurei:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: Hakureiring
+		MuzzleSequence: garrison-muzzle
+	Armament@GARRISONEDSpecial: ##########
+		Name: garrisoned
+		Weapon: Hakureiring2
 		MuzzleSequence: garrison-muzzle
 	PeriodicExplosion:
 		Weapon: ReimuDreamSeal

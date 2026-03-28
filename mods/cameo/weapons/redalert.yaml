@@ -2141,18 +2141,50 @@ Hakureiring2:
 	Inherits: Hakureiring
 	-InvalidTargets:
 	ValidTargets: Epic, Psionic, Monster
+	ReloadDelay: 100
+	Burst: 1
+	Report: thbomb.wav
+	Projectile: Missile
+		HorizontalRateOfTurn: 22
+		VerticalRateOfTurn: 44
+		Speed: 222
+		Inaccuracy: 222
+		RangeLimit: 22222
+		Image: hakureiringspecial
+		Sequences: bullet
+		Palette: player
+		IsPlayerPalette: True
+		TrailImage: hakureiringspecial
+		TrailSequences: trail
+		TrailInterval: 2
+		TrailDelay: 1
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 20000
+		Damage: 120000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 10000
+		Damage: 60000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 60
 	Warhead@MagicWeapon: SpreadDamage
-		Damage: 20000
+		Damage: 120000
 	Warhead@MagicWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 60
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 40000
+		Damage: 240000
+	Warhead@Effect: CreateEffect
+		ImpactActors: false
+		Image: hakurei_giphy
+		Explosions: fades
+		ExplosionPalette: player
+		UsePlayerPalette: true
+		AirThreshold: 6400
+		ImpactSounds: thgun.wav
+	Warhead@Effect2: CreateEffect
+		Explosions: mobileemp_small
+		ExplosionPalette: ra2unit
+		ImpactSounds: mobemp1.aud
+		ImpactActors: false
+		AffectsParent: true
+		ValidTargets: Ground, Water, Air
 
 ## Unused
 ReimuYinYangOrb:
