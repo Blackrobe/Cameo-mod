@@ -5667,7 +5667,12 @@ Player:
 			futu_athena: 1
 			futu_coiler: 1
 			futu_futu: 1
+			future_twister: 1
 			futu_cryo: 1
+			future_harbinger: 1
+			future_upgrade_equalizer_x1: 1
+			future_upgrade_equalizer_x2: 1
+			future_upgrade_equalizer_x3: 1
 			########### Units Space Naxis
 			nax_lunar: 1
 			nax_lunar2: 1

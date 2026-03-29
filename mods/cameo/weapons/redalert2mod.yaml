@@ -9704,3 +9704,55 @@ FutureTankCannonsE:
 	Range: 8500
 	Burst: 4
 	BurstDelays: 5
+
+FutureHarbingerCannon:
+	Inherits: ^TeslaWeapon
+	Inherits: ^LaserWeapon
+	Inherits: ^RailgunWeapon
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyCannon
+	ReloadDelay: 50
+	Range: 6444
+	Report: tvuFir00.aud
+	Projectile: Bullet
+		Image: scdragoonprojectile
+		TrailImage: blue_smokey
+		TrailInterval: 1
+		Speed: 644
+		LaunchAngle: 0
+		ContrailLength: 15
+		ContrailStartWidth: 75
+		ContrailEndWidth: 150
+		ContrailStartColor: 4488FF88
+		ContrailEndColor: 88BBFF44
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 5000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 10000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 10000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@Effect: CreateEffect
+		Explosions: scblueexplosion
+		ImpactSounds: tvuHit00.aud,tvuHit01.aud,tvuHit02.aud
+
+FutureHarbingerCannonE:
+	Inherits: FutureHarbingerCannon
+	Range: 7444
+	Burst: 2
+	BurstDelays: 5

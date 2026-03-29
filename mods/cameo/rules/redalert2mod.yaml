@@ -19405,6 +19405,7 @@ futu_gggun:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -19458,6 +19459,7 @@ futu_ggmlt:
 	Inherits@EMP: ^TurretEMP
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -19654,6 +19656,7 @@ futu_enforcer:
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Future Enforcer
 	Valued:
@@ -19794,6 +19797,7 @@ futu_javelinsoldier:
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Javelin Soldier
 	Valued:
@@ -20022,6 +20026,7 @@ futu_wheel:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@FE: ^FutureRobotEnergizable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Scout Robot
 	Valued:
@@ -20084,6 +20089,7 @@ future_robot_shotgun:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@FE: ^FutureRobotEnergizable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Shotgun Attack Robot
 	Valued:
@@ -20151,6 +20157,7 @@ future_robot_missiles:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@FE: ^FutureRobotEnergizable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Missile Attack Robot
 	Valued:
@@ -20219,6 +20226,7 @@ future_robot_cannon:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@FE: ^FutureRobotEnergizable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Cannon Attack Robot
 	Valued:
@@ -20331,6 +20339,7 @@ futu_commando:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 120
@@ -20402,6 +20411,7 @@ future_mech_machinegun:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
 	Inherits@RobotControllable: ^RobotControllable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Gatling Super Mech
 	Valued:
@@ -20458,6 +20468,7 @@ future_mech_plasma:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@RobotControllable: ^RobotControllable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Plasma Super Mech
 	Valued:
@@ -20514,6 +20525,7 @@ future_mech_plasma:
 futu_ifv:
 	Inherits: RA2FV
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
 		Name: Salamander IFV
 	Valued:
@@ -20551,6 +20563,7 @@ YRROBO:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@RobotControllable: ^RobotControllable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -20630,6 +20643,7 @@ futu_mbt:
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -20721,6 +20735,7 @@ futu_hvrt:
 	Inherits@cargo: ^CargoVehicle
 	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
 		Cost: 1700
 	Tooltip:
@@ -20785,6 +20800,7 @@ futu_phal:
 	Inherits@EMP: ^TurretEMP
 	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -20852,6 +20868,7 @@ futu_landcarr:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@RobotControllable: ^RobotControllable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
@@ -20921,6 +20938,7 @@ futu_orion:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@RobotControllable: ^RobotControllable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
@@ -21094,6 +21112,7 @@ futu_athena:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
 		Cost: 2200
 	Tooltip:
@@ -21137,6 +21156,7 @@ futu_coiler:
 	Inherits@AutoRepair: ^PrioritizeRepair
 	Inherits@EMP: ^FrontalEMP
 	Inherits@FE: ^FutureRobotEnergizable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 170
@@ -21197,6 +21217,7 @@ futu_futu:
 	Inherits@SHADOWS: ^Shadows
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@RobotControllable: ^RobotControllable
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
 		Cost: 10000
 	Tooltip:
@@ -21260,16 +21281,96 @@ futu_futu:
 #		Red Alert 2 Future Aircraft
 ####################################################################################################
 
+future_twister:
+	Inherits: ^RANeutralPlane
+	Inherits@Template: ^FighterTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Tooltip:
+		Name: Twister
+	Valued:
+		Cost: 1000
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~futu_launchpad
+		Queue: Aircraft, RAAircraft
+		Description: actor-falc.description
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 10
+		Speed: 150
+		IdleTurnSpeed: 10
+		IdleSpeed: 100
+		TakeoffSounds: twisSounda.wav, twisSoundb.wav
+		LandingSounds: twisSounda.wav, twisSoundb.wav
+		CanHover: false
+		CanSlide: false
+		VTOL: true
+		Voice: Move
+	Health:
+		HP: 50000
+	Repairable:
+		HpPerStep: 2500
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: SteelTwisterMissiles
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Name: primary
+		Weapon: SteelTwisterMissilesE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 42
+		Count: 1
+	SpawnActorOnDeath:
+		Actor: steel_twister.Husk
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1280, 1024
+	Contrail@1:
+		Offset: -100,256,0
+		TrailLength: 15
+	Contrail@2:
+		Offset: -100,-256,0
+		TrailLength: 15
+	Voiced:
+		VoiceSet: SteelAircraftVoice
+	DeathSounds:
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 80
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 10
+	RenderSprites:
+		PlayerPalette: playerra2cons
+
 futu_cryo:
 	Inherits: ^Helicopter
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Aircraft, RAAircraft, Vehicle, RAVehicle
 		BuildPaletteOrder: 20
-		Prerequisites: ~futu_egtf
+		Prerequisites: ~futu_egtech
 		Description: actor-aapelican.description
 	Valued:
 		Cost: 2000
@@ -21344,8 +21445,176 @@ futu_cryo.Husk:
 	Tooltip:
 		Name: Cryo Copter
 	Aircraft:
-		TurnSpeed: 24
-		Speed: 120
+		TurnSpeed: 15
+		Speed: 75
 	RenderSprites:
 		Image: futu_cryo
 		PlayerPalette: player_rgba
+
+future_harbinger:
+	Inherits: ^RANeutralPlane
+	Inherits@Template: ^FighterTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Tooltip:
+		Name: Harbinger Gunship
+	Valued:
+		Cost: 10000
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~futu_egshock
+		Queue: Aircraft, RAAircraft
+		Description: actor-falc.description
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 8
+		Speed: 125
+		IdleTurnSpeed: 6
+		IdleSpeed: 90
+		TakeoffSounds: twisSounda.wav, twisSoundb.wav
+		LandingSounds: twisSounda.wav, twisSoundb.wav
+		CanHover: false
+		CanSlide: false
+		VTOL: true
+		Voice: Move
+	Health:
+		HP: 400000
+	Repairable:
+		HpPerStep: 20000
+	ChangesHealth@SelfHealing:
+		Step: 160
+	Armor:
+		Type: Spaceship
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: FutureHarbingerCannon
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
+		RequiresCondition: !rank-elite
+	Armament@PRIMARYELITE:
+		Name: primary
+		Weapon: FutureHarbingerCannonE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
+		RequiresCondition: rank-elite
+	Turreted:
+	SpawnActorOnDeath:
+		Actor: future_harbinger.Husk
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1280, 1024
+	Contrail@1:
+		Offset: 50,500,200
+		TrailLength: 15
+	Contrail@2:
+		Offset: 50,-500,200
+		TrailLength: 15
+	Contrail@3:
+		Offset: -50,1000,200
+		TrailLength: 15
+	Contrail@4:
+		Offset: -50,-1000,200
+		TrailLength: 15
+	Voiced:
+		VoiceSet: SteelAircraftVoice
+	DeathSounds:
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 512
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+future_harbinger.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Twister
+	Aircraft:
+		TurnSpeed: 80
+		Speed: 176
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RenderSprites:
+		Image: future_harbinger
+		PlayerPalette: player_rgba
+
+future_upgrade_equalizer_x1:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Equalizer X1
+	Buildable:
+		Description: Increases All Weapon Firepower and Rate of Fire by 10% and Range by 5%.
+		Prerequisites: ~futu_egtf, !future_upgrade_equalizer_x1
+	RenderSprites:
+		Image: future_upgrade_equalizer_x1
+	ProvidesPrerequisite:
+
+future_upgrade_equalizer_x2:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Equalizer X2
+	Buildable:
+		Description: Increases All Weapon Firepower and Rate of Fire by 10% and Range by 5%.
+		Prerequisites: ~futu_egtf, futu_egtech, future_upgrade_equalizer_x1, !future_upgrade_equalizer_x2
+	RenderSprites:
+		Image: future_upgrade_equalizer_x2
+	ProvidesPrerequisite:
+
+future_upgrade_equalizer_x3:
+	Inherits: ^doctrine_template
+	Tooltip:
+		Name: Equalizer X3
+	Buildable:
+		Description: Increases All Weapon Firepower and Rate of Fire by 10% and Range by 5%.
+		Prerequisites: ~futu_egtf, futu_egtech, futu_egshock, future_upgrade_equalizer_x2, !future_upgrade_equalizer_x3
+	RenderSprites:
+		Image: future_upgrade_equalizer_x3
+	ProvidesPrerequisite:
+
+^FutureTechEqualizerUpgrades:
+	FirepowerMultiplier@future_upgrade_equalizer_x1:
+		Modifier: 110
+		RequiresCondition: future_upgrade_equalizer_x1
+	ReloadDelayMultiplier@future_upgrade_equalizer_x1:
+		Modifier: 90
+		RequiresCondition: future_upgrade_equalizer_x1
+	RangeMultiplier@future_upgrade_equalizer_x1:
+		Modifier: 105
+		RequiresCondition: future_upgrade_equalizer_x1
+	GrantConditionOnPrerequisite@future_upgrade_equalizer_x1:
+		Condition: future_upgrade_equalizer_x1
+		Prerequisites: future_upgrade_equalizer_x1
+	FirepowerMultiplier@future_upgrade_equalizer_x2:
+		Modifier: 110
+		RequiresCondition: future_upgrade_equalizer_x2
+	ReloadDelayMultiplier@future_upgrade_equalizer_x2:
+		Modifier: 90
+		RequiresCondition: future_upgrade_equalizer_x2
+	RangeMultiplier@future_upgrade_equalizer_x2:
+		Modifier: 105
+		RequiresCondition: future_upgrade_equalizer_x2
+	GrantConditionOnPrerequisite@future_upgrade_equalizer_x2:
+		Condition: future_upgrade_equalizer_x2
+		Prerequisites: future_upgrade_equalizer_x2
+	FirepowerMultiplier@future_upgrade_equalizer_x3:
+		Modifier: 110
+		RequiresCondition: future_upgrade_equalizer_x3
+	ReloadDelayMultiplier@future_upgrade_equalizer_x3:
+		Modifier: 90
+		RequiresCondition: future_upgrade_equalizer_x3
+	RangeMultiplier@future_upgrade_equalizer_x3:
+		Modifier: 105
+		RequiresCondition: future_upgrade_equalizer_x3
+	GrantConditionOnPrerequisite@future_upgrade_equalizer_x3:
+		Condition: future_upgrade_equalizer_x3
+		Prerequisites: future_upgrade_equalizer_x3
+	ActorStatValues:
+		Upgrades: future_upgrade_equalizer_x1, future_upgrade_equalizer_x2, future_upgrade_equalizer_x3

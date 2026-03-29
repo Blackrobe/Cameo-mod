@@ -2552,6 +2552,8 @@ yryarefn:
 	Inherits@RA2YuriToxicEngines: ^RA2YuriToxicEngines
 	Tooltip:
 		Name: Slave Miner
+	Valued:
+		Cost: 2000
 	Buildable:
 		Prerequisites: ~yrnacnst, yryapowr
 		Description: actor-yarefn.description
@@ -4779,6 +4781,9 @@ YRSLAV:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@RA2YuriPsionicLegion: ^RA2YuriPsionicLegion
+	Inherits@RA2YuriPsionicFanatics: ^RA2YuriPsionicFanatics
+	Inherits@RA2YuriPsionicElite: ^RA2YuriPsionicElite
 	Inherits@RA2YuriGeneMod: ^RA2YuriGeneMod
 	Valued:
 		Cost: 250
@@ -4874,7 +4879,7 @@ YRSLAV:
 		RequiresSelection: true
 		PipCount: 1
 	ActorStatValues:
-		Upgrades: ra2_yuri_upgrade_geneticboost
+		Upgrades: ra2_yuri_upgrade_psioniclegion, ra2_yuri_upgrade_psionicfanatics, ra2_yuri_upgrade_psionicelite, ra2_yuri_upgrade_bioengineering, ra2_yuri_upgrade_geneticboost, ra2_yuri_upgrade_psychicvision
 
 YRVIRUS:
 	Inherits: ^Soldier
@@ -7146,7 +7151,7 @@ YRSMIN:
 	ProvidesPrerequisite:
 		Prerequisite: yryarefn
 	Valued:
-		Cost: 3000
+		Cost: 2000
 	Tooltip:
 		Name: actor-smin.name
 	Buildable:
@@ -9373,7 +9378,7 @@ YRDISK:
 	Valued:
 		Cost: 2400
 	Tooltip:
-		Name: Floating Disc
+		Name: Floating Disk
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -9420,8 +9425,10 @@ YRDISK:
 		Condition: ra2_yuri_upgrade_siphonattack
 		Prerequisites: ra2_yuri_upgrade_siphonattack
 	ReloadDelayMultiplier@ra2_yuri_upgrade_disklasers:
-		Types: primary
 		Modifier: 50
+		RequiresCondition: ra2_yuri_upgrade_disklasers
+	ReloadAmmoDelayMultiplier@ra2_yuri_upgrade_disklasers:
+		Modifier: 75
 		RequiresCondition: ra2_yuri_upgrade_disklasers
 	GrantConditionOnPrerequisite@ra2_yuri_upgrade_disklasers:
 		Condition: ra2_yuri_upgrade_disklasers
@@ -14475,7 +14482,7 @@ ra2_yuri_upgrade_toxicengines:
 	Tooltip:
 		Name: Toxic Engines
 	Buildable:
-		Description: Yuri Vehicle gain 20% more Speed and Damage Resistance nd periodically release toxic gas clouds.  
+		Description: Yuri Vehicle gain 20% more Speed and Damage Resistance nd periodically release toxic gas clouds.
 		Prerequisites: ~yrygtech, !ra2_yuri_upgrade_toxicengines
 	RenderSprites:
 		Image: ra2_yuri_upgrade_toxicengines
@@ -14527,6 +14534,8 @@ ra2_yuri_upgrade_gravitondrive:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
 		Name: Graviton Drive
+	Valued:
+		Cost: 5000
 	Buildable:
 		Description: Floating Disks and Cosmonauts gain 20% more Speed and Damage Resistance.
 		Prerequisites: ~yrygtech, yrygcomd, !ra2_yuri_upgrade_gravitondrive
@@ -14550,6 +14559,8 @@ ra2_yuri_upgrade_siphonattack:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
 		Name: Disk Siphon Attack
+	Valued:
+		Cost: 5000
 	Buildable:
 		Description: Allows Floating Disks to directly attack units below with its siphon.
 		Prerequisites: ~yrygtech, yrygcomd, !ra2_yuri_upgrade_siphonattack
@@ -14560,8 +14571,10 @@ ra2_yuri_upgrade_disklasers:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
 		Name: Disk High Frequency Lasers
+	Valued:
+		Cost: 5000
 	Buildable:
-		Description: Doubles the Rate of Fire of Floating Disks.
+		Description: Increases the Rate of Fire of Floating Disks by 100% and reduces the Ammo Reload Delay by 25%.
 		Prerequisites: ~yrygtech, yrygcomd, !ra2_yuri_upgrade_disklasers
 	RenderSprites:
 		Image: ra2_yuri_upgrade_disklasers
@@ -14633,7 +14646,7 @@ ra2_yuri_upgrade_stealthsuits_proxy_actor:
 		Condition: ra2_yuri_upgrade_stealthsuits
 		Prerequisites: ra2_yuri_upgrade_stealthsuits
 	ActorStatValues:
-		Upgrades: ra2_yuri_upgrade_stealthsuits:
+		Upgrades: ra2_yuri_upgrade_stealthsuits
 
 ra2_yuri_upgrade_geneticboost:
 	Inherits: ^tech_upgrade_template

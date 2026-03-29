@@ -2622,7 +2622,7 @@ AFLD:
 			TopLeft: -2048, -1024
 			BottomRight: 2048, 1024
 	Valued:
-		Cost: 1000
+		Cost: 1500
 	Tooltip:
 		Name: Nod Airstrip
 	ProvidesPrerequisite:

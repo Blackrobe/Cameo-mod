@@ -8708,7 +8708,7 @@ futu_cryo:
 		Tick: 160
 		Scale: 0.9
 	icon:
-		Filename: aa_pelicanicon.shp
+		Filename: future_cryocopter_icon.png
 
 futu_harv:
 	Defaults:
@@ -8895,3 +8895,37 @@ futu_commando:
 	icon:
 		Filename: ra2tanyaicon.shp
 	iconchrono: ra2htanyaicon.shp
+
+future_twister:
+	idle:
+		Filename: steel_twister.shp
+		Facings: -8
+		#InterpolatedFacings: 16
+		Length: 12
+	move:
+		Filename: steel_twister.shp
+		Facings: -8
+		#InterpolatedFacings: 16
+		Length: 12
+	icon:
+		Filename: steel_twister_icon.shp
+
+future_harbinger:
+	Defaults:
+		Filename: future_harbinger.png
+	idle:
+		Facings: 64
+	icon:
+		Filename: future_harbinger_icon.png
+
+future_upgrade_equalizer_x1:
+	icon:
+		Filename: future_equalizer_x1_icon.png
+
+future_upgrade_equalizer_x2:
+	icon:
+		Filename: future_equalizer_x2_icon.png
+
+future_upgrade_equalizer_x3:
+	icon:
+		Filename: future_equalizer_x3_icon.png

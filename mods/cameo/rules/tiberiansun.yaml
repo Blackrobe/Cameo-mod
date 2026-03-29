@@ -4824,16 +4824,6 @@ TSREAPER:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
 
-TSREAPER2:
-	Inherits: TSREAPER
-	Buildable:
-		Queue: Vehicle, RAVehicle
-		Prerequisites: ~scmarine
-	UpdatesPlayerStatistics:
-		OverrideActor: tsreaper
-	RenderSprites:
-		Image: tsreaper
-
 TSCYC2:
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits: TSCYBORG
@@ -4993,12 +4983,12 @@ TSGHOST:
 		Name: Ghost Stalker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	# Buildable:
-	# 	BuildPaletteOrder: 90
-	# 	Prerequisites: ~tsgtpile, tsgttech
-	# 	Queue: Infantry, RAInfantry
-	# 	BuildLimit: 1
-	# 	Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 5 can be trained.
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: ~tsgtpile2, tsfgttech
+		Queue: Infantry, RAInfantry
+		BuildLimit: 1
+		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 5 can be trained.
 	Mobile:
 		Speed: 75
 	Armor:
@@ -5134,19 +5124,6 @@ TSGHOSTSP:
 		Percentage: 5
 	GivesExperience:
 		PlayerExperienceModifier: 5
-
-tsghost.mutant:
-	Inherits: TSGHOST
-	RenderSprites:
-		Image: tsghost
-	Valued:
-		Cost: 1100
-	Buildable:
-		Queue: Infantry, RAInfantry
-		Prerequisites: ~scmarine
-		BuildLimit: 0
-	UpdatesPlayerStatistics:
-		OverrideActor: tsghost
 
 TSMUTANT:
 	Inherits: ^Soldier
@@ -5683,7 +5660,7 @@ tsnapost:
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
-		Prerequisites: ~scmarine
+		Prerequisites: ~tsgtcnstnod
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	Valued:
 		Cost: 200
@@ -5946,7 +5923,7 @@ tsldrone:
 		Name: Limpet drone
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: ~scmarine
+		Prerequisites: ~wip
 		Queue: Vehicle, RAVehicle
 		Description: Hovering drone that can deploy\ninto a mine.
 	Mobile:
@@ -6865,7 +6842,7 @@ tsaegis:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~scmarine
+		Prerequisites: ~wip
 		Queue: Naval, RANaval
 		Description: Heavy GDI anti-aircraft warship.\n Strong vs. Aircraft
 	Mobile:
@@ -9888,7 +9865,7 @@ TSHELI:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~scmarine
+		Prerequisites: ~tsgthpadmutant
 		Queue: Aircraft, RAAircraft
 		Description: Anti-personnel support gunship\narmed with guns and missiles.\n  Strong vs Infantry, Vehicles, Aircraft
 	Aircraft:
@@ -10322,7 +10299,7 @@ TSTRAN:
 		BuildPaletteOrder: 40
 		Queue: Aircraft, RAAircraft
 		Description: Fast infantry transport helicopter.\n Unarmed
-		Prerequisites: ~scmarine
+		Prerequisites: ~tsgthpadmutant
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 120
