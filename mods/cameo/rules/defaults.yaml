@@ -973,7 +973,7 @@
 	DamageMultiplier@FireActorBuffs:
 		Modifier: 90
 	ChangesHealthProportionalToPhysicalState@Overheating:
-		DamageAtMaximum: 100
+		DamageAtMaximum: 75
 
 ^FireInfantry:
 	Inherits@FireActor: ^FireActor
@@ -4768,14 +4768,14 @@
 ^CryoFreezable:
 	PhysicalState@Temperature:
 		Name: Temperature
-		MaxValue: 10000
-		MinValue: -10000
+		MaxValue: 15000
+		MinValue: -15000
 		RelaxedValue: 0
 		RelativeToHealth: true
 		RelaxationLinear: 5
 		RelaxationScaled: 50
 		RelaxationInterval: 1
-		RelaxationDelay: 10
+		RelaxationDelay: 25
 		InitialValue: 0
 		ApplyDamageModifiers: true
 	PhysicalStateBar@TemperatureBar:
@@ -4808,7 +4808,7 @@
 	ChangesHealthProportionalToPhysicalState@Overheating:
 		PhysicalStateName: Temperature
 		UsePercentageDamage: false
-		DamageAtMaximum: 200
+		DamageAtMaximum: 150
 		DamageAtMinimum: 0
 		DamageThreshold: 0
 		DamageInterval: 1
@@ -4820,7 +4820,7 @@
 		DamageAtMaximum: 1
 		DamageAtMinimum: 0
 		DamageThreshold: 0
-		DamageInterval: 10
+		DamageInterval: 25
 		DamageTypes: FireDeath
 		RequiresCondition: superhot
 	# Conditions for demonstration
@@ -4832,29 +4832,29 @@
 	GrantConditionOnPhysicalState@Overheating:
 		PhysicalStateName: Temperature
 		Condition: Overheating
-		UpperValue: 10000
-		LowerValue: 5000
+		UpperValue: 15000
+		LowerValue: 100
 	GrantConditionOnPhysicalState@superhot:
 		PhysicalStateName: Temperature
 		Condition: superhot
-		UpperValue: 10000
-		LowerValue: 10000
+		UpperValue: 15000
+		LowerValue: 15000
 	GrantConditionOnPhysicalState@CryoFreeze:
 		PhysicalStateName: Temperature
 		Condition: CryoFreeze
 		UpperValue: -100
-		LowerValue: -10000
+		LowerValue: -15000
 	GrantConditionOnPhysicalState@superfreeze:
 		PhysicalStateName: Temperature
 		Condition: superfreeze
-		UpperValue: -10000
-		LowerValue: -10000
+		UpperValue: -15000
+		LowerValue: -15000
 	WithPhysicalStateColoredOverlay@CryoFreeze:
 		PhysicalStateName: Temperature
 		MinColor: DDDDFF96
 		MaxColor: 4488FF08
 		UpperValue: -10
-		LowerValue: -10000
+		LowerValue: -15000
 	WithIdleOverlay@frostspark:
 		RequiresCondition: superfreeze
 		Image: ra2_chronosk
@@ -4866,7 +4866,7 @@
 		PhysicalStateName: Temperature
 		MinColor: FF884408
 		MaxColor: FF402096
-		UpperValue: 10000
+		UpperValue: 15000
 		LowerValue: 10
 	WithIdleOverlay@overheat:
 		RequiresCondition: Overheating

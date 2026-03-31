@@ -7400,7 +7400,7 @@ ra2engineer.syndicate:
 		Voice: Attack
 	Captures@REUSABLE:
 		Voice: Attack
-    
+
 latin_triton:
 	Inherits: ^BoatUnit
 	Inherits@effects: ^RA2Vehicle
@@ -21373,7 +21373,7 @@ futu_cryo:
 		Prerequisites: ~futu_egtech
 		Description: actor-aapelican.description
 	Valued:
-		Cost: 2000
+		Cost: 1350
 	Tooltip:
 		Name: Cryo Copter
 	UpdatesPlayerStatistics:
@@ -21453,7 +21453,7 @@ futu_cryo.Husk:
 
 future_harbinger:
 	Inherits: ^RANeutralPlane
-	Inherits@Template: ^FighterTemplate
+	Inherits@Template: ^SpaceshipTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
@@ -21469,7 +21469,7 @@ future_harbinger:
 		Queue: Aircraft, RAAircraft
 		Description: actor-falc.description
 	Aircraft:
-		CruiseAltitude: 2560
+		CruiseAltitude: 3840
 		TurnSpeed: 8
 		Speed: 125
 		IdleTurnSpeed: 6
@@ -21486,8 +21486,6 @@ future_harbinger:
 		HpPerStep: 20000
 	ChangesHealth@SelfHealing:
 		Step: 160
-	Armor:
-		Type: Spaceship
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: FutureHarbingerCannon

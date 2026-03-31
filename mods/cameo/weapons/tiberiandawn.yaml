@@ -312,8 +312,8 @@ ArtilleryShell:
 	MinRange: 2468
 	Report: tnkfire2.aud
 	Projectile: Bullet
-		Speed: 200
-		Inaccuracy: 500
+		Speed: 246
+		Inaccuracy: 492
 		LaunchAngle: 75
 		ContrailLength: 35
 		ContrailStartWidth: 100
@@ -349,8 +349,8 @@ ArtilleryShellUpgrade:
 	Report: tnkfire2.aud
 	TargetActorCenter: true
 	Projectile: Bullet
-		Speed: 200
-		Inaccuracy: 500
+		Speed: 246
+		Inaccuracy: 492
 		LaunchAngle: 75
 		ContrailLength: 35
 		ContrailStartWidth: 125
@@ -1162,13 +1162,14 @@ TurretGunBlackMarket:
 	-Warhead@Effect:
 
 Dragon:
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^HeavyMissile
-	ReloadDelay: 35
-	Range: 12588
+	ReloadDelay: 40
+	Range: 12193
 	Report: rocket2.aud
 	ValidTargets: Air
 	Burst: 2
-	BurstDelays: 7
+	BurstDelays: 10
 	Projectile: Missile
 		Speed: 500
 		HorizontalRateOfTurn: 25
@@ -1177,12 +1178,18 @@ Dragon:
 		Acceleration: 5
 		AllowSnapping: true
 		CloseEnough: 500
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+		Damage: 6000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidRelationships: Neutral, Enemy
+		Damage: 3
 	Warhead@HeavyMissile: SpreadDamage
-		Damage: 10000
-		Spread: 500
+		ValidRelationships: Neutral, Enemy
+		Damage: 6000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		Damage: 5
-		Spread: 500
+		ValidRelationships: Neutral, Enemy
+		Damage: 3
 	Warhead@EffectAir: CreateEffect
 		Explosions: small_building
 
@@ -1249,51 +1256,67 @@ TowerMissile:
 	Warhead@TankDestroyerCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
+		ValidRelationships: Neutral, Enemy
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
+		ValidRelationships: Neutral, Enemy
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyAAWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@Effect: CreateEffect
 		Explosions: med_frag
 		ImpactSounds: xplobig4.aud
@@ -1915,15 +1938,16 @@ BHRedDarts:
 
 SpecterArtilleryShell:
 	Inherits: ^Grenade
-	ReloadDelay: 100
-	Range: 15130
-	MinRange: 3026
+	Inherits: ^ShrapnelWeapon
+	ReloadDelay: 110
+	Range: 14330
+	MinRange: 2866
 	Report: tnkfire2.aud
 	TargetActorCenter: true
 	Projectile: Bullet
-		Speed: 333
+		Speed: 286
+		Inaccuracy: 572
 		LaunchAngle: 99
-		Inaccuracy: 333
 		ContrailLength: 33
 		ContrailStartWidth: 99
 		ContrailEndWidth: 33
@@ -1933,14 +1957,17 @@ SpecterArtilleryShell:
 		ContrailEndColorUsePlayerColor: true
 		Image: bhreddragon
 	Warhead@Grenade: SpreadDamage
-		Spread: 500
-		Damage: 48000
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Spread: 500
 		Damage: 24000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 12000
 	Warhead@GrenadePercentage: HealthPercentageDamage
-		Spread: 500
-		Damage: 24
+		Damage: 12
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 24000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 12000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 12
 	Warhead@Effect: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
@@ -1954,15 +1981,15 @@ SpecterArtilleryShellUpgrade:
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^MediumCannon
 	Inherits: ^HeavyCannon
-	ReloadDelay: 100
-	Range: 15130
-	MinRange: 3026
+	ReloadDelay: 110
+	Range: 14330
+	MinRange: 2866
 	Report: tnkfire2.aud
 	TargetActorCenter: true
 	Projectile: Bullet
-		Speed: 333
+		Speed: 286
+		Inaccuracy: 572
 		LaunchAngle: 99
-		Inaccuracy: 333
 		ContrailLength: 33
 		ContrailStartWidth: 111
 		ContrailEndWidth: 11
@@ -2851,7 +2878,7 @@ GDIRigMissilePodAMT:
 	Inherits: ^AMTProjectile
 
 CommandoSniper:
-	Inherits: ^SmallArms
+	Inherits: ^SniperWeapon
 	Inherits: ^Chaingun
 	ValidTargets: Ground, Water, Trees, Air
 	InvalidTargets: Structure
@@ -2867,9 +2894,12 @@ CommandoSniper:
 		ContrailLength: 33
 		Speed: 3333
 		Width: 111
-	Warhead@SmallArms: SpreadDamage
+		Inaccuracy: 11
+	Warhead@SniperWeapon: SpreadDamage
 		Damage: 20000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
+	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		Damage: 20000
+	Warhead@SniperWeaponPercentage: HealthPercentageDamage
 		Damage: 10
 	Warhead@Chaingun: SpreadDamage
 		Damage: 20000
@@ -2942,7 +2972,7 @@ CommandoGrenadeLauncher:
 		Damage: 20000
 
 CommandoM16:
-	Inherits: ^SmallArms
+	Inherits: ^SniperWeapon
 	Inherits: ^Chaingun
 	ValidTargets: Ground, Water, Trees, Air
 	InvalidTargets: Structure
@@ -2959,20 +2989,18 @@ CommandoM16:
 		ContrailWidth: 333
 		ContrailLength: 33
 		ContrailDelay: 3
-		Inaccuracy: 333
+		Inaccuracy: 111
 		Speed: 3333
 		Width: 111
-	Warhead@SmallArms: SpreadDamage
-		Spread: 333
+	Warhead@SniperWeapon: SpreadDamage
 		Damage: 4000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		Spread: 333
+	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		Damage: 4000
+	Warhead@SniperWeaponPercentage: HealthPercentageDamage
 		Damage: 2
 	Warhead@Chaingun: SpreadDamage
-		Spread: 333
 		Damage: 4000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		Spread: 333
 		Damage: 2
 
 FirehawkMissiles:
@@ -3109,36 +3137,6 @@ ChemTibAtomic:
 		AddsResourceType: Tiberium
 		Size: 10,10
 		Delay: 100
-
-ChemsprayLauncher:
-	Inherits: ^FireWeapon
-	Burst: 2
-	BurstDelays: 20
-	Range: 6c0
-	Projectile: Bullet
-		Speed: 250
-		TrailImage: spittrail
-		Image: FB1
-	Warhead@1Dam: SpreadDamage
-		Spread: 333
-		Damage: 33333
-		ValidTargets: Ground, Water, Trees
-		InvalidTargets: FireActor, WaterActor
-		Versus:
-			None: 100
-			Wood: 40
-			Light: 85
-			Medium: 70
-			Heavy: 55
-			Concrete: 25
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: green_building
-		ImpactSounds: flamer2.aud
-		ValidTargets: Ground, Air, Ship, Trees
-	Warhead@4Res: CreateResource
-		AddsResourceType: Tiberium
-		Size: 0,0
 
 GDIBattleshipRailgun:
 	Inherits: ^RailgunWeapon

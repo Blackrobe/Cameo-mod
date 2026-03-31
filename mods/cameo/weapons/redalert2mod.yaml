@@ -8611,7 +8611,7 @@ Future_Cryocopter_Rocket:
 	ReloadDelay: 60
 	Burst: 2
 	BurstDelays: 4
-	Range: 7124
+	Range: 6240
 	Report: vifvatta.wav
 	TargetActorCenter: true
 	Warhead@Grenade: SpreadDamage
@@ -8672,7 +8672,7 @@ Future_Cryocopter_Cryo:
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Air
 	ReloadDelay: 8
-	Range: 7124
+	Range: 6240
 	Report: AUCryoc_wea1impact2La.wav, AUCryoc_wea1impact2Lb.wav, AUCryoc_wea1impact2Lc.wav, AUCryoc_wea1impact2Ld.wav
 	TargetActorCenter: true
 	Projectile: LaserZapCA

@@ -7293,9 +7293,9 @@ SCLANIFECT:
 	Tooltip:
 		Name: Void Ray
 	Valued:
-		Cost: 1200
+		Cost: 1400
 	Power:
-		Amount: -60
+		Amount: -70
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -7304,20 +7304,20 @@ SCLANIFECT:
 		Queue: Aircraft, RAAircraft
 		Description: Protoss fighter aircraft that can blind enemies.
 	Aircraft:
-		Speed: 120
-		TurnSpeed: 24
-		RepulsionSpeed: 24
-		IdealSeparation: 1200
+		Speed: 140
+		TurnSpeed: 28
+		RepulsionSpeed: 28
+		IdealSeparation: 1400
 	Health:
-		HP: 60000
+		HP: 70000
 	Repairable:
-		HpPerStep: 3000
+		HpPerStep: 3500
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 28
 	Shielded:
-		RegenAmount: 48
+		RegenAmount: 56
 	Armament:
-		Weapon: LanifectBeam
+		Weapon: VoidRayBeam
 		LocalOffset: 500,0,0
 	FirepowerMultiplier@Cryo:
 		Modifier: 9

@@ -3671,7 +3671,7 @@ CorsairEMP:
 		ImpactSounds: sc_corsair_disruptionweb.aud
 		ImpactActors: false
 
-LanifectBeam:
+VoidRayBeam:
 	Inherits: ^LightMissile
 	Inherits: ^SmallArms
 	Inherits: ^Chaingun
@@ -3679,8 +3679,8 @@ LanifectBeam:
 	Inherits: ^TeslaWeapon
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 6
-	Range: 7911
+	ReloadDelay: 5
+	Range: 6500
 	Report: dune2smalllaser.aud, JUTankB_weapFire1a.wav, JUTankB_weapFire1b.wav, JUTankB_weapFire1c.wav, JUTankB_weapFire1d.wav, JUTankB_weapFire1e.wav, JUTankB_weapFire1f.wav, JUTankB_weapFire1g.wav, JUTankB_weapFire1h.wav
 	TargetActorCenter: true
 	Projectile: LaserZapCA
