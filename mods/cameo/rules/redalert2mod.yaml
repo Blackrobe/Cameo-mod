@@ -21367,6 +21367,7 @@ futu_cryo:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Buildable:
 		Queue: Aircraft, RAAircraft, Vehicle, RAVehicle
 		BuildPaletteOrder: 20
@@ -21384,16 +21385,19 @@ futu_cryo:
 		HpPerStep: 4500
 	ChangesHealth@SelfHealing:
 		Step: 36
-	Armament@PRIMARY:
-		Weapon: Future_Cryocopter_Cryo
-		LocalOffset: 350,0,-85
-		MuzzleSequence: muzzle
 	Armament@Rocket:
 		Name: secondary
 		Weapon: Future_Cryocopter_Rocket
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 4
+		PauseOnCondition: ammo < 4
+	Armament@PRIMARY:
+		Weapon: Future_Cryocopter_Cryo
+		LocalOffset: 350,0,-85
+		MuzzleSequence: muzzle
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 4
 	FirepowerMultiplier@Cryo:
 		Modifier: 16
 	AttackAircraft:
@@ -21425,16 +21429,19 @@ futu_cryo:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	AmmoPool:
-		Armaments: secondary
-		Ammo: 4
+		#Armaments: secondary
+		Ammo: 32
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 60
+		Delay: 8
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 4
+		PipCount: 8
+	ReloadAmmoDelayMultiplier@ammo:
+		Modifier: 50
+		RequiresCondition: ammo < 4
 	FireWarheadsOnDeath:
 		Weapon: LargeHeliExplode
 	RenderSprites:
@@ -21457,6 +21464,7 @@ future_harbinger:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Tooltip:
 		Name: Harbinger Gunship
 	Valued:
@@ -21498,6 +21506,20 @@ future_harbinger:
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
 		LocalYaw: 100, -100, 50, -50, 0
 		RequiresCondition: rank-elite
+	Armament@AA:
+		Name: primary
+		Weapon: HarbingerChainguns
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
+		RequiresCondition: !rank-elite
+	Armament@AAELITE:
+		Name: primary
+		Weapon: HarbingerChaingunsE
+		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225, 425,0,-225
+		LocalYaw: 100, -100, 50, -50, 0
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	Turreted:
 	SpawnActorOnDeath:
 		Actor: future_harbinger.Husk
@@ -21528,12 +21550,12 @@ future_harbinger:
 future_harbinger.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
-		Name: Twister
+		Name: Harbinger Gunship
 	Aircraft:
-		TurnSpeed: 80
-		Speed: 176
+		TurnSpeed: 20
+		Speed: 100
 	LeavesTrails:
-		Offsets: -853,0,171
+		Offsets: -800,0,200
 		MovingInterval: 2
 		Image: smokey
 		StationaryInterval: 2

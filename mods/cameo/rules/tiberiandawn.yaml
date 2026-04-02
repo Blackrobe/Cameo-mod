@@ -2183,7 +2183,7 @@ ORCA:
 	SpawnActorOnDeath:
 		Actor: ORCA.Husk
 	EjectOnDeath:
-		PilotActor: gdimissilesoldier
+		PilotActor: gdishotgunner
 	WithMoveAnimation:
 		MoveSequence: move
 	WithMuzzleOverlay:
@@ -5070,6 +5070,7 @@ tsstealthsoldier:
 	Armament@Garrison:
 		Name: garrisoned
 		Weapon: BHRedDarts
+	-Targetable@ParachuteAir:
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 	AttackFrontal:
@@ -5195,6 +5196,7 @@ nodvenom:
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Inherits@decoration: ^NodRankDecoration
 	Inherits@eject: ^AircraftEjectOnDeath
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Valued:
 		Cost: 900
 	Tooltip:

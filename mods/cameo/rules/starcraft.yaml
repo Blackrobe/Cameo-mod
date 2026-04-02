@@ -7143,17 +7143,17 @@ SCSCOUT:
 		Queue: Aircraft, RAAircraft
 		Description: Protoss fighter aircraft.\n Strong vs Aircraft
 	Aircraft:
-		Speed: 125
-		TurnSpeed: 25
-		RepulsionSpeed: 25
+		Speed: 150
+		TurnSpeed: 30
+		RepulsionSpeed: 30
 	Health:
-		HP: 60000
+		HP: 75000
 	Repairable:
-		HpPerStep: 3000
+		HpPerStep: 3750
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 30
 	Shielded:
-		RegenAmount: 120
+		RegenAmount: 60
 	Armament@PRIMARY1:
 		Weapon: ScoutMG
 		LocalOffset: 400,200,0
@@ -7290,6 +7290,7 @@ SCLANIFECT:
 	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Tooltip:
 		Name: Void Ray
 	Valued:
@@ -7319,8 +7320,22 @@ SCLANIFECT:
 	Armament:
 		Weapon: VoidRayBeam
 		LocalOffset: 500,0,0
+		PauseOnCondition: !ammo
 	FirepowerMultiplier@Cryo:
 		Modifier: 9
+	AmmoPool:
+		Ammo: 20
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 12
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 10
+	ReloadAmmoDelayMultiplier@ammo:
+		Modifier: 50
+		RequiresCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 10
 	-SpawnActorOnDeath:
@@ -7410,9 +7425,9 @@ SCCORSAIR:
 	Tooltip:
 		Name: Corsair
 	Valued:
-		Cost: 1500
+		Cost: 2100
 	Power:
-		Amount: -75
+		Amount: -105
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -7425,13 +7440,13 @@ SCCORSAIR:
 		TurnSpeed: 25
 		RepulsionSpeed: 25
 	Health:
-		HP: 75000
+		HP: 125000
 	Repairable:
-		HpPerStep: 3750
+		HpPerStep: 6250
 	ChangesHealth@SelfHealing:
-		Step: 30
+		Step: 50
 	Shielded:
-		RegenAmount: 60
+		RegenAmount: 100
 	Armament@PRIMARY:
 		Weapon: CorsairEMP
 		LocalOffset: 400,0,0

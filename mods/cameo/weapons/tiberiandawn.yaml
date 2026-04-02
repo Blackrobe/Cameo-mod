@@ -2049,7 +2049,7 @@ VenomLaser:
 	Inherits: ^Chaingun
 	Inherits: ^LaserWeapon
 	ReloadDelay: 18
-	Range: 4800
+	Range: 4000
 	Report: vpalwe2d.aud
 	Projectile: LaserZap
 		Width: 128

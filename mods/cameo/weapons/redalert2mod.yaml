@@ -8611,7 +8611,7 @@ Future_Cryocopter_Rocket:
 	ReloadDelay: 60
 	Burst: 2
 	BurstDelays: 4
-	Range: 6240
+	Range: 5200
 	Report: vifvatta.wav
 	TargetActorCenter: true
 	Warhead@Grenade: SpreadDamage
@@ -8672,7 +8672,7 @@ Future_Cryocopter_Cryo:
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Air
 	ReloadDelay: 8
-	Range: 6240
+	Range: 5200
 	Report: AUCryoc_wea1impact2La.wav, AUCryoc_wea1impact2Lb.wav, AUCryoc_wea1impact2Lc.wav, AUCryoc_wea1impact2Ld.wav
 	TargetActorCenter: true
 	Projectile: LaserZapCA
@@ -9706,53 +9706,106 @@ FutureTankCannonsE:
 	BurstDelays: 5
 
 FutureHarbingerCannon:
+	Inherits: ^HeavyChemicalWeapon
+	Inherits: ^HeavyFlameWeapon
+	Inherits: ^HeavyBomb
+	Inherits: ^TeslaChargedWeapon
 	Inherits: ^TeslaWeapon
+	Inherits: ^MagicWeapon
 	Inherits: ^LaserWeapon
 	Inherits: ^RailgunWeapon
 	Inherits: ^HeavyMissile
 	Inherits: ^HeavyCannon
-	ReloadDelay: 50
-	Range: 6444
+	ReloadDelay: 70
+	Range: 6030
+	Burst: 2
+	BurstDelays: 5
 	Report: tvuFir00.aud
 	Projectile: Bullet
 		Image: scdragoonprojectile
 		TrailImage: blue_smokey
 		TrailInterval: 1
-		Speed: 644
+		Speed: 1206
 		LaunchAngle: 0
-		ContrailLength: 15
-		ContrailStartWidth: 75
-		ContrailEndWidth: 150
+		ContrailLength: 12
+		ContrailStartWidth: 60
+		ContrailEndWidth: 240
 		ContrailStartColor: 4488FF88
 		ContrailEndColor: 88BBFF44
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@HeavyBomb: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaChargedWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		Damage: 2
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 10000
+		Damage: 4000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 5000
+		Damage: 2000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 5
+		Damage: 2
+	Warhead@MagicWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MagicWeaponPercentage: HealthPercentageDamage
+		Damage: 2
 	Warhead@LaserWeapon: SpreadDamage
-		Damage: 10000
+		Damage: 4000
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
-		Damage: 5
+		Damage: 2
 	Warhead@RailgunWeapon: SpreadDamage
-		Damage: 10000
+		Damage: 4000
 	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
-		Damage: 5
+		Damage: 2
 	Warhead@HeavyMissile: SpreadDamage
-		Damage: 10000
+		Damage: 4000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		Damage: 5
+		Damage: 2
 	Warhead@HeavyCannon: SpreadDamage
-		Damage: 10000
+		Damage: 4000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 5
+		Damage: 2
+	Warhead@Effect1:
+		Explosions: blue_big_frag
+	Warhead@Effect2:
+		Explosions: blue_building_napalm
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion
 		ImpactSounds: tvuHit00.aud,tvuHit01.aud,tvuHit02.aud
 
 FutureHarbingerCannonE:
 	Inherits: FutureHarbingerCannon
-	Range: 7444
+	Range: 7030
+	Burst: 4
+
+HarbingerChainguns:
+	Inherits: ^FlakWeapon
+	ReloadDelay: 9
+	Range: 6030
+	Report: tsgun4.aud
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 12000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 6
+
+HarbingerChaingunsE:
+	Inherits: HarbingerChainguns
+	Range: 7030
 	Burst: 2
-	BurstDelays: 5
+	BurstDelays: 1
+
