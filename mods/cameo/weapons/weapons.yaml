@@ -1809,7 +1809,7 @@
 		InvalidTargets: Wall
 		Spread: 350
 		Damage: 1000
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			HAZMAT: 50
 			Shield: 110
@@ -1836,7 +1836,7 @@
 		InvalidTargets: Wall
 		Spread: 175
 		Damage: 1000
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			HAZMAT: 25
 			Shield: 110
@@ -1862,7 +1862,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 175
 		Damage: 1
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			Shield: 17
 			Superheavy: 16
@@ -1915,7 +1915,7 @@
 		InvalidTargets: Wall
 		Spread: 700
 		Damage: 1000
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			HAZMAT: 50
 			Shield: 125
@@ -1942,7 +1942,7 @@
 		InvalidTargets: Wall
 		Spread: 350
 		Damage: 1000
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			HAZMAT: 25
 			Shield: 125
@@ -1968,7 +1968,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 350
 		Damage: 1
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			Shield: 25
 			Superheavy: 20
@@ -2021,7 +2021,7 @@
 		InvalidTargets: Wall
 		Spread: 1050
 		Damage: 1000
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			HAZMAT: 50
 			Shield: 140
@@ -2048,7 +2048,7 @@
 		InvalidTargets: Wall
 		Spread: 525
 		Damage: 1000
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			HAZMAT: 25
 			Shield: 140
@@ -2074,7 +2074,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 525
 		Damage: 1
-		Falloff: 100, 66, 33, 11
+		Falloff: 99, 66, 33
 		Versus:
 			Shield: 35
 			Superheavy: 25
@@ -2129,7 +2129,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 400
 		Damage: 1000
-		Falloff: 100, 80, 60, 40, 20, 0
+		Falloff: 100, 50, 33, 25, 20
 		Versus:
 			HAZMAT: 50
 			Shield: 110
@@ -2155,7 +2155,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 200
 		Damage: 1000
-		Falloff: 100, 80, 60, 40, 20, 0
+		Falloff: 100, 50, 33, 25, 20
 		Versus:
 			HAZMAT: 25
 			Shield: 110
@@ -2181,7 +2181,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 200
 		Damage: 1
-		Falloff: 100, 80, 60, 40, 20, 0
+		Falloff: 100, 50, 33, 25, 20
 		Versus:
 			Shield: 17
 			Scout: 16
@@ -2243,7 +2243,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 600
 		Damage: 1000
-		Falloff: 100, 75, 50, 25, 0
+		Falloff: 100, 75, 50, 25
 		Versus:
 			HAZMAT: 50
 			Shield: 125
@@ -2269,7 +2269,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 300
 		Damage: 1000
-		Falloff: 100, 75, 50, 25, 0
+		Falloff: 100, 75, 50, 25
 		Versus:
 			HAZMAT: 25
 			Shield: 125
@@ -2295,7 +2295,7 @@
 		ValidTargets: Ground, Water, Trees
 		Spread: 300
 		Damage: 1
-		Falloff: 100, 75, 50, 25, 0
+		Falloff: 100, 75, 50, 25
 		Versus:
 			Shield: 25
 			Scout: 20
@@ -2729,7 +2729,7 @@
 		ValidTargets: Ground, Water, Air
 		Spread: 222
 		Damage: 1111
-		Falloff: 99, 66, 33
+		Falloff: 111, 88, 44, 22, 11
 		Versus:
 			REFLECTOR: 50
 			Shield: 140
@@ -2754,7 +2754,7 @@
 		ValidTargets: Ground, Water, Air
 		Spread: 111
 		Damage: 1
-		Falloff: 99, 66, 33
+		Falloff: 111, 88, 44, 22, 11
 		Versus:
 			REFLECTOR: 50
 			Shield: 35
@@ -2780,7 +2780,7 @@
 		ValidTargets: Ground, Water, Air
 		Spread: 444
 		Damage: 888
-		Falloff: 99, 66, 33
+		Falloff: 111, 88, 44, 22, 11
 		Versus:
 			REFLECTOR: 50
 			Shield: 100

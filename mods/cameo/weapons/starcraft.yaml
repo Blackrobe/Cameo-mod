@@ -3430,7 +3430,7 @@ ScoutRockets:
 	Inherits: ^D2KRocket
 	Report: HKMISSLE.aud
 	ReloadDelay: 40
-	Range: 5667
+	Range: 4500
 	ValidTargets: Air
 	Projectile: Missile
 		Blockable: false
@@ -3587,7 +3587,7 @@ CorsairFlash:
 	Inherits: ^RA2Chaingun
 	Report: sc_corsair_attack.aud
 	ValidTargets: Air
-	Range: 5333
+	Range: 5500
 	ReloadDelay: 65
 	Projectile: Bullet
 		TrailImage: blue_smokey
@@ -3632,27 +3632,27 @@ CorsairFlash:
 CorsairEMP:
 	Inherits: ^TeslaChargedWeapon
 	ReloadDelay: 250
-	Range: 5000
-	MinRange: 1000
+	Range: 5500
+	MinRange: 1100
 	Report: plsecan2.aud
-	ValidTargets: Vehicle
+	ValidTargets: Vehicle, Defense, Infantry
 	Projectile: Bullet
 		Speed: 250
 		Blockable: false
 		LaunchAngle: 175
 		Image: tspulsball
 	Warhead@TeslaChargedWeapon: SpreadDamage
-		ValidTargets: Vehicle
+		ValidTargets: Vehicle, Defense
 		Falloff: 100, 75, 50, 25
 		Damage: 5000
 		Spread: 250
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
-		ValidTargets: Vehicle
+		ValidTargets: Vehicle, Defense
 		Falloff: 100, 75, 50, 25
 		Damage: 2500
 		Spread: 500
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Vehicle
+		ValidTargets: Vehicle, Defense
 		Falloff: 100, 75, 50, 25
 		Damage: 5
 		Spread: 2500
@@ -3679,8 +3679,8 @@ VoidRayBeam:
 	Inherits: ^TeslaWeapon
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 5
-	Range: 6500
+	ReloadDelay: 6
+	Range: 6474
 	Report: dune2smalllaser.aud, JUTankB_weapFire1a.wav, JUTankB_weapFire1b.wav, JUTankB_weapFire1c.wav, JUTankB_weapFire1d.wav, JUTankB_weapFire1e.wav, JUTankB_weapFire1f.wav, JUTankB_weapFire1g.wav, JUTankB_weapFire1h.wav
 	TargetActorCenter: true
 	Projectile: LaserZapCA
@@ -3733,10 +3733,15 @@ VoidRayBeam:
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-	Warhead@PhysicalStateCryo: ApplyPhysicalState
+	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -12000
 		Range: 200
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo2: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 400
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion
@@ -4242,7 +4247,7 @@ ScoutMG:
 	Inherits: ^RA2Chaingun
 	Report: blastgn2.aud
 	ValidTargets: Ground, Water, Trees
-	Range: 5667
+	Range: 4500
 	ReloadDelay: 32
 	Projectile: Bullet
 		TrailImage: blue_smokey
