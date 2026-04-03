@@ -2331,8 +2331,14 @@ ORCA.Husk:
 	RenderSprites:
 		Image: orca
 
-^FACT:
+^TDBuilding:
 	Inherits: ^BaseBuilding
+	SoundOnDamageTransition:
+		DamagedSounds: xplobig4.aud
+		DestroyedSounds: crumble.aud, xplobig4.aud
+
+^FACT:
+	Inherits: ^TDBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@conyard: ^Conyard
 	Inherits@sell: ^TDSpawnActorsOnSell
@@ -2385,7 +2391,7 @@ FACT.NOD:
 		Image: nodfact
 
 NUKE:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@power: ^PowerPlant
 	Inherits@sell: ^TDSpawnActorsOnSell
@@ -2417,7 +2423,7 @@ NUKE:
 	ProvidesPrerequisite@buildingname:
 
 NUK2:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@power: ^PowerPlant
 	Inherits@sell: ^TDSpawnActorsOnSell
@@ -2450,7 +2456,7 @@ NUK2:
 		Prerequisite: nuke
 
 ^TDPROC:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@ref: ^Refinery
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@shape: ^3x3Shape
@@ -2524,7 +2530,7 @@ PROC.NOD:
 		RequiresCondition: stealthharvester
 
 SILO:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x1Shape
 	Inherits@storage: ^StoresResources
 	Valued:
@@ -2559,7 +2565,7 @@ SILO:
 		PipCount: 10
 
 PYLE:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Inherits@shape: ^2x2Shape
@@ -2586,7 +2592,7 @@ PYLE:
 		Prerequisite: cncbarracks
 
 HAND:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
@@ -2611,7 +2617,7 @@ HAND:
 		Prerequisite: cncbarracks
 
 AFLD:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
 	# Inherits@weap: ^IsVehicleDropzone
@@ -2677,7 +2683,7 @@ AFLD:
 		RequiresCondition: !build-incomplete
 
 WEAP:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^3x3Shape
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
@@ -2713,7 +2719,7 @@ WEAP:
 		Sequence: place
 
 HPAD.GDI:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
@@ -2738,7 +2744,7 @@ HPAD.GDI:
 		Image: hpad
 
 HPAD.NOD:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
@@ -2768,7 +2774,7 @@ HPAD.NOD:
 		Image: hpad
 
 HQ.GDI:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@radar: ^RadarBuilding
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@spy: ^InfiltrateForSupportPowerReset
@@ -2827,7 +2833,7 @@ HQ.GDI:
 	SupportPowerChargeBar:
 
 HQ.Nod:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@radar: ^RadarBuilding
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@spy: ^InfiltrateForSupportPowerReset
@@ -2851,7 +2857,7 @@ HQ.Nod:
 		Prerequisites: ~fact.nod, proc.nod
 
 FIX.GDI:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@shape: ^3x3Shape
 	Inherits@repair: ^RepairsUnits
@@ -2882,7 +2888,7 @@ FIX.GDI:
 		Prerequisite: fix.gdi
 
 FIX.Nod:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@shape: ^3x3Shape
 	Inherits@repair: ^RepairsUnits
@@ -2913,7 +2919,7 @@ FIX.Nod:
 		Prerequisite: fix.nod
 
 EYE:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@SW: ^PrimarySuperweapon
 	Inherits@sell: ^TDSpawnActorsOnSell
@@ -3017,7 +3023,7 @@ eye.ionc:
 		Image: eye.ionc
 
 TMPL:
-	Inherits: ^BaseBuilding
+	Inherits: ^TDBuilding
 	Inherits@shape: ^3x3Shape
 	Inherits@SW: ^PrimarySuperweapon
 	Inherits@sell: ^TDNodSpawnActorsOnSell
