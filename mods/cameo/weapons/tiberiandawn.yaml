@@ -26,6 +26,11 @@
 		ContrailStartWidth: 64
 		ContrailEndWidth: 16
 
+TDBuildingExplode:
+	Inherits: BuildingExplode
+	Warhead@Effect: CreateEffect
+		ImpactSounds: crumble.aud, xplobig4.aud
+
 M16:
 	Inherits: ^SmallArms
 	ReloadDelay: 17

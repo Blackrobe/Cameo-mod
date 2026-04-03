@@ -2335,7 +2335,12 @@ ORCA.Husk:
 	Inherits: ^BaseBuilding
 	SoundOnDamageTransition:
 		DamagedSounds: xplobig4.aud
-		DestroyedSounds: crumble.aud, xplobig4.aud
+		# DestroyedSounds: crumble.aud, xplobig4.aud
+		DestroyedSounds:
+	FireWarheadsOnDeath:
+		Type: Footprint
+		Weapon: TDBuildingExplode
+		EmptyWeapon: TDBuildingExplode
 
 ^TDDefense:
 	Inherits: ^Defense
