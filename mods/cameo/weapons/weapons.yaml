@@ -3444,7 +3444,7 @@ DefuseKit:
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
 	Warhead@Effect: CreateEffect
 		Explosions: self_destruct
-		ImpactSounds: kaboom22.aud
+		# ImpactSounds: kaboom22.aud
 		ValidTargets: Ground, Air, Ship, Trees
 	Warhead@EffectWater: CreateEffect
 		Explosions: large_splash
