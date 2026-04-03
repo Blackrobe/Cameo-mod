@@ -2337,6 +2337,12 @@ ORCA.Husk:
 		DamagedSounds: xplobig4.aud
 		DestroyedSounds: crumble.aud, xplobig4.aud
 
+^TDDefense:
+	Inherits: ^Defense
+	SoundOnDamageTransition:
+		DamagedSounds: xplobig4.aud
+		DestroyedSounds: crumble.aud, xplobig4.aud
+
 ^FACT:
 	Inherits: ^TDBuilding
 	Inherits@shape: ^3x2Shape
@@ -3146,7 +3152,7 @@ tmpl.nuke:
 		Image: tmpl.nuke
 
 GUN:
-	Inherits: ^Defense
+	Inherits: ^TDDefense
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
@@ -3202,7 +3208,7 @@ GUN:
 		Upgrades: up_improvedartilleries, up_blackmarketupgrades
 
 NodLaserTurret:
-	Inherits: ^Defense
+	Inherits: ^TDDefense
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@DisabledOverlay: ^DisableOnLowPowerOrPowerDown
@@ -3248,7 +3254,7 @@ NodLaserTurret:
 		Range: 6800
 
 SAM:
-	Inherits: ^Defense
+	Inherits: ^TDDefense
 	Inherits@Template: ^AntiAirDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@AUTOTARGET: ^AutoTargetAir
@@ -3299,7 +3305,7 @@ SAM:
 		Upgrades: up_guerillatactics, up_advancedguerillatactics
 
 OBLI:
-	Inherits: ^Defense
+	Inherits: ^TDDefense
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
@@ -3356,7 +3362,7 @@ OBLI:
 		Range: 4800
 
 GTWR:
-	Inherits: ^Defense
+	Inherits: ^TDDefense
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@AUTOTARGET: ^AutoTargetGround
@@ -3406,7 +3412,7 @@ GTWR:
 		Upgrades: up_longrangesensors, up_armorpiercingbullets, up_cuttingedgeequipment
 
 ATWR:
-	Inherits: ^Defense
+	Inherits: ^TDDefense
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@exp: ^GainsExperienceTDBuilding
 	Inherits@AUTOTARGET: ^AutoTargetAll
@@ -7029,7 +7035,7 @@ gdirig:
 # 		Upgrades: up_longrangesensors, up_armorpiercingbullets, up_highvelocitycannons, up_advancedmissiletargeting, up_lightweightarmorplating
 
 # gdirigtower:
-# 	Inherits: ^Defense
+# 	Inherits: ^TDDefense
 # 	Inherits@Template: ^SuperDefenseTemplate
 # 	Inherits@exp: ^GainsExperienceTDBuilding
 # 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
