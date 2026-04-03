@@ -2224,6 +2224,8 @@ D2kBuildingExplode:
 		Explosions: d2k_building, d2k_self_destruct, d2k_large_explosion
 		ImpactActors: false
 		ExplosionPalette: effect75alpha
+	Warhead@Effect: CreateEffect
+		ImpactSounds: EXPLHG1.WAV
 
 D2kBuildingExplodeH:
 	Inherits: D2kBuildingExplode
