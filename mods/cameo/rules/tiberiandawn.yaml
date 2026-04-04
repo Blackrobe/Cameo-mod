@@ -2337,8 +2337,7 @@ ORCA.Husk:
 		BuildSounds: constru2.aud, hvydoor1.aud
 	SoundOnDamageTransition:
 		DamagedSounds: xplobig4.aud
-		# DestroyedSounds: crumble.aud, xplobig4.aud
-		DestroyedSounds:
+		DestroyedSounds: crumble.aud, xplobig4.aud
 	FireWarheadsOnDeath:
 		Type: Footprint
 		Weapon: TDBuildingExplode
@@ -2350,8 +2349,7 @@ ORCA.Husk:
 		BuildSounds: constru2.aud, hvydoor1.aud
 	SoundOnDamageTransition:
 		DamagedSounds: xplobig4.aud
-		# DestroyedSounds: crumble.aud, xplobig4.aud
-		DestroyedSounds:
+		DestroyedSounds: crumble.aud, xplobig4.aud
 	FireWarheadsOnDeath:
 		Type: Footprint
 		Weapon: TDBuildingExplode
