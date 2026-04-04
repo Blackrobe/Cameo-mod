@@ -2333,6 +2333,8 @@ ORCA.Husk:
 
 ^TDBuilding:
 	Inherits: ^BaseBuilding
+	Building:
+		BuildSounds: constru2.aud, hvydoor1.aud
 	SoundOnDamageTransition:
 		DamagedSounds: xplobig4.aud
 		# DestroyedSounds: crumble.aud, xplobig4.aud
@@ -2344,6 +2346,8 @@ ORCA.Husk:
 
 ^TDDefense:
 	Inherits: ^Defense
+	Building:
+		BuildSounds: constru2.aud, hvydoor1.aud
 	SoundOnDamageTransition:
 		DamagedSounds: xplobig4.aud
 		# DestroyedSounds: crumble.aud, xplobig4.aud
