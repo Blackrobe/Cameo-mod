@@ -9613,14 +9613,15 @@ FutureTankCannons:
 	ReloadDelay: 65
 	Burst: 2
 	BurstDelays: 10
-	Report: aa_bgart.wav
+	Report: AUFutur_weapFire1a.wav,AUFutur_weapFire1b.wav,AUFutur_weapFire1c.wav,AUFutur_weapFire1d.wav,AUFutur_weapFire1e.wav,AUFutur_weapFire1f.wav
+	StartBurstReport: AUFutur_wea1Firea.wav,AUFutur_wea1Fireb.wav,AUFutur_wea1Firec.wav,AUFutur_wea1Fired.wav,AUFutur_wea1Firee.wav
 	Range: 7500
 	MinRange: 1500
 	Projectile: Bullet
 		Blockable: false
 		Speed: 500
 		ContrailLength: 50
-		LaunchAngle: 50
+		LaunchAngle: 0
 		TrailImage: black_smokey
 		TrailPalette: effect75alpha
 		ContrailDelay: 0
@@ -9696,7 +9697,7 @@ FutureTankCannons:
 		Spread: 1000
 	Warhead@Effect: CreateEffect
 		Explosions: drneutronexp
-		ImpactSounds: kaboom12.aud
+		ImpactSounds: AUFutur_Wea1FireV3a.wav,AUFutur_Wea1FireV3b.wav,AUFutur_Wea1FireV3c.wav,AUFutur_Wea1FireV3d.wav,AUFutur_Wea1FireV3e.wav
 		ValidTargets: Ground, Water, Air
 
 FutureTankCannonsE:
@@ -9720,7 +9721,7 @@ FutureHarbingerCannon:
 	Range: 6030
 	Burst: 2
 	BurstDelays: 5
-	Report: tvuFir00.aud
+	Report: AUGunsh_cannonFirea.wav,AUGunsh_cannonFireb.wav,AUGunsh_cannonFirec.wav,AUGunsh_cannonFired.wav,AUGunsh_cannonFiree.wav
 	Projectile: Bullet
 		Image: scdragoonprojectile
 		TrailImage: blue_smokey
@@ -9786,7 +9787,7 @@ FutureHarbingerCannon:
 		Explosions: blue_building_napalm
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion
-		ImpactSounds: tvuHit00.aud,tvuHit01.aud,tvuHit02.aud
+		ImpactSounds: AUGunship_cannonExplo1A.wav,AUGunship_cannonExplo1B.wav,AUGunship_cannonExplo1C.wav,AUGunship_cannonExplo1D.wav,AUGunship_cannonExplo1E.wav,AUGunship_cannonExplo1F.wav,AUGunship_cannonExplo1G.wav,AUGunship_cannonExplo1H.wav,AUGunship_cannonExplo2A.wav,AUGunship_cannonExplo2B.wav,AUGunship_cannonExplo2C.wav,AUGunship_cannonExplo2D.wav,AUGunship_cannonExplo2E.wav,AUGunship_cannonExplo2F.wav,AUGunship_cannonExplo2G.wav,AUGunship_cannonExplo2H.wav
 
 FutureHarbingerCannonE:
 	Inherits: FutureHarbingerCannon
@@ -9797,7 +9798,7 @@ HarbingerChainguns:
 	Inherits: ^FlakWeapon
 	ReloadDelay: 9
 	Range: 6030
-	Report: tsgun4.aud
+	Report: AUGunsh_wea1Firea.wav,AUGunsh_wea1Fireb.wav,AUGunsh_wea1Firec.wav
 	Warhead@FlakWeapon: SpreadDamage
 		Damage: 12000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
