@@ -1,6 +1,6 @@
 ^TSBasicInfantry:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -106,7 +106,7 @@ tse1.nod:
 tsmedic:
 	Defaults:
 		Filename: tsmedic.shp
-		Scale: 1.4
+		Scale: 1.25
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -222,7 +222,7 @@ tsenforcer:
 		Tick: 80
 		Offset: 0, 0, 16
 		Filename: tsenforcer.shp
-		Scale: 1.4
+		Scale: 1.25
 	stand:
 		Facings: 8
 		ShadowStart: 300
@@ -387,7 +387,7 @@ tstratos:
 tsweedguy:
 	Defaults:
 		Filename: tsweed.shp
-		Scale: 1.4
+		Scale: 1.25
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -496,7 +496,7 @@ tsweedguy:
 tsdoggie:
 	Defaults:
 		Filename: tsdoggie.shp
-		Scale: 1.4
+		Scale: 1.25
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -545,7 +545,7 @@ tsdoggie:
 tsdoggieblue:
 	Defaults:
 		Filename: tsdoggieblue.shp
-		Scale: 1.4
+		Scale: 1.25
 		Tick: 80
 		Offset: 0, 0, 16
 	stand:
@@ -604,7 +604,7 @@ tse3mut:
 tsfloater:
 	idle:
 		Filename: tsfloater.shp
-		Scale: 1.4
+		Scale: 1.25
 		Length: 16
 		ShadowStart: 32
 	icon:
@@ -613,7 +613,7 @@ tsfloater:
 tsvislrg:
 	idle:
 		Filename: tsvislrg.shp
-		Scale: 1.4
+		Scale: 1.25
 		Length: 16
 		ShadowStart: 32
 	icon:
@@ -622,7 +622,7 @@ tsvislrg:
 tsvissml:
 	idle:
 		Filename: tsvissml.shp
-		Scale: 1.4
+		Scale: 1.25
 		Length: 16
 		ShadowStart: 32
 	icon:
@@ -830,7 +830,7 @@ tscyc2:
 tsdefender:
 	Defaults:
 		Filename: tsdefender.shp
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	stand:
@@ -864,7 +864,7 @@ tsdefender:
 tsreaper:
 	Defaults:
 		Filename: tsreaper.shp
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: tsreaper.shp
 		Facings: -8
@@ -893,7 +893,7 @@ tsreaper:
 
 tsmmch:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: tsmmch.shp
 		Facings: -8
@@ -927,7 +927,7 @@ tsmmch:
 
 tsharv:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	dock:
@@ -946,7 +946,7 @@ tsharv:
 
 dtruck:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	dock:
@@ -966,7 +966,7 @@ dtruck:
 tskodk:
 	Defaults:
 		Filename: tskodk.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 0,0,64
 		ZRamp: 1
 	idle:
@@ -1417,7 +1417,7 @@ tshmec:
 
 tsjugg:
 	Defaults:
-		Scale: 1.35
+		Scale: 1.255
 	idle:
 		Filename: tsjugger.shp
 		Facings: -8
@@ -1480,7 +1480,7 @@ tssonic:
 tsbggy:
 	Defaults:
 		Filename: tsbggy.shp
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: tsbggy.shp
 		Facings: 32
@@ -1495,7 +1495,7 @@ tsbggy:
 tsbike:
 	Defaults:
 		Filename: tsbike.shp
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: tsbike.shp
 		Facings: 32
@@ -1588,7 +1588,7 @@ tsnapost:
 
 tsttnk:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	deploy-idle:
@@ -1613,7 +1613,7 @@ tsttnk:
 
 tsstnk:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	icon:
@@ -1648,7 +1648,7 @@ tsart2:
 
 tsmcv:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	icon:
@@ -1678,7 +1678,7 @@ tsmcv:
 
 tssubtank:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	icon:
@@ -1690,7 +1690,7 @@ tssubtank:
 
 tssapc:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: invisibleitem.shp
 	icon:
@@ -1732,7 +1732,7 @@ ts4tnk2:
 tsmlrs:
 	Defaults:
 		Filename: forgot_mlrs.png
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Facings: 64
 		Scale: 0.5
@@ -1920,7 +1920,7 @@ tstnkspid:
 tsgtcnst:
 	Inherits: ^WithBuildingBib2
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Offset: -8, -20, 20
 	idle:
 		Filename: tsgtcnst.shp
@@ -1978,8 +1978,8 @@ tsgtcnst:
 tsgtpowr:
 	Inherits: ^WithBuildingBib3
 	Defaults:
-		Scale: 1.4
-		Offset: -8, -12, 24
+		Scale: 1.25
+		Offset: 0, -6, 24
 		Filename: tsgtpowr.shp
 	idle:
 		ShadowStart: 3
@@ -2014,22 +2014,22 @@ tsgtpowr:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -48, -12, 0
+		Offset: -48, -6, 0
 	damaged-idle-powrupa:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -48, -12, 0
+		Offset: -48, -6, 0
 	idle-powrupb:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -24, 0, 0
+		Offset: -24, 8, 0
 	damaged-idle-powrupb:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -24, 0, 0
+		Offset: -24, 8, 0
 	make:
 	icon:
 		Filename: tspowerplanticon.png
@@ -2065,6 +2065,7 @@ tsgtpile:
 	Defaults:
 		Filename: tsgtpile.shp
 		Offset: 0, -12, 24
+		Scale: 1.25
 	idle:
 		Filename: tsgtpile.shp
 		ShadowStart: 3
@@ -2117,18 +2118,19 @@ tsgtweap:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Filename: tsgtweap.shp
-		Offset: -12, -21, 22
+		Offset: -4, -21, 22
+		Scale: 1.25
 	idle:
 		Filename: tsgtweap_1.shp
 		ShadowStart: 2
 		ZOffset: -1024
-		Offset: -12, -21, 0
+		Offset: -4, -21, 0
 	damaged-idle:
 		Filename: tsgtweap_1.shp
 		Start: 1
 		ShadowStart: 3
 		ZOffset: -1024
-		Offset: -12, -21, 0
+		Offset: -4, -21, 0
 	idle-roof:
 		Filename: tsgtweap_2.shp
 		ShadowStart: 2
@@ -2175,21 +2177,21 @@ tsgtweap:
 		Filename: tsgtweapbb.shp
 		Length: 1
 		ZOffset: -1024
-		Offset: -12, -21, 0
+		Offset: -4, -21, 0
 		ZRamp: 1
 	damaged-bib2:
 		Filename: tsgtweapbb.shp
 		Start: 1
 		Length: 1
 		ZOffset: -1024
-		Offset: -12, -21, 0
+		Offset: -4, -21, 0
 		ZRamp: 1
 	dead-bib2:
 		Filename: tsgtweapbb.shp
 		Start: 2
 		Length: 1
 		ZOffset: -1024
-		Offset: -12, -21, 0
+		Offset: -4, -21, 0
 		ZRamp: 1
 	icon:
 		Filename: tsweapicon.png
@@ -2199,8 +2201,8 @@ tsgtweap:
 tsntpowr:
 	Inherits: ^WithBuildingBib3
 	Defaults:
-		Scale: 1.4
-		Offset: -8, 8, 24
+		Scale: 1.25
+		Offset: -6, 8, 24
 	idle:
 		Filename: tsntpowr.shp
 		ShadowStart: 3
@@ -2232,7 +2234,7 @@ tsntpowr:
 tsntpowrmutant:
 	Inherits: ^WithBuildingBib3
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 0, -12, 24
 	idle:
 		Filename: tampowr.shp
@@ -2263,7 +2265,7 @@ tsntpowrmutant:
 
 tsntapwr:
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 12, -20, 30
 	idle:
 		Filename: tsntapwr.shp
@@ -2296,7 +2298,7 @@ tsntapwr:
 tsnthand:
 	Inherits: ^WithBuildingBib3
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Offset: -12, -15, 30
 	idle:
 		Filename: tsnthand.shp
@@ -2397,6 +2399,7 @@ tsgtpile2:
 	Inherits: ^WithBuildingBib3
 	Defaults:
 		Offset: -12, -15, 30
+		Scale: 1.25
 	idle:
 		Filename: tambar.shp
 		ShadowStart: 2
@@ -2437,7 +2440,7 @@ tsgtpile2:
 tsntweap:
 	Inherits: ^WithBuildingBib2
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Offset: -8, -20, 30
 	idle:
 		Filename: tsntweap.shp
@@ -2510,7 +2513,7 @@ tsntweapcabal:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Offset: -12, -21, 30
-		Scale: 1.3
+		Scale: 1.25
 	idle:
 		Filename: tsmechfact_1.shp
 		ShadowStart: 2
@@ -2591,7 +2594,7 @@ tsntradr:
 	Inherits: ^WithBuildingBib3
 	Defaults:
 		Filename: tsntradr.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 0, -12, 12
 	idle:
 		Filename: tsntradr.shp
@@ -2625,7 +2628,7 @@ tsntradr:
 tsnttech:
 	Inherits: ^WithBuildingBib3
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Filename: tsnttech.shp
 		Offset: 0, -24, 24
 	idle:
@@ -2785,6 +2788,7 @@ tsgtradr:
 	Defaults:
 		Filename: tsgtradr.shp
 		Offset: 0, -12, 12
+		Scale: 1.15
 	idle:
 		Filename: tsgtradr.shp
 		ShadowStart: 3
@@ -2852,7 +2856,8 @@ tsgttech:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Filename: tsgttech.shp
-		Offset: -12, -30, 30
+		Offset: -16, -32, 30
+		Scale: 1.25
 	idle:
 		Filename: tsgttech.shp
 		ShadowStart: 3
@@ -2914,7 +2919,7 @@ tsfgttech:
 tscrys:
 	Inherits: ^WithBuildingBib3
 	Defaults:
-		Scale: 1.3
+		Scale: 1.25
 		Offset: 0, -12, 24
 	idle:
 		Filename: tscrys.shp
@@ -3288,7 +3293,7 @@ tscrys:
 tsntobel:
 	Defaults:
 		Filename: tsntobel.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 0, -24, 24
 	idle:
 		Filename: tsntobel.shp
@@ -3447,7 +3452,7 @@ tsntobel:
 tsntstlh:
 	Defaults:
 		Filename: tsntstlh.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: -16, -16, 1
 	idle:
 		Filename: tsntstlh.shp
@@ -3481,6 +3486,7 @@ tsgthpad:
 	Defaults:
 		Filename: tsgthpad.shp
 		Offset: 0, -24, 1
+		Scale: 1.25
 	idle:
 		Filename: tsgthpad.shp
 		ShadowStart: 3
@@ -3549,7 +3555,7 @@ tsgthpad:
 tsnthpad:
 	Defaults:
 		Filename: tsnthpad.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 0, -24, 0
 	idle:
 		Filename: tsnthpad.shp
@@ -3615,7 +3621,7 @@ tsnthpad:
 tsprocgdi:
 	Inherits: ^WithBuildingBib2
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Filename: tsntrefn.shp
 		Offset: -12, -20, 20
 	idle:
@@ -3670,7 +3676,7 @@ tsprocnod:
 tsprocmutant:
 	Inherits: ^WithBuildingBib2
 	Defaults:
-		Scale: 1.4
+		Scale: 1.25
 		Filename: tamref.shp
 		Offset: -12, -21, 20
 	idle:
@@ -3723,7 +3729,7 @@ tsntwast:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Filename: tsntwast.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 0, 0, 24
 	idle:
 		ShadowStart: 3
@@ -3780,7 +3786,7 @@ tsgtsilo.gdi:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Filename: tsgtsilo.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 4, -24, 24
 	idle:
 		Filename: tsgtsilo_a.shp
@@ -3835,7 +3841,7 @@ tsgtsilo.nod:
 tsgtdept:
 	Defaults:
 		Filename: tsgtdept.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: 8, -32, 1
 	idle:
 		Filename: tsgtdept.shp
@@ -3933,7 +3939,7 @@ tsntmisl:
 	Inherits: ^WithBuildingBib3
 	Defaults:
 		Filename: tsntmisl.shp
-		Scale: 1.4
+		Scale: 1.25
 		Offset: -4, -8, 24
 	idle:
 		Filename: tsntmisl.shp
@@ -3983,7 +3989,8 @@ tsgtplug:
 	Inherits: ^WithBuildingBib3
 	Defaults:
 		Filename: tsgtplug.shp
-		Offset: 6,-21, 15
+		Offset: 18,-4, 15
+		Scale: 1.25
 	idle:
 		Filename: tsgtplug.shp
 		ShadowStart: 3
@@ -4028,7 +4035,7 @@ tsgtplug:
 		Length: 15
 		Tick: 120
 		Reverses: true
-		Offset: -12, -21, 15
+		Offset: 0, -4, 15
 	idle-ioncannonb:
 		Filename: tsgtplug_f.shp
 		Length: 15
@@ -4039,7 +4046,7 @@ tsgtplug:
 		Length: 15
 		Tick: 120
 		Reverses: true
-		Offset: -12, -21, 15
+		Offset: -8, -11, 15
 	idle-hunterseekerb:
 		Filename: tsgtplug_e.shp
 		Length: 15
@@ -4602,7 +4609,7 @@ tsveinsmoke:
 tsntlasr:
 	Defaults:
 		Filename: tsntlasr.shp
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: tsntlasr.shp
 	damaged-idle:
@@ -4622,6 +4629,7 @@ tsntlasr:
 tsgtctwrmg:
 	Defaults:
 		Filename: tsgtctwr.shp
+		Scale: 1.25
 	idle:
 		Filename: tsgtctwr.shp
 	damaged-idle:
@@ -4652,6 +4660,7 @@ tsgtctwrmg:
 tsgtctwrrpg:
 	Defaults:
 		Filename: tsgtctwr.shp
+		Scale: 1.25
 	idle:
 		Filename: tsgtctwr.shp
 	damaged-idle:
@@ -4682,6 +4691,7 @@ tsgtctwrrpg:
 tsgtctwrsam:
 	Defaults:
 		Filename: tsgtctwr.shp
+		Scale: 1.25
 	idle:
 		Filename: tsgtctwr.shp
 	damaged-idle:
@@ -4754,7 +4764,7 @@ tsntpuls:
 tsntsam:
 	Defaults:
 		Filename: tsntsam.shp
-		Scale: 1.4
+		Scale: 1.25
 	idle:
 		Filename: tsntsam.shp
 	damaged-idle:
@@ -5092,88 +5102,88 @@ tst1000:
 		Offset: 0, 0, 16
 	stand:
 		Facings: -8
-		Scale: 1.4
+		Scale: 1.25
 	liedown:
 		Facings: -8
-		Scale: 1.4
+		Scale: 1.25
 	run:
 		Start: 8
 		Length: 8
 		Facings: 8
-		Scale: 1.4
+		Scale: 1.25
 	idle1:
 		Start: 8
 		Length: 9
 		Facings: 8
-		Scale: 1.4
+		Scale: 1.25
 	idle2:
 		Start: 8
 		Length: 9
 		Facings: 8
-		Scale: 1.4
+		Scale: 1.25
 	prone-run:
 		Start: 8
 		Length: 8
 		Facings: 8
-		Scale: 1.4
+		Scale: 1.25
 	prone-stand:
 		Facings: -8
-		Scale: 1.4
+		Scale: 1.25
 	prone-stand2:
 		Facings: -8
-		Scale: 1.4
+		Scale: 1.25
 	die1:
 		Filename: blue_frag3.shp
 		Length: *
-		Scale: 1.4
+		Scale: 1.25
 	die2:
 		Filename: blue_frag3.shp
 		Length: *
-		Scale: 1.4
+		Scale: 1.25
 	die4:
 		Filename: blue_frag3.shp
 		Length: *
-		Scale: 1.4
+		Scale: 1.25
 	die-crushed:
 		Filename: blue_frag3.shp
 		Length: *
-		Scale: 1.4
+		Scale: 1.25
 	standup:
 		Facings: -8
-		Scale: 1.4
+		Scale: 1.25
 	cheer:
 		Facings: -8
-		Scale: 1.4
+		Scale: 1.25
 	die7:
 		Filename: electro.shp
 		Length: *
-		Scale: 1.4
+		Scale: 1.25
 	die5:
 		Filename: blue_frag3.shp
 		Length: *
-		Scale: 1.4
+		Scale: 1.25
 	crippled-run:
 		Start: 208
 		Length: 8
 		Facings: 8
 		Tick: 333
-		Scale: 1.4
+		Scale: 1.25
 	crippled-stand:
 		Start: 144
 		Facings: 8
 		Length: 7
 		Tick: 9999
-		Scale: 1.4
+		Scale: 1.25
 	attack:
 		Start: 72
 		Length: 9
 		Facings: 8
-		Scale: 1.4
+		Scale: 1.25
 	crippled-attack:
 		Start: 144
 		Length: 7
 		Facings: 8
-		Scale: 1.4
+		Scale: 1.25
 	icon:
 		Filename: tst1000icon.shp
 
@@ -5210,7 +5220,7 @@ tsioncannon:
 		Filename: tsring1.shp
 		Alpha: 0.75
 		Tick: 50
-		Scale: 1.4
+		Scale: 1.25
 	ionbeam:
 		Filename: tsionbeam.shp
 		Offset: 0, -60, 60

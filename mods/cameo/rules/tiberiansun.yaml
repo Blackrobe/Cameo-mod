@@ -377,7 +377,7 @@ TSGTCNST:
 
 TSGTCNSTGDI:
 	Inherits: ^BaseBuilding
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@conyard: ^Conyard
 	Selectable:
@@ -387,8 +387,8 @@ TSGTCNSTGDI:
 	Tooltip:
 		Name: Construction Yard (GDI)
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: _xx_ xxxx _xx_
+		Dimensions: 4,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 1000000
@@ -828,7 +828,7 @@ TSGTPOWR:
 		Description: template-power.description
 		Prerequisites: ~tsgtcnstgdi
 	Building:
-		Footprint: xx xx
+		Footprint: == xx
 		Dimensions: 2,2
 	RevealsShroud:
 		Range: 4c0
@@ -1240,13 +1240,13 @@ TSNTHAND2:
 tsgtweap:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^4x3Shape
 	Inherits@weap: ^IsWeaponFactory
-	HitShape:
-		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
-		Type: Rectangle
-			TopLeft: -1536, -1024
-			BottomRight: 1536, 512
+	# HitShape:
+	# 	TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+	# 	Type: Rectangle
+	# 		TopLeft: -1536, -1024
+	# 		BottomRight: 1536, 512
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1258,20 +1258,21 @@ tsgtweap:
 		Queue: Building, RABuilding
 		Description: template-factory.description
 	Building:
-		Footprint: xx= x== ===
-		Dimensions: 3,3
+		Footprint: xxx_ xxx= _===
+		Dimensions: 4,3
 		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 3072, 2048
-		DecorationBounds: 3072, 2048
+	# Selectable:
+	# 	Bounds: 3072, 2048
+	# 	DecorationBounds: 3072, 2048
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
 	RallyPoint:
-		Path: 0,2
+		Path: 5,3
 	Exit@1:
-		SpawnOffset: -512,-512,0
-		ExitCell: 2,1
+		# SpawnOffset: -512,-512,0
+		SpawnOffset: 0,0,0
+		ExitCell: 2,2
 		ExitDelay: 3
 	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
@@ -1719,11 +1720,12 @@ tsgtradr:
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@radar: ^RadarBuilding
 	Inherits@spy: ^InfiltrateForSupportPowerReset
-	HitShape:
-		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
-		Type: Rectangle
-			TopLeft: -1024, -384
-			BottomRight: 1024, 1024
+	Inherits@shape: ^2x2Shape
+	# HitShape:
+	# 	TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
+	# 	Type: Rectangle
+	# 		TopLeft: -1024, -384
+	# 		BottomRight: 1024, 1024
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1735,12 +1737,12 @@ tsgtradr:
 		Queue: Building, RABuilding
 		Description: actor-tsgtradr.description
 	Building:
-		Footprint: X_ xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 2048, 2048
-		DecorationBounds: 2248, 2248
+	# Selectable:
+	# 	Bounds: 2048, 2048
+	# 	DecorationBounds: 2248, 2248
 	SelectionDecorations:
 	WithSpriteBody:
 		PauseOnCondition: lowpower
@@ -1836,7 +1838,7 @@ tsgttech:
 	Selectable:
 		Bounds: 2048, 2048
 	Building:
-		Footprint: xxx ===
+		Footprint: xxx =x=
 		Dimensions: 3,2
 		LocalCenterOffset: 0,0,0
 	Armor:
@@ -1966,8 +1968,8 @@ tsntmisl:
 	Tooltip:
 		Name: Missile Silo
 	Building:
-		Footprint: xx ==
-		Dimensions: 2,2
+		Footprint: xx
+		Dimensions: 2,1
 		# LocalCenterOffset: 0,-512,0
 	Armor:
 		Type: Wood
@@ -2149,10 +2151,10 @@ tsgtplug:
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@SW: ^PrimarySuperweapon
 	# Inherits@hunterseeker: ^HunterSeekersPower
-	Selectable:
-		Bounds: 131072, 87381
-	HitShape:
-		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+	# Selectable:
+	# 	Bounds: 131072, 87381
+	# HitShape:
+	# 	TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 140
@@ -2161,8 +2163,8 @@ tsgtplug:
 	Tooltip:
 		Name: Upgrade Center
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: xxx xxx
+		Dimensions: 3,2
 		LocalCenterOffset: 0,-512,0
 	Selectable:
 		Bounds: 2048, 2048
@@ -3576,7 +3578,7 @@ tsntpulsgdi:
 
 tsntobel:
 	Inherits: ^Defense
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^2x2Shape
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -3592,8 +3594,8 @@ tsntobel:
 		# BuildDurationModifier: 63
 		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	# Selectable:
 	# 	Bounds: 1024, 1024
 	# 	DecorationBounds: 2048, 2048, 0, -512
