@@ -97,8 +97,7 @@ actor-futu_athena =
 
 actor-futu_coiler =
    .description = Lightly armored support vehicle.
-      Uses energy discharges to buff 
-	  nearby robotic units or damage enemies.
+      Uses energy discharges to buff nearby robotic units or damage enemies.
       Strong vs Ground
       Weak vs Aircraft
 
