@@ -13,12 +13,12 @@ actor-futu_javelinsoldier =
 
 actor-futu_fedeng =
    .name = Engineer
-   .description = Captures enemy buildings and repairs friendly vehicles.
+   .description = Captures enemy and neutral buildings and repairs friendly structures.
 
 actor-futu_engi =
-   .name = Engineer
+   .name = Repair Drone
    .description = Unarmed robotic unit.
-      Repairs friendly vehicles.
+      Repairs friendly vehicles and structures with a repair beam.
 
 actor-futu_wheel =
    .description = Fast robotic scout.
