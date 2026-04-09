@@ -8797,7 +8797,7 @@ FutureMicrotorpedos:
 AthenaLaser:
 	Range: 16000
 	MinRange: 3200
-	ReloadDelay: 250
+	ReloadDelay: 1
 	ValidTargets: Ground, Water, Air
 	Projectile: LaserZap
 		Duration: 22
@@ -8873,7 +8873,8 @@ AthenaVisualLaser:
 	ReloadDelay: 6
 	Range: 16000
 	MinRange: 3200
-	Report: 2100rotlsr.wav
+	#Report: 2100rotlsr.wav
+	Report: AUGuard_beamLoopa.wav, AUGuard_beamLoopb.wav, AUGuard_beamLoopc.wav
 	TargetActorCenter: true
 	ValidTargets: Ground, Water, Structure, Wall
 	Projectile: LaserZap

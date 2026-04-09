@@ -21147,13 +21147,33 @@ futu_athena:
 	Armor:
 		Type: Medium
 	Armament@AG:
+		Name: athena-beam
 		Weapon: AthenaLaser
 		LocalOffset: 400,0,300
-		FireDelay: 150
+		RequiresCondition: athena-charged == 1
 	Armament@VISUAL:
+		Name: primary
 		Weapon: AthenaVisualLaser
 		LocalOffset: 400,0,300
 	AttackFrontal:
+		Armaments: primary, athena-beam
+	GrantConditionOnAttack@CHARGE:
+		Condition: athena-charged
+		ArmamentNames: primary
+		RequiredShotsPerInstance: 25
+		MaximumInstances: 1
+		RevokeDelay: 7
+		RevokeOnNewTarget: true
+		RevokeAll: true
+		ShowSelectionBar: true
+		SelectionBarColor: 83B9FC
+		RequiresCondition: !athena-recharging
+	GrantConditionOnAttackCA@RECHARGE:
+		Condition: athena-recharging
+		ArmamentNames: athena-beam
+		RequiredShotsPerInstance: 1
+		MaximumInstances: 1
+		RevokeDelay: 250
 	WithMuzzleOverlay:
 	Selectable:
 		DecorationBounds: 1280, 1280
