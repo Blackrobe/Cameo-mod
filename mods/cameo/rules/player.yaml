@@ -99,8 +99,13 @@ Player:
 		CheckboxDisplayOrder: 20
 	DamageNotifier:
 		ValidTargets: Structure
+		Notification: BaseAttack
+		TextNotification: notification-base-under-attack
 		AllyNotification: OurAllyIsUnderAttack
+		AllyTextNotification: notification-ally-under-attack
 	HarvesterAttackNotifier:
+		ExcludeDamageTypes: SpiceExplosion
+		TextNotification: notification-harvester-under-attack
 	EnemyWatcher:
 	Shroud:
 		FogCheckboxDisplayOrder: 3
@@ -394,22 +399,37 @@ Player:
 		BuildTimeSpeedReduction: 125, 100, 80, 66, 50, 40, 33, 25
 		BuildingCountBuildTimeMultipliers: 125, 100, 80, 66, 50, 40, 33, 25
 		ParallelPenaltyBuildTimeMultipliers: 100, 63, 50, 44, 40, 38, 36, 34, 33, 32
-		AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
+		ReadyAudio: NewOptions
+		ReadyTextNotification: notification-new-construction-options
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		# AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
 	ClassicProductionQueue@BuildingAddons:
 		Type: BuildingAddons
-		DisplayOrder: 10
+		DisplayOrder: 11
 		Group: Addon
 		SpeedUp: True
 		LowPowerModifier: 400
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
-		AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
+		ReadyAudio: NewOptions
+		ReadyTextNotification: notification-new-construction-options
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		# AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
 	ClassicProductionQueue@UPGRADE:
 		Type: Upgrades
-		DisplayOrder: 10
+		DisplayOrder: 12
 		Group: Upgrade
 		SpeedUp: True
 		LowPowerModifier: 400
 		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
+		ReadyAudio: NewOptions
+		ReadyTextNotification: notification-new-construction-options
+		QueuedAudio: Upgrading
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ExternalCondition@barr:
 		Condition: ownsbarr
 	ExternalCondition@weap:
