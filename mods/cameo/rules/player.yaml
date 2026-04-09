@@ -2,6 +2,14 @@
 	AlwaysVisible:
 	Shroud:
 
+# Inherits@AlwaysShow: ^AlwaysShowForFactionsList
+^AlwaysShowForFactionsList:
+	AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
+
+# Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
+^StandardBuildTimeSpeedReduction:
+	BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
+
 EditorPlayer:
 	Inherits: ^BasePlayer
 
@@ -306,6 +314,7 @@ Player:
 	#		ClassicProductionQueue
 	####################################################################################################
 	ClassicProductionQueue@BUILDING:
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: RABuilding
 		DisplayOrder: 0
 		Group: Building
@@ -318,8 +327,8 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		InfiniteBuildLimit: 10
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@DEFENCE:
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: RADefence
 		DisplayOrder: 1
 		Group: Defence
@@ -332,8 +341,8 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		InfiniteBuildLimit: 10
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@INFANTRY:
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: RAInfantry
 		DisplayOrder: 2
 		Group: Infantry
@@ -346,8 +355,8 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		InfiniteBuildLimit: 10
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@VEHICLE:
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: RAVehicle
 		DisplayOrder: 3
 		Group: Vehicle
@@ -360,8 +369,8 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		InfiniteBuildLimit: 10
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@AIRCRAFT:
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: RAAircraft
 		DisplayOrder: 4
 		Group: Aircraft
@@ -374,8 +383,8 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		InfiniteBuildLimit: 10
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	ClassicProductionQueue@NAVAL:
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: RANaval
 		DisplayOrder: 5
 		Group: Ship
@@ -388,9 +397,9 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		InfiniteBuildLimit: 10
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 	# ClassicParallelProductionQueue@ADDON:
 	ClassicProductionQueue@ADDON:
+		Inherits@AlwaysShow: ^AlwaysShowForFactionsList
 		Type: Addons
 		DisplayOrder: 10
 		Group: Addon
@@ -404,27 +413,27 @@ Player:
 		QueuedAudio: Upgrading
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
-		# AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
 	ClassicProductionQueue@BuildingAddons:
+		Inherits@AlwaysShow: ^AlwaysShowForFactionsList
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: BuildingAddons
 		DisplayOrder: 11
 		Group: Addon
 		SpeedUp: True
 		LowPowerModifier: 400
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 		ReadyAudio: NewOptions
 		ReadyTextNotification: notification-new-construction-options
 		QueuedAudio: Upgrading
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
-		# AlwaysShowForFactions: gdi, nod, allies, soviet, modjapan, tsgdi, tsnod, forgotten, cabal, ra2america, ra2russia, yuri, asianalliance, consortium, syndicate, naxis, lnaxis, futuretech, atreides, harkonnen, ordos, corrino, ixian, terran, protoss, zerg, human2, orc2, tkm
 	ClassicProductionQueue@UPGRADE:
+		Inherits@AlwaysShow: ^AlwaysShowForFactionsList
+		Inherits@BuildTime: ^StandardBuildTimeSpeedReduction
 		Type: Upgrades
 		DisplayOrder: 12
 		Group: Upgrade
 		SpeedUp: True
 		LowPowerModifier: 400
-		BuildTimeSpeedReduction: 100, 50, 33, 25, 20, 17, 14, 12, 11, 10, 9, 8, 8, 7, 7, 6, 6, 6, 5, 5
 		ReadyAudio: NewOptions
 		ReadyTextNotification: notification-new-construction-options
 		QueuedAudio: Upgrading
