@@ -193,8 +193,11 @@ actor-tmpl =
 power-nuke =
    .tdname = Nuclear Strike
    .raname = Atomic Bomb
+   .d2kname = Nuclear Weapon
    .description = Launches a nuclear missile.
       Applies heavy damage over a large area.
+   .d2kdescription = Launches a missile which payload releases a shockwave that devastates a large area,
+   while electro-magnetic pulse disables buildings around the target for some time.
 
 actor-gun =
    .tdname = Nod Gun Turret

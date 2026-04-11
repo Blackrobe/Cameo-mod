@@ -2238,21 +2238,21 @@ starport.ordos:
 	RenderSprites:
 		Image: starport.ordos
 
-storm_lasher_big:
+supercomputer:
 	Inherits: ^D2KBuilding
 	Inherits@D2KSprite: ^D2KPaletteRender
 	Inherits@Prereqs: ^D2KPrereqs
-	Inherits@shape: ^4x4Shape
+	Inherits@shape: ^4x3Shape
 	Inherits@SW: ^PrimarySuperweapon
 	Buildable:
 		Prerequisites: ~construction_yard.ixian, research_centre.ixian
-		Description: actor-storm_lasher.description
+		Description: Provides a nuclear weapon support power.
 		IconPalette: player
 	Tooltip:
-		Name: Supercomputer
+		Name: Ixian Supercomputer
 	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4,4
+		Footprint: xxxx xxxx ====
+		Dimensions: 4,3
 	WithMakeAnimation:
 	NukePowerCA:
 		OrderName: PulseMissile
@@ -2265,18 +2265,18 @@ storm_lasher_big:
 			1: abomb
 		ChargeInterval: 10500
 		Names:
-			1: power-nuke.raname
+			1: power-nuke.d2kname
 		Descriptions:
-			1: power-nuke.description
+			1: power-nuke.d2kdescription
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
 		EndChargeSpeechNotification: NuclearWeaponAvailable
-		EndChargeTextNotification: Nuclear Missile ready.
+		EndChargeTextNotification: Nuclear weapon ready.
 		LaunchSpeechNotification: NuclearWeaponLaunched
-		LaunchTextNotification: Warning: Nuclear Missile launched.
+		LaunchTextNotification: Warning: Nuclear weapon launched.
 		IncomingSpeechNotification: NuclearWarheadApproaching
-		IncomingTextNotification: Warning: Nuclear Missile launched.
+		IncomingTextNotification: Warning: Nuclear weapon impact imminent.
 		MissileWeapons:
 			1: PulseMissile
 		MissileDelay: 25
@@ -2301,7 +2301,7 @@ storm_lasher_big:
 		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	RenderSprites:
-		Image: storm_lasher_big
+		Image: supercomputer
 		Palette: td_temperat
 	-WithCrumbleOverlay:
 
