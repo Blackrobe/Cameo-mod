@@ -2591,26 +2591,29 @@ faction-ra2-lnaxis =
       Support powers: Gravity Core, Meteor Traction Beam
 
 faction-ra2-futuretech =
-   .name = Future Tech
-   .description = Future Tech custom faction in Red Alert 2 style.
-      The secretive European defense conglomerate FutureTech is known
-      for pushing the boundaries of ethical science to secure Allied dominance.
-      Operating from high-security labs in the Netherlands, they represent
-      the peak of "clean" warfare—specializing in high-end robotics and
-      experimental energy weapons that make standard Allied tech look like relics.
+   .name = FutureTech
+   .description = FutureTech: High-End Robotics and Experimental Weaponry
+
+      The secretive European defense conglomerate FutureTech pushes the boundaries of
+      ethical science to secure Allied dominance. Operating from high-security labs in
+      the Netherlands, they field an arsenal of cutting-edge robotics and experimental
+      energy weapons that excel at overwhelming the enemy at a steep cost.
+
+      Heavy investment in infrastructure is required before FutureTech's most advanced
+      units can be deployed. Their technology is among the most powerful on the battlefield,
+      but their base defenses are sparse, offering little protection without a standing army.
 
       Difficulty: ©©©©©
-      Early Game: ©©©©
-      Mid Game: ©©©©©
-      Late Game: ©©
-      Playstyle: Timing Attack
-      Strength: Cryocopter
-      Weakness: Aircraft
-      Countered by: Late Game Units, Anti Air
-      Special Units: Future Tank, Tanya II
-      Special Buildings: Shock Center
-      Team Upgrades: WIP
-      Support powers: WIP (Planned: Sigma Harmonizer, Robot Energize)
+      Early Game: ©©
+      Mid Game: ©©©
+      Late Game: ©©©©©
+      Playstyle: Tech Rush
+      Strength: Late Game Offense, Robotic Units
+      Weakness: Early Game, Base Defense
+      Countered by: Early Aggression, Air Raids
+      Special Units: Future Tank, Harbinger Gunship, Cryocopter
+      Special Buildings: Shock Center, Robot Control Center
+      Support powers: Paradrop (Planned: Sigma Harmonizer, Robot Energize)
 
 faction-d2k-random =
    .name = Any

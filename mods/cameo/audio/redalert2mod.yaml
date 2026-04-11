@@ -681,3 +681,22 @@ FutureCoilerVoice:
 		Action: JUStrik_movStartc
 		Attack: JUStrik_movStartc
 		Build: JUStrik_selecta
+
+FutureHarbVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: AUHarbi_voiSelecta,AUHarbi_voiSelectb,AUHarbi_voiSelectc,AUHarbi_voiSelectd,AUHarbi_voiSelecte,AUHarbi_voiSelectf,AUHarbi_voiSelectg,AUHarbi_voiSelecth
+		Move: AUHarbi_voiMovea,AUHarbi_voiMoveb,AUHarbi_voiMovec,AUHarbi_voiMoved,AUHarbi_voiMovee,AUHarbi_voiMovef,AUHarbi_voiMoveg,AUHarbi_voiMoveh,AUHarbi_voiMovei,AUHarbi_voiMovej
+		Attack: AUHarbi_voiAttacka,AUHarbi_voiAttackb,AUHarbi_voiAttackc,AUHarbi_voiAttackd,AUHarbi_voiAttacke,AUHarbi_voiAttackf
+		AttackMove: AUHarbi_voiMvAtta,AUHarbi_voiMvAttb,AUHarbi_voiMvAttc,AUHarbi_voiMvAttd,AUHarbi_voiMvAtte,AUHarbi_voiMvAttf
+		Build: AUHarbi_voiCreatea,AUHarbi_voiCreateb
+		Die: aa_kami_die1, aa_kami_die2
+
+FutureTankVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: AUFutur_voiSelecta,AUFutur_voiSelectb,AUFutur_voiSelectc,AUFutur_voiSelectd,AUFutur_voiSelecte,AUFutur_voiSelectf
+		Move: AUFutur_voiMovea,AUFutur_voiMoveb,AUFutur_voiMovec,AUFutur_voiMoved,AUFutur_voiMovee,AUFutur_voiMovef,AUFutur_voiMoveg,AUFutur_voiMoveh
+		Attack: AUFutur_voiAttacka,AUFutur_voiAttackb,AUFutur_voiAttackc,AUFutur_voiAttackd,AUFutur_voiAttacke,AUFutur_voiAttackf
+		AttackMove: AUFutur_voiMvAtta,AUFutur_voiMvAttb,AUFutur_voiMvAttc,AUFutur_voiMvAttd,AUFutur_voiMvAtte
+		Build: AUFutur_voiCreatea,AUFutur_voiCreateb
