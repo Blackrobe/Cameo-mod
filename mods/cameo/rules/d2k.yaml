@@ -832,10 +832,10 @@ construction_yard.ixian:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		IconPalette: d2kunit
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
+	# Production@Addons:
+	# 	Produces: Addons
+	# ProductionBar@Addons:
+	# 	ProductionType: Addons
 	Transforms:
 		IntoActor: d2k_mcv.ixian
 		Offset: 1,1
@@ -882,15 +882,6 @@ construction_yard.ordos:
 	Inherits@D2kBLD: construction_yard.ixian
 	Tooltip:
 		Name: Ordos Construction Yard
-	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-		IconPalette: d2kunit
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
 	Transforms:
 		IntoActor: d2k_mcv.ordos
 		Offset: 1,1
@@ -900,10 +891,6 @@ construction_yard.ordos:
 		ActorTypes: light_inf, light_inf, engineer
 	RenderSprites:
 		Image: conyard.ordos
-	ActorStatValues:
-		Upgrades: upgrade_conyard
-	GivesBuildableArea:
-		AreaTypes: building
 
 wind_trap.atreides:
 	Inherits: ^D2KBuilding
@@ -1844,7 +1831,7 @@ outpost.ixian:
 	Tooltip:
 		Name: Ixian Outpost
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: xxx xxx ===
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	RenderSprites:
@@ -2007,12 +1994,12 @@ research_centre.ixian:
 	Inherits@tech: ^IsTechnoBuilding
 	Buildable:
 		Prerequisites: ~construction_yard.ixian, outpost.ixian
-		Description: Ixian Research Center\nUnlocks advanced tanks.
+		Description: Unlocks advanced units and upgrades.
 		IconPalette: d2kunit
 	Tooltip:
 		Name: Ix Research Center
 	Building:
-		Footprint: _X_ xxx XXX ===
+		Footprint: _x_ xxx XXX ===
 		Dimensions: 3,4
 		LocalCenterOffset: 0,-512,0
 	HitShape:
@@ -2027,6 +2014,8 @@ research_centre.ixian:
 			BottomRight: 512, -512
 	RenderSprites:
 		Image: research.gold
+	Production@Upgrade:
+		Produces: Upgrade
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-lights
@@ -2045,11 +2034,12 @@ research_centre.ixian:
 		Actor: light_inf
 	SpawnActorOnDeath@death4:
 		Actor: trooper
+
 research_centre.ordos:
 	Inherits: research_centre.ixian
 	Buildable:
 		Prerequisites: ~construction_yard.ordos, outpost.ordos
-		Description: Ixian Research Center\nUnlocks advanced tanks.
+		Description: Unlocks advanced units and upgrades.
 		IconPalette: d2kunit
 	Tooltip:
 		Name: Ix Research Center
