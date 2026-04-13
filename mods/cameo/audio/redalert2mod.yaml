@@ -700,3 +700,15 @@ FutureTankVoice:
 		Attack: AUFutur_voiAttacka,AUFutur_voiAttackb,AUFutur_voiAttackc,AUFutur_voiAttackd,AUFutur_voiAttacke,AUFutur_voiAttackf
 		AttackMove: AUFutur_voiMvAtta,AUFutur_voiMvAttb,AUFutur_voiMvAttc,AUFutur_voiMvAttd,AUFutur_voiMvAtte
 		Build: AUFutur_voiCreatea,AUFutur_voiCreateb
+
+CryoLegionnaireVoice:
+	Inherits: ^InfantryDeath
+	DefaultVariant: .wav
+	Voices:
+		Build: AUCryoL_voiCreatea, AUCryoL_voiCreateb, AUCryoL_voiCreatec
+		Select: AUCryoL_voiSelecta, AUCryoL_voiSelectb, AUCryoL_voiSelectc, AUCryoL_voiSelectd, AUCryoL_voiSelecte, AUCryoL_voiSelectf, AUCryoL_voiSelectg
+		Move: AUCryoL_voiMovea, AUCryoL_voiMoveb, AUCryoL_voiMovec, AUCryoL_voiMoved, AUCryoL_voiMovee, AUCryoL_voiMovef, AUCryoL_voiMoveg, AUCryoL_voiMoveh, AUCryoL_voiMovei, AUCryoL_voiMovej
+		Action: AUCryoL_voiMvAtta, AUCryoL_voiMvAttb, AUCryoL_voiMvAttc, AUCryoL_voiMvAttd, AUCryoL_voiMvAtte, AUCryoL_voiMvAttf
+		Attack: AUCryoL_voiAttacka, AUCryoL_voiAttackb, AUCryoL_voiAttackc, AUCryoL_voiAttackd, AUCryoL_voiAttacke, AUCryoL_voiAttackf, AUCryoL_voiAttackg, AUCryoL_voiAttackh, AUCryoL_voiAttacki
+		Feedback: AUCryoL_voiSelUnda, AUCryoL_voiSelUndb, AUCryoL_voiSelUndc, AUCryoL_voiSelUndd
+		Die: AUCryoL_voiDiea, AUCryoL_voiDieb, AUCryoL_voiDiec, AUCryoL_voiDied, AUCryoL_voiDiee, AUCryoL_voiDief, AUCryoL_voiDieg, AUCryoL_voiDieh, AUCryoL_voiDiei

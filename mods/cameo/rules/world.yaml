@@ -963,6 +963,12 @@ World:
 		Brightest: 80
 		FadeoutDelay: 300
 		Name: anthraxpurple
+	TintedCellsLayer@cryo:
+		Color: 88BBFF
+		ZOffset: 0
+		Brightest: 80
+		FadeoutDelay: 200
+		Name: cryo
 	WeaponTriggerCells@Inferno:
 		Name: InfernoLayer
 		RestorePerTick: 1

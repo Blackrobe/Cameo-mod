@@ -8746,6 +8746,53 @@ Future_Cryocopter_Cryo:
 		ValidTargets: Ground, Water, Air
 		Volume: 0.25
 
+CryoLegionnaireAttack:
+	Range: 7c0
+	ReloadDelay: 40
+	Report: AUCryoc_wea1impact2La.wav, AUCryoc_wea1impact2Lb.wav, AUCryoc_wea1impact2Lc.wav, AUCryoc_wea1impact2Ld.wav
+	Projectile: LinearPulse
+		Blockable: false
+		ImpactType: Cone
+		ConeAngle: 60
+		ConeSegmentLength: 1c0
+		Speed: 2c0
+		ImpactInterval: 512
+		SingleHitPerActor: true
+		ForceGround: DamageOnly
+		ConeTintLayer: cryo
+		ConeTintLevel: 100
+		ConeTintMaxLevel: 500
+		ConeTintFalloff: 100, 75, 50, 25, 0
+	Warhead@PhysicalStateCryo1: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 200
+		ValidTargets: Ground, Water
+	Warhead@PhysicalStateCryo2: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 400
+		ValidTargets: Ground, Water
+	Warhead@Effect: CreateEffect
+		Explosions: cryo_blast
+		ImpactSounds: phohit00.wav
+		ValidTargets: Ground, Water
+		Volume: 0.25
+	Warhead@Damage: SpreadDamage
+		Damage: 20000
+		ValidTargets: Ground, Water
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 60
+			Heavy: 30
+			Concrete: 20
+			Brick: 50
+		DamageTypes: BulletDeath
+	Warhead@Percentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Damage: 3
+
 FutureMicrotorpedos:
 	Inherits: ^RA2Grenade
 	Inherits: ^RA2HeavyMissile

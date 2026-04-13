@@ -32,7 +32,7 @@ yrgarobo:
 		Length: 20
 		Start: 20
 	icon:
-		Filename: ra2robconicon.shp
+		Filename: ra2robconicon.png
 		Offset: 0,0
 	muzzle:
 		Filename: gunfire2.shp

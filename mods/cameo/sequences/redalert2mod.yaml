@@ -7744,7 +7744,7 @@ futu_ggpowr:
 
 futu_egpile:
 	Defaults:
-		Offset: -15,10
+		Offset: 10,10
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -8294,6 +8294,13 @@ futu_javelinsoldier:
 	icon:
 		Filename: futu_javelinsoldiericon.png
 
+futu_fedeng:
+	Inherits: steel_fedeng
+	icon:
+		Filename: futu_engiicon.png
+		Scale: 1
+		Offset: 0,0
+
 futu_wheel:
 	Defaults:
 		Filename: futu_wheel.shp
@@ -8413,6 +8420,80 @@ future_robot_shotgun:
 	icon:
 		Filename: futu_shotgunroboticon.png
 		Offset: 0,0
+
+futu_cryoleg:
+	Defaults:
+		Filename: crleg.shp
+		ShadowStart: -1
+		HasShadow: false
+	stand:
+		Start: 0
+		Length: 1
+		Facings: 8
+	walk:
+		Start: 247
+		Length: 16
+		Facings: 8
+	run:
+		Start: 247
+		Length: 16
+		Facings: 8
+	idle1:
+		Start: 102
+		Length: 32
+	idle2:
+		Start: 102
+		Length: 32
+	cheer:
+		Start: 72
+		Length: 30
+	attack:
+		Start: 134
+		Length: 8
+		Facings: 8
+	shoot:
+		Start: 134
+		Length: 8
+		Facings: 8
+	die1:
+		Start: 198
+		Length: 23
+	die2:
+		Start: 221
+		Length: 26
+	paradrop:
+		Start: 3
+		Length: 2
+	die-crushed:
+		Filename: invisibleitem.shp
+		ShadowStart: -1
+	liedown:
+		Start: 0
+		Length: 1
+		Facings: 8
+	standup:
+		Start: 0
+		Length: 1
+		Facings: 8
+	prone-stand:
+		Start: 0
+		Length: 1
+		Facings: 8
+	prone-run:
+		Start: 247
+		Length: 16
+		Facings: 8
+	prone-shoot:
+		Start: 134
+		Length: 8
+		Facings: 8
+	icon:
+		Filename: futu_cryolegionnaireicon.png
+		Offset: 0,0
+		ShadowStart: -1
+	muzzle:
+		Filename: steel_energymuzzle.shp
+		ShadowStart: -1
 
 future_mech_machinegun:
 	Defaults:
@@ -8660,16 +8741,16 @@ futu_mbt:
 		Filename: futu_mbt.png
 	idle:
 		Filename: futu_mbt.png
-		Scale: 1
+		Scale: 0.75
 		Facings: 64
 		Offset: 0,5
 	turret:
-		Scale: 1
+		Scale: 0.75
 		Start: 64
 		Facings: 64
 		Offset: 0,5
 	turret-laser:
-		Scale: 1
+		Scale: 0.75
 		Start: 128
 		Facings: 64
 		Offset: 0,5

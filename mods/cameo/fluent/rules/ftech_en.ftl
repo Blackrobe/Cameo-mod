@@ -180,3 +180,10 @@ actor-yrgarobo =
    .description = Required to field and maintain all robotic units.
       If destroyed, sold, or depowered, all active robotic units
       will be disabled until control is restored.
+
+actor-futu_cryoleg =
+   .name = Cryo Legionnaire
+   .description = Heavily armored commando equipped with a cryo sprayer.
+      Fires a freezing cone that slows and damages enemies in a wide arc.
+      Strong vs Ground
+      Weak vs Aircraft

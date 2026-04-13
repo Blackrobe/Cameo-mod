@@ -19010,6 +19010,10 @@ nax2_bbomb3.Husk:
 ####################################################################################################
 #		Red Alert 2 Future Structures
 ####################################################################################################
+^FutureTechSpawnActorsOnSell:
+	SpawnActorsOnSell:
+		ActorTypes: futu_fedeng, futu_enforcer, futu_enforcer, futu_javelinsoldier
+
 futu_mcv:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
@@ -19039,7 +19043,7 @@ futu_egcnst:
 	Inherits: ^RA2Building
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^4x3Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: FutureTech Construction Yard
         Description: actor-futu_egcnst.description
@@ -19085,7 +19089,7 @@ futu_egcnst.infiltrated:
 futu_ggpowr:
 	Inherits: ^RA2Building
 	Inherits@shape: ^2x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
 	Valued:
 		Cost: 800
@@ -19116,7 +19120,7 @@ futu_ggpowr:
 
 futu_egrefn:
 	Inherits: ^RA2Building
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^4x3Shape
 	Tooltip:
@@ -19152,7 +19156,7 @@ futu_egrefn:
 futu_egpile:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Tooltip:
 		Name: Troop Gate
@@ -19188,7 +19192,7 @@ futu_egpile:
 
 futu_egweap2:
 	Inherits: ^RA2DefaultWeap
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: Warp Gate
 	Buildable:
@@ -19210,7 +19214,7 @@ yrgarobo:
 	Inherits: ^RA2Building
 	Inherits@radar: ^RadarBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: Robot Control Center
 	Selectable:
@@ -19233,7 +19237,7 @@ yrgarobo:
 futu_egtf:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@radar: ^RadarBuilding
 	Tooltip:
 		Name: Transmission Center
@@ -19263,7 +19267,7 @@ futu_egtf:
 futu_launchpad:
 	Inherits: ^RA2Building
 	Inherits@shape: ^4x3Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
 		Queue: Building, RABuilding
@@ -19344,7 +19348,7 @@ futu_launchpad:
 futu_egtech:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x3Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@tech: ^IsTechnoBuilding
 	Selectable:
 		Bounds: 3072, 2048, 0, -256
@@ -19368,14 +19372,14 @@ futu_egtech:
 
 futu_egshock:
 	Inherits: ^RA2Building
-	Inherits@sell: ^RA2SSpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@IDISABLE: ^DisabledOverlay
 	Inherits@shape: ^3x3Shape
 	Tooltip:
-		Name: Shock Center
+		Name: Hypercore
 	Buildable:
 		BuildLimit: 1
 		Prerequisites: ~futu_egcnst, futu_egtech, derricklimit
@@ -19416,7 +19420,7 @@ futu_gggun:
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
-	Inherits@sell: ^AASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
@@ -19427,7 +19431,7 @@ futu_gggun:
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Freezer Turret
+		Name: Frostbite Turret
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -19468,7 +19472,7 @@ futu_ggmlt:
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
-	Inherits@sell: ^AASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@COMMANDOSKULL: ^CommandoSkull
@@ -20408,6 +20412,52 @@ futu_commando:
 		StandSequences: stand
 	Voiced:
 		VoiceSet: RA2TanyaVoice
+	ProvidesPrerequisite:
+
+futu_cryoleg:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@anim: ^RA2Infantry
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@MC: ^MCImmune
+	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Buildable:
+		Queue: Infantry, RAInfantry
+		BuildPaletteOrder: 121
+		Prerequisites: ~futu_egtech
+		BuildLimit: 1
+		Description: actor-futu_cryoleg.description
+	RenderSprites:
+		PlayerPalette: playerra2
+	Valued:
+		Cost: 3500
+	Tooltip:
+		Name: Cryo Legionnaire
+	Health:
+		HP: 75000
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Mobile:
+		Speed: 75
+	Armament@PRIMARY:
+		Weapon: CryoLegionnaireAttack
+		LocalOffset: 128,0,256
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+	AttackFrontal:
+		FacingTolerance: 0
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		AttackSequences:
+			primary: attack
+		StandSequences: stand
+	Voiced:
+		VoiceSet: CryoLegionnaireVoice
 	ProvidesPrerequisite:
 
 ####################################################################################################
