@@ -19948,14 +19948,10 @@ futu_fedeng:
 	Buildable:
 		Prerequisites: ~futu_egpile
 		Queue: Infantry, RAInfantry
-        Description: actor-futu_fedeng.description
+		Description: actor-futu_fedeng.description
 	RenderSprites:
-		Image: steel_fedeng
+		Image: futu_fedeng
 	-TakeCover:
-	Voiced:
-		VoiceSet: SteelEngVoice
-	ActorStatValues:
-		Upgrades: upsteel_shielresistance
 
 futu_engi:
 	Inherits: ^Walker
@@ -20446,7 +20442,7 @@ futu_cryoleg:
 		Speed: 75
 	Armament@PRIMARY:
 		Weapon: CryoLegionnaireAttack
-		LocalOffset: 128,0,256
+		LocalOffset: 128,100,350
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	AttackFrontal:
