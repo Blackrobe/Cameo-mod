@@ -19024,7 +19024,7 @@ futu_mcv:
 		Name: FutureTech Mobile Construction Vehicle
 	Buildable:
 		Prerequisites: ~futu_egtf
-        Description: actor-futu_mcv.description
+		Description: actor-futu_mcv.description
 	Transforms:
 		IntoActor: futu_egcnst
 		Offset: -1,-1
@@ -19046,7 +19046,7 @@ futu_egcnst:
 	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: FutureTech Construction Yard
-        Description: actor-futu_egcnst.description
+		Description: actor-futu_egcnst.description
 	Building:
 		Footprint: xxxx xxxx xxxx
 		Dimensions: 4,3
@@ -19127,7 +19127,7 @@ futu_egrefn:
 		Name: FutureTech Refinery
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_ggpowr
-        Description: actor-futu_egrefn.description
+		Description: actor-futu_egrefn.description
 	Building:
 		Footprint: xxx= xxx= x+==
 		Dimensions: 4,3
@@ -19162,7 +19162,7 @@ futu_egpile:
 		Name: Troop Gate
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_ggpowr
-        Description: actor-futu_egpile.description
+		Description: actor-futu_egpile.description
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -19197,16 +19197,25 @@ futu_egweap2:
 		Name: Warp Gate
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_egrefn
-        Description: actor-futu_egweap2.description
+		Description: actor-futu_egweap2.description
 	WithIdleOverlay@flag:
 		Sequence: idle-flag
+		RequiresCondition: !build-incomplete
 	WithIdleOverlay@flag2:
 		Sequence: idle-flag2
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@fan:
+		Sequence: overlay-fan
+		RequiresCondition: !build-incomplete && !warp-producing
 	WithIdleOverlay@bib:
 		Sequence: bib
 	WithProductionDoorOverlay:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-tele
+	GrantConditionOnProduction@fan:
+		Condition: warp-producing
+		Duration: 68
+		ShowSelectionBar: false
 	RenderSprites:
 		PlayerPalette: playerra2future1
 
@@ -19243,7 +19252,7 @@ futu_egtf:
 		Name: Transmission Center
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_egrefn
-        Description: actor-futu_egtf.description
+		Description: actor-futu_egtf.description
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -19274,19 +19283,19 @@ futu_launchpad:
 		Prerequisites: ~futu_egcnst, futu_egtf
 		Description: actor-gaairc.description
 	Tooltip:
-		Name: FutureTech Airfield
+		Name: FutureTech Launch Pad
 	Building:
 		Footprint: =x== =xx= ==x=
 		Dimensions: 4,3
 	Exit@1:
 		ExitCell: 1,1
 		Facing: 768
-        ProductionTypes: Aircraft, RAAircraft
+		ProductionTypes: Aircraft, RAAircraft
     Exit@HARBINGER:
-        ExitCell: 1,1
-        Facing: 768
-        SpawnOffset: 0,0,4000
-        ProductionTypes: future_harbinger
+		ExitCell: 1,1
+		Facing: 768
+		SpawnOffset: 0,0,4000
+		ProductionTypes: future_harbinger
 	Reservable:
 	SpawnNeighboringActors:
 		ActorTypes: dummy_dock
@@ -19354,7 +19363,7 @@ futu_egtech:
 		Bounds: 3072, 2048, 0, -256
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_egtf
-        Description: actor-futu_egtech.description
+		Description: actor-futu_egtech.description
 	Tooltip:
 		Name: FutureTech Battle Lab
 	Building:
@@ -19365,8 +19374,10 @@ futu_egtech:
 		Prerequisite: ra2tek
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
+		RequiresCondition: !build-incomplete
 	WithIdleOverlay@lights2:
 		Sequence: idle-lights2
+		RequiresCondition: !build-incomplete
 	RenderSprites:
 		PlayerPalette: playerra2future1
 
@@ -19377,7 +19388,7 @@ futu_egshock:
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@IDISABLE: ^DisabledOverlay
-	Inherits@shape: ^3x3Shape
+	Inherits@shape: ^4x3Shape
 	Tooltip:
 		Name: Hypercore
 	Buildable:
@@ -19388,9 +19399,11 @@ futu_egshock:
 		BuildDurationModifier: 100
 		Queue: Building, RABuilding
 		Description: actor-futu_egshock.description
+	Selectable:
+		Bounds: 4096, 3072, 0, -256
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: xxxx xxxx xxxx
+		Dimensions: 4,3
 	Valued:
 		Cost: 7500
 	Health:
@@ -19675,7 +19688,7 @@ futu_enforcer:
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Future Enforcer
+		Name: Enforcer
 	Valued:
 		Cost: 300
 	Buildable:
@@ -21553,7 +21566,7 @@ future_harbinger:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-        BuildAtProductionType: future_harbinger
+		BuildAtProductionType: future_harbinger
 		BuildPaletteOrder: 100
 		Prerequisites: ~futu_egshock
 		Queue: Aircraft, RAAircraft
@@ -21635,19 +21648,19 @@ future_harbinger:
 		VolumeMultiplier: 0.20
 		AudibleThroughFog: false
     GrantTimedCondition@SpawnCloak:
-        Condition: spawn-cloaked
-        Duration: 1
+		Condition: spawn-cloaked
+		Duration: 1
     Cloak:
-        InitialDelay: 0
-        CloakDelay: 0
-        UncloakOn: None
-        CloakStyle: Alpha
-        MinCloakedAlpha: 0
-        MaxCloakedAlpha: 0
-        EffectImage: chronoshift
-        UncloakEffectSequence: warpin
-        EffectPalette: ra2effect
-        RequiresCondition: spawn-cloaked
+		InitialDelay: 0
+		CloakDelay: 0
+		UncloakOn: None
+		CloakStyle: Alpha
+		MinCloakedAlpha: 0
+		MaxCloakedAlpha: 0
+		EffectImage: chronoshift
+		UncloakEffectSequence: warpin
+		EffectPalette: ra2effect
+		RequiresCondition: spawn-cloaked
 
 future_harbinger.Husk:
 	Inherits: ^PlaneHusk

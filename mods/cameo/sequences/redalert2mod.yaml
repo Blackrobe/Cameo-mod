@@ -7855,7 +7855,8 @@ futu_egweap2:
 	overlay-fan:
 		Filename: futu_egweap2_c.shp
 		Length: 24
-		ZOffset: -512
+		ZOffset: 0
+		ShadowStart: -1
 	make:
 		Filename: futu_egweap2mk.shp
 		Length: 58
