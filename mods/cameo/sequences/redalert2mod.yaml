@@ -8467,6 +8467,34 @@ futu_cryoleg:
 	die-crushed:
 		Filename: invisibleitem.shp
 		ShadowStart: -1
+	die3:
+		Filename: invisibleitem.shp
+		ShadowStart: -1
+	die4:
+		Filename: ra2_nukedie.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 50
+	die5:
+		Filename: ra2_yuridie.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	die6:
+		Filename: ra2_electro.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	die7:
+		Filename: yr_virusd.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	die8:
+		Filename: yr_brutdie.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
 	liedown:
 		Start: 0
 		Length: 1

@@ -11,13 +11,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using OpenRA.GameRules;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Graphics;
 using OpenRA.Mods.Common.Traits;
-using OpenRA.Mods.CA.Traits;
 using OpenRA.Mods.Common.Warheads;
 using OpenRA.Primitives;
 using OpenRA.Traits;
@@ -1014,15 +1014,65 @@ namespace OpenRA.Mods.CA.Projectiles
 
 		void PaintConeTint()
 		{
+
 			if (string.IsNullOrEmpty(info.ConeTintLayer))
+			{
 				return;
+			}
 
 			var world = args.SourceActor.World;
-			var tintLayer = world.WorldActor.TraitsImplementing<TintedCellsLayer>()
-				.FirstOrDefault(l => l.Info.Name == info.ConeTintLayer);
+			object tintLayer = null;
+			MethodInfo increaseLevelMethod = null;
 
-			if (tintLayer == null)
+			var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+			foreach (var assembly in assemblies)
+			{
+				Type layerType = null;
+				try { layerType = assembly.GetTypes().FirstOrDefault(t => t.Name == "TintedCellsLayer"); }
+				catch { continue; }
+				if (layerType == null)
+					continue;
+
+				// Get TraitsImplementing<T> via reflection
+				var actorType = world.WorldActor.GetType();
+				var methods = actorType.GetMethods().Where(m => m.Name == "TraitsImplementing" && m.IsGenericMethodDefinition).ToArray();
+				if (methods.Length == 0) continue;
+				var traitsMethod = methods[0].MakeGenericMethod(layerType);
+
+				System.Collections.IEnumerable layers = null;
+				try { layers = traitsMethod.Invoke(world.WorldActor, null) as System.Collections.IEnumerable; }
+				catch { continue; }
+
+				if (layers == null) continue;
+
+				var layerCount = 0;
+				foreach (var layer in layers)
+				{
+					layerCount++;
+					var infoField = layer.GetType().GetField("Info");
+					if (infoField == null) continue;
+					var infoObj = infoField.GetValue(layer);
+					if (infoObj == null) continue;
+					// Name can be a field or property depending on the assembly
+					var name = infoObj.GetType().GetField("Name")?.GetValue(infoObj) as string
+						?? infoObj.GetType().GetProperty("Name")?.GetValue(infoObj) as string;
+					if (name == null) continue;
+					if (name != info.ConeTintLayer) continue;
+
+					tintLayer = layer;
+					increaseLevelMethod = layer.GetType().GetMethod("IncreaseLevel",
+						new[] { typeof(CPos), typeof(int), typeof(int) });
+					break;
+				}
+				if (tintLayer != null)
+					break;
+			}
+
+
+			if (tintLayer == null || increaseLevelMethod == null)
+			{
 				return;
+			}
 
 			var forwardDir = directionalSpeed;
 			if (forwardDir.Length == 0)
@@ -1063,7 +1113,7 @@ namespace OpenRA.Mods.CA.Projectiles
 				if (falloffMul <= 0)
 					continue;
 
-				tintLayer.IncreaseLevel(cell, info.ConeTintLevel * falloffMul / 100, info.ConeTintMaxLevel);
+				increaseLevelMethod.Invoke(tintLayer, new object[] { cell, info.ConeTintLevel * falloffMul / 100, info.ConeTintMaxLevel });
 			}
 		}
 

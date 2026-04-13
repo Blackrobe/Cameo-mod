@@ -8763,6 +8763,7 @@ CryoLegionnaireAttack:
 		ConeTintLevel: 500
 		ConeTintMaxLevel: 500
 		ConeTintFalloff: 100, 75, 50, 25, 0
+		IgnoreRangeModifiers: false
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -12000
