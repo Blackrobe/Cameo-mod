@@ -966,7 +966,7 @@ World:
 	TintedCellsLayer@cryo:
 		Color: 88BBFF
 		ZOffset: 0
-		Brightest: 80
+		Brightest: 255
 		FadeoutDelay: 200
 		Name: cryo
 	WeaponTriggerCells@Inferno:

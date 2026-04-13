@@ -1032,7 +1032,6 @@ namespace OpenRA.Mods.CA.Projectiles
 			var halfConeAngleRadians = info.ConeAngle * Math.PI / 360.0;
 			var groundSource = new WPos(source.X, source.Y, 0);
 
-			// Search radius is full cone range
 			var searchCellRadius = (int)Math.Ceiling((double)range / 1024) + 1;
 			var sourceTile = world.Map.CellContaining(groundSource);
 			var cells = world.Map.FindTilesInCircle(sourceTile, searchCellRadius);
@@ -1046,12 +1045,10 @@ namespace OpenRA.Mods.CA.Projectiles
 				if (toCell.Length == 0)
 					continue;
 
-				// Check distance within cone range
 				var distFromSource = toCell.Length;
 				if (distFromSource > range)
 					continue;
 
-				// Check angle within cone
 				var dot = (long)normalizedForwardDir.X * toCell.X + (long)normalizedForwardDir.Y * toCell.Y;
 				var lenProduct = (long)normalizedForwardDir.Length * toCell.Length;
 				if (lenProduct == 0)
@@ -1062,7 +1059,6 @@ namespace OpenRA.Mods.CA.Projectiles
 				if (angle > halfConeAngleRadians)
 					continue;
 
-				// Calculate falloff based purely on distance from source
 				var falloffMul = GetConeTintFalloff(distFromSource);
 				if (falloffMul <= 0)
 					continue;

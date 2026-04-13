@@ -8760,7 +8760,7 @@ CryoLegionnaireAttack:
 		SingleHitPerActor: true
 		ForceGround: DamageOnly
 		ConeTintLayer: cryo
-		ConeTintLevel: 100
+		ConeTintLevel: 500
 		ConeTintMaxLevel: 500
 		ConeTintFalloff: 100, 75, 50, 25, 0
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
