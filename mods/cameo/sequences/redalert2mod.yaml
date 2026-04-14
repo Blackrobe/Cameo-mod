@@ -8766,23 +8766,6 @@ futu_ifv:
 
 futu_mbt:
 	Inherits: ^RA2CannonMuzzle
-	Defaults:
-		Filename: futu_mbt.png
-	idle:
-		Filename: futu_mbt.png
-		Scale: 0.75
-		Facings: 64
-		Offset: 0,5
-	turret:
-		Scale: 0.75
-		Start: 64
-		Facings: 64
-		Offset: 0,5
-	turret-laser:
-		Scale: 0.75
-		Start: 128
-		Facings: 64
-		Offset: 0,5
 	icon:
 		Filename: futu_guardiantankicon.png
 

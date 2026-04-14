@@ -20740,13 +20740,27 @@ futu_mbt:
 		Type: Medium
 	Turreted:
 		TurnSpeed: 17
-		Offset: 75,0,1
+		Offset: -40,0,0
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 130
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		NormalsPalette: normals
+		PlayerPalette: playerra2
+		Scale: 9.2
+	WithVoxelBody:
+	WithVoxelTurret:
+	-WithShadow:
+	-WithFacingSpriteBody:
+	RenderSprites:
+		PlayerPalette: playerra2
 	Armament:
 		Name: primary
 		Weapon: GuardianTankCannon
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1280,0,80
+		LocalOffset: 1720,0,440
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: !rank-elite
@@ -20755,25 +20769,19 @@ futu_mbt:
 		Weapon: GuardianTankCannonE
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1280,0,80
+		LocalOffset: 1720,0,440
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
 	Armament@debuff:
 		Name: primary
 		Weapon: Future_MBT_DebuffLaser
-		LocalOffset: 1080,0,120
+		LocalOffset: 160,0,700
 		RequiresCondition: deployed
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
-	WithSpriteTurret@default:
-		Sequence: turret
-		RequiresCondition: !deployed
-	WithSpriteTurret@mg:
-		Sequence: turret-laser
-		RequiresCondition: deployed
 	Voiced:
 		VoiceSet: FutureGuardianVoice
 	GrantConditionOnDeploy:
@@ -20794,8 +20802,6 @@ futu_mbt:
 	ReloadDelayMultiplier@Laser:
 		RequiresCondition: deployed
 		Modifier: 150
-	RenderSprites:
-		PlayerPalette: player_rgba
 
 futu_hvrt:
 	Inherits: ^Tank

@@ -105,13 +105,30 @@ namespace OpenRA.Mods.Cameo.Traits
 
 		IEnumerable<IRenderable> ModifiedRender(IEnumerable<IRenderable> r)
 		{
-			
 			foreach (var a in r)
 			{
-				yield return a;
+				var isVoxel = a.GetType().Name == "ModelRenderable";
 
 				if (!a.IsDecoration && a is IModifyableRenderable ma)
-					yield return ma.WithTint(currentTint, ma.TintModifiers | TintModifiers.ReplaceColor).WithAlpha(currentAlpha);
+				{
+					if (isVoxel)
+					{
+						// For voxels: replace original with additively tinted version, no shadow copy
+						var voxelStrength = currentAlpha;
+						var scaledTint = new float3(currentTint.X * voxelStrength, currentTint.Y * voxelStrength, currentTint.Z * voxelStrength);
+						yield return ma.WithTint(scaledTint, TintModifiers.OverlayTint).WithAlpha(2f);
+					}
+					else
+					{
+						// For sprites: yield original + tinted overlay copy
+						yield return a;
+						yield return ma.WithTint(currentTint, ma.TintModifiers | TintModifiers.ReplaceColor).WithAlpha(currentAlpha);
+					}
+				}
+				else
+				{
+					yield return a;
+				}
 			}
 		}
 
