@@ -7673,14 +7673,6 @@ futu_egcnst:
 	idle:
 		Filename: futu_egcnst.shp
 		ShadowStart: 2
-	make:
-		Filename: futu_egcnstmk.shp
-		Length: 31
-		ShadowStart: 31
-	dead:
-		Filename: futu_egcnst.shp
-	build:
-		Filename: invisibleitem.shp
 	damaged-idle:
 		Filename: futu_egcnst.shp
 		Start: 1
@@ -7701,11 +7693,15 @@ futu_egcnst:
 		Filename: futu_egcnst_working.shp
 		Length: 42
 		Tick: 100
+	make:
+		Filename: futu_egcnstmk.shp
+		Length: 41
+		ShadowStart: 41
+	build:
+		Filename: invisibleitem.shp
 	dead:
 		Filename: futu_egcnst.shp
-		Length: 1
 		ShadowStart: 3
-		Tick: 90
 	icon:
 		Filename: futu_conyardicon.png
 		Offset: 0,0

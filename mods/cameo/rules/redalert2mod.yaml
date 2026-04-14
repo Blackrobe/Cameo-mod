@@ -19046,6 +19046,7 @@ futu_egcnst:
 	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: FutureTech Construction Yard
+	Buildable:
 		Description: actor-futu_egcnst.description
 	Building:
 		Footprint: xxxx xxxx xxxx
@@ -19060,7 +19061,10 @@ futu_egcnst:
 		Prerequisite: ra2fact
 	WithIdleOverlay@fans:
 		Sequence: idle-fans
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !build-incomplete && !damaged
+	WithIdleOverlay@fans-damaged:
+		Sequence: damaged-idle-fans
+		RequiresCondition: !build-incomplete && damaged
 	Exit@1:
 		SpawnOffset: 213,-128,0
 		ExitCell: 1,2
@@ -19116,6 +19120,10 @@ futu_ggpowr:
 		ValidTypes: building
 	WithIdleOverlay@glow:
 		Sequence: idle-glow
+		RequiresCondition: !build-incomplete && !damaged
+	WithIdleOverlay@glow-damaged:
+		Sequence: damaged-idle-glow
+		RequiresCondition: !build-incomplete && damaged
 	ProvidesPrerequisite@buildingname:
 
 futu_egrefn:
