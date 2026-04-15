@@ -30,11 +30,11 @@ Container@LOBBY_MUSIC_BIN:
 		Background@CONTROLS:
 			Background: dialog3
 			Width: 268
-			Height: 200
+			Height: 240
 			Children:
 				Label@MUTE_LABEL:
 					X: 45
-					Y: 85
+					Y: 220
 					Width: 300
 					Font: Small
 				Label@TITLE_LABEL:
@@ -105,7 +105,7 @@ Container@LOBBY_MUSIC_BIN:
 					X: 15
 					Y: 10
 					Width: PARENT_WIDTH - 30
-					Height: 70
+					Height: 96
 					Children:
 						Label@MODE_LABEL:
 							Width: PARENT_WIDTH
@@ -134,10 +134,15 @@ Container@LOBBY_MUSIC_BIN:
 							Width: 110
 							Height: 20
 							Text: button-music-mode-custom
+						Button@MUSIC_MODE_PLAYLIST:
+							Y: 70
+							Width: 230
+							Height: 20
+							Text: button-music-mode-playlist
 
-				Container@BUTTONS:
+					Container@BUTTONS:
 					X: (PARENT_WIDTH - WIDTH) / 2
-					Y: 100
+					Y: 116
 					Width: 131
 					Children:
 						Button@BUTTON_PREV:
@@ -197,27 +202,27 @@ Container@LOBBY_MUSIC_BIN:
 									ImageName: next
 				Checkbox@SHUFFLE:
 					X: 25
-					Y: 140
+					Y: 156
 					Width: 85
 					Height: 20
 					Font: Regular
 					Text: checkbox-music-controls-shuffle
 				Checkbox@REPEAT:
 					X: PARENT_WIDTH - 15 - WIDTH
-					Y: 140
+					Y: 156
 					Width: 70
 					Height: 20
 					Font: Regular
 					Text: checkbox-music-controls-loop
 				Label@VOLUME_LABEL:
-					Y: 170
+					Y: 190
 					Width: 65
 					Height: 25
 					Align: Right
 					Text: label-music-controls-volume
 				ExponentialSlider@MUSIC_SLIDER:
 					X: 70
-					Y: 170
+					Y: 190
 					Width: PARENT_WIDTH - 80
 					Height: 20
 					Ticks: 7
