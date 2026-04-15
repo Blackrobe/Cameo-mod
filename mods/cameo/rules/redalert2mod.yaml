@@ -19506,16 +19506,16 @@ futu_ggmlt:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Multi Rocket System
+		Name: Multi Turret System
 		RequiresCondition: !ifv-mg && !ifv-hmg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-healer && !ifv-chrono
 	Tooltip@MISS:
-		Name: Javelin Rocket System
+		Name: Javelin Turret System
 		RequiresCondition: ifv-miss || ifv-flak
 	Tooltip@FRAG:
-		Name: Frag Rocket System
+		Name: Frag Turret System
 		RequiresCondition: ifv-mg || ifv-hmg || ifv-repair || ifv-sniper || ifv-tesla || ifv-chem || ifv-fire || ifv-cannon || ifv-deso || ifv-demo || ifv-healer || ifv-chrono
 	Tooltip@Sigma:
-		Name: Sigma Rocket System
+		Name: Sigma Turret System
 		RequiresCondition: ifv-hero
 	WithDecoration@COMMANDOSKULL:
 		RequiresCondition: ifv-hero
@@ -20126,7 +20126,7 @@ future_robot_shotgun:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Shotgun Attack Robot
+		Name: Shotgun Droid
 	Valued:
 		Cost: 400
 	Selectable:
@@ -20194,7 +20194,7 @@ future_robot_missiles:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Missile Attack Robot
+		Name: Missile Droid
 	Valued:
 		Cost: 600
 	Selectable:
@@ -20263,7 +20263,7 @@ future_robot_cannon:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Cannon Attack Robot
+		Name: Cannon Droid
 	Valued:
 		Cost: 525
 	Selectable:
@@ -20361,75 +20361,69 @@ futu_spy:
 	Voiced:
 		VoiceSet: RA2SpyVoice
 
-futu_commando:
+futu_blackwidow:
 	Inherits: ^Soldier
-	Inherits@Template: ^HeroInfantryTemplate
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@anim: ^RA2Infantry
-	Inherits@announce: ^AnnounceGlobal
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@MC: ^MCImmune
-	Inherits@swim: ^WithSwimsuit
-	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@anim: ^RA2Infantry
+	Inherits@swim: ^WithSwimsuit
 	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Valued:
+		Cost: 900
+	Health:
+		HP: 30000
+	ChangesHealth@SelfHealing:
+		Step: 30
+	Mobile:
+		Speed: 60
+	Tooltip:
+		Name: Black Widow
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 120
 		Prerequisites: ~futu_egtech
-		BuildLimit: 1
-		Description: template-commando.description
-	Valued:
-		Cost: 3000
-	Tooltip:
-		Name: Tanya II
-	Health:
-		HP: 50000
-	ChangesHealth@SelfHealing:
-		Step: 50
-	Mobile:
-		Speed: 75
-	Passenger:
+		Description: actor-futu_blackwidow.description
 	Armament@PRIMARY:
-		Weapon: RA2DoublePistols
+		Weapon: BlackWidowPistols
 		RequiresCondition: !rank-elite
 		LocalOffset: 128,0,256
 	Armament@ELITE:
-		Weapon: RA2DoublePistolsE
+		Weapon: BlackWidowPistolsE
 		RequiresCondition: rank-elite
 		LocalOffset: 128,0,256
-	Armament@c4:
-		Weapon: TanyaAttach
-		Name: secondary
-		Cursor: c4
-		OutsideRangeCursor: c4
-		Voice: Demolish
-	Armament@c4building:
-		Weapon: GenericC4
-		Name: secondary
-		Cursor: c4
-		OutsideRangeCursor: c4
-		Voice: Demolish
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: RA2DoublePistols
+		Weapon: BlackWidowPistols
 		RequiresCondition: !rank-elite
 	Armament@GARRISONEDELITE:
 		Name: garrisoned
-		Weapon: RA2DoublePistolsE
+		Weapon: BlackWidowPistolsE
 		RequiresCondition: rank-elite
+	Armament@shipc4:
+		Weapon: SEALAttach
+		Name: secondary
+		Cursor: c4
+		OutsideRangeCursor: c4
+		Voice: Demolish
 	AttackFrontal:
+		Voice: Attack
 		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
 	WithInfantryBody:
 		-DefaultAttackSequence:
 		AttackSequences:
 			primary: shoot
-		StandSequences: stand
 	Voiced:
-		VoiceSet: RA2TanyaVoice
-	ProvidesPrerequisite:
+		VoiceSet: BlackWidowVoice
+	ActorStatValues:
+		Upgrades: future_upgrade_equalizer_x1, future_upgrade_equalizer_x2, future_upgrade_equalizer_x3
 
 futu_cryoleg:
 	Inherits: ^Soldier

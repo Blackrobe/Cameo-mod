@@ -9859,3 +9859,28 @@ HarbingerChaingunsE:
 	Burst: 2
 	BurstDelays: 1
 
+BlackWidowPistols:
+	Inherits: ^SniperWeapon
+	Report: AUTanya_pistolFireA, AUTanya_pistolFireB, AUTanya_pistolFireC, AUTanya_pistolFireD, AUTanya_pistolFireE, AUTanya_pistolFireF, AUTanya_pistolFireG, AUTanya_pistolFireH, AUTanya_pistolFireI
+	ReloadDelay: 10
+	Range: 5000
+	Burst: 4
+	BurstDelays: 3
+	Projectile: Bullet
+		ContrailStartColor: 77777777
+		ContrailEndColor: 33333333
+		ContrailStartWidth: 33
+		ContrailEndWidth: 77
+		ContrailLength: 7
+		ContrailEndColorUsePlayerColor: false
+	Warhead@SniperWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		Damage: 2000
+	Warhead@SniperWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+
+BlackWidowPistolsE:
+	Inherits: BlackWidowPistols
+	Range: 6000
+	Burst: 8

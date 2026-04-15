@@ -187,3 +187,10 @@ actor-futu_cryoleg =
       Fires a freezing cone that slows and damages enemies in a wide arc.
       Strong vs Ground
       Weak vs Aircraft
+
+actor-futu_blackwidow =
+   .name = Black Widow
+   .description = Elite amphibious operative.
+      Can demolish buildings and ships.
+      Strong vs Infantry, Buildings, Ships
+      Weak vs Vehicles

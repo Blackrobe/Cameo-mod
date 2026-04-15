@@ -5653,7 +5653,8 @@ Player:
 			futu_javelinsoldier: 1
 			futu_wheel: 1
 			futu_spy: 1
-			futu_commando: 1
+			futu_cryoleg: 1
+			futu_blackwidow: 3
 			futu_fedeng: 1
 			futu_engi: 1
 			yrrobo: 5
@@ -5793,7 +5794,7 @@ Player:
 			upordos_deviatormk2: 1
 			upordos_banshee: 1
 			upordos_wraith: 1
-			########### Units Atreides 
+			########### Units Atreides
 			d2katreidesmongoose: 5
 			#################### UnitsToBuild Dune Universe
 			quake_tank: 1

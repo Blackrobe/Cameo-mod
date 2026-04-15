@@ -8848,7 +8848,7 @@ futu_phal:
 	turret:
 		Facings: 64
 	icon:
-		Filename: nax_jagdpanzer_icon.png
+		Filename: futu_phalanxicon.png
 		AddExtension: False
 	muzzle:
 		Filename: ra2_gunfire.shp
@@ -8927,9 +8927,9 @@ futu_spy:
 	cheer:
 		Start: 196
 	icon:
-		Filename: ra2spyicon.shp
+		Filename: futu_infiltratoricon.png
 
-futu_commando:
+futu_blackwidow:
 	Inherits: ^RA2ArmedInfantry
 	Defaults:
 		Filename: ra2_tany_black.shp
@@ -8982,8 +8982,8 @@ futu_commando:
 		Filename: tanyamodes.shp
 		Start: 1
 	icon:
-		Filename: ra2tanyaicon.shp
-	iconchrono: ra2htanyaicon.shp
+		Filename: futu_blackwidowicon.png
+	iconchrono: futu_blackwidowicon.png
 
 future_twister:
 	idle:
