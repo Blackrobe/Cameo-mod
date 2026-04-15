@@ -140,7 +140,7 @@ Container@LOBBY_MUSIC_BIN:
 							Height: 20
 							Text: button-music-mode-playlist
 
-					Container@BUTTONS:
+				Container@BUTTONS:
 					X: (PARENT_WIDTH - WIDTH) / 2
 					Y: 116
 					Width: 131
