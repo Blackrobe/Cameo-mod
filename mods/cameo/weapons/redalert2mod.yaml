@@ -9861,7 +9861,7 @@ HarbingerChaingunsE:
 
 BlackWidowPistols:
 	Inherits: ^SniperWeapon
-	Report: AUTanya_pistolFireA, AUTanya_pistolFireB, AUTanya_pistolFireC, AUTanya_pistolFireD, AUTanya_pistolFireE, AUTanya_pistolFireF, AUTanya_pistolFireG, AUTanya_pistolFireH, AUTanya_pistolFireI
+	Report: AUTanya_pistolFireA.wav, AUTanya_pistolFireB.wav, AUTanya_pistolFireC.wav, AUTanya_pistolFireD.wav, AUTanya_pistolFireE.wav, AUTanya_pistolFireF.wav, AUTanya_pistolFireG.wav, AUTanya_pistolFireH.wav, AUTanya_pistolFireI.wav
 	ReloadDelay: 10
 	Range: 5000
 	Burst: 4
