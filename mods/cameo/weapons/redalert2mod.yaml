@@ -8769,11 +8769,13 @@ CryoLegionnaireAttack:
 		Amount: -12000
 		Range: 200
 		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo2: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -12000
 		Range: 400
 		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
 	Warhead@Effect: CreateEffect
 		Explosions: cryo_blast
 		ImpactSounds: phohit00.wav
@@ -8782,6 +8784,7 @@ CryoLegionnaireAttack:
 	Warhead@Damage: SpreadDamage
 		Damage: 20000
 		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
 		Versus:
 			None: 100
 			Wood: 100
@@ -8792,6 +8795,7 @@ CryoLegionnaireAttack:
 		DamageTypes: BulletDeath
 	Warhead@Percentage: HealthPercentageDamage
 		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
 		Damage: 3
 
 FutureMicrotorpedos:

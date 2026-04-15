@@ -20063,7 +20063,7 @@ futu_wheel:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Scout Robot
+		Name: Scout Droid
 	Valued:
 		Cost: 200
 	Selectable:
@@ -21197,7 +21197,7 @@ futu_athena:
 	Valued:
 		Cost: 2200
 	Tooltip:
-		Name: Athena Cannon (WIP)
+		Name: Athena Cannon
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~futu_egtf
