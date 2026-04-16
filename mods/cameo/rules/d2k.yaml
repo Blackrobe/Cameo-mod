@@ -3235,6 +3235,7 @@ palace.ordos:
 		OrderName: saboteur
 		SupportPowerPaletteOrder: 20
 		RequiresCondition: palace_saboteurs
+	RallyPoint:
 	GrantConditionOnPrerequisite@palace_saboteurs:
 		Condition: palace_saboteurs
 		Prerequisites: palace
