@@ -1302,7 +1302,7 @@ refinery.atreides:
 		DockOffset: 1c5,0c5,0
 	FreeActor:
 		Actor: harvester
-		SpawnOffset: 2,2
+		SpawnOffset: 1,2
 		Facing: 160
 	FreeActorWithDelivery@1:
 		Actor: harvester
@@ -9982,9 +9982,8 @@ carryall.reinforce:
 		HP: 500000
 	Armor:
 		Type: Bomber
-	Selectable:
-		Bounds: 1440, 1440
-		DecorationBounds: 1440, 1440
+	-Selectable:
+	Interactable:
 	Aircraft:
 		CruiseAltitude: 2160
 		CruisingCondition: cruising
@@ -9993,7 +9992,7 @@ carryall.reinforce:
 		TurnSpeed: 24
 		Repulsable: False
 		CanSlide: True
-		VTOL: true
+		VTOL: True
 		IdleTurnSpeed: 4
 	-SpawnActorOnDeath:
 	SpawnActorOnDeath@CRUISING:
@@ -10003,8 +10002,8 @@ carryall.reinforce:
 		Actor: carryall.huskVTOL
 		RequiresCondition: !cruising
 	Carryall:
-		BeforeLoadDelay: 45
-		BeforeUnloadDelay: 45
+		BeforeLoadDelay: 15
+		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 	RenderSprites:
 		Image: carryall
