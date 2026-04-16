@@ -21566,7 +21566,7 @@ future_harbinger:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Inherits@gat: ^GatlingSpeedUpUnitBehavior
-    Inherits@announce: ^AnnounceOnBuild
+	Inherits@announce: ^AnnounceOnBuild
 	Tooltip:
 		Name: Harbinger Gunship
 	Valued:
@@ -21649,16 +21649,16 @@ future_harbinger:
 		FacingTolerance: 512
 	RenderSprites:
 		PlayerPalette: player_rgba
-    AmbientSoundCA:
+	AmbientSoundCA:
 		SoundFiles: AUGunsh_movLoopa.wav
 		InitialSound: AUGunsh_movStarta.wav
 		InitialSoundLength: 60
 		VolumeMultiplier: 0.20
 		AudibleThroughFog: false
-    GrantTimedCondition@SpawnCloak:
+	GrantTimedCondition@SpawnCloak:
 		Condition: spawn-cloaked
 		Duration: 1
-    Cloak:
+	Cloak:
 		InitialDelay: 0
 		CloakDelay: 0
 		UncloakOn: None
