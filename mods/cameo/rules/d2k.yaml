@@ -1302,13 +1302,18 @@ refinery.atreides:
 		DockOffset: 1c5,0c5,0
 	FreeActor:
 		Actor: harvester
-		SpawnOffset: 1,2
+		SpawnOffset: 0,2
 		Facing: 160
 	FreeActorWithDelivery@1:
 		Actor: harvester
 		DeliveryOffset: 2,2
 		DeliveringActor: carryall.reinforce
 		Facing: 160
+	# FreeActorWithDelivery@2:
+	# 	Actor: harvester
+	# 	DeliveryOffset: 0,2
+	# 	DeliveringActor: carryall.reinforce
+	# 	Facing: 160
 	GrantConditionOnPrerequisite@d2k_spice_sifter_upgrade:
 		Condition: d2k_spice_sifter_upgrade
 		Prerequisites: d2k_spice_sifter_upgrade
@@ -1347,13 +1352,18 @@ refinery.ordos:
 		IconPalette: d2kunit
 	FreeActor:
 		Actor: ordos_harv
-		SpawnOffset: 2,2
+		SpawnOffset: 0,2
 		Facing: 160
 	FreeActorWithDelivery@1:
 		Actor: ordos_harv
 		DeliveryOffset: 2,2
 		DeliveringActor: ordos_carryall.reinforce
 		Facing: 160
+	# FreeActorWithDelivery@2:
+	# 	Actor: ordos_harv
+	# 	DeliveryOffset: 0,2
+	# 	DeliveringActor: ordos_carryall.reinforce
+	# 	Facing: 160
 	RenderSprites:
 		Image: refinery.ordos
 
@@ -9994,6 +10004,7 @@ carryall.reinforce:
 		CanSlide: True
 		VTOL: True
 		IdleTurnSpeed: 4
+		# AltitudeVelocity: 0c60
 	-SpawnActorOnDeath:
 	SpawnActorOnDeath@CRUISING:
 		Actor: carryall.husk
@@ -10002,7 +10013,7 @@ carryall.reinforce:
 		Actor: carryall.huskVTOL
 		RequiresCondition: !cruising
 	Carryall:
-		BeforeLoadDelay: 15
+		BeforeLoadDelay: 10
 		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 	RenderSprites:
