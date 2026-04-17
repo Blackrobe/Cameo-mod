@@ -19299,7 +19299,7 @@ futu_launchpad:
 		ExitCell: 1,1
 		Facing: 768
 		ProductionTypes: Aircraft, RAAircraft
-    Exit@HARBINGER:
+	Exit@HARBINGER:
 		ExitCell: 1,1
 		Facing: 768
 		SpawnOffset: 0,0,4000
