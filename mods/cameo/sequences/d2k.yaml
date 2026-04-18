@@ -185,12 +185,12 @@ storm_lasher:
 		Filename: d2k_storm_lasher_icon.shp
 		Offset: 0,-1
 
-storm_lasher_big:
+supercomputer:
 	Inherits: ^WithBuildingBib1
 	Defaults:
 		Filename: ixiansuperweapon.shp
 		Scale: 1
-		#Offset: -48,64
+		Offset: 0,-48
 	active:
 		Start: 64
 		Length: 33

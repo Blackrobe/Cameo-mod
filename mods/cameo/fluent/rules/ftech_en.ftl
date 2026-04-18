@@ -16,34 +16,33 @@ actor-futu_fedeng =
    .description = Captures enemy and neutral buildings and repairs friendly structures.
 
 actor-futu_engi =
-   .name = Repair Drone
+   .name = Repair Droid
    .description = Unarmed robotic unit.
       Repairs friendly vehicles and structures with a repair beam.
 
 actor-futu_wheel =
    .description = Fast robotic scout.
-      Can attack air.
       Strong vs Infantry
       Weak vs Vehicles
 
 actor-future_robot_shotgun =
-   .description = Close-range assault robot armed with a shotgun.
+   .description = Close-range heavy assault robot armed with a shotgun.
       Strong vs Infantry
       Weak vs Vehicles, Aircraft
 
 actor-future_robot_missiles =
-   .description = Support robot armed with missiles.
+   .description = Assault robot armed with missiles.
       Can attack air.
       Strong vs Vehicles, Aircraft
       Weak vs Infantry
 
 actor-future_robot_cannon =
-   .description = Heavy assault robot armed with a cannon.
+   .description = Assault robot armed with a cannon.
       Strong vs Vehicles
       Weak vs Infantry, Aircraft
 
 actor-future_mech_machinegun =
-   .description = Large walking mech armed with gatling guns.
+   .description = Large walking mech armed with autoguns.
       Can attack air.
       Strong vs Infantry, Aircraft
       Weak vs Vehicles
@@ -60,16 +59,15 @@ actor-futu_ifv =
 
 actor-futu_mbt =
    .description = Main battle tank.
-      Can deploy to paint targets, weakening structures
-      for follow-up attacks.
+      Can deploy to paint targets, weakening targets for follow-up attacks.
       Strong vs Vehicles
       Weak vs Infantry, Aircraft
 
 actor-futu_orion =
-   .description = Heavy tank with thick armor and a fast fire rate.
-      Slower than standard tanks.
-      Strong vs Vehicles, Buildings
-      Weak vs Aircraft
+   .description = Advanced heavy tank destroyer
+      More effective against heavier armor, less effective against lighter armor
+      Strong vs Heavy and Superheavy Vehicles
+      Weak vs Structures
 
 actor-futu_hvrt =
    .description = Amphibious hover transport armed with a machine gun.
@@ -84,10 +82,11 @@ actor-futu_phal =
       Weak vs Aircraft
 
 actor-futu_landcarr =
-   .description = Long-range drone carrier.
-      Deploys attack drones at extreme range.
-      Strong vs Ground
-      Weak vs Aircraft
+   .name = Beehive Drone Carrier
+   .description = Mobile drone carrier.
+      Deploys combat drones to attack targets.
+        Strong vs Ground, Air
+        Weak vs Direct Combat
 
 actor-futu_athena =
    .description = Long-range artillery that calls down orbital strikes.
@@ -180,3 +179,17 @@ actor-yrgarobo =
    .description = Required to field and maintain all robotic units.
       If destroyed, sold, or depowered, all active robotic units
       will be disabled until control is restored.
+
+actor-futu_cryoleg =
+   .name = Cryo Legionnaire
+   .description = Heavily armored commando equipped with a cryo sprayer.
+      Fires a freezing cone that slows and damages enemies in a wide arc.
+      Strong vs Ground
+      Weak vs Aircraft
+
+actor-futu_blackwidow =
+   .name = Black Widow
+   .description = Elite amphibious operative.
+      Can demolish buildings and ships.
+      Strong vs Infantry, Buildings, Ships
+      Weak vs Vehicles

@@ -8746,6 +8746,58 @@ Future_Cryocopter_Cryo:
 		ValidTargets: Ground, Water, Air
 		Volume: 0.25
 
+CryoLegionnaireAttack:
+	Range: 7c0
+	ReloadDelay: 40
+	Report: AUCryoc_wea1impact2La.wav, AUCryoc_wea1impact2Lb.wav, AUCryoc_wea1impact2Lc.wav, AUCryoc_wea1impact2Ld.wav
+	Projectile: LinearPulse
+		Blockable: false
+		ImpactType: Cone
+		ConeAngle: 60
+		ConeSegmentLength: 1c0
+		Speed: 2c0
+		ImpactInterval: 512
+		SingleHitPerActor: true
+		ForceGround: DamageOnly
+		ConeTintLayer: cryo
+		ConeTintLevel: 500
+		ConeTintMaxLevel: 500
+		ConeTintFalloff: 100, 75, 50, 25, 0
+		IgnoreRangeModifiers: false
+	Warhead@PhysicalStateCryo1: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 200
+		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
+	Warhead@PhysicalStateCryo2: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -12000
+		Range: 400
+		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
+	Warhead@Effect: CreateEffect
+		Explosions: cryo_blast
+		ImpactSounds: phohit00.wav
+		ValidTargets: Ground, Water
+		Volume: 0.25
+	Warhead@Damage: SpreadDamage
+		Damage: 20000
+		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 60
+			Heavy: 30
+			Concrete: 20
+			Brick: 50
+		DamageTypes: BulletDeath
+	Warhead@Percentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		ValidRelationships: Neutral, Enemy
+		Damage: 3
+
 FutureMicrotorpedos:
 	Inherits: ^RA2Grenade
 	Inherits: ^RA2HeavyMissile
@@ -9811,3 +9863,95 @@ HarbingerChaingunsE:
 	Burst: 2
 	BurstDelays: 1
 
+BlackWidowPistols:
+	Inherits: ^SniperWeapon
+	Report: AUTanya_pistolFireA.wav, AUTanya_pistolFireB.wav, AUTanya_pistolFireC.wav, AUTanya_pistolFireD.wav, AUTanya_pistolFireE.wav, AUTanya_pistolFireF.wav, AUTanya_pistolFireG.wav, AUTanya_pistolFireH.wav, AUTanya_pistolFireI.wav
+	ReloadDelay: 10
+	Range: 5000
+	Burst: 4
+	BurstDelays: 3
+	Projectile: Bullet
+		ContrailStartColor: 77777777
+		ContrailEndColor: 33333333
+		ContrailStartWidth: 33
+		ContrailEndWidth: 77
+		ContrailLength: 7
+		ContrailEndColorUsePlayerColor: false
+	Warhead@SniperWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		Damage: 2000
+	Warhead@SniperWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+
+BlackWidowPistolsE:
+	Inherits: BlackWidowPistols
+	Range: 6000
+	Burst: 8
+
+OrionRailgun:
+	Inherits: ^RA2HeavyCannon
+	Range: 7500
+	ReloadDelay: 85
+	Report: AUFTank_neutImpaSmaa.wav, AUFTank_neutImpaSmab.wav, AUFTank_neutImpaSmac.wav, AUFTank_neutImpaSmad.wav, AUFTank_neutImpaSmae.wav
+	Projectile: Bullet
+		Blockable: false
+		Speed: 900
+		ContrailStartColor: 88CCFFCC
+		ContrailEndColor: 2266FF00
+		ContrailLength: 30
+		ContrailStartWidth: 60
+		ContrailEndWidth: 15
+		ContrailDelay: 0
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 42000
+		Versus:
+			None: 20
+			Wood: 25
+			Light: 60
+			Medium: 75
+			Heavy: 125
+			Superheavy: 150
+			Concrete: 35
+			Brick: 30
+			Steel: 40
+			Shield: 130
+			Plate: 55
+			Flak: 35
+			Scout: 30
+			Heroic: 20
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 4
+		Versus:
+			None: 5
+			Wood: 5
+			Light: 10
+			Medium: 18
+			Heavy: 25
+			Superheavy: 30
+			Concrete: 22
+			Brick: 15
+			Steel: 20
+			Shield: 28
+			Plate: 12
+			Flak: 8
+			Scout: 6
+			Heroic: 20
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+
+OrionRailgunE:
+	Inherits: OrionRailgun
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 8500
+	ReloadDelay: 70
+
+BeehiveCarrierTarget:
+	Inherits: RA2CarrierTarget
+	ReloadDelay: 150
+	Range: 17500
+	ValidTargets: Ground, Air, Water

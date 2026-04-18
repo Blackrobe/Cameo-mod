@@ -19010,6 +19010,10 @@ nax2_bbomb3.Husk:
 ####################################################################################################
 #		Red Alert 2 Future Structures
 ####################################################################################################
+^FutureTechSpawnActorsOnSell:
+	SpawnActorsOnSell:
+		ActorTypes: futu_fedeng, futu_enforcer, futu_enforcer, futu_javelinsoldier
+
 futu_mcv:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
@@ -19020,7 +19024,7 @@ futu_mcv:
 		Name: FutureTech Mobile Construction Vehicle
 	Buildable:
 		Prerequisites: ~futu_egtf
-        Description: actor-futu_mcv.description
+		Description: actor-futu_mcv.description
 	Transforms:
 		IntoActor: futu_egcnst
 		Offset: -1,-1
@@ -19039,10 +19043,11 @@ futu_egcnst:
 	Inherits: ^RA2Building
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^5x3Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: FutureTech Construction Yard
-        Description: actor-futu_egcnst.description
+	Buildable:
+		Description: actor-futu_egcnst.description
 	Building:
 		Footprint: =xxx= xxxxx =xxx=
 		Dimensions: 5,3
@@ -19056,7 +19061,10 @@ futu_egcnst:
 		Prerequisite: ra2fact
 	WithIdleOverlay@fans:
 		Sequence: idle-fans
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !build-incomplete && !damaged
+	WithIdleOverlay@fans-damaged:
+		Sequence: damaged-idle-fans
+		RequiresCondition: !build-incomplete && damaged
 	Exit@1:
 		SpawnOffset: 213,-128,0
 		ExitCell: 1,2
@@ -19085,7 +19093,7 @@ futu_egcnst.infiltrated:
 futu_ggpowr:
 	Inherits: ^RA2Building
 	Inherits@shape: ^2x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
 	Valued:
 		Cost: 800
@@ -19112,18 +19120,22 @@ futu_ggpowr:
 		ValidTypes: building
 	WithIdleOverlay@glow:
 		Sequence: idle-glow
+		RequiresCondition: !build-incomplete && !damaged
+	WithIdleOverlay@glow-damaged:
+		Sequence: damaged-idle-glow
+		RequiresCondition: !build-incomplete && damaged
 	ProvidesPrerequisite@buildingname:
 
 futu_egrefn:
 	Inherits: ^RA2Building
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^4x3Shape
 	Tooltip:
 		Name: FutureTech Refinery
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_ggpowr
-        Description: actor-futu_egrefn.description
+		Description: actor-futu_egrefn.description
 	Building:
 		Footprint: xxx= xxx= x+==
 		Dimensions: 4,3
@@ -19152,13 +19164,13 @@ futu_egrefn:
 futu_egpile:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Tooltip:
 		Name: Troop Gate
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_ggpowr
-        Description: actor-futu_egpile.description
+		Description: actor-futu_egpile.description
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -19188,21 +19200,30 @@ futu_egpile:
 
 futu_egweap2:
 	Inherits: ^RA2DefaultWeap
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: Warp Gate
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_egrefn
-        Description: actor-futu_egweap2.description
+		Description: actor-futu_egweap2.description
 	WithIdleOverlay@flag:
 		Sequence: idle-flag
+		RequiresCondition: !build-incomplete
 	WithIdleOverlay@flag2:
 		Sequence: idle-flag2
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@fan:
+		Sequence: overlay-fan
+		RequiresCondition: !build-incomplete && !warp-producing
 	WithIdleOverlay@bib:
 		Sequence: bib
 	WithProductionDoorOverlay:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-tele
+	GrantConditionOnProduction@fan:
+		Condition: warp-producing
+		Duration: 68
+		ShowSelectionBar: false
 	RenderSprites:
 		PlayerPalette: playerra2future1
 
@@ -19210,7 +19231,7 @@ yrgarobo:
 	Inherits: ^RA2Building
 	Inherits@radar: ^RadarBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: Robot Control Center
 	Selectable:
@@ -19233,13 +19254,13 @@ yrgarobo:
 futu_egtf:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@radar: ^RadarBuilding
 	Tooltip:
 		Name: Transmission Center
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_egrefn
-        Description: actor-futu_egtf.description
+		Description: actor-futu_egtf.description
 	Building:
 		Footprint: === xxx xxx
 		Dimensions: 3,3
@@ -19263,26 +19284,26 @@ futu_egtf:
 futu_launchpad:
 	Inherits: ^RA2Building
 	Inherits@shape: ^5x3Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
 		Queue: Building, RABuilding
 		Prerequisites: ~futu_egcnst, futu_egtf
 		Description: actor-gaairc.description
 	Tooltip:
-		Name: FutureTech Airfield
+		Name: FutureTech Launch Pad
 	Building:
 		Footprint: =x=== xxxx= ==xx=
 		Dimensions: 5,3
 	Exit@1:
 		ExitCell: 1,1
 		Facing: 768
-        ProductionTypes: Aircraft, RAAircraft
-    Exit@HARBINGER:
-        ExitCell: 1,1
-        Facing: 768
-        SpawnOffset: 0,0,4000
-        ProductionTypes: future_harbinger
+		ProductionTypes: Aircraft, RAAircraft
+	Exit@HARBINGER:
+		ExitCell: 1,1
+		Facing: 768
+		SpawnOffset: 0,0,4000
+		ProductionTypes: future_harbinger
 	Reservable:
 	SpawnNeighboringActors:
 		ActorTypes: dummy_dock
@@ -19344,13 +19365,13 @@ futu_launchpad:
 futu_egtech:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x3Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@tech: ^IsTechnoBuilding
 	Selectable:
 		Bounds: 3072, 2048, 0, -256
 	Buildable:
 		Prerequisites: ~futu_egcnst, futu_egtf
-        Description: actor-futu_egtech.description
+		Description: actor-futu_egtech.description
 	Tooltip:
 		Name: FutureTech Battle Lab
 	Building:
@@ -19361,21 +19382,23 @@ futu_egtech:
 		Prerequisite: ra2tek
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
+		RequiresCondition: !build-incomplete
 	WithIdleOverlay@lights2:
 		Sequence: idle-lights2
+		RequiresCondition: !build-incomplete
 	RenderSprites:
 		PlayerPalette: playerra2future1
 
 futu_egshock:
 	Inherits: ^RA2Building
-	Inherits@sell: ^RA2SSpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@IDISABLE: ^DisabledOverlay
 	Inherits@shape: ^4x3Shape
 	Tooltip:
-		Name: Shock Center
+		Name: Hypercore
 	Buildable:
 		BuildLimit: 1
 		Prerequisites: ~futu_egcnst, futu_egtech, derricklimit
@@ -19384,6 +19407,8 @@ futu_egshock:
 		BuildDurationModifier: 100
 		Queue: Building, RABuilding
 		Description: actor-futu_egshock.description
+	Selectable:
+		Bounds: 4096, 3072, 0, -256
 	Building:
 		Footprint: =xx= xxxx =xx=
 		Dimensions: 4,3
@@ -19416,7 +19441,7 @@ futu_gggun:
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
-	Inherits@sell: ^AASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
@@ -19427,7 +19452,7 @@ futu_gggun:
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Freezer Turret
+		Name: Frostbite Turret
 	Building:
 		Footprint: x
 		Dimensions: 1,1
@@ -19468,7 +19493,7 @@ futu_ggmlt:
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
-	Inherits@sell: ^AASpawnActorsOnSell
+	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@COMMANDOSKULL: ^CommandoSkull
@@ -19481,16 +19506,16 @@ futu_ggmlt:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Multi Rocket System
+		Name: Multi Turret System
 		RequiresCondition: !ifv-mg && !ifv-hmg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-healer && !ifv-chrono
 	Tooltip@MISS:
-		Name: Javelin Rocket System
+		Name: Javelin Turret System
 		RequiresCondition: ifv-miss || ifv-flak
 	Tooltip@FRAG:
-		Name: Frag Rocket System
+		Name: Frag Turret System
 		RequiresCondition: ifv-mg || ifv-hmg || ifv-repair || ifv-sniper || ifv-tesla || ifv-chem || ifv-fire || ifv-cannon || ifv-deso || ifv-demo || ifv-healer || ifv-chrono
 	Tooltip@Sigma:
-		Name: Sigma Rocket System
+		Name: Sigma Turret System
 		RequiresCondition: ifv-hero
 	WithDecoration@COMMANDOSKULL:
 		RequiresCondition: ifv-hero
@@ -19671,7 +19696,7 @@ futu_enforcer:
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Future Enforcer
+		Name: Enforcer
 	Valued:
 		Cost: 300
 	Buildable:
@@ -19944,14 +19969,10 @@ futu_fedeng:
 	Buildable:
 		Prerequisites: ~futu_egpile
 		Queue: Infantry, RAInfantry
-        Description: actor-futu_fedeng.description
+		Description: actor-futu_fedeng.description
 	RenderSprites:
-		Image: steel_fedeng
+		Image: futu_fedeng
 	-TakeCover:
-	Voiced:
-		VoiceSet: SteelEngVoice
-	ActorStatValues:
-		Upgrades: upsteel_shielresistance
 
 futu_engi:
 	Inherits: ^Walker
@@ -19963,7 +19984,7 @@ futu_engi:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@RobotControllable: ^RobotControllable
 	Tooltip:
-		Name: Engineering Armor
+		Name: Repair Droid
 	Valued:
 		Cost: 800
 	Selectable:
@@ -20028,7 +20049,7 @@ futu_engi:
 		EnterBlockedCursor: move-blocked
 		Voice: Move
 	RenderSprites:
-		Image: nax2_engi
+		Image: futu_engi
 
 futu_wheel:
 	Inherits: ^Walker
@@ -20042,7 +20063,7 @@ futu_wheel:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Scout Robot
+		Name: Scout Droid
 	Valued:
 		Cost: 200
 	Selectable:
@@ -20105,7 +20126,7 @@ future_robot_shotgun:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Shotgun Attack Robot
+		Name: Shotgun Droid
 	Valued:
 		Cost: 400
 	Selectable:
@@ -20173,7 +20194,7 @@ future_robot_missiles:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Missile Attack Robot
+		Name: Missile Droid
 	Valued:
 		Cost: 600
 	Selectable:
@@ -20242,7 +20263,7 @@ future_robot_cannon:
 	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Cannon Attack Robot
+		Name: Cannon Droid
 	Valued:
 		Cost: 525
 	Selectable:
@@ -20340,7 +20361,71 @@ futu_spy:
 	Voiced:
 		VoiceSet: RA2SpyVoice
 
-futu_commando:
+futu_blackwidow:
+	Inherits: ^Soldier
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@anim: ^RA2Infantry
+	Inherits@swim: ^WithSwimsuit
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
+	Valued:
+		Cost: 900
+	Health:
+		HP: 30000
+	ChangesHealth@SelfHealing:
+		Step: 30
+	Mobile:
+		Speed: 60
+	Tooltip:
+		Name: Black Widow
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry, RAInfantry
+		BuildPaletteOrder: 120
+		Prerequisites: ~futu_egtech
+		Description: actor-futu_blackwidow.description
+	Armament@PRIMARY:
+		Weapon: BlackWidowPistols
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,0,256
+	Armament@ELITE:
+		Weapon: BlackWidowPistolsE
+		RequiresCondition: rank-elite
+		LocalOffset: 128,0,256
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: BlackWidowPistols
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: BlackWidowPistolsE
+		RequiresCondition: rank-elite
+	Armament@shipc4:
+		Weapon: SEALAttach
+		Name: secondary
+		Cursor: c4
+		OutsideRangeCursor: c4
+		Voice: Demolish
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		AttackSequences:
+			primary: shoot
+	Voiced:
+		VoiceSet: BlackWidowVoice
+	ActorStatValues:
+		Upgrades: future_upgrade_equalizer_x1, future_upgrade_equalizer_x2, future_upgrade_equalizer_x3
+
+futu_cryoleg:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -20348,66 +20433,42 @@ futu_commando:
 	Inherits@announce: ^AnnounceGlobal
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@MC: ^MCImmune
-	Inherits@swim: ^WithSwimsuit
 	Inherits@COMMANDOSKULL: ^CommandoSkull
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Infantry, RAInfantry
-		BuildPaletteOrder: 120
+		BuildPaletteOrder: 121
 		Prerequisites: ~futu_egtech
 		BuildLimit: 1
-		Description: template-commando.description
+		Description: actor-futu_cryoleg.description
+	RenderSprites:
+		PlayerPalette: playerra2
 	Valued:
-		Cost: 3000
+		Cost: 3500
 	Tooltip:
-		Name: Tanya II
+		Name: Cryo Legionnaire
 	Health:
-		HP: 50000
+		HP: 75000
 	ChangesHealth@SelfHealing:
 		Step: 50
 	Mobile:
 		Speed: 75
-	Passenger:
 	Armament@PRIMARY:
-		Weapon: RA2DoublePistols
-		RequiresCondition: !rank-elite
-		LocalOffset: 128,0,256
-	Armament@ELITE:
-		Weapon: RA2DoublePistolsE
-		RequiresCondition: rank-elite
-		LocalOffset: 128,0,256
-	Armament@c4:
-		Weapon: TanyaAttach
-		Name: secondary
-		Cursor: c4
-		OutsideRangeCursor: c4
-		Voice: Demolish
-	Armament@c4building:
-		Weapon: GenericC4
-		Name: secondary
-		Cursor: c4
-		OutsideRangeCursor: c4
-		Voice: Demolish
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: RA2DoublePistols
-		RequiresCondition: !rank-elite
-	Armament@GARRISONEDELITE:
-		Name: garrisoned
-		Weapon: RA2DoublePistolsE
-		RequiresCondition: rank-elite
+		Weapon: CryoLegionnaireAttack
+		LocalOffset: 128,100,350
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
 	AttackFrontal:
 		FacingTolerance: 0
 	WithInfantryBody:
 		-DefaultAttackSequence:
 		AttackSequences:
-			primary: shoot
+			primary: attack
 		StandSequences: stand
 	Voiced:
-		VoiceSet: RA2TanyaVoice
+		VoiceSet: CryoLegionnaireVoice
 	ProvidesPrerequisite:
 
 ####################################################################################################
@@ -20681,13 +20742,27 @@ futu_mbt:
 		Type: Medium
 	Turreted:
 		TurnSpeed: 17
-		Offset: 75,0,1
+		Offset: -40,0,0
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		NormalsPalette: normals
+		PlayerPalette: playerra2
+		Scale: 9.2
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithShadow:
+	-WithFacingSpriteBody:
+	RenderSprites:
+		PlayerPalette: playerra2
 	Armament:
 		Name: primary
 		Weapon: GuardianTankCannon
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1280,0,80
+		LocalOffset: 1720,0,440
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: !rank-elite
@@ -20696,25 +20771,19 @@ futu_mbt:
 		Weapon: GuardianTankCannonE
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1280,0,80
+		LocalOffset: 1720,0,440
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
 	Armament@debuff:
 		Name: primary
 		Weapon: Future_MBT_DebuffLaser
-		LocalOffset: 1080,0,120
+		LocalOffset: 160,0,700
 		RequiresCondition: deployed
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
-	WithSpriteTurret@default:
-		Sequence: turret
-		RequiresCondition: !deployed
-	WithSpriteTurret@mg:
-		Sequence: turret-laser
-		RequiresCondition: deployed
 	Voiced:
 		VoiceSet: FutureGuardianVoice
 	GrantConditionOnDeploy:
@@ -20735,8 +20804,6 @@ futu_mbt:
 	ReloadDelayMultiplier@Laser:
 		RequiresCondition: deployed
 		Modifier: 150
-	RenderSprites:
-		PlayerPalette: player_rgba
 
 futu_hvrt:
 	Inherits: ^Tank
@@ -20873,31 +20940,30 @@ futu_phal:
 		ChronoshiftSound: chrono2.aud
 
 futu_landcarr:
-	Inherits: ^Walker
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits: ^Tank
+	Inherits@Template: ^FireSupportTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericGroundDetector
-	Inherits@vo: ^AttackFrontalVoice
+	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@RobotControllable: ^RobotControllable
+	Inherits@SHADOWS: ^Shadows
+	Inherits@announce: ^AnnounceOnBuild
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
-	Selectable:
-		Bounds: 600, 600, 0, -125
 	Valued:
 		Cost: 2100
 	Tooltip:
-		Name: Land Carrier (WIP)
+		Name: Beehive Drone Carrier
 	Buildable:
 		BuildPaletteOrder: 75
 		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_landcarr.description
 	Mobile:
-		Speed: 30
-		TurnSpeed: 13
 		Locomotor: tracked
+		Speed: 45
+		TurnSpeed: 12
 	Health:
 		HP: 125000
 	Repairable:
@@ -20906,100 +20972,140 @@ futu_landcarr:
 		Step: 52
 	Armor:
 		Type: Heavy
-	Armament@1:
-		Weapon: RA2HoverMissile
-		LocalOffset: 200,300,500, 200,-300,500
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	WithInfantryBody:
-		IdleSequences: idle1, idle2
-		MinIdleDelay: 90
-		MaxIdleDelay: 270
-		DefaultAttackSequence: idle
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
-	-QuantizeFacingsFromSequence:
-	Passenger:
-		Weight: 4
-	Voiced:
-		VoiceSet: AsianAllianceRobotVoice
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		NormalsPalette: normals
+		PlayerPalette: playerra2
+		Scale: 1
+	WithVoxelBody:
+	WithShadow:
+	-WithFacingSpriteBody:
 	RenderSprites:
 		PlayerPalette: playerra2
-	WithSpriteTurret:
-	Turreted:
-		TurnSpeed: 20 #3
+	Armament@PRIMARY:
+		Weapon: BeehiveCarrierTarget
+		ReloadDelay: 150
 	AttackTurreted:
-		PauseOnCondition: !robotcontrol || disabled
+	SelectionDecorations:
+	Selectable:
+		Bounds: 800, 800, 0, -125
+	Voiced:
+		VoiceSet: BeehiveCarrierVoice
 	CarrierMaster:
-		Actors: ra2hornet, ra2hornet, ra2hornet
-		RearmTicks: 150
-		RespawnTicks: 300
+		Actors: futu_landcarr_drone, futu_landcarr_drone, futu_landcarr_drone
+		RearmTicks: 25
+		RespawnTicks: 150
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
-	Armament@PRIMARY:
-		Weapon: RA2CarrierTarget
-		Damage: 3000
-		ReloadDelay: 150
+	Exit@0:
+		SpawnOffset: 0,0,0
+		Facing: 0
+	Exit@1:
+		SpawnOffset: 0,0,0
+		Facing: 0
+	Exit@2:
+		SpawnOffset: 0,0,0
+		Facing: 0
+
+futu_landcarr_drone:
+	Inherits: ra2hornet
+	Health:
+		HP: 10000
+	ChangesHealth@SelfHealing:
+		Step: 4
+	Aircraft:
+		VTOL: true
+	-AutoTarget:
+	AutoTarget:
+		InitialStanceAI: Defend
+		InitialStance: Defend
+		ScanRadius: 12
+	CarrierSlave:
+		LandingDistance: 0
 
 futu_orion:
-	Inherits: ^Walker
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
+	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@detect: ^GenericGroundDetector
-	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@RobotControllable: ^RobotControllable
+	Inherits@SHADOWS: ^Shadows
+	Inherits@announce: ^AnnounceOnBuild
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
-	Selectable:
-		Bounds: 600, 600, 0, -125
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
 	Valued:
-		Cost: 2100
+		Cost: 2800
 	Tooltip:
-		Name: Orion (WIP)
+		Name: Orion Tank
 	Buildable:
-		BuildPaletteOrder: 75
+		BuildPaletteOrder: 80
 		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_orion.description
 	Mobile:
-		Speed: 30
-		TurnSpeed: 13
 		Locomotor: tracked
+		Speed: 50
+		TurnSpeed: 12
 	Health:
-		HP: 125000
+		HP: 175000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 8750
 	ChangesHealth@SelfHealing:
-		Step: 52
+		Step: 70
 	Armor:
 		Type: Heavy
-	Armament@1:
-		Weapon: RA2155mm
-		LocalOffset: 1100,0,500
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	WithInfantryBody:
-		IdleSequences: idle1, idle2
-		MinIdleDelay: 90
-		MaxIdleDelay: 270
-		DefaultAttackSequence: idle
+	Turreted:
+		TurnSpeed: 12
+		Offset: -40,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
-	-QuantizeFacingsFromSequence:
-	Passenger:
-		Weight: 4
-	Voiced:
-		VoiceSet: AsianAllianceRobotVoice
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		NormalsPalette: normals
+		PlayerPalette: playerra2
+		Scale: 1
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithShadow:
+	-WithFacingSpriteBody:
 	RenderSprites:
 		PlayerPalette: playerra2
-	WithSpriteTurret:
-	Turreted:
-		TurnSpeed: 20 #3
+	Armament:
+		Name: primary
+		Weapon: OrionRailgun
+		Recoil: 200
+		RecoilRecovery: 45
+		LocalOffset: 1000,0,325
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: primary
+		Weapon: OrionRailgunE
+		Recoil: 200
+		RecoilRecovery: 45
+		LocalOffset: 1000,0,325
+		MuzzleSequence: muzzle-2
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	AttackTurreted:
-		PauseOnCondition: !robotcontrol || disabled
+	WithMuzzleOverlay:
+	SelectionDecorations:
+	Selectable:
+		Bounds: 900, 900, 0, -125
+	Voiced:
+		VoiceSet: OrionTankVoice
 
 futu_harv:
 	Inherits: ^Tank
@@ -21130,7 +21236,7 @@ futu_athena:
 	Valued:
 		Cost: 2200
 	Tooltip:
-		Name: Athena Cannon (WIP)
+		Name: Athena Cannon
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~futu_egtf
@@ -21257,7 +21363,7 @@ futu_futu:
 	Tooltip:
 		Name: Future Tank
 	Buildable:
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 200
 		BuildLimit: 1
 		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
@@ -21499,7 +21605,7 @@ future_harbinger:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Inherits@gat: ^GatlingSpeedUpUnitBehavior
-    Inherits@announce: ^AnnounceOnBuild
+	Inherits@announce: ^AnnounceOnBuild
 	Tooltip:
 		Name: Harbinger Gunship
 	Valued:
@@ -21507,7 +21613,7 @@ future_harbinger:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-        BuildAtProductionType: future_harbinger
+		BuildAtProductionType: future_harbinger
 		BuildPaletteOrder: 100
 		Prerequisites: ~futu_egshock
 		Queue: Aircraft, RAAircraft
@@ -21582,26 +21688,26 @@ future_harbinger:
 		FacingTolerance: 512
 	RenderSprites:
 		PlayerPalette: player_rgba
-    AmbientSoundCA:
+	AmbientSoundCA:
 		SoundFiles: AUGunsh_movLoopa.wav
 		InitialSound: AUGunsh_movStarta.wav
 		InitialSoundLength: 60
 		VolumeMultiplier: 0.20
 		AudibleThroughFog: false
-    GrantTimedCondition@SpawnCloak:
-        Condition: spawn-cloaked
-        Duration: 1
-    Cloak:
-        InitialDelay: 0
-        CloakDelay: 0
-        UncloakOn: None
-        CloakStyle: Alpha
-        MinCloakedAlpha: 0
-        MaxCloakedAlpha: 0
-        EffectImage: chronoshift
-        UncloakEffectSequence: warpin
-        EffectPalette: ra2effect
-        RequiresCondition: spawn-cloaked
+	GrantTimedCondition@SpawnCloak:
+		Condition: spawn-cloaked
+		Duration: 1
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 0
+		UncloakOn: None
+		CloakStyle: Alpha
+		MinCloakedAlpha: 0
+		MaxCloakedAlpha: 0
+		EffectImage: chronoshift
+		UncloakEffectSequence: warpin
+		EffectPalette: ra2effect
+		RequiresCondition: spawn-cloaked
 
 future_harbinger.Husk:
 	Inherits: ^PlaneHusk
