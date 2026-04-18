@@ -1302,13 +1302,18 @@ refinery.atreides:
 		DockOffset: 1c5,0c5,0
 	FreeActor:
 		Actor: harvester
-		SpawnOffset: 2,2
+		SpawnOffset: 0,2
 		Facing: 160
 	FreeActorWithDelivery@1:
 		Actor: harvester
 		DeliveryOffset: 2,2
 		DeliveringActor: carryall.reinforce
 		Facing: 160
+	# FreeActorWithDelivery@2:
+	# 	Actor: harvester
+	# 	DeliveryOffset: 0,2
+	# 	DeliveringActor: carryall.reinforce
+	# 	Facing: 160
 	GrantConditionOnPrerequisite@d2k_spice_sifter_upgrade:
 		Condition: d2k_spice_sifter_upgrade
 		Prerequisites: d2k_spice_sifter_upgrade
@@ -1347,13 +1352,18 @@ refinery.ordos:
 		IconPalette: d2kunit
 	FreeActor:
 		Actor: ordos_harv
-		SpawnOffset: 2,2
+		SpawnOffset: 0,2
 		Facing: 160
 	FreeActorWithDelivery@1:
 		Actor: ordos_harv
 		DeliveryOffset: 2,2
 		DeliveringActor: ordos_carryall.reinforce
 		Facing: 160
+	# FreeActorWithDelivery@2:
+	# 	Actor: ordos_harv
+	# 	DeliveryOffset: 0,2
+	# 	DeliveringActor: ordos_carryall.reinforce
+	# 	Facing: 160
 	RenderSprites:
 		Image: refinery.ordos
 
@@ -2238,21 +2248,21 @@ starport.ordos:
 	RenderSprites:
 		Image: starport.ordos
 
-storm_lasher_big:
+supercomputer:
 	Inherits: ^D2KBuilding
 	Inherits@D2KSprite: ^D2KPaletteRender
 	Inherits@Prereqs: ^D2KPrereqs
-	Inherits@shape: ^4x4Shape
+	Inherits@shape: ^4x3Shape
 	Inherits@SW: ^PrimarySuperweapon
 	Buildable:
 		Prerequisites: ~construction_yard.ixian, research_centre.ixian
-		Description: actor-storm_lasher.description
+		Description: Provides a nuclear weapon support power.
 		IconPalette: player
 	Tooltip:
-		Name: Supercomputer
+		Name: Ixian Supercomputer
 	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4,4
+		Footprint: xxxx xxxx ====
+		Dimensions: 4,3
 	WithMakeAnimation:
 	NukePowerCA:
 		OrderName: PulseMissile
@@ -2265,18 +2275,18 @@ storm_lasher_big:
 			1: abomb
 		ChargeInterval: 10500
 		Names:
-			1: power-nuke.raname
+			1: power-nuke.d2kname
 		Descriptions:
-			1: power-nuke.description
+			1: power-nuke.d2kdescription
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
 		EndChargeSpeechNotification: NuclearWeaponAvailable
-		EndChargeTextNotification: Nuclear Missile ready.
+		EndChargeTextNotification: Nuclear weapon ready.
 		LaunchSpeechNotification: NuclearWeaponLaunched
-		LaunchTextNotification: Warning: Nuclear Missile launched.
+		LaunchTextNotification: Warning: Nuclear weapon launched.
 		IncomingSpeechNotification: NuclearWarheadApproaching
-		IncomingTextNotification: Warning: Nuclear Missile launched.
+		IncomingTextNotification: Warning: Nuclear weapon impact imminent.
 		MissileWeapons:
 			1: PulseMissile
 		MissileDelay: 25
@@ -2301,7 +2311,7 @@ storm_lasher_big:
 		RequiresCondition: !build-incomplete
 	-WithDeathAnimation:
 	RenderSprites:
-		Image: storm_lasher_big
+		Image: supercomputer
 		Palette: td_temperat
 	-WithCrumbleOverlay:
 
@@ -3225,6 +3235,7 @@ palace.ordos:
 		OrderName: saboteur
 		SupportPowerPaletteOrder: 20
 		RequiresCondition: palace_saboteurs
+	RallyPoint:
 	GrantConditionOnPrerequisite@palace_saboteurs:
 		Condition: palace_saboteurs
 		Prerequisites: palace
@@ -9982,9 +9993,8 @@ carryall.reinforce:
 		HP: 500000
 	Armor:
 		Type: Bomber
-	Selectable:
-		Bounds: 1440, 1440
-		DecorationBounds: 1440, 1440
+	-Selectable:
+	Interactable:
 	Aircraft:
 		CruiseAltitude: 2160
 		CruisingCondition: cruising
@@ -9993,8 +10003,9 @@ carryall.reinforce:
 		TurnSpeed: 24
 		Repulsable: False
 		CanSlide: True
-		VTOL: true
+		VTOL: True
 		IdleTurnSpeed: 4
+		# AltitudeVelocity: 0c60
 	-SpawnActorOnDeath:
 	SpawnActorOnDeath@CRUISING:
 		Actor: carryall.husk
@@ -10003,8 +10014,8 @@ carryall.reinforce:
 		Actor: carryall.huskVTOL
 		RequiresCondition: !cruising
 	Carryall:
-		BeforeLoadDelay: 45
-		BeforeUnloadDelay: 45
+		BeforeLoadDelay: 10
+		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 	RenderSprites:
 		Image: carryall
