@@ -20365,13 +20365,13 @@ futu_blackwidow:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Valued:
-		Cost: 900
+		Cost: 1200
 	Health:
-		HP: 30000
+		HP: 25000
 	ChangesHealth@SelfHealing:
-		Step: 30
+		Step: 25
 	Mobile:
-		Speed: 60
+		Speed: 75
 	Tooltip:
 		Name: Black Widow
 	UpdatesPlayerStatistics:
@@ -20384,11 +20384,11 @@ futu_blackwidow:
 	Armament@PRIMARY:
 		Weapon: BlackWidowPistols
 		RequiresCondition: !rank-elite
-		LocalOffset: 128,0,256
+		LocalOffset: 128,-16,256, 128,16,256
 	Armament@ELITE:
 		Weapon: BlackWidowPistolsE
 		RequiresCondition: rank-elite
-		LocalOffset: 128,0,256
+		LocalOffset: 128,-16,256, 128,16,256
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: BlackWidowPistols
