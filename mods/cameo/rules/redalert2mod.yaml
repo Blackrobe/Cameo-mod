@@ -19984,7 +19984,7 @@ futu_engi:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@RobotControllable: ^RobotControllable
 	Tooltip:
-		Name: Engineering Armor
+		Name: Repair Droid
 	Valued:
 		Cost: 800
 	Selectable:
@@ -20049,7 +20049,7 @@ futu_engi:
 		EnterBlockedCursor: move-blocked
 		Voice: Move
 	RenderSprites:
-		Image: nax2_engi
+		Image: futu_engi
 
 futu_wheel:
 	Inherits: ^Walker
@@ -20745,7 +20745,7 @@ futu_mbt:
 		Offset: -40,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
-		CameraPitch: 130
+		CameraPitch: 85
 		UseClassicPerspectiveFudge: false
 	RenderVoxels:
 		NormalsPalette: normals
@@ -20753,7 +20753,7 @@ futu_mbt:
 		Scale: 9.2
 	WithVoxelBody:
 	WithVoxelTurret:
-	-WithShadow:
+	WithShadow:
 	-WithFacingSpriteBody:
 	RenderSprites:
 		PlayerPalette: playerra2
@@ -20940,31 +20940,30 @@ futu_phal:
 		ChronoshiftSound: chrono2.aud
 
 futu_landcarr:
-	Inherits: ^Walker
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits: ^Tank
+	Inherits@Template: ^FireSupportTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericGroundDetector
-	Inherits@vo: ^AttackFrontalVoice
+	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@RobotControllable: ^RobotControllable
+	Inherits@SHADOWS: ^Shadows
+	Inherits@announce: ^AnnounceOnBuild
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
-	Selectable:
-		Bounds: 600, 600, 0, -125
 	Valued:
 		Cost: 2100
 	Tooltip:
-		Name: Land Carrier (WIP)
+		Name: Beehive Drone Carrier
 	Buildable:
 		BuildPaletteOrder: 75
 		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_landcarr.description
 	Mobile:
-		Speed: 30
-		TurnSpeed: 13
 		Locomotor: tracked
+		Speed: 45
+		TurnSpeed: 12
 	Health:
 		HP: 125000
 	Repairable:
@@ -20973,100 +20972,140 @@ futu_landcarr:
 		Step: 52
 	Armor:
 		Type: Heavy
-	Armament@1:
-		Weapon: RA2HoverMissile
-		LocalOffset: 200,300,500, 200,-300,500
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	WithInfantryBody:
-		IdleSequences: idle1, idle2
-		MinIdleDelay: 90
-		MaxIdleDelay: 270
-		DefaultAttackSequence: idle
+	Turreted:
+		TurnSpeed: 12
+		Offset: 0,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
-	-QuantizeFacingsFromSequence:
-	Passenger:
-		Weight: 4
-	Voiced:
-		VoiceSet: AsianAllianceRobotVoice
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		NormalsPalette: normals
+		PlayerPalette: playerra2
+		Scale: 1
+	WithVoxelBody:
+	WithShadow:
+	-WithFacingSpriteBody:
 	RenderSprites:
 		PlayerPalette: playerra2
-	WithSpriteTurret:
-	Turreted:
-		TurnSpeed: 20 #3
+	Armament@PRIMARY:
+		Weapon: BeehiveCarrierTarget
+		ReloadDelay: 150
 	AttackTurreted:
-		PauseOnCondition: !robotcontrol || disabled
+	SelectionDecorations:
+	Selectable:
+		Bounds: 800, 800, 0, -125
+	Voiced:
+		VoiceSet: BeehiveCarrierVoice
 	CarrierMaster:
-		Actors: ra2hornet, ra2hornet, ra2hornet
-		RearmTicks: 150
-		RespawnTicks: 300
+		Actors: futu_landcarr_drone, futu_landcarr_drone, futu_landcarr_drone
+		RearmTicks: 25
+		RespawnTicks: 150
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
-	Armament@PRIMARY:
-		Weapon: RA2CarrierTarget
-		Damage: 3000
-		ReloadDelay: 150
+	Exit@0:
+		SpawnOffset: 0,0,0
+		Facing: 0
+	Exit@1:
+		SpawnOffset: 0,0,0
+		Facing: 0
+	Exit@2:
+		SpawnOffset: 0,0,0
+		Facing: 0
+
+futu_landcarr_drone:
+	Inherits: ra2hornet
+	Health:
+		HP: 10000
+	ChangesHealth@SelfHealing:
+		Step: 4
+	Aircraft:
+		VTOL: true
+	-AutoTarget:
+	AutoTarget:
+		InitialStanceAI: Defend
+		InitialStance: Defend
+		ScanRadius: 12
+	CarrierSlave:
+		LandingDistance: 0
 
 futu_orion:
-	Inherits: ^Walker
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
+	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@detect: ^GenericGroundDetector
-	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@RobotControllable: ^RobotControllable
+	Inherits@SHADOWS: ^Shadows
+	Inherits@announce: ^AnnounceOnBuild
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
-	Selectable:
-		Bounds: 600, 600, 0, -125
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
 	Valued:
-		Cost: 2100
+		Cost: 2800
 	Tooltip:
-		Name: Orion (WIP)
+		Name: Orion Tank
 	Buildable:
-		BuildPaletteOrder: 75
+		BuildPaletteOrder: 80
 		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_orion.description
 	Mobile:
-		Speed: 30
-		TurnSpeed: 13
 		Locomotor: tracked
+		Speed: 50
+		TurnSpeed: 12
 	Health:
-		HP: 125000
+		HP: 175000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 8750
 	ChangesHealth@SelfHealing:
-		Step: 52
+		Step: 70
 	Armor:
 		Type: Heavy
-	Armament@1:
-		Weapon: RA2155mm
-		LocalOffset: 1100,0,500
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	WithInfantryBody:
-		IdleSequences: idle1, idle2
-		MinIdleDelay: 90
-		MaxIdleDelay: 270
-		DefaultAttackSequence: idle
+	Turreted:
+		TurnSpeed: 12
+		Offset: -40,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
-	-QuantizeFacingsFromSequence:
-	Passenger:
-		Weight: 4
-	Voiced:
-		VoiceSet: AsianAllianceRobotVoice
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		NormalsPalette: normals
+		PlayerPalette: playerra2
+		Scale: 1
+	WithVoxelBody:
+	WithVoxelTurret:
+	WithShadow:
+	-WithFacingSpriteBody:
 	RenderSprites:
 		PlayerPalette: playerra2
-	WithSpriteTurret:
-	Turreted:
-		TurnSpeed: 20 #3
+	Armament:
+		Name: primary
+		Weapon: OrionRailgun
+		Recoil: 200
+		RecoilRecovery: 45
+		LocalOffset: 1000,0,325
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: primary
+		Weapon: OrionRailgunE
+		Recoil: 200
+		RecoilRecovery: 45
+		LocalOffset: 1000,0,325
+		MuzzleSequence: muzzle-2
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	AttackTurreted:
-		PauseOnCondition: !robotcontrol || disabled
+	WithMuzzleOverlay:
+	SelectionDecorations:
+	Selectable:
+		Bounds: 900, 900, 0, -125
+	Voiced:
+		VoiceSet: OrionTankVoice
 
 futu_harv:
 	Inherits: ^Tank

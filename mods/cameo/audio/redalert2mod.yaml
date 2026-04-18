@@ -725,3 +725,21 @@ BlackWidowVoice:
 		Demolish: AUTanya_VoiAtkC4Ba, AUTanya_VoiAtkC4Bb, AUTanya_VoiAtkC4Bc, AUTanya_VoiAtkC4Va, AUTanya_VoiAtkC4Vb, AUTanya_VoiAtkC4Vc
 		Feedback: AUTanya_VoiHlpMea, AUTanya_VoiHlpMeb, AUTanya_VoiHlpMec, AUTanya_VoiHlpMed, AUTanya_VoiHlpMee
 		Die: AUTanya_VoiDiea, AUTanya_VoiDieb, AUTanya_VoiDiec, AUTanya_VoiDied, AUTanya_VoiDiee, AUTanya_VoiDief, AUTanya_VoiDieg, AUTanya_VoiDieh
+
+OrionTankVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: vgrasea, vgraseb, vgrasec, vgrased, vgrasee
+		Move: vgramoa, vgramob, vgramoc, vgramod, vgramoe, vgramof
+		Action: vgramoa, vgramob, vgramoc, vgramod, vgramoe, vgramof
+		Attack: vgraata, vgraatb, vgraatc, vgraatd, vgraate
+		Build: vgrasea, vgraseb, vgrasec, vgrased, vgrasee
+
+BeehiveCarrierVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: vgrasea, vgraseb, vgrasec, vgrased, vgrasee
+		Move: vgramoa, vgramob, vgramoc, vgramod, vgramoe, vgramof
+		Action: vgramoa, vgramob, vgramoc, vgramod, vgramoe, vgramof
+		Attack: vgraata, vgraatb, vgraatc, vgraatd, vgraate
+		Build: vgrasea, vgraseb, vgrasec, vgrased, vgrasee

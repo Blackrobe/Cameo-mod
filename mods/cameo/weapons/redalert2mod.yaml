@@ -9888,3 +9888,70 @@ BlackWidowPistolsE:
 	Inherits: BlackWidowPistols
 	Range: 6000
 	Burst: 8
+
+OrionRailgun:
+	Inherits: ^RA2HeavyCannon
+	Range: 7500
+	ReloadDelay: 85
+	Report: AUFTank_neutImpaSmaa.wav, AUFTank_neutImpaSmab.wav, AUFTank_neutImpaSmac.wav, AUFTank_neutImpaSmad.wav, AUFTank_neutImpaSmae.wav
+	Projectile: Bullet
+		Blockable: false
+		Speed: 900
+		ContrailStartColor: 88CCFFCC
+		ContrailEndColor: 2266FF00
+		ContrailLength: 30
+		ContrailStartWidth: 60
+		ContrailEndWidth: 15
+		ContrailDelay: 0
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 42000
+		Versus:
+			None: 20
+			Wood: 25
+			Light: 60
+			Medium: 75
+			Heavy: 125
+			Superheavy: 150
+			Concrete: 35
+			Brick: 30
+			Steel: 40
+			Shield: 130
+			Plate: 55
+			Flak: 35
+			Scout: 30
+			Heroic: 20
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 4
+		Versus:
+			None: 5
+			Wood: 5
+			Light: 10
+			Medium: 18
+			Heavy: 25
+			Superheavy: 30
+			Concrete: 22
+			Brick: 15
+			Steel: 20
+			Shield: 28
+			Plate: 12
+			Flak: 8
+			Scout: 6
+			Heroic: 20
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexp14a.wav
+
+OrionRailgunE:
+	Inherits: OrionRailgun
+	Inherits@Elite: ^RA2EliteEffects
+	Range: 8500
+	ReloadDelay: 70
+
+BeehiveCarrierTarget:
+	Inherits: RA2CarrierTarget
+	ReloadDelay: 150
+	Range: 17500
+	ValidTargets: Ground, Air, Water

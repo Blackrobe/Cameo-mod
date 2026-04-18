@@ -350,3 +350,11 @@ tsm_emp:
 futu_mbt:
 	idle: futu_mbt
 	turret: futu_mbttur
+
+futu_orion:
+	idle: futu_orion
+	turret: futu_oriontur
+
+futu_landcarr:
+	idle: futu_landcarr
+	turret:

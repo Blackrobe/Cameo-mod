@@ -7664,7 +7664,7 @@ futu_mcv:
 	idle:
 		Facings: 64
 	icon:
-		Filename: ra2amcvicon.shp
+		Filename: futu_mcvicon.png
 		AddExtension: False
 
 futu_egcnst:
@@ -8298,6 +8298,11 @@ futu_fedeng:
 		Scale: 1
 		Offset: 0,0
 
+futu_engi:
+	Inherits: nax2_engi
+	icon:
+		Filename: futu_repairdroidicon.png
+
 futu_wheel:
 	Defaults:
 		Filename: futu_wheel.shp
@@ -8569,68 +8574,19 @@ future_mech_plasma:
 		Offset: 0,0
 
 futu_landcarr:
-	Defaults:
-		Filename: futu_landcarr.shp
-		Scale: 1
-	idle1:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	idle2:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	stand:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	run:
-		Length: 12
-		Facings: 8
-		Tick: 110
-		FlipX: True
-	turret:
-		Start: 96
-		Facings: 32
-		FlipX: True
+	Inherits: ^RA2CannonMuzzle
 	icon:
-		Filename: futu_landcarriericon.png
-		Offset: 0,0
+		Filename: futu_beehiveicon.png
+
+futu_landcarr_drone:
+	Inherits: ra2hornet
+	Defaults:
+		Scale: 0.5
 
 futu_orion:
-	Defaults:
-		Filename: futu_orion.shp
-		Scale: 1
-	idle1:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	idle2:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	stand:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	run:
-		Length: 12
-		Facings: 8
-		Tick: 110
-		FlipX: True
-	turret:
-		Start: 96
-		Facings: 32
-		FlipX: True
+	Inherits: ^RA2CannonMuzzle
 	icon:
-		Filename: futu_orionmechicon.png
-		Offset: 0,0
+		Filename: futu_oriontankicon.png
 
 futu_manticore:
 	Defaults:
@@ -8877,7 +8833,7 @@ futu_coiler:
 	idle:
 		Facings: 64
 	icon:
-		Filename: ttnkicon.shp
+		Filename: futu_coilericon.png
 
 futu_futu:
 	Inherits: ^RA2CannonMuzzle
