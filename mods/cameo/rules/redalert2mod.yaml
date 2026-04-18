@@ -19293,7 +19293,7 @@ futu_launchpad:
 	Tooltip:
 		Name: FutureTech Launch Pad
 	Building:
-		Footprint: =x=== xxxx= ==xx=
+		Footprint: =xx== xxxxx ==xx=
 		Dimensions: 5,3
 	Exit@1:
 		ExitCell: 1,1
