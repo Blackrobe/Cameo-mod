@@ -8772,7 +8772,7 @@ futu_harv:
 		Length: 15
 		Facings: 8
 	icon:
-		Filename: ra2cminicon.shp
+		Filename: futu_harvicon.png
 		AddExtension: False
 futu_harv2:
 	Defaults:
@@ -8791,7 +8791,7 @@ futu_harv2:
 		Length: 15
 		Facings: 8
 	icon:
-		Filename: ra2cminicon.shp
+		Filename: futu_harv2icon.png
 		AddExtension: False
 
 futu_phal:
@@ -8869,7 +8869,7 @@ yrrobo:
 	muzzle-2:
 		Offset: 0,20
 	icon:
-		Filename: ra2roboticon.shp
+		Filename: yrroboicon.png
 		AddExtension: False
 
 futu_spy:
