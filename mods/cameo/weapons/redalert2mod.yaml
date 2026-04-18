@@ -8638,17 +8638,20 @@ Future_Cryocopter_Rocket:
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -16000
-		Range: 200
+		Range: 400
+		Delay: 1
 		ValidTargets: Ground, Water, Air
 	Warhead@PhysicalStateCryo2: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -16000
-		Range: 400
+		Amount: -12000
+		Range: 600
+		Delay: 2
 		ValidTargets: Ground, Water, Air
 	Warhead@PhysicalStateCryo3: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -16000
-		Range: 600
+		Amount: -8000
+		Range: 800
+		Delay: 3
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect
 		ExplosionPalette: effect
@@ -8670,7 +8673,7 @@ Future_Cryocopter_Cryo:
 	Inherits: ^FlakWeapon
 	Inherits: ^TeslaWeapon
 	Inherits: ^LaserWeapon
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 	ReloadDelay: 8
 	Range: 5200
 	Report: AUCryoc_wea1impact2La.wav, AUCryoc_wea1impact2Lb.wav, AUCryoc_wea1impact2Lc.wav, AUCryoc_wea1impact2Ld.wav
@@ -8727,28 +8730,47 @@ Future_Cryocopter_Cryo:
 		Damage: 1
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -4000
 		Range: 200
+		Delay: 1
 		ValidTargets: Ground, Water, Air
 	Warhead@PhysicalStateCryo2: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -4000
 		Range: 400
+		Delay: 2
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo3: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -4000
+		Range: 600
+		Delay: 3
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo4: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -4000
+		Range: 800
+		Delay: 4
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect
 		Explosions: cryo_blast
 		ImpactSounds: phohit00.wav
 		ValidTargets: Ground, Water, Air
 		Volume: 0.25
-	Warhead@EffectAir: CreateEffect
-		Explosions: cryo_blast
-		ImpactSounds: phohit00.wav
-		ValidTargets: Ground, Water, Air
-		Volume: 0.25
+
+Future_Turret_Cryo:
+	Inherits: Future_Cryocopter_Cryo
+	Range: 7124
 
 CryoLegionnaireAttack:
-	Range: 7c0
-	ReloadDelay: 40
+	Inherits: ^LightMissile
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	Inherits: ^FlakWeapon
+	Inherits: ^TeslaWeapon
+	Inherits: ^LaserWeapon
+	Range: 7000
+	ReloadDelay: 30
 	Report: AUCryoc_wea1impact2La.wav, AUCryoc_wea1impact2Lb.wav, AUCryoc_wea1impact2Lc.wav, AUCryoc_wea1impact2Ld.wav
 	Projectile: LinearPulse
 		Blockable: false
@@ -8764,39 +8786,91 @@ CryoLegionnaireAttack:
 		ConeTintMaxLevel: 500
 		ConeTintFalloff: 100, 75, 50, 25, 0
 		IgnoreRangeModifiers: false
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -8000
 		Range: 200
-		ValidTargets: Ground, Water
+		Delay: 1
+		ValidTargets: Ground, Water, Air
 		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo2: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -6000
 		Range: 400
-		ValidTargets: Ground, Water
+		Delay: 2
+		ValidTargets: Ground, Water, Air
+		ValidRelationships: Neutral, Enemy
+	Warhead@PhysicalStateCryo3: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -4000
+		Range: 600
+		Delay: 3
+		ValidTargets: Ground, Water, Air
+		ValidRelationships: Neutral, Enemy
+	Warhead@PhysicalStateCryo4: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -2000
+		Range: 800
+		Delay: 4
+		ValidTargets: Ground, Water, Air
 		ValidRelationships: Neutral, Enemy
 	Warhead@Effect: CreateEffect
 		Explosions: cryo_blast
 		ImpactSounds: phohit00.wav
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 		Volume: 0.25
-	Warhead@Damage: SpreadDamage
-		Damage: 20000
-		ValidTargets: Ground, Water
-		ValidRelationships: Neutral, Enemy
-		Versus:
-			None: 100
-			Wood: 100
-			Light: 60
-			Heavy: 30
-			Concrete: 20
-			Brick: 50
-		DamageTypes: BulletDeath
-	Warhead@Percentage: HealthPercentageDamage
-		ValidTargets: Ground, Water
-		ValidRelationships: Neutral, Enemy
-		Damage: 3
 
 FutureMicrotorpedos:
 	Inherits: ^RA2Grenade
@@ -8847,42 +8921,73 @@ FutureMicrotorpedos:
 		ImpactSounds: gexpwasa.wav
 
 AthenaLaser:
+	Inherits: ^LightMissile
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	Inherits: ^FlakWeapon
+	Inherits: ^TeslaWeapon
+	Inherits: ^LaserWeapon
 	Range: 16000
 	MinRange: 3200
 	ReloadDelay: 1
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 	Projectile: LaserZap
 		Duration: 22
 		Width: 0c64
 		Color: 83B9FC
 	TargetActorCenter: true
-	Warhead@1Dam_impact: SpreadDamage
-		AffectsParent: false
-		Spread: 1250
-		Damage: 2500
-		Falloff: 1000, 500, 250, 100
+	Warhead@LightMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@2Dam_area: SpreadDamage
-		AffectsParent: false
-		Spread: 1000
-		Damage: 8000
-		Falloff: 100, 75, 50, 25
-		Delay: 3
+		Damage: 32000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LightMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	Warhead@IonCannonPercentage: HealthPercentageDamage
-		AffectsParent: false
+		Damage: 16
+		ValidRelationships: Neutral, Enemy
+	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Spread: 1500
-		Damage: 10
-		Delay: 5
-		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@3Smu_area: LeaveSmudge
-		SmudgeType: Scorch
-		InvalidTargets: Vehicle, Building, Wall
-		Size: 3
-		Delay: 3
+		Damage: 32000
+		ValidRelationships: Neutral, Enemy
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 16
+		ValidRelationships: Neutral, Enemy
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 32000
+		ValidRelationships: Neutral, Enemy
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 16
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 32000
+		ValidRelationships: Neutral, Enemy
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 16
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 32000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 16
+		ValidRelationships: Neutral, Enemy
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 32000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 16
+		ValidRelationships: Neutral, Enemy
 	Warhead@4Effect: CreateEffect
 		Explosions: ionbeam
 		ExplosionPalette: ra2unit
@@ -8922,13 +9027,13 @@ AthenaLaser:
 		ValidTargets: Ground, Water, Air
 
 AthenaVisualLaser:
-	ReloadDelay: 6
+	ReloadDelay: 4
 	Range: 16000
 	MinRange: 3200
 	#Report: 2100rotlsr.wav
 	Report: AUGuard_beamLoopa.wav, AUGuard_beamLoopb.wav, AUGuard_beamLoopc.wav
 	TargetActorCenter: true
-	ValidTargets: Ground, Water, Structure, Wall
+	ValidTargets: Ground, Water
 	Projectile: LaserZap
 		Duration: 22
 		Width: 0c64
@@ -9890,55 +9995,28 @@ BlackWidowPistolsE:
 	Burst: 8
 
 OrionRailgun:
+	Inherits: ^RailgunWeapon
 	Inherits: ^RA2HeavyCannon
 	Range: 7500
-	ReloadDelay: 85
+	ReloadDelay: 60
 	Report: AUFTank_neutImpaSmaa.wav, AUFTank_neutImpaSmab.wav, AUFTank_neutImpaSmac.wav, AUFTank_neutImpaSmad.wav, AUFTank_neutImpaSmae.wav
 	Projectile: Bullet
 		Blockable: false
-		Speed: 900
+		Speed: 1500
 		ContrailStartColor: 88CCFFCC
 		ContrailEndColor: 2266FF00
 		ContrailLength: 30
 		ContrailStartWidth: 60
 		ContrailEndWidth: 15
 		ContrailDelay: 0
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 30000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 15
 	Warhead@HeavyCannon: SpreadDamage
-		Damage: 42000
-		Versus:
-			None: 20
-			Wood: 25
-			Light: 60
-			Medium: 75
-			Heavy: 125
-			Superheavy: 150
-			Concrete: 35
-			Brick: 30
-			Steel: 40
-			Shield: 130
-			Plate: 55
-			Flak: 35
-			Scout: 30
-			Heroic: 20
-		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+		Damage: 30000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 4
-		Versus:
-			None: 5
-			Wood: 5
-			Light: 10
-			Medium: 18
-			Heavy: 25
-			Superheavy: 30
-			Concrete: 22
-			Brick: 15
-			Steel: 20
-			Shield: 28
-			Plate: 12
-			Flak: 8
-			Scout: 6
-			Heroic: 20
-		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+		Damage: 15
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
 		ExplosionPalette: ra2effect
@@ -9947,8 +10025,22 @@ OrionRailgun:
 OrionRailgunE:
 	Inherits: OrionRailgun
 	Inherits@Elite: ^RA2EliteEffects
-	Range: 8500
-	ReloadDelay: 70
+	Range: 9000
+	Projectile: Bullet
+		Speed: 1800
+		ContrailStartColor: FFCC88CC
+		ContrailEndColor: FF662200
+		ContrailLength: 45
+		ContrailStartWidth: 90
+		ContrailEndWidth: 30
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 60000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 30
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 60000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 30
 
 BeehiveCarrierTarget:
 	Inherits: RA2CarrierTarget

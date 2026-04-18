@@ -3163,6 +3163,42 @@ tmpl.nuke:
 	RenderSprites:
 		Image: tmpl.nuke
 
+td_nod_templeprime:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^3x3Shape
+	Inherits@SW: ^PrimarySuperweapon
+	Inherits@sell: ^TDNodSpawnActorsOnSell
+	Inherits@radar: ^RadarBuilding
+	Inherits@tech: ^IsTechnoBuilding
+	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
+	Inherits@cashtricklerlimit: ^CashTricklerLimited
+	Tooltip:
+		Name: Temple Prime
+	-Production@Addons:
+	-ProductionBar@Addons:
+	ProvidesPrerequisite:
+		Prerequisite: anytdhq
+	Buildable:
+		-BuildLimit:
+		BuildPaletteOrder: 100
+		Prerequisites: ~fact.nod, tmpl
+		Queue: Building, RABuilding
+		Description: actor-tmpl.description
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 3072, 3072, 0, -512
+	SelectionDecorations:
+	RenderDetectionCircle:
+	WithBuildingBib:
+	WithIdleOverlay@idle:
+		RequiresCondition: !build-incomplete
+		Sequence: idle
+	RenderSprites:
+		PlayerPalette: player_rgba
+
 GUN:
 	Inherits: ^TDDefense
 	Inherits@Template: ^BasicDefenseTemplate
@@ -4234,36 +4270,6 @@ up_improvedartilleries:
 		Image: improvedartilleriesicon
 	ProvidesPrerequisite:
 
-up_elitecapacitors:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Elite Capacitors
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Upgrades
-		Description: upgrade-elitecapacitors.description
-		Prerequisites: ~tmpl, !up_elitecapacitors
-	RenderSprites:
-		Image: elitecapacitorsicon
-	ProvidesPrerequisite:
-
-up_cyberneticmodifications:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Cybernetic Modifications
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Upgrades
-		Description: upgrade-cyberneticmodifications.description
-		Prerequisites: ~tmpl, !up_cyberneticmodifications
-	RenderSprites:
-		Image: cyberneticmodificationsicon
-	ProvidesPrerequisite:
-
 up_blackmarketupgrades:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -4284,7 +4290,7 @@ up_elementalwarfare:
 	Tooltip:
 		Name: Elemental Warfare
 	Valued:
-		Cost: 10000
+		Cost: 7500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Upgrades
@@ -4292,6 +4298,36 @@ up_elementalwarfare:
 		Prerequisites: ~tmpl, !up_elementalwarfare
 	RenderSprites:
 		Image: elementalwarfareicon
+	ProvidesPrerequisite:
+
+up_elitecapacitors:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Elite Capacitors
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Upgrades
+		Description: upgrade-elitecapacitors.description
+		Prerequisites: ~tmpl, td_nod_templeprime, !up_elitecapacitors
+	RenderSprites:
+		Image: elitecapacitorsicon
+	ProvidesPrerequisite:
+
+up_cyberneticmodifications:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Cybernetic Modifications
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Upgrades
+		Description: upgrade-cyberneticmodifications.description
+		Prerequisites: ~tmpl, td_nod_templeprime, !up_cyberneticmodifications
+	RenderSprites:
+		Image: cyberneticmodificationsicon
 	ProvidesPrerequisite:
 
 up_advancedguerillatactics:
@@ -4304,7 +4340,7 @@ up_advancedguerillatactics:
 		BuildPaletteOrder: 80
 		Queue: Upgrades
 		Description: upgrade-advancedguerillatactics.description
-		Prerequisites: ~tmpl, up_guerillatactics, !up_advancedguerillatactics
+		Prerequisites: ~tmpl, td_nod_templeprime, up_guerillatactics, !up_advancedguerillatactics
 	RenderSprites:
 		Image: advancedguerillatacticsicon
 	#ProvidesPrerequisite:
@@ -4703,7 +4739,7 @@ chemssm:
 		BuildPaletteOrder: 100
 		Queue: Vehicle, RAVehicle
 		Description: actor-mssm.description
-		Prerequisites: tmpl, ~upchemicalssmlauncher
+		Prerequisites: td_nod_templeprime, ~upchemicalssmlauncher
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -4968,7 +5004,7 @@ tsblackhandlaser:
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 100
-		Prerequisites: tmpl, ~upblackhandlaser
+		Prerequisites: td_nod_templeprime, ~upblackhandlaser
 		Description: actor-blackhandlaser.description
 	Valued:
 		Cost: 700
@@ -5156,6 +5192,7 @@ nodspecter:
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Inherits@BlackMarketUpgrades: ^BlackMarketUpgrades
 	Inherits@decoration: ^NodRankDecoration
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -5195,6 +5232,23 @@ nodspecter:
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: SpecterArtilleryShellUpgrade
 		RequiresCondition: up_blackmarketupgrades
+	GrantCondition@gatling:
+		Condition: cloak-force-disabled
+		RequiresCondition: gatling
+	GrantConditionOnAttack@gatling:
+		RevokeDelay: 80
+	GrantConditionOnAttack@elitegatling:
+		MaximumInstances: 40
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 160
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 10
 	RenderSprites:
 		Image: nodspecter
 	Voiced:
@@ -5227,7 +5281,7 @@ nodvenom:
 		Name: Venom
 	Buildable:
 		BuildPaletteOrder: 20
-		Prerequisites: tmpl, ~upnodvenom
+		Prerequisites: td_nod_templeprime, ~upnodvenom
 		Queue: Aircraft, RAAircraft
 		Description: actor-venom.description
 	Aircraft:
@@ -5248,24 +5302,27 @@ nodvenom:
 		OpportunityFire: false
 		PersistentTargeting: false
 		AttackType: Hover
-	AmmoPool:
-		Ammo: 7
-		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: nodvenom.husk
 	EjectOnDeath:
 		PilotActor: tsstealthsoldier
 	SelectionDecorations:
-	ReloadAmmoPool:
-		Delay: 36
-		Count: 1
 	ReloadAmmoDelayMultiplier@up_elitecapacitors:
 		Modifier: 85
 		RequiresCondition: up_elitecapacitors
+	GrantCondition@gatling:
+		Condition: cloak-force-disabled
+		RequiresCondition: gatling
 	Selectable:
 		DecorationBounds: 1280, 1024
 	RenderSprites:
 		Image: nodvenom
+	AmmoPool:
+		Ammo: 7
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 36
+		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
@@ -5308,6 +5365,7 @@ nodlasercommando:
 	Inherits@TiberiumInfusion: ^TiberiumInfusion
 	Inherits@CyberneticModifications: ^CyberneticModifications
 	Inherits@decoration: ^NodRankDecoration
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Valued:
 		Cost: 5000
 	Tooltip:
@@ -5315,20 +5373,20 @@ nodlasercommando:
 	Buildable:
 		BuildLimit: 1
 		BuildPaletteOrder: 50
-		Prerequisites: tmpl, ~upnodvenom
+		Prerequisites: td_nod_templeprime, ~upnodvenom
 		Queue: Infantry, RAInfantry
 		Description: actor-lasercommando.description
 	RenderSprites:
 		PlayerPalette: playerra2
 	Mobile:
-		Speed: 80
+		Speed: 79
 		Voice: Move
 	Guard:
 		Voice: Move
 	Health:
-		HP: 50000
+		HP: 57000
 	ChangesHealth@SelfHealing:
-		Step: 50
+		Step: 57
 	Passenger:
 		Voice: Move
 	AttackMove:
@@ -5357,10 +5415,10 @@ nodlasercommando:
 	Armament@pointdefense:
 		Weapon: NodCommandoLaser
 	AmmoPool@pld:
-		Ammo: 25
+		Ammo: 24
 		Armaments: primary, pointdefense
 	ReloadAmmoPool@pld:
-		Delay: 10
+		Delay: 16
 		Count: 1
 	AttackFrontal:
 		Voice: Attack
@@ -5376,10 +5434,13 @@ nodlasercommando:
 		Position: BottomLeft
 		RequiresSelection: true
 		FullSequence: pip-red
-		PipCount: 5
+		PipCount: 8
 	ReloadAmmoDelayMultiplier@up_elitecapacitors:
 		Modifier: 70
 		RequiresCondition: up_elitecapacitors
+	GrantCondition@gatling:
+		Condition: cloak-force-disabled
+		RequiresCondition: gatling
 	ActorStatValues:
 		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elitecapacitors, up_tiberiuminfusion, up_cyberneticmodifications
 

@@ -1115,6 +1115,31 @@ tmpl.nuke:
 		AddExtension: False
 		Offset: 0,0
 
+td_nod_templeprime:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+		Filename: td_nod_templeprime_idle.png
+		#Scale: 0.5
+		Offset: 0,0
+	idle:
+		Tick: 128
+		Length: 1
+		#Length: *
+	damaged-idle:
+		Start: 0
+	dead:
+		Start: 0
+		Tick: 512
+	make:
+		Filename: td_nod_templeprime_buildup.png
+		Length: *
+		Tick: 256
+	bib:
+		Offset: 0,-24
+	icon:
+		Filename: td_nod_templeprime_icon.png
+		Offset: 0,0
+
 obli:
 	Defaults:
 		Filename: obli.shp

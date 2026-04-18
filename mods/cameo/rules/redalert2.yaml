@@ -2555,6 +2555,8 @@ yryarefn:
 	Valued:
 		Cost: 2000
 	Buildable:
+		BuildDuration: 500
+		BuildDurationModifier: 100
 		Prerequisites: ~yrnacnst, yryapowr
 		Description: actor-yarefn.description
 	Building:
@@ -7153,10 +7155,10 @@ YRSMIN:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: actor-smin.name
+		Name: Slave Miner
 	Buildable:
 		BuildPaletteOrder: 10
-		BuildDuration: 750
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~yrygweap
 		Queue: Vehicle, RAVehicle
@@ -9553,13 +9555,13 @@ ra2rock:
 	RenderSprites:
 		PlayerPalette: playerra2
 	FirepowerMultiplier@ra2_allies_upgrade_eliterocketeer:
-		Modifier: 125
+		Modifier: 115
 		RequiresCondition: ra2_allies_upgrade_eliterocketeer
 	ReloadDelayMultiplier@upgrade:
-		Modifier: 80
+		Modifier: 85
 		RequiresCondition: ra2_allies_upgrade_eliterocketeer
 	DamageMultiplier@upgrade:
-		Modifier: 80
+		Modifier: 85
 		RequiresCondition: ra2_allies_upgrade_eliterocketeer
 	SpeedMultiplier@ra2_allies_upgrade_eliterocketeer:
 		Modifier: 110
@@ -13330,7 +13332,7 @@ ra2_allies_upgrade_assaultsquadtraining:
 
 ^RA2AlliedAssaultSquadTraining:
 	SpeedMultiplier@ra2_allies_upgrade_assaultsquadtraining:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
 	FirepowerMultiplier@ra2_allies_upgrade_assaultsquadtraining:
 		Modifier: 125
@@ -13367,13 +13369,13 @@ ra2_allies_upgrade_vanguardtraining:
 		DamageCooldown: 1
 		RequiresCondition: ra2_allies_upgrade_vanguardtraining
 	DamageMultiplier@ra2_allies_upgrade_vanguardtraining:
-		Modifier: 60
+		Modifier: 70
 		RequiresCondition: ra2_allies_upgrade_vanguardtraining
 	FirepowerMultiplier@ra2_allies_upgrade_vanguardtraining:
-		Modifier: 110
+		Modifier: 115
 		RequiresCondition: ra2_allies_upgrade_vanguardtraining
 	SpeedMultiplier@ra2_allies_upgrade_vanguardtraining:
-		Modifier: 110
+		Modifier: 115
 		RequiresCondition: ra2_allies_upgrade_vanguardtraining
 	GrantConditionOnPrerequisite@ra2_allies_upgrade_vanguardtraining:
 		Condition: ra2_allies_upgrade_vanguardtraining
@@ -13552,7 +13554,7 @@ ra2_allies_upgrade_eliterocketeer:
 	Tooltip:
 		Name: Elite Rocketeers
 	Buildable:
-		Description: Upgrades the Rocketeer with 25% more firepower, 20% faster reload, 20% damage resistance, 10% more range and 10% more speed.
+		Description: Upgrades the Rocketeer with 15% more firepower, 15% faster reload, 15% damage resistance, 10% more range and 10% more speed.
 		Prerequisites: ~ra2gaairc, ra2gatech, !ra2_allies_upgrade_eliterocketeer
 	RenderSprites:
 		Image: ra2_allies_upgrade_eliterocketeer

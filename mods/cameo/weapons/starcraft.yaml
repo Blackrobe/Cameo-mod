@@ -3735,13 +3735,21 @@ VoidRayBeam:
 		Damage: 1
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -6000
 		Range: 200
+		Delay: 1
 		ValidTargets: Ground, Water, Air
 	Warhead@PhysicalStateCryo2: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -4000
 		Range: 400
+		Delay: 2
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo3: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -2000
+		Range: 600
+		Delay: 3
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect
 		Explosions: scblueexplosion
@@ -3829,10 +3837,25 @@ StarshipSovereignBeam:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
-	Warhead@PhysicalStateCryo: ApplyPhysicalState
+	Warhead@PhysicalStateCryo1: ApplyPhysicalState
 		PhysicalStateName: Temperature
-		Amount: -12000
+		Amount: -6000
 		Range: 200
+		Delay: 1
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo2: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -4000
+		Range: 400
+		Delay: 2
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Water, Air
+	Warhead@PhysicalStateCryo3: ApplyPhysicalState
+		PhysicalStateName: Temperature
+		Amount: -2000
+		Range: 600
+		Delay: 3
 		ValidRelationships: Neutral, Enemy
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect

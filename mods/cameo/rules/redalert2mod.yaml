@@ -18467,9 +18467,6 @@ nax_haunebu:
 		HP: 250000
 	ChangesHealth@SelfHealing:
 		Step: 100
-	GrantConditionOnPrerequisite@Upgrade:
-		Condition: upyrdisk
-		Prerequisites: upyrdisk
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: NaxHaenebuQuadCannon
@@ -18728,9 +18725,6 @@ nax_dieglocke:
 		HP: 3750000
 	ChangesHealth@SelfHealing:
 		Step: 50
-	GrantConditionOnPrerequisite@Upgrade:
-		Condition: upyrdisk
-		Prerequisites: upyrdisk
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: NaxDieGlocke
@@ -18787,8 +18781,6 @@ nax_dieglocke:
 		RequiresCondition: stealing
 	RenderSprites:
 		PlayerPalette: playerra2
-	ActorStatValues:
-		Upgrades: upyrdisk
 
 nax_dieglocke.Husk:
 	Inherits: ^LargeHelicopterHusk
@@ -19440,7 +19432,7 @@ futu_gggun:
 	Inherits: ^RA2Defense
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
@@ -19468,12 +19460,12 @@ futu_gggun:
 	AttackTurreted:
 		Voice: Attack
 	Armament:
-		Weapon: Future_Cryocopter_Cryo
+		Weapon: Future_Turret_Cryo
 		LocalOffset: 500,2,100, 500,-2,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	FirepowerMultiplier@Cryo:
-		Modifier: 64
+		Modifier: 48
 	WithMuzzleOverlay:
 	BodyOrientation:
 		QuantizedFacings: 16
@@ -20440,7 +20432,7 @@ futu_cryoleg:
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 121
-		Prerequisites: ~futu_egtech
+		Prerequisites: ~futu_egshock
 		BuildLimit: 1
 		Description: actor-futu_cryoleg.description
 	RenderSprites:
@@ -20450,9 +20442,9 @@ futu_cryoleg:
 	Tooltip:
 		Name: Cryo Legionnaire
 	Health:
-		HP: 75000
+		HP: 360000
 	ChangesHealth@SelfHealing:
-		Step: 50
+		Step: 360
 	Mobile:
 		Speed: 75
 	Armament@PRIMARY:
@@ -20957,7 +20949,7 @@ futu_landcarr:
 		Name: Beehive Drone Carrier
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egtech
+		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_landcarr.description
 	Mobile:
@@ -21033,7 +21025,7 @@ futu_landcarr_drone:
 futu_orion:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@Template: ^HighTechTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
@@ -21044,28 +21036,28 @@ futu_orion:
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
 	Valued:
-		Cost: 2800
+		Cost: 3600
 	Tooltip:
 		Name: Orion Tank
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: ~futu_egshock
+		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_orion.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 50
+		Speed: 60
 		TurnSpeed: 12
 	Health:
-		HP: 175000
+		HP: 180000
 	Repairable:
-		HpPerStep: 8750
+		HpPerStep: 9000
 	ChangesHealth@SelfHealing:
-		Step: 70
+		Step: 72
 	Armor:
 		Type: Heavy
 	Turreted:
-		TurnSpeed: 12
+		TurnSpeed: 60
 		Offset: -40,0,0
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -21268,7 +21260,7 @@ futu_athena:
 		ArmamentNames: primary
 		RequiredShotsPerInstance: 25
 		MaximumInstances: 1
-		RevokeDelay: 7
+		RevokeDelay: 5
 		RevokeOnNewTarget: true
 		RevokeAll: true
 		ShowSelectionBar: true
@@ -21279,7 +21271,7 @@ futu_athena:
 		ArmamentNames: athena-beam
 		RequiredShotsPerInstance: 1
 		MaximumInstances: 1
-		RevokeDelay: 250
+		RevokeDelay: 100
 	WithMuzzleOverlay:
 	Selectable:
 		DecorationBounds: 1280, 1280
@@ -21539,7 +21531,7 @@ futu_cryo:
 		AmmoUsage: 1
 		PauseOnCondition: ammo < 4
 	FirepowerMultiplier@Cryo:
-		Modifier: 16
+		Modifier: 12
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -21604,7 +21596,7 @@ future_harbinger:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
-	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@gat: ^GatlingSpeedUpSpecialUnitBehavior
 	Inherits@announce: ^AnnounceOnBuild
 	Tooltip:
 		Name: Harbinger Gunship

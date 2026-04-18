@@ -8213,17 +8213,17 @@ duelist_tank:
 		Prerequisites: ~research_centre.ixian
 		Description: actor-duelist_tank.description
 	Valued:
-		Cost: 1600
+		Cost: 1800
 	Tooltip:
 		Name: Ix Duelist Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 197500
+		HP: 240000
 	Repairable:
-		HpPerStep: 9875
+		HpPerStep: 12000
 	ChangesHealth@SelfHealing:
-		Step: 79
+		Step: 96
 	Armor:
 		Type: Heavy
 	Shielded:

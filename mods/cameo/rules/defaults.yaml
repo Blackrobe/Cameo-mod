@@ -2394,6 +2394,11 @@
 		RequiresCondition: (empdisable || superfreeze) && airborne
 		Modifier: 1000
 
+^InterceptorAircraft:
+	Inherits@RANeutralPlane: ^RANeutralPlane
+	Targetable@ALL:
+		TargetTypes: Aircraft, Interceptor
+
 ^AircraftEjectOnDeath:
 	EjectOnDeath:
 		PilotActor: RARE1
@@ -6254,6 +6259,9 @@ CPQDEBUGDUMMY:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	GrantCondition@cloak-force-disabled:
+		Condition: cloak-force-disabled
+		RequiresCondition: lockedon
 	AttractsWorms:
 		Intensity: 700
 		Position: BottomLeft
@@ -6524,6 +6532,9 @@ CPQDEBUGDUMMY:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	GrantCondition@cloak-force-disabled:
+		Condition: cloak-force-disabled
+		RequiresCondition: lockedon
 
 ^AnnounceOnBuild:
 	ExternalCondition@PRODUCED:
@@ -8933,6 +8944,9 @@ CPQDEBUGDUMMY:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	GrantCondition@cloak-force-disabled:
+		Condition: cloak-force-disabled
+		RequiresCondition: lockedon
 	GrantCondition:
 		Condition: stealthed
 	TooltipExtras@Cloak:
