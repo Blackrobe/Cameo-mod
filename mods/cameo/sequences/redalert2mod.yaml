@@ -7664,7 +7664,7 @@ futu_mcv:
 	idle:
 		Facings: 64
 	icon:
-		Filename: ra2amcvicon.shp
+		Filename: futu_mcvicon.png
 		AddExtension: False
 
 futu_egcnst:
@@ -7673,14 +7673,6 @@ futu_egcnst:
 	idle:
 		Filename: futu_egcnst.shp
 		ShadowStart: 2
-	make:
-		Filename: futu_egcnstmk.shp
-		Length: 31
-		ShadowStart: 31
-	dead:
-		Filename: futu_egcnst.shp
-	build:
-		Filename: invisibleitem.shp
 	damaged-idle:
 		Filename: futu_egcnst.shp
 		Start: 1
@@ -7701,11 +7693,15 @@ futu_egcnst:
 		Filename: futu_egcnst_working.shp
 		Length: 42
 		Tick: 100
+	make:
+		Filename: futu_egcnstmk.shp
+		Length: 41
+		ShadowStart: 41
+	build:
+		Filename: invisibleitem.shp
 	dead:
 		Filename: futu_egcnst.shp
-		Length: 1
 		ShadowStart: 3
-		Tick: 90
 	icon:
 		Filename: futu_conyardicon.png
 		Offset: 0,0
@@ -7744,7 +7740,7 @@ futu_ggpowr:
 
 futu_egpile:
 	Defaults:
-		Offset: -15,10
+		Offset: 10,10
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -7855,7 +7851,8 @@ futu_egweap2:
 	overlay-fan:
 		Filename: futu_egweap2_c.shp
 		Length: 24
-		ZOffset: -512
+		ZOffset: 0
+		ShadowStart: -1
 	make:
 		Filename: futu_egweap2mk.shp
 		Length: 58
@@ -8294,6 +8291,18 @@ futu_javelinsoldier:
 	icon:
 		Filename: futu_javelinsoldiericon.png
 
+futu_fedeng:
+	Inherits: steel_fedeng
+	icon:
+		Filename: futu_engiicon.png
+		Scale: 1
+		Offset: 0,0
+
+futu_engi:
+	Inherits: nax2_engi
+	icon:
+		Filename: futu_repairdroidicon.png
+
 futu_wheel:
 	Defaults:
 		Filename: futu_wheel.shp
@@ -8414,6 +8423,108 @@ future_robot_shotgun:
 		Filename: futu_shotgunroboticon.png
 		Offset: 0,0
 
+futu_cryoleg:
+	Defaults:
+		Filename: crleg.shp
+		ShadowStart: -1
+		HasShadow: false
+	stand:
+		Start: 0
+		Length: 1
+		Facings: 8
+	walk:
+		Start: 247
+		Length: 16
+		Facings: 8
+	run:
+		Start: 247
+		Length: 16
+		Facings: 8
+	idle1:
+		Start: 102
+		Length: 32
+	idle2:
+		Start: 102
+		Length: 32
+	cheer:
+		Start: 72
+		Length: 30
+	attack:
+		Start: 134
+		Length: 8
+		Facings: 8
+	shoot:
+		Start: 134
+		Length: 8
+		Facings: 8
+	die1:
+		Start: 198
+		Length: 23
+	die2:
+		Start: 221
+		Length: 26
+	paradrop:
+		Start: 3
+		Length: 2
+	die-crushed:
+		Filename: invisibleitem.shp
+		ShadowStart: -1
+	die3:
+		Filename: invisibleitem.shp
+		ShadowStart: -1
+	die4:
+		Filename: ra2_nukedie.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 50
+	die5:
+		Filename: ra2_yuridie.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	die6:
+		Filename: ra2_electro.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	die7:
+		Filename: yr_virusd.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	die8:
+		Filename: yr_brutdie.shp
+		ShadowStart: -1
+		Length: *
+		Tick: 80
+	liedown:
+		Start: 0
+		Length: 1
+		Facings: 8
+	standup:
+		Start: 0
+		Length: 1
+		Facings: 8
+	prone-stand:
+		Start: 0
+		Length: 1
+		Facings: 8
+	prone-run:
+		Start: 247
+		Length: 16
+		Facings: 8
+	prone-shoot:
+		Start: 134
+		Length: 8
+		Facings: 8
+	icon:
+		Filename: futu_cryolegionnaireicon.png
+		Offset: 0,0
+		ShadowStart: -1
+	muzzle:
+		Filename: steel_energymuzzle.shp
+		ShadowStart: -1
+
 future_mech_machinegun:
 	Defaults:
 		Filename: future_mech_machinegun.shp
@@ -8463,68 +8574,19 @@ future_mech_plasma:
 		Offset: 0,0
 
 futu_landcarr:
-	Defaults:
-		Filename: futu_landcarr.shp
-		Scale: 1
-	idle1:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	idle2:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	stand:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	run:
-		Length: 12
-		Facings: 8
-		Tick: 110
-		FlipX: True
-	turret:
-		Start: 96
-		Facings: 32
-		FlipX: True
+	Inherits: ^RA2CannonMuzzle
 	icon:
-		Filename: futu_landcarriericon.png
-		Offset: 0,0
+		Filename: futu_beehiveicon.png
+
+futu_landcarr_drone:
+	Inherits: ra2hornet
+	Defaults:
+		Scale: 0.5
 
 futu_orion:
-	Defaults:
-		Filename: futu_orion.shp
-		Scale: 1
-	idle1:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	idle2:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	stand:
-		Length: 12
-		Facings: 8
-		Tick: 9999
-		FlipX: True
-	run:
-		Length: 12
-		Facings: 8
-		Tick: 110
-		FlipX: True
-	turret:
-		Start: 96
-		Facings: 32
-		FlipX: True
+	Inherits: ^RA2CannonMuzzle
 	icon:
-		Filename: futu_orionmechicon.png
-		Offset: 0,0
+		Filename: futu_oriontankicon.png
 
 futu_manticore:
 	Defaults:
@@ -8656,23 +8718,6 @@ futu_ifv:
 
 futu_mbt:
 	Inherits: ^RA2CannonMuzzle
-	Defaults:
-		Filename: futu_mbt.png
-	idle:
-		Filename: futu_mbt.png
-		Scale: 1
-		Facings: 64
-		Offset: 0,5
-	turret:
-		Scale: 1
-		Start: 64
-		Facings: 64
-		Offset: 0,5
-	turret-laser:
-		Scale: 1
-		Start: 128
-		Facings: 64
-		Offset: 0,5
 	icon:
 		Filename: futu_guardiantankicon.png
 
@@ -8759,7 +8804,7 @@ futu_phal:
 	turret:
 		Facings: 64
 	icon:
-		Filename: nax_jagdpanzer_icon.png
+		Filename: futu_phalanxicon.png
 		AddExtension: False
 	muzzle:
 		Filename: ra2_gunfire.shp
@@ -8788,7 +8833,7 @@ futu_coiler:
 	idle:
 		Facings: 64
 	icon:
-		Filename: ttnkicon.shp
+		Filename: futu_coilericon.png
 
 futu_futu:
 	Inherits: ^RA2CannonMuzzle
@@ -8838,9 +8883,9 @@ futu_spy:
 	cheer:
 		Start: 196
 	icon:
-		Filename: ra2spyicon.shp
+		Filename: futu_infiltratoricon.png
 
-futu_commando:
+futu_blackwidow:
 	Inherits: ^RA2ArmedInfantry
 	Defaults:
 		Filename: ra2_tany_black.shp
@@ -8893,8 +8938,8 @@ futu_commando:
 		Filename: tanyamodes.shp
 		Start: 1
 	icon:
-		Filename: ra2tanyaicon.shp
-	iconchrono: ra2htanyaicon.shp
+		Filename: futu_blackwidowicon.png
+	iconchrono: futu_blackwidowicon.png
 
 future_twister:
 	idle:

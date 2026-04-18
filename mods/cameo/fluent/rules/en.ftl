@@ -2612,7 +2612,7 @@ faction-ra2-futuretech =
       Weakness: Early Game, Base Defense
       Countered by: Early Aggression, Air Raids
       Special Units: Future Tank, Harbinger Gunship, Cryocopter
-      Special Buildings: Shock Center, Robot Control Center
+      Special Buildings: Hypercore, Robot Control Center
       Support powers: Paradrop (Planned: Sigma Harmonizer, Robot Energize)
 
 faction-d2k-random =
