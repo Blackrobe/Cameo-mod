@@ -21363,7 +21363,7 @@ futu_futu:
 	Tooltip:
 		Name: Future Tank
 	Buildable:
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 200
 		BuildLimit: 1
 		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
