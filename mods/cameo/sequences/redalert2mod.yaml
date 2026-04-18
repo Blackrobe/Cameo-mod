@@ -7669,7 +7669,7 @@ futu_mcv:
 
 futu_egcnst:
 	Defaults:
-		Offset: 2,-26
+		Offset: 2,-40
 	idle:
 		Filename: futu_egcnst.shp
 		ShadowStart: 2
@@ -7712,7 +7712,7 @@ futu_egcnst:
 
 futu_ggpowr:
 	Defaults:
-		Offset: 0,-2
+		Offset: 0,-16
 	idle:
 		Filename: futu_ggpowr.shp
 		ShadowStart: 3
@@ -7744,7 +7744,7 @@ futu_ggpowr:
 
 futu_egpile:
 	Defaults:
-		Offset: -15,10
+		Offset: 10,-10
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -7798,7 +7798,7 @@ futu_egpile:
 
 futu_egweap2:
 	Defaults:
-		Offset: -18,-28
+		Offset: -24,-36
 	idle:
 		Filename: futu_egweap2.shp
 		ShadowStart: 2
@@ -7894,7 +7894,7 @@ futu_egweap2:
 
 futu_launchpad:
 	Defaults:
-		Offset: -24,-24 #12
+		Offset: -32,-48 #12
 	idle:
 		Filename: futu_ggairc.shp
 		Length: 1
@@ -7954,7 +7954,7 @@ futu_launchpad:
 
 futu_egtf:
 	Defaults:
-		Offset: -15,10
+		Offset: -4,10
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -8044,7 +8044,7 @@ futu_egrefn:
 
 futu_egtech:
 	Defaults:
-		Offset: -8,-14
+		Offset: -12,-14
 	idle:
 		Filename: futu_egtech.shp
 		ShadowStart: 2
@@ -8077,7 +8077,7 @@ futu_egtech:
 
 futu_egshock:
 	Defaults:
-		Offset: -10,-15
+		Offset: -10,-32
 	idle:
 		Filename: futu_egshock.shp
 		ShadowStart: 2
@@ -8124,7 +8124,7 @@ futu_egshock:
 futu_gggun:
 	Inherits: ^RA2MachineGunMuzzle
 	Defaults:
-		Offset: 0,2
+		Offset: 0,-4
 	idle:
 		Filename: futu_GGGUN.shp
 		ShadowStart: 3
@@ -8150,7 +8150,7 @@ futu_gggun:
 
 futu_ggmlt:
 	Defaults:
-		Offset: 0,2
+		Offset: 0,-4
 	idle:
 		Filename: futu_ggmltgtur.shp
 		Facings: 32

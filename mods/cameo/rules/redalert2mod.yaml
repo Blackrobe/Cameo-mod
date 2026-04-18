@@ -19038,14 +19038,14 @@ futu_mcv:
 futu_egcnst:
 	Inherits: ^RA2Building
 	Inherits@conyard: ^Conyard
-	Inherits@shape: ^4x3Shape
+	Inherits@shape: ^5x3Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
 	Tooltip:
 		Name: FutureTech Construction Yard
         Description: actor-futu_egcnst.description
 	Building:
-		Footprint: xxxx xxxx xxxx
-		Dimensions: 4,3
+		Footprint: =xxx= xxxxx =xxx=
+		Dimensions: 5,3
 	Transforms:
 		IntoActor: futu_mcv
 		Offset: 1,1
@@ -19221,7 +19221,7 @@ yrgarobo:
 		Prerequisites: ~futu_egcnst, futu_egweap2
 		Description: actor-yrgarobo.description
 	Building:
-		Footprint: xx xx
+		Footprint: == xx
 		Dimensions: 2,2
 	WithSpriteBody:
 		PauseOnCondition: disabled
@@ -19241,7 +19241,7 @@ futu_egtf:
 		Prerequisites: ~futu_egcnst, futu_egrefn
         Description: actor-futu_egtf.description
 	Building:
-		Footprint: xxx xxx ===
+		Footprint: === xxx xxx
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	SelectionDecorations:
@@ -19262,7 +19262,7 @@ futu_egtf:
 
 futu_launchpad:
 	Inherits: ^RA2Building
-	Inherits@shape: ^4x3Shape
+	Inherits@shape: ^5x3Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
@@ -19272,8 +19272,8 @@ futu_launchpad:
 	Tooltip:
 		Name: FutureTech Airfield
 	Building:
-		Footprint: =x== =xx= ==x=
-		Dimensions: 4,3
+		Footprint: =x=== xxxx= ==xx=
+		Dimensions: 5,3
 	Exit@1:
 		ExitCell: 1,1
 		Facing: 768
@@ -19354,7 +19354,7 @@ futu_egtech:
 	Tooltip:
 		Name: FutureTech Battle Lab
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: === xxx xxx
 		Dimensions: 3,3
 	SupportPowerChargeBar:
 	ProvidesPrerequisite:
@@ -19373,7 +19373,7 @@ futu_egshock:
 	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@IDISABLE: ^DisabledOverlay
-	Inherits@shape: ^3x3Shape
+	Inherits@shape: ^4x3Shape
 	Tooltip:
 		Name: Shock Center
 	Buildable:
@@ -19385,8 +19385,8 @@ futu_egshock:
 		Queue: Building, RABuilding
 		Description: actor-futu_egshock.description
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: =xx= xxxx =xx=
+		Dimensions: 4,3
 	Valued:
 		Cost: 7500
 	Health:
