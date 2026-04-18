@@ -7954,7 +7954,7 @@ futu_launchpad:
 
 futu_egtf:
 	Defaults:
-		Offset: -4,10
+		Offset: -4,16
 	build:
 		Filename: invisibleitem.shp
 	idle:
@@ -8044,7 +8044,7 @@ futu_egrefn:
 
 futu_egtech:
 	Defaults:
-		Offset: -12,-14
+		Offset: -12,4
 	idle:
 		Filename: futu_egtech.shp
 		ShadowStart: 2
@@ -8077,7 +8077,7 @@ futu_egtech:
 
 futu_egshock:
 	Defaults:
-		Offset: -10,-32
+		Offset: -8,-32
 	idle:
 		Filename: futu_egshock.shp
 		ShadowStart: 2
