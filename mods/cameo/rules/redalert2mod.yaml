@@ -20480,7 +20480,7 @@ future_mech_machinegun:
 	Inherits@RobotControllable: ^RobotControllable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Gatling Super Mech
+		Name: Gun Strider
 	Valued:
 		Cost: 2500
 	Selectable:
@@ -20537,7 +20537,7 @@ future_mech_plasma:
 	Inherits@RobotControllable: ^RobotControllable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Tooltip:
-		Name: Plasma Super Mech
+		Name: Plasma Strider
 	Valued:
 		Cost: 2600
 	Selectable:

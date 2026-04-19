@@ -116,8 +116,6 @@ actor-futu_cryo =
    .description = Helicopter armed with a cryo beam and missiles.
       Cryo beam stacks debuffs on targets, increasing their
       vulnerability with each stack.
-      Frozen aircraft crash at maximum stacks.
-      Can attack air.
       Strong vs Vehicles, Aircraft
       Weak vs Air Defense
 
