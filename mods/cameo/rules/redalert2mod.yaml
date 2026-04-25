@@ -21365,7 +21365,7 @@ futu_futu:
 	Buildable:
 		BuildPaletteOrder: 200
 		BuildLimit: 1
-		Prerequisites: ~futu_egshock
+		Prerequisites: ~futu_egshock, yrgarobo
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_futu.description
 	Mobile:
