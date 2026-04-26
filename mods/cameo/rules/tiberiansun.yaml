@@ -1970,7 +1970,7 @@ tsntmisl:
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
-		# LocalCenterOffset: 0,-512,0
+		LocalCenterOffset: 0,-512,0
 	Armor:
 		Type: Wood
 	RevealsShroud:

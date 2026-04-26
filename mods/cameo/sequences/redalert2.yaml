@@ -13,7 +13,7 @@ ra2psiatomic:
 
 yrgarobo:
 	Defaults:
-		Offset: 0,10
+		Offset: -6,-10
 	idle:
 		Filename: yr_ggrobo_a.shp
 		Length: 20

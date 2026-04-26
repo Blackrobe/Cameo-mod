@@ -19112,15 +19112,15 @@ futu_mcv:
 futu_egcnst:
 	Inherits: ^RA2Building
 	Inherits@conyard: ^Conyard
-	Inherits@shape: ^4x3Shape
+	Inherits@shape: ^5x3Shape
 	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Tooltip:
 		Name: FutureTech Construction Yard
 	Buildable:
 		Description: actor-futu_egcnst.description
 	Building:
-		Footprint: xxxx xxxx xxxx
-		Dimensions: 4,3
+		Footprint: =xxx= xxxxx =xxx=
+		Dimensions: 5,3
 	Transforms:
 		IntoActor: futu_mcv
 		Offset: 1,1
@@ -19312,7 +19312,7 @@ yrgarobo:
 		Prerequisites: ~futu_egcnst, futu_egweap2
 		Description: actor-yrgarobo.description
 	Building:
-		Footprint: xx xx
+		Footprint: == xx
 		Dimensions: 2,2
 	WithSpriteBody:
 		PauseOnCondition: disabled
@@ -19332,7 +19332,7 @@ futu_egtf:
 		Prerequisites: ~futu_egcnst, futu_egrefn
 		Description: actor-futu_egtf.description
 	Building:
-		Footprint: xxx xxx ===
+		Footprint: === xxx xxx
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	SelectionDecorations:
@@ -19353,7 +19353,7 @@ futu_egtf:
 
 futu_launchpad:
 	Inherits: ^RA2Building
-	Inherits@shape: ^4x3Shape
+	Inherits@shape: ^5x3Shape
 	Inherits@sell: ^FutureTechSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
@@ -19363,8 +19363,8 @@ futu_launchpad:
 	Tooltip:
 		Name: FutureTech Launch Pad
 	Building:
-		Footprint: =x== =xx= ==x=
-		Dimensions: 4,3
+		Footprint: =xx== xxxxx ==xx=
+		Dimensions: 5,3
 	Exit@1:
 		ExitCell: 1,1
 		Facing: 768
@@ -19445,7 +19445,7 @@ futu_egtech:
 	Tooltip:
 		Name: FutureTech Battle Lab
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: === xxx xxx
 		Dimensions: 3,3
 	SupportPowerChargeBar:
 	ProvidesPrerequisite:
@@ -19480,7 +19480,7 @@ futu_egshock:
 	Selectable:
 		Bounds: 4096, 3072, 0, -256
 	Building:
-		Footprint: xxxx xxxx xxxx
+		Footprint: =xx= xxxx =xx=
 		Dimensions: 4,3
 	Valued:
 		Cost: 7500
@@ -21438,7 +21438,7 @@ futu_futu:
 	Buildable:
 		BuildPaletteOrder: 200
 		BuildLimit: 1
-		Prerequisites: ~futu_egshock
+		Prerequisites: ~futu_egshock, yrgarobo
 		Queue: Vehicle, RAVehicle
 		Description: actor-futu_futu.description
 	Mobile:
