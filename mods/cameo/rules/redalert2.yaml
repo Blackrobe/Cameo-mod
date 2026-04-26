@@ -4919,7 +4919,7 @@ YRVIRUS:
 	Armament@PRIMARY2:
 		Weapon: RA2Virusgun2
 		LocalOffset: 0,0,427
-		RequiresCondition: !rank-elite && ra2_yuri_upgrade_meltingvirus
+		RequiresCondition: !rank-elite && ra2_yuri_upgrade_meltingvirus && !ra2_yuri_upgrade_corrosiveammo
 	Armament@PRIMARY3:
 		Weapon: RA2Virusgun3
 		LocalOffset: 0,0,427
@@ -4935,7 +4935,7 @@ YRVIRUS:
 	Armament@GARRISONED2:
 		Name: garrisoned
 		Weapon: RA2Virusgun2
-		RequiresCondition: !rank-elite && ra2_yuri_upgrade_meltingvirus
+		RequiresCondition: !rank-elite && ra2_yuri_upgrade_meltingvirus && !ra2_yuri_upgrade_corrosiveammo
 	Armament@GARRISONED3:
 		Name: garrisoned
 		Weapon: RA2Virusgun3
@@ -5654,6 +5654,42 @@ RA2FV:
 		Step: 10
 	Turreted:
 		TurnSpeed: 60
+	FirepowerMultiplier@ra2_allies_upgrade_assaultsquadtraining:
+		Modifier: 110
+		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
+	ReloadDelayMultiplier@ra2_allies_upgrade_assaultsquadtraining:
+		Modifier: 90
+		RequiresCondition: ra2_allies_upgrade_assaultsquadtraining
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_assaultsquadtraining:
+		Condition: ra2_allies_upgrade_assaultsquadtraining
+		Prerequisites: ra2_allies_upgrade_assaultsquadtraining
+	ChangesHealth@ra2_allies_upgrade_vanguardtraining:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+		RequiresCondition: ra2_allies_upgrade_vanguardtraining
+	DamageMultiplier@ra2_allies_upgrade_vanguardtraining:
+		Modifier: 75
+		RequiresCondition: ra2_allies_upgrade_vanguardtraining
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_vanguardtraining:
+		Condition: ra2_allies_upgrade_vanguardtraining
+		Prerequisites: ra2_allies_upgrade_vanguardtraining
+	SpeedMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 110
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	RangeMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 110
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	RevealsShroudMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 120
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	DetectCloakedMultiplier@ra2_allies_upgrade_infiltratorstraining:
+		Modifier: 120
+		RequiresCondition: ra2_allies_upgrade_infiltratorstraining
+	GrantConditionOnPrerequisite@ra2_allies_upgrade_infiltratorstraining:
+		Condition: ra2_allies_upgrade_infiltratorstraining
+		Prerequisites: ra2_allies_upgrade_infiltratorstraining
 	###################
 	#	Infantry
 	###################
@@ -13375,7 +13411,7 @@ ra2_allies_upgrade_vanguardtraining:
 		Modifier: 115
 		RequiresCondition: ra2_allies_upgrade_vanguardtraining
 	SpeedMultiplier@ra2_allies_upgrade_vanguardtraining:
-		Modifier: 115
+		Modifier: 110
 		RequiresCondition: ra2_allies_upgrade_vanguardtraining
 	GrantConditionOnPrerequisite@ra2_allies_upgrade_vanguardtraining:
 		Condition: ra2_allies_upgrade_vanguardtraining

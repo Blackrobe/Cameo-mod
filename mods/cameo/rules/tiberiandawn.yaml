@@ -3179,7 +3179,7 @@ td_nod_templeprime:
 	ProvidesPrerequisite:
 		Prerequisite: anytdhq
 	Buildable:
-		-BuildLimit:
+		BuildLimit: 1
 		BuildPaletteOrder: 100
 		Prerequisites: ~fact.nod, tmpl
 		Queue: Building, RABuilding
@@ -5436,7 +5436,7 @@ nodlasercommando:
 		FullSequence: pip-red
 		PipCount: 8
 	ReloadAmmoDelayMultiplier@up_elitecapacitors:
-		Modifier: 70
+		Modifier: 85
 		RequiresCondition: up_elitecapacitors
 	GrantCondition@gatling:
 		Condition: cloak-force-disabled

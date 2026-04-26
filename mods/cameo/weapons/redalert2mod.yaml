@@ -4205,6 +4205,38 @@ NaxBrummbarArtyE:
 	Burst: 2
 	BurstDelays: 3
 
+NaxiWW2KübelwagenMachinegun:
+	Inherits: ^RA2SmallArms
+	Inherits: ^RA2Chaingun
+	Report: bghmga.wav, bghmgb.wav, bghmgc.wav, bghmgd.wav
+	ReloadDelay: 80
+	Burst: 6
+	BurstDelays: 4
+	Range: 5757
+	ValidTargets: Ground, Water, Air
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FF9933
+		ContrailEndColor: FFFFFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailStartWidth: 15
+		ContrailLength: 8
+		Speed: 10000
+		Width: 100
+		Inaccuracy: 400
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+		ValidTargets: Ground, Water, Air
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+		ValidTargets: Ground, Water, Air
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+		ValidTargets: Ground, Water, Air
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+		ValidTargets: Ground, Water, Air
+
 NaxiWW2Machinegun:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
@@ -4419,6 +4451,113 @@ NaxiRifleLaserE:
 	Range: 5097
 	Burst: 2
 	BurstDelays: 3
+
+LunarNaxiDroneLaser:
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	Inherits: ^MediumMissile
+	Inherits: ^LaserWeapon
+	Range: 5760
+	ReloadDelay: 100
+	Burst: 4
+	BurstDelays: 3
+	Report: AWMinilaser.wav
+	ValidTargets: Ground, Water, Air
+	Projectile: LaserZap
+		Width: 25
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@LaserWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+
+LunarNaxiDroneMissile:
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^FlakWeapon
+	Inherits: ^ArrowWeapon
+	Inherits: ^RA2LightMissile
+	Range: 5760
+	ReloadDelay: 100
+	Burst: 2
+	BurstDelays: 9
+	Report: vifvatta.wav
+	ValidTargets: Ground, Water, Air
+	Projectile: Missile
+		Speed: 800
+		Arm: 2
+		Inaccuracy: 400
+		RangeLimit: 16000
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		MinimumLaunchAngle: 25
+		MaximumLaunchAngle: 125
+		MaximumLaunchSpeed: 400
+		MinimumLaunchSpeed: 400
+		Acceleration: 10
+		ContrailStartColor: EEEE00
+		ContrailEndColor: FFFFFF
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 1
+		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 
 NaxLaserT:
 	Inherits: ^SmallArms
@@ -5584,11 +5723,48 @@ NaxPlaneRockets:
 		Damage: 5
 
 NaxDefensivePlaneTarget:
-	ReloadDelay: 25
-	Range: 25000
+	ReloadDelay: 30
+	Range: 30000
 	ValidTargets: Ground, Air, Water
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
+
+NaxiInterceptorGun:
+	Inherits: ^HeavyCannon
+	Inherits: ^FlakWeapon
+	Inherits: ^Chaingun
+	Inherits: ^SmallArms
+	ReloadDelay: 100
+	Burst: 4
+	BurstDelays: 3
+	Range: 6090
+	Report: nax_rifle1.wav, nax_rifle2.wav, nax_rifle3.wav, nax_rifle4.wav , nax_rifle5.wav
+	ValidTargets: Ground, Water, Air
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FFAA55
+		ContrailEndColor: FFFFFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailWidth: 200
+		ContrailLength: 20
+		Speed: 10000
+		Width: 50
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 6000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 6000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@Chaingun: SpreadDamage
+		Damage: 6000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 3
+	Warhead@SmallArms: SpreadDamage
+		Damage: 6000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 3
 
 NaxShoeRocket:
 	Inherits: ^HeavyBomb
@@ -8467,6 +8643,28 @@ NaxisBradleyTarget:
 	Projectile: InstantHit
 		Inaccuracy: 1735
 
+NaxisDonnerschlagTarget:
+	ValidTargets: Ground, Air, Water
+	ReloadDelay: 15
+	Range: 20130
+	MinRange: 4026
+	Projectile: InstantHit
+		Inaccuracy: 2013
+
+NaxisDonnerschlagTargetVisualLaser:
+	ReloadDelay: 3
+	Range: 20130
+	MinRange: 4026
+	#Report: 2100rotlsr.wav
+	Report: AUGuard_beamLoopa.wav, AUGuard_beamLoopb.wav, AUGuard_beamLoopc.wav
+	TargetActorCenter: true
+	ValidTargets: Ground, Water
+	Projectile: LaserZap
+		Duration: 6
+		Width: 0c64
+		Color: FFBB8844
+	Warhead@Validation: TargetDamage
+
 NaxisSarubianTarget:
 	ValidTargets: Ground, Water
 	ReloadDelay: 40
@@ -8785,57 +8983,61 @@ CryoLegionnaireAttack:
 		ConeTintLevel: 500
 		ConeTintMaxLevel: 500
 		ConeTintFalloff: 100, 75, 50, 25, 0
+		DamageFalloff@cone:
+			Falloff: 100, 75, 50, 25, 0
+			FalloffBasis: DistanceFromCenterLine
+			Spread: 256
 		IgnoreRangeModifiers: false
 	Warhead@LightMissile: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
 	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
 	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaExtraDamage: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1000
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
 	Warhead@LaserWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Damage: 1
 		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo1: ApplyPhysicalState
@@ -8843,33 +9045,33 @@ CryoLegionnaireAttack:
 		Amount: -8000
 		Range: 200
 		Delay: 1
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo2: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -6000
 		Range: 400
 		Delay: 2
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo3: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -4000
 		Range: 600
 		Delay: 3
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		ValidRelationships: Neutral, Enemy
 	Warhead@PhysicalStateCryo4: ApplyPhysicalState
 		PhysicalStateName: Temperature
 		Amount: -2000
 		Range: 800
 		Delay: 4
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		ValidRelationships: Neutral, Enemy
 	Warhead@Effect: CreateEffect
 		Explosions: cryo_blast
 		ImpactSounds: phohit00.wav
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		Volume: 0.25
 
 FutureMicrotorpedos:

@@ -6630,12 +6630,12 @@ nax_horten:
 		Scale: 1
 	idle:
 		Facings: 64
-		Offset: 0,32
+		Offset: 0,0
 	move:
 		Facings: 64
-		Offset: 0,32
+		Offset: 0,0
 	icon:
-		Filename: nax_zep_icon.png
+		Filename: nax_horten_icon.png
 		AddExtension: False
 
 nax_cplane:

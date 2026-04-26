@@ -12008,42 +12008,43 @@ nax_airfield:
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^NaxisSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
-	Valued:
-		Cost: 2000
 	Tooltip:
 		Name: Naxis Airfield
 	Buildable:
-		BuildPaletteOrder: 130
+		BuildDuration: 750
+		BuildDurationModifier: 100
 		Prerequisites: ~nax_conyard, nax_radar
 		Queue: Building, RABuilding
 		Description: actor-nax_airfield.description
 	Building:
 		Footprint: =xxx xxxx xxx=
 		Dimensions: 4,3
-	GivesBuildableArea:
-		AreaTypes: building, cityi
+	Valued:
+		Cost: 3000
 	Health:
-		HP: 250000
+		HP: 600000
 	Armor:
-		Type: Wood
+		Type: Concrete
+	Power:
+		Amount: -60
+	RevealsShroud:
+		Range: 12000
+	Turreted:
+		TurnSpeed: 1023
 	Exit@1:
 		ExitCell: 1,1
 		Facing: 384
-	RevealsShroud:
-		Range: 7c0
-	Power:
-		Amount: -50
-	Turreted:
-		TurnSpeed: 1023
 	ProvidesPrerequisite@buildingname:
 	AttackTurreted:
 	CarrierMaster:
 		Actors: nax_interceptor, nax_interceptor, nax_interceptor
-		RearmTicks: 120
-		RespawnTicks: 150
+		RearmTicks: 90
+		RespawnTicks: 180
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
+	ProductionQueue@AIRCRAFT:
+		BuildDurationModifier: 50
 	Armament@PRIMARY:
 		Weapon: NaxDefensivePlaneTarget
 	AutoTarget:
@@ -12051,7 +12052,7 @@ nax_airfield:
 		OrderName: NaxisParatroopers
 		Prerequisites:
 			1: nax_airfield
-			2: upnax_paratanks
+			2: nax_airfield, upnax_paratanks
 		Icons:
 			1: paratroopers
 			2: paratroopers
@@ -12083,29 +12084,43 @@ nax_airfield:
 			2: nax_cplane
 		SquadSizes:
 			1: 3
-			2: 3
+			2: 5
 	AirstrikePower@parabombs:
 		OrderName: NaxParabombs
 		Prerequisites:
-			1: ~techlevel.superweapons, ~up_nax_horten
+			1: nax_airfield, nax_tech
+			2: nax_airfield, nax_tech, up_nax_horten
+			3: nax_airfield, nax_tech, up_nax_horten, up_nax_horten2
 		Icons:
 			1: airstrike
+			2: airstrike
+			3: airstrike
 		ChargeInterval: 7500
 		Names:
 			1: power-parabombs.name
+			2: power-parabombs.name
+			3: power-parabombs.name
 		Descriptions:
 			1: power-parabombs.description
+			2: power-parabombs.description
+			3: power-parabombs.description
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
 		UnitTypes:
 			1: nax_horten.bomber
+			2: nax_horten.bomber
+			3: nax_horten.bomber
 		QuantizedFacings: 16
 		DisplayBeacon: true
 		BeaconPosters:
 			1: airstrike
+			2: airstrike
+			3: airstrike
 		SquadSizes:
 			1: 3
+			2: 5
+			3: 7
 		SquadOffset: 1792,1792,0
 		ArrowSequence: arrow
 		ClockSequence: clock
@@ -12135,17 +12150,30 @@ nax_interceptor:
 	Health:
 		HP: 10000
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 4
 	RevealsShroud:
 		Range: 7500
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: NaxiRifleE
-		LocalOffset: 427,-171,-213, 427,171,-213
+		Name: primary
+		Weapon: NaxiInterceptorGun
+		LocalOffset: 400,-200,-200, 400,200,-200
 		PauseOnCondition: !ammo
+	Armament@Rockets:
+		Name: primary
+		Weapon: NaxPlaneRockets
+		LocalOffset: 425,-350,-225, 425,350,-225
+		LocalYaw: 50, -50, 25, -25
+		PauseOnCondition: !ammo
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 50
 	AmmoPool:
 		Ammo: 6
 		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 6
 	SpawnActorOnDeath:
 		Actor: nax_drone.Husk
 	WithMoveAnimation:
@@ -12163,10 +12191,7 @@ nax_interceptor:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-MapEditorData:
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		PipCount: 6
+	RejectsOrders:
 	RenderSprites:
 		PlayerPalette: playerra2
 	GrantConditionOnMovement@Turn:
@@ -12278,16 +12303,17 @@ nax_tech:
 nax_beer:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
-	Inherits@cashtrickler: ^CashTricklerWithExperience
+	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@Bot: ^BotMicromanageable
 	Inherits@sell: ^NaxisSpawnActorsOnSell
 	Tooltip:
 		Name: Beer Factory
 	Buildable:
+		BuildLimit: 1
 		Queue: Building, RABuilding
-		#Description: Produces Passive income and adds damage bonus with Infantry
-		Prerequisites: ~nax_tek, ~techlevel.medium, derricklimit
+		Description: Produces Passive Income and adds Firepower bonus with Infantry
+		Prerequisites: ~nax_conyard, nax_tek, derricklimit
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -12296,16 +12322,17 @@ nax_beer:
 nax_sausage:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
-	Inherits@cashtrickler: ^CashTricklerWithExperience
+	Inherits@cashtrickler: ^LargeCashTricklerWithExperience
 	Inherits@cashtricklerlimit: ^CashTricklerLimited
 	Inherits@Bot: ^BotMicromanageable
 	Inherits@sell: ^NaxisSpawnActorsOnSell
 	Tooltip:
 		Name: Sausage Factory
 	Buildable:
+		BuildLimit: 1
 		Queue: Building, RABuilding
-		#Description: Produces Passive income and adds hp bonus with Infantry
-		Prerequisites: ~nax_tek, ~techlevel.medium, derricklimit
+		Description: Produces Passive Income and adds Damage Resistance bonus with Infantry
+		Prerequisites: ~nax_conyard, nax_tek, derricklimit
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -12585,28 +12612,23 @@ nax_rocket:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	SelectionDecorations:
-	DetonateWeaponPowerCA:
-		AllowMultiple: true
+	NukePowerCA:
 		OrderName: NaxiV1Rocket
+		AllowMultiple: True
 		PauseOnCondition: disabled
 		Prerequisites:
 			1: ~techlevel.superweapons
 		IconImage: ra2namisl
 		Icons:
 			1: icon2
-		Cursor: ability
+		Cursor: nuke
 		ChargeInterval: 10500
-		ActivationDelay: 50
-		ActivationSequence:
 		Names:
-			1: V1 Missile Launch
+			1: power-nuke.tdname
 		Descriptions:
-			1: Launches a V1 Missile at the target.
-		Weapons:
-			1: NaxiV1Rocket
-		EndChargeSound: snukread.wav
+			1: power-nuke.description
 		EndChargeSpeechNotification: NuclearWeaponAvailable
-		EndChargeTextNotification: Topol Strike ready.
+		EndChargeTextNotification: V1 Strike ready.
 		SelectTargetSpeechNotification: SelectTarget
 		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -12614,24 +12636,26 @@ nax_rocket:
 		LaunchTextNotification: Warning: V1 Strike launched.
 		IncomingSpeechNotification: NuclearWarheadApproaching
 		IncomingTextNotification: Warning: V1 Strike launched.
-		LaunchSound: snuksire.wav
-		IncomingSound: snuksire.wav
-		DisplayRadarPing: True
+		MissileWeapons:
+			1: NaxiV1Rocket
+		MissileDelay: 10
+		SpawnOffset: 3c0,0,-1c512
+		BeaconPosterPalette: beaconposter
 		DisplayTimerRelationships: Ally, Neutral, Enemy
-		CameraRemoveDelay: 500
-		Duration: 250
-		ActiveCondition: active
+		CameraRange: 10000
+		CameraRemoveDelay: 125
+		CircleRanges:
+			1: 10000
 		ArrowSequence: arrow
 		ClockSequence: clocklarge
 		CircleSequence: circles
-		DisplayBeacon: true
+		DisplayBeacon: True
+		DisplayRadarPing: True
 		BeaconPosters:
 			1: atomic
-		TargetCircleRanges:
-			1: 10000
-		TargetCircleColors: ff000080
+		SupportPowerPaletteOrder: 30
+		MissileImage: nax_v1_rocket
 		BeaconActor: BLASTRADIUS.atomic
-		CameraRange: 10000
 	SupportPowerChargeBar:
 	WithSupportPowerActivationAnimation:
 	ProvidesPrerequisite@swlimit:
@@ -12786,42 +12810,43 @@ nax2_airfield:
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^SpaceNaxisSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
-	Valued:
-		Cost: 2000
 	Tooltip:
 		Name: Schwarzer Mond Airfield
 	Buildable:
-		BuildPaletteOrder: 130
+		BuildDuration: 750
+		BuildDurationModifier: 100
 		Prerequisites: ~nax2_conyard, nax2_radar
 		Queue: Building, RABuilding
 		Description: Produces aircraft.
 	Building:
 		Footprint: =xxx xxxx xxx=
 		Dimensions: 4,3
-	GivesBuildableArea:
-		AreaTypes: building, cityi
+	Valued:
+		Cost: 3000
 	Health:
-		HP: 250000
+		HP: 600000
 	Armor:
-		Type: Wood
+		Type: Concrete
+	Power:
+		Amount: -60
+	RevealsShroud:
+		Range: 12000
+	Turreted:
+		TurnSpeed: 1023
 	Exit@1:
 		ExitCell: 1,1
 		Facing: 384
-	RevealsShroud:
-		Range: 7c0
-	Power:
-		Amount: -50
-	Turreted:
-		TurnSpeed: 1023
 	ProvidesPrerequisite@buildingname:
 	AttackTurreted:
 	CarrierMaster:
-		Actors: nax_drone, nax_drone, nax_drone
-		RearmTicks: 120
+		Actors: nax_drone, nax_drone, nax_drone, nax_drone, nax_drone
+		RearmTicks: 75
 		RespawnTicks: 150
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
+	ProductionQueue@AIRCRAFT:
+		BuildDurationModifier: 50
 	Armament@PRIMARY:
 		Weapon: NaxDefensivePlaneTarget
 	AutoTarget:
@@ -12831,7 +12856,7 @@ nax_drone:
 	Inherits@Template: ^FighterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Valued:
-		Cost: 800
+		Cost: 750
 	Tooltip:
 		Name: Drone
 	Aircraft:
@@ -12844,15 +12869,22 @@ nax_drone:
 		TakeUpCellWhenLand: false
 		VTOL: true
 	Health:
-		HP: 10000
+		HP: 7500
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 3
 	RevealsShroud:
 		Range: 7500
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: RA2HoverMissile
-		LocalOffset: 427,-171,-213, 427,171,-213
+		Name: primary
+		Weapon: LunarNaxiDroneLaser
+		LocalOffset: 400,-200,-200, 400,200,-200
+		PauseOnCondition: !ammo
+	Armament@Rockets:
+		Name: primary
+		Weapon: LunarNaxiDroneMissile
+		LocalOffset: 425,-350,-225, 425,350,-225
+		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
 	AmmoPool:
 		Ammo: 6
@@ -12874,6 +12906,7 @@ nax_drone:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-MapEditorData:
+	RejectsOrders:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -15927,6 +15960,18 @@ nax2_lasert:
 	GrantConditionOnPrerequisite@up_ostfrontexperience:
 		Condition: up_ostfrontexperience
 		Prerequisites: up_ostfrontexperience
+	FirepowerMultiplier@nax_beer:
+		RequiresCondition: nax_beer
+		Modifier: 125
+	GrantConditionOnPrerequisite@nax_beer:
+		Condition: nax_beer
+		Prerequisites: nax_beer
+	DamageMultiplier@nax_sausage:
+		RequiresCondition: nax_sausage
+		Modifier: 80
+	GrantConditionOnPrerequisite@nax_sausage:
+		Condition: nax_sausage
+		Prerequisites: nax_sausage
 	ActorStatValues:
 		Upgrades: up_ostfrontexperience
 
@@ -16229,7 +16274,7 @@ nax_halftrack:
 
 nax_kubel:
 	Inherits: ^Tank
-	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@cargo: ^CargoVehicle
@@ -16239,9 +16284,9 @@ nax_kubel:
 	Inherits@EMP: ^TurretEMP
 	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
-		Cost: 700
+		Cost: 850
 	Tooltip:
-		Name: Kubelwagen
+		Name: Kübelwagen
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~nax_weap
@@ -16254,18 +16299,13 @@ nax_kubel:
 	Health:
 		HP: 50000
 	Repairable:
-		HpPerStep: 4125
+		HpPerStep: 2500
 	ChangesHealth@SelfHealing:
-		Step: 33
+		Step: 20
 	Armor:
 		Type: Light
 	Armament@AG:
-		Weapon: NaxiWW2Machinegun
-		LocalOffset: 300,10,300
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-	Armament@AA:
-		Weapon: NaxiWW2MachinegunAA
+		Weapon: NaxiWW2KübelwagenMachinegun
 		LocalOffset: 300,10,300
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
@@ -16280,8 +16320,8 @@ nax_kubel:
 		VoiceSet: NaxiTankVoice
 	Cargo:
 		Types: Infantry, Hacker, Fremen
-		MaxWeight: 2
-		InitialUnits: nax_cons, nax_cons
+		MaxWeight: 5
+		InitialUnits: nax_cons, nax_cons, nax_rifle, nax_rifle, nax_mp40
 	ActorStatValues:
 		Upgrades: up_massopticsintegration
 
@@ -17061,29 +17101,25 @@ nax_brad:
 		Prerequisites: ~nax_weap, nax_tech, ~upnax_brad
 		Description: actor-nax_brad.description
 	Valued:
-		Cost: 2000
+		Cost: 2300
 	Tooltip:
-		Name: M-15A Bradley
+		Name: Donnerschlag
 	Health:
-		HP: 35000
+		HP: 80000
 	Repairable:
-		HpPerStep: 1750
+		HpPerStep: 4000
 	ChangesHealth@SelfHealing:
-		Step: 14
+		Step: 32
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 70
-		TurnSpeed: 14
-	Armament:
-		Weapon: NaxisBradleyTarget
-		LocalOffset: 1000,333,1000, 1000,-333,1000, 1000,333,1000, 1000,-333,1000
-		MuzzleSequence: muzzle
+		Speed: 40
+		TurnSpeed: 16
 	MissileSpawnerMasterCA:
-		#ArmamentNames: primary
+		ArmamentNames: athena-beam
 		Actors: nax_miniv2, nax_miniv2, nax_miniv2, nax_miniv2
-		RespawnTicks: 135
-		SpawnAllAtOnce: true
+		RespawnTicks: 45
+		SpawnAllAtOnce: false
 		SpawnOffset: 333,333,777, 333,-333,777, -333,333,777, -333,-333,777
 	FirepowerMultiplier@RANK-1:
 		Modifier: 125
@@ -17093,8 +17129,35 @@ nax_brad:
 		Modifier: 175
 	FirepowerMultiplier@RANK-ELITE:
 		Modifier: 200
+	Armament:
+		Name: athena-beam
+		Weapon: NaxisDonnerschlagTarget
+		LocalOffset: 1000,333,1000, 1000,-333,1000, 1000,333,1000, 1000,-333,1000
+		MuzzleSequence: muzzle
+		RequiresCondition: athena-charged == 1
+	Armament@VISUAL:
+		Name: primary
+		Weapon: NaxisDonnerschlagTargetVisualLaser
+		LocalOffset: 600,0,300
 	AttackFrontal:
-		FacingTolerance: 0
+		Armaments: primary, athena-beam
+	GrantConditionOnAttack@CHARGE:
+		Condition: athena-charged
+		ArmamentNames: primary
+		RequiredShotsPerInstance: 10
+		MaximumInstances: 1
+		RevokeDelay: 4
+		RevokeOnNewTarget: true
+		RevokeAll: true
+		ShowSelectionBar: true
+		SelectionBarColor: 83B9FC
+		RequiresCondition: !athena-recharging
+	GrantConditionOnAttackCA@RECHARGE:
+		Condition: athena-recharging
+		ArmamentNames: athena-beam
+		RequiredShotsPerInstance: 1
+		MaximumInstances: 1
+		RevokeDelay: 15
 	SelectionDecorations:
 	FireWarheadsOnDeath:
 		Weapon: V3Explode
@@ -17122,13 +17185,13 @@ nax_miniv2:
 	Inherits: ^ShootableMissile
 	Inherits@Wunderwaffe: ^Wunderwaffe
 	CruiseMissile:
-		MaxAltitude: 2560
-		MinAirborneAltitude: 128
-		LaunchAngle: 128
-		Speed: 256
+		MaxAltitude: 2500
+		MinAirborneAltitude: 125
+		LaunchAngle: 125
+		Speed: 250
 		TurnSpeed: 25
 		LaunchSounds: vbooat1a.wav
-		MaxTargetMovement: 12800
+		MaxTargetMovement: 10000
 		TrackTarget: true
 		AirborneCondition: airborne
 	LeavesTrails:
@@ -17972,12 +18035,13 @@ upnax_merc:
 	RenderSprites:
 		Image: nax_merc
 	ProvidesPrerequisite:
+
 upnax_shrek:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Shrek
 	Buildable:
-		BuildPaletteOrder: 116
+		BuildPaletteOrder: 115
 		Queue: Promotions
 		Description: Enables construction of Panzershrek.
 		Prerequisites: ~nax_conyard, upnax_merc, !upnax_shrek, rank1
@@ -17990,13 +18054,27 @@ up_nax_horten:
 	Tooltip:
 		Name: Horten Bomber Strike
 	Buildable:
-		BuildPaletteOrder: 117
+		BuildPaletteOrder: 118
 		Queue: Promotions
-		Description: Upgrades Paratanks Support with more units.
+		Description: Upgrades Horten Bombers from 3 to 5 Planes.
 		Prerequisites: ~nax_conyard, upnax_shrek, !up_nax_horten, rank1
 	RenderSprites:
 		Image: nax_horten
 	ProvidesPrerequisite:
+
+up_nax_horten2:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Horten Bomber Strike
+	Buildable:
+		BuildPaletteOrder: 121
+		Queue: Promotions
+		Description: Upgrades Horten Bombers from 5 to 7 Planes.
+		Prerequisites: ~nax_conyard, up_nax_horten, !up_nax_horten2, rank1
+	RenderSprites:
+		Image: nax_horten
+	ProvidesPrerequisite:
+
 ####################################################################################################
 #		Red Alert 2 Naxis Planes
 ####################################################################################################
@@ -18319,21 +18397,14 @@ nax_horten.bomber:
 	AttackBomber:
 		FacingTolerance: 32
 	Armament:
-		Weapon: ParaBomb
+		Weapon: JapanSuperBomb
 	RenderSprites:
 		Image: nax_horten
 		PlayerPalette: playerra2
 	SpawnActorOnDeath:
 		Actor: nax_horten.Husk
-nax_horten.Husk:
-	Inherits: ^PlaneHusk
-	Tooltip:
-		Name: Horten Bomber Plane
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 149
 	LeavesTrails@0:
-		Offsets: -432,560,0
+		Offsets: -250,1500,500
 		MovingInterval: 2
 		Image: smokey
 		StationaryInterval: 2
@@ -18341,13 +18412,20 @@ nax_horten.Husk:
 		TrailWhileStationary: True
 		Type: CenterPosition
 	LeavesTrails@1:
-		Offsets: -432,-560,0
+		Offsets: -250,-1500,500
 		MovingInterval: 2
 		Image: smokey
 		StationaryInterval: 2
 		SpawnAtLastPosition: False
 		TrailWhileStationary: True
 		Type: CenterPosition
+nax_horten.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Horten Bomber Plane
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
 	RenderSprites:
 		Image: nax_horten
 		PlayerPalette: playerra2
@@ -19706,6 +19784,8 @@ futu_enforcer:
 		HP: 30000
 	ChangesHealth@SelfHealing:
 		Step: 30
+	AutoTarget:
+		InitialStance: Defend
 	RenderRangeCircle:
 		RequiresCondition: deployed
 	RevealOnFire:
@@ -20452,6 +20532,8 @@ futu_cryoleg:
 		LocalOffset: 128,100,350
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 50
 	AttackFrontal:
 		FacingTolerance: 0
 	WithInfantryBody:
@@ -21287,7 +21369,6 @@ futu_coiler:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@AutoRepair: ^PrioritizeRepair
 	Inherits@EMP: ^FrontalEMP
-	Inherits@FE: ^FutureRobotEnergizable
 	Inherits@FutureTechEqualizerUpgrades: ^FutureTechEqualizerUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
