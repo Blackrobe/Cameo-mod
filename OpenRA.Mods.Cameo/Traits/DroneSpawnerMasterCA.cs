@@ -256,6 +256,8 @@ namespace OpenRA.Mods.Cameo.Traits
 
 				w.Add(slave);
 
+				Log.Write("debug", $"SpawnIntoWorld: added actor {slave.Info.Name} (owner={slave.Owner?.Faction.InternalName}) to world for master {self.Info.Name}");
+
 				if (Info.SpawnContainConditions.TryGetValue(slave.Info.Name, out var spawnContainCondition))
 					spawnContainTokens.GetOrAdd(slave.Info.Name).Push(self.GrantCondition(spawnContainCondition));
 

@@ -43,6 +43,7 @@ namespace OpenRA.Mods.CA.Traits
 
 		void INotifySelection.SelectionChanged()
 		{
+			Log.Write("debug", $"SelectionChanged: selected={world.Selection.Actors.Count()} actors");
 			// Disable for spectators
 			if (world.LocalPlayer == null)
 				return;
@@ -67,6 +68,7 @@ namespace OpenRA.Mods.CA.Traits
 			if (queue == null || !queue.BuildableItems().Any())
 				return;
 
+			Log.Write("debug", $"SelectionChanged: chosen queue actor={queue.Actor.Info.Name} type={queue.Info.Type} buildables={queue.BuildableItems().Count()}");
 			if (tabsWidget.Value != null)
 				tabsWidget.Value.CurrentQueue = queue;
 			else if (paletteWidget.Value != null)
