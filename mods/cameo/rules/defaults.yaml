@@ -6276,6 +6276,7 @@ CPQDEBUGDUMMY:
 		Modifier: 138
 	HarvesterBalancer:
 		Condition: harv-balance
+	HarvesterReturnToField:
 	ActorStatValues:
 		Stats: Armor, Sight, Speed, None, None, None, Harvester
 	StoresResources:
