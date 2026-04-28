@@ -8483,6 +8483,7 @@ SCDRONE:
 		Name: Drone
 	Buildable:
 		Prerequisites: ~scextractor
+		Queue: SCLarva
 		Description: Collects resources.
 	WithDeathAnimation:
 		UseDeathTypeSuffix: false

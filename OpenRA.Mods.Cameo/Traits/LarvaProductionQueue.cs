@@ -31,6 +31,14 @@ namespace OpenRA.Mods.Cameo.Traits
 		{
 		}
 
+		void SpawnAtLarva(ActorInfo actorInfo, TypeDictionary inits)
+		{
+			var newUnit = Actor.World.CreateActor(false, actorInfo.Name, inits);
+			var positionable = newUnit.TraitOrDefault<IPositionable>();
+			positionable?.SetPosition(newUnit, Actor.CenterPosition);
+			Actor.World.Add(newUnit);
+		}
+
 		protected override bool BuildUnit(ActorInfo unit)
 		{
 			if (!Actor.IsInWorld || Actor.IsDead)
@@ -43,22 +51,30 @@ namespace OpenRA.Mods.Cameo.Traits
 			if (item == null)
 				return false;
 
-			// Spawn the new unit at the larva's current world position, bypassing
-			// the exit-cell system so map edges / adjacent buildings don't block production.
+			var bi = BuildableInfo.GetTraitForQueue(unit, Info.Type);
 			var inits = new TypeDictionary
 			{
 				new OwnerInit(Actor.Owner),
 				new FactionInit(BuildableInfo.GetInitialFaction(unit, Faction))
 			};
 
-			var newUnit = Actor.World.CreateActor(false, unit.Name, inits);
-			var positionable = newUnit.TraitOrDefault<IPositionable>();
-			positionable?.SetPosition(newUnit, Actor.CenterPosition);
-			Actor.World.Add(newUnit);
+			// Mirror Production.ProduceActors: respect BuildAmount and AdditionalActors,
+			// but spawn everything at the larva's world position instead of an exit cell.
+			var buildAmount = bi?.BuildAmount ?? 1;
+			var additionalActors = bi?.AdditionalActors ?? [];
+			for (var n = 0; n < buildAmount; n++)
+			{
+				SpawnAtLarva(unit, inits);
+				foreach (var additionalActor in additionalActors)
+				{
+					var additionalInfo = Actor.World.Map.Rules.Actors[additionalActor.ToLowerInvariant()];
+					SpawnAtLarva(additionalInfo, inits);
+				}
+			}
 
 			EndProduction(item);
 
-			// Remove the larva in the next frame after the new unit is live in the world.
+			// Remove the larva in the next frame after the new units are live in the world.
 			Actor.World.AddFrameEndTask(w =>
 			{
 				if (!Actor.IsDead)

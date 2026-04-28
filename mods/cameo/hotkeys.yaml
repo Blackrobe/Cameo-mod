@@ -1,3 +1,13 @@
+NextProductionTab: TAB
+	Description: Cycle to next production queue in group
+	Types: Production
+	Contexts: player
+
+PreviousProductionTab: TAB Shift
+	Description: Cycle to previous production queue in group
+	Types: Production
+	Contexts: player
+
 ProductionTypeBuilding: E
 	Description: Building Tab
 	Types: Production, Player
