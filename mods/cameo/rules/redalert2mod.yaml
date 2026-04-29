@@ -8304,7 +8304,7 @@ steel_qapowr:
 		Description: template-power.description
 		Prerequisites: ~steel_qacst
 	Building:
-		Footprint: xx xx
+		Footprint: == xx
 		Dimensions: 2,2
 	Health:
 		HP: 250000
@@ -8399,7 +8399,7 @@ steel_qtradr:
 	Buildable:
 		Prerequisites: ~steel_qacst, steel_qref
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: === xxx xxx
 		Dimensions: 3,3
 	WithSpriteBody:
 		PauseOnCondition: lowpower
@@ -8470,8 +8470,8 @@ steel_qaclone:
 		Description: Clones produced infantry.
 		BuildLimit: 1
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: xxx xxx
+		Dimensions: 3,2
 	Health:
 		HP: 110000
 	RevealsShroud:
@@ -8504,6 +8504,9 @@ steel_qaweap:
 		Name: Consortium War Factory
 	Buildable:
 		Prerequisites: ~steel_qacst, steel_qref
+	Building:
+		Footprint: xxxx xxxx xxxx
+		Dimensions: 4,3
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
 		RequiresCondition: !build-incomplete
@@ -8532,8 +8535,8 @@ steel_qatech:
 	Tooltip:
 		Name: Consortium Battle Lab
 	Building:
-		Footprint: xx xx xx
-		Dimensions: 3,2
+		Footprint: === xxx xxx
+		Dimensions: 3,3
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
 		RequiresCondition: !build-incomplete
@@ -8588,8 +8591,8 @@ steel_qaorbit:
 	Tooltip:
 		Name: Orbital Cannon Activator
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: xxx xxx
+		Dimensions: 3,2
 	IonCannonPower:
 		AllowMultiple: True
 		PauseOnCondition: disabled
@@ -9029,8 +9032,8 @@ steel_qoil:
 		Prerequisites: ~steel_qacst, steel_qatech, derricklimit
 		Description: Super Income Building. Produces 3x the income of an oil derrick.
 	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4,4
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 	Valued:
 		Cost: 7500
 	Health:
